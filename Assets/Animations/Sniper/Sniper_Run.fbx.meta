@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: d660b01f7e9951342b1bd7bcce18f6b7
+timeCreated: 1478102054
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: jnt_B_Ankle
+    100002: jnt_B_Ankle 1
+    100004: jnt_B_Ankle1
+    100006: jnt_B_Ball
+    100008: jnt_B_Ball 1
+    100010: jnt_B_Ball1
+    100012: jnt_B_Foot
+    100014: jnt_B_Hip
+    100016: jnt_B_Knee
+    100018: jnt_B_Toe
+    100020: jnt_B_Toe 1
+    100022: jnt_B_Toe1
+    100024: jnt_Head
+    100026: jnt_HeadTop
+    100028: jnt_Hips
+    100030: jnt_L_Ankle
+    100032: jnt_L_Ankle 1
+    100034: jnt_L_Ankle1
+    100036: jnt_L_Ball
+    100038: jnt_L_Ball 1
+    100040: jnt_L_Ball1
+    100042: jnt_L_Foot
+    100044: jnt_L_Hip
+    100046: jnt_L_Knee
+    100048: jnt_L_Target
+    100050: jnt_L_Toe
+    100052: jnt_L_Toe 1
+    100054: jnt_L_Toe1
+    100056: jnt_R_Ankle
+    100058: jnt_R_Ankle 1
+    100060: jnt_R_Ankle1
+    100062: jnt_R_Ball
+    100064: jnt_R_Ball 1
+    100066: jnt_R_Ball1
+    100068: jnt_R_Foot
+    100070: jnt_R_Hip
+    100072: jnt_R_Knee
+    100074: jnt_R_Target
+    100076: jnt_R_Toe
+    100078: jnt_R_Toe 1
+    100080: jnt_R_Toe1
+    100082: jnt_Root
+    100084: joint1
+    100086: joint2
+    100088: joint3
+    100090: //RootNode
+    400000: jnt_B_Ankle
+    400002: jnt_B_Ankle 1
+    400004: jnt_B_Ankle1
+    400006: jnt_B_Ball
+    400008: jnt_B_Ball 1
+    400010: jnt_B_Ball1
+    400012: jnt_B_Foot
+    400014: jnt_B_Hip
+    400016: jnt_B_Knee
+    400018: jnt_B_Toe
+    400020: jnt_B_Toe 1
+    400022: jnt_B_Toe1
+    400024: jnt_Head
+    400026: jnt_HeadTop
+    400028: jnt_Hips
+    400030: jnt_L_Ankle
+    400032: jnt_L_Ankle 1
+    400034: jnt_L_Ankle1
+    400036: jnt_L_Ball
+    400038: jnt_L_Ball 1
+    400040: jnt_L_Ball1
+    400042: jnt_L_Foot
+    400044: jnt_L_Hip
+    400046: jnt_L_Knee
+    400048: jnt_L_Target
+    400050: jnt_L_Toe
+    400052: jnt_L_Toe 1
+    400054: jnt_L_Toe1
+    400056: jnt_R_Ankle
+    400058: jnt_R_Ankle 1
+    400060: jnt_R_Ankle1
+    400062: jnt_R_Ball
+    400064: jnt_R_Ball 1
+    400066: jnt_R_Ball1
+    400068: jnt_R_Foot
+    400070: jnt_R_Hip
+    400072: jnt_R_Knee
+    400074: jnt_R_Target
+    400076: jnt_R_Toe
+    400078: jnt_R_Toe 1
+    400080: jnt_R_Toe1
+    400082: jnt_Root
+    400084: joint1
+    400086: joint2
+    400088: joint3
+    400090: //RootNode
+    7400000: Sniper_Run
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sniper_Run
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: jnt_Root
+        weight: 1
+      - path: jnt_Root/jnt_Hips
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle/jnt_B_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle/jnt_B_Ball/jnt_B_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle/jnt_L_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle/jnt_L_Ball/jnt_L_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle/jnt_R_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle/jnt_R_Ball/jnt_R_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/jnt_L_Target
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/jnt_R_Target
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint1/joint2
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint3
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1/jnt_B_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1/jnt_B_Ball1/jnt_B_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1/jnt_L_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1/jnt_L_Ball1/jnt_L_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1/jnt_R_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1/jnt_R_Ball1/jnt_R_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1/jnt_B_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1/jnt_B_Ball
+          1/jnt_B_Toe 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1/jnt_L_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1/jnt_L_Ball
+          1/jnt_L_Toe 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1/jnt_R_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1/jnt_R_Ball
+          1/jnt_R_Toe 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 18
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 7aa8a362790053440a39da4ed22985bb,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

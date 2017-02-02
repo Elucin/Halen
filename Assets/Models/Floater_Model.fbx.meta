@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 902a3bd6359177e4ba9add555213af6e
+timeCreated: 1477406732
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: Fin1
+    100004: Fin2
+    100006: Fin3
+    100008: Fin4
+    100010: Fin5
+    100012: Fin6
+    100014: Fin7
+    100016: Fin8
+    100018: Fins
+    100020: //RootNode
+    100022: Ring1
+    100024: Ring2
+    400000: Body
+    400002: Fin1
+    400004: Fin2
+    400006: Fin3
+    400008: Fin4
+    400010: Fin5
+    400012: Fin6
+    400014: Fin7
+    400016: Fin8
+    400018: Fins
+    400020: //RootNode
+    400022: Ring1
+    400024: Ring2
+    2300000: Body
+    2300002: Fin1
+    2300004: Fin2
+    2300006: Fin3
+    2300008: Fin4
+    2300010: Fin5
+    2300012: Fin6
+    2300014: Fin7
+    2300016: Fin8
+    2300018: Ring1
+    2300020: Ring2
+    3300000: Body
+    3300002: Fin1
+    3300004: Fin2
+    3300006: Fin3
+    3300008: Fin4
+    3300010: Fin5
+    3300012: Fin6
+    3300014: Fin7
+    3300016: Fin8
+    3300018: Ring1
+    3300020: Ring2
+    4300000: Ring1
+    4300002: Ring2
+    4300004: Body
+    4300006: Fin7
+    4300008: Fin6
+    4300010: Fin5
+    4300012: Fin4
+    4300014: Fin3
+    4300016: Fin2
+    4300018: Fin1
+    4300020: Fin8
+    7400000: Floater_Idle
+    7400002: Floater_Drop
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Floater_Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 144
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Fin1
+        weight: 0
+      - path: Fin2
+        weight: 0
+      - path: Fin3
+        weight: 0
+      - path: Fin4
+        weight: 0
+      - path: Fin5
+        weight: 0
+      - path: Fin6
+        weight: 0
+      - path: Fin7
+        weight: 0
+      - path: Fin8
+        weight: 0
+      - path: Ring1
+        weight: 1
+      - path: Ring2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Floater_Drop
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 198
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Fin1
+        weight: 1
+      - path: Fin2
+        weight: 1
+      - path: Fin3
+        weight: 1
+      - path: Fin4
+        weight: 1
+      - path: Fin5
+        weight: 1
+      - path: Fin6
+        weight: 1
+      - path: Fin7
+        weight: 1
+      - path: Fin8
+        weight: 1
+      - path: Ring1
+        weight: 0
+      - path: Ring2
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 14
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
