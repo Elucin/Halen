@@ -10,6 +10,7 @@ public class PauseMenuScripts : MonoBehaviour {
 
     public void Restart()
     {
+        Scoring.ResetScore();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 

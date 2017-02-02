@@ -77,6 +77,17 @@ public static class Scoring{
         
         
     }
+
+    public static void ResetScore()
+    {
+        PlayerScore = 0;
+        gunnersKilled = 0;
+        floatersKilled = 0;
+        brawlersKilled = 0;
+        chargersKilled = 0;
+        biggestCombo = 0;
+        snipersKilled = 0;
+    }
     /*
     public static IEnumerator Bump(float targetY, Transform t)
     {
