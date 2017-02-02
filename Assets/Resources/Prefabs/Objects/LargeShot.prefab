@@ -126,7 +126,7 @@ ParticleSystem:
   lengthInSec: 5
   simulationSpeed: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
@@ -176,7 +176,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -344,7 +344,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 0.7647059, g: 0.8627451, b: 1, a: 1}
-      maxColor: {r: 0.40392157, g: 0.827451, b: 1, a: 1}
+      maxColor: {r: 0.19215687, g: 0.87058824, b: 1, a: 0.67058825}
       minMaxState: 0
     startSize:
       scalar: 6
@@ -650,7 +650,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 0
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -739,7 +739,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 0
   SizeModule:
     enabled: 1
     curve:
@@ -750,15 +750,15 @@ ParticleSystem:
         - serializedVersion: 2
           time: 0
           value: 1
-          inSlope: -1
-          outSlope: -1
-          tangentMode: 34
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: -1
-          outSlope: -1
-          tangentMode: 34
+          inSlope: -2
+          outSlope: -2
+          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -981,7 +981,7 @@ ParticleSystem:
       minMaxState: 0
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       maxGradient:
@@ -2483,7 +2483,7 @@ ParticleSystem:
     enabled: 1
     ratio: 1
     lifetime:
-      scalar: 0.5
+      scalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2619,7 +2619,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.11764706, g: 0.74509805, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     widthOverTrail:
       scalar: 1
@@ -2665,7 +2665,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 4294967295
         key1:
           serializedVersion: 2
           rgba: 4294967295
@@ -2696,7 +2696,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 14264
+        atime1: 65535
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -2824,7 +2824,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0, g: 0.751724, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 3.66
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -2845,6 +2845,6 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

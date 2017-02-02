@@ -105,6 +105,7 @@ public class SmallShot : MonoBehaviour {
                         }
                         else
                             ricochet = true;
+							
                     }
                     else
                         DestroyBullet();
@@ -117,6 +118,7 @@ public class SmallShot : MonoBehaviour {
     {
 		GameObject impact = Instantiate(explode_S, transform.position, Quaternion.identity) as GameObject;
         impact.GetComponent<ParticleSystem>().startColor = GetComponent<ParticleSystem>().startColor;
+		impact.GetComponentInChildren<ParticleSystem>().startColor = GetComponent<ParticleSystem>().startColor;
 		Destroy(gameObject);
     }
 

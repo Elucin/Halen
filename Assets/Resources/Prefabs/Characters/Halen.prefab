@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 438438}
   - component: {fileID: 19870172}
   - component: {fileID: 19959170}
+  - component: {fileID: 108801648900614666}
   m_Layer: 10
   m_Name: Muzzle
   m_TagString: Untagged
@@ -2583,12 +2584,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188532}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 0.0049991608, y: 0.048, z: 0.14528675}
+  m_LocalRotation: {x: 0.7070968, y: 0.7070968, z: -0.0037641467, w: -0.0037641467}
+  m_LocalPosition: {x: -0.0019671768, y: 0.004996296, z: 0.06938277}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 479086}
-  m_RootOrder: 1
+  m_Father: {fileID: 450150}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &426088
 Transform:
@@ -2992,6 +2993,7 @@ Transform:
   - {fileID: 481580}
   - {fileID: 414210}
   - {fileID: 485700}
+  - {fileID: 425950}
   m_Father: {fileID: 479086}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.61, y: 0, z: -90}
@@ -3001,8 +3003,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.61, y: 0, z: -36.615}
+  m_LocalRotation: {x: 0, y: -0.40266237, z: 0, w: 0.9153486}
+  m_LocalPosition: {x: 80.63, y: -35.19, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402918}
@@ -3408,7 +3410,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 450150}
-  - {fileID: 425950}
   m_Father: {fileID: 465898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4356,6 +4357,7 @@ MonoBehaviour:
   StopDust: {fileID: 19813354}
   dashStorage: 0
   sprintStorage: 0
+  landingStorage: 0
 --- !u!114 &11470132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5347,8 +5349,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0000019073486, y: 0, z: 0.035936356}
-    m_Extent: {x: 0.048354086, y: 0.28907475, z: 0.043065485}
+    m_Center: {x: 0.0000019073486, y: 0, z: 0.035938263}
+    m_Extent: {x: 0.0797642, y: 0.28962222, z: 0.0752545}
   m_DirtyAABB: 0
 --- !u!137 &13749810
 SkinnedMeshRenderer:
@@ -12478,7 +12480,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 0
+  randomSeed: 869163859
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15109,7 +15111,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 0
+  randomSeed: 1583115693
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17332,8 +17334,8 @@ ParticleSystem:
       properties: 0
   LightsModule:
     enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    ratio: 1
+    light: {fileID: 108801648900614666}
     randomDistribution: 1
     color: 1
     range: 1
@@ -20404,7 +20406,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -20504,7 +20506,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -21006,6 +21008,40 @@ Transform:
   m_Father: {fileID: 465898}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &108801648900614666
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111770}
+  m_Enabled: 0
+  serializedVersion: 7
+  m_Type: 2
+  m_Color: {r: 0, g: 0.6275863, b: 1, a: 1}
+  m_Intensity: 3.18
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!198 &198923381750328032
 ParticleSystem:
   m_ObjectHideFlags: 1

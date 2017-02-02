@@ -103,7 +103,8 @@ public class LargeShot : MonoBehaviour {
     void DestroyBullet()
     {
 		GameObject impact = Instantiate(explode_B, transform.position, Quaternion.identity) as GameObject;
-        impact.GetComponent<ParticleSystem>().startColor = GetComponent<ParticleSystem>().startColor;
+		impact.GetComponent<ParticleSystem> ().startColor = GetComponent<ParticleSystem> ().startColor;
+		impact.GetComponentInChildren<ParticleSystem>().startColor = GetComponent<ParticleSystem>().startColor;
         Destroy(this.gameObject);
     }
 }

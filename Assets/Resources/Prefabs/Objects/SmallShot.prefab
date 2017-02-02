@@ -29,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.929461, y: -0.39, z: -5.575323}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -172,7 +172,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 0
+  randomSeed: 1180706260
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -348,7 +348,7 @@ ParticleSystem:
       maxColor: {r: 0, g: 0.8745098, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 3
+      scalar: 0.09
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -626,7 +626,7 @@ ParticleSystem:
       minMaxState: 0
   ShapeModule:
     serializedVersion: 3
-    enabled: 1
+    enabled: 0
     type: 0
     radius: 0.01
     angle: 25
@@ -651,7 +651,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 0
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -740,7 +740,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 0
   SizeModule:
     enabled: 1
     curve:
@@ -2787,13 +2787,13 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2044231977
   m_SortingOrder: 1
-  m_RenderMode: 5
+  m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
-  m_VelocityScale: 0
-  m_LengthScale: 2
+  m_VelocityScale: 2
+  m_LengthScale: 0
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_RenderAlignment: 0
