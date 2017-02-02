@@ -35,8 +35,8 @@ public class PlayerSFXManager : MonoBehaviour
 		if (soundID == "smallShot") {
 			pitchHighRange = 1.2f;
 			pitchLowRange = 0.8f;
-			volLowRange = 0.1f;
-			volHighRange = 0.4f;
+			volLowRange = 0.05f;
+			volHighRange = 0.25f;
 			float randVol = Random.Range (volLowRange, volHighRange);
 			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
 			CurrentSound.pitch = randPitch;
