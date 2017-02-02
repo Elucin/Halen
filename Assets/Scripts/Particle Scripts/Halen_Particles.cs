@@ -6,11 +6,13 @@ public class Halen_Particles : MonoBehaviour {
 	public ParticleSystem DashEffect;
 	public ParticleSystem DashGlow;
 	//public ParticleSystem GunGlow;
-	public ParticleSystem LeftFoot;
-	public ParticleSystem RightFoot;
+	//public ParticleSystem LeftFoot;
+	//public ParticleSystem RightFoot;
+	public ParticleSystem sprintDust;
 	public ParticleSystem StopDust;
     public bool dashStorage;
 	public bool sprintStorage;
+	public bool landingStorage;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,7 @@ public class Halen_Particles : MonoBehaviour {
 
         dashStorage = false;
 		sprintStorage = false;
+		landingStorage = false;
 }
 
 	// Update is called once per frame
@@ -30,10 +33,12 @@ public class Halen_Particles : MonoBehaviour {
 		if (Halen == null) {
 			Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
 		}
+		/*
         if (LeftFoot == null)
             LeftFoot = GameObject.Find("jnt_L_toe").GetComponent<ParticleSystem>();
         if(RightFoot == null)
             RightFoot = GameObject.Find("jnt_R_toe").GetComponent<ParticleSystem>();
+            */
         if(DashGlow == null)
             DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem>();
         if(DashEffect == null)
@@ -73,22 +78,53 @@ public class Halen_Particles : MonoBehaviour {
 
             }*/
 
+
+			//LANDING DUST
+
+			if (!Halen.IsGrounded ()) {
+				landingStorage = false;
+			}
+			if (Halen.IsGrounded () && landingStorage == false) {
+				landingStorage = true;
+				StopDust.Play ();
+			}
+
+
+
+
+
+
+
+
             // RUN DUST PARTICLES
 
             if (Halen.isSprinting() && Halen.IsGrounded())
             {
 				sprintStorage = true;
+				if (!sprintDust.isPlaying) {
+
+					sprintDust.Play ();
+				}
+				/*
                 if (!RightFoot.isPlaying)
                     RightFoot.Play();
                 if (!LeftFoot.isPlaying)
                     LeftFoot.Play();
+                    */
+
 
             }
             else {
+				if (sprintDust.isPlaying) {
+					
+					sprintDust.Stop ();
+				}
+				/*
                 if(LeftFoot.isPlaying)
                     LeftFoot.Stop();
                 if(RightFoot.isPlaying)
                     RightFoot.Stop();
+                    */
 
             }
 			if (Halen.IsGrounded () && sprintStorage == true && !(Halen.isSprinting())) {
