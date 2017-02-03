@@ -99,7 +99,7 @@ public class SmallShot : MonoBehaviour {
 
                         float angle = Vector3.Angle(contactPointAverage, currVel);
 
-                        if (angle < 50 && !c.transform.name.Contains("Charger"))
+						if (angle < 50 && !c.transform.name.Contains("Charger") && c.transform.tag != "Player")
                         {
                             DestroyBullet();
                         }
