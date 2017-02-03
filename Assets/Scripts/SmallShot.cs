@@ -105,8 +105,7 @@ public class SmallShot : MonoBehaviour {
                         }
                         else
                             ricochet = true;
-							
-                    }
+					}
                     else
                         DestroyBullet();
                 }
