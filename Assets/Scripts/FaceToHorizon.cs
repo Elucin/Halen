@@ -14,7 +14,7 @@ public class FaceToHorizon : MonoBehaviour {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height/2, 0));
 
-        if (Physics.Raycast(ray, out hit, 1000f, mask, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(ray, out hit, 1000f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore))
         {
             transform.LookAt(hit.point);
         }
