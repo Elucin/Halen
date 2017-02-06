@@ -7,13 +7,16 @@ public class menuScript1 : MonoBehaviour {
 	public Canvas quitMenu;
 	public Button startText;
 	public Button exitText;
+    public Button continueButton;
 
 	// Use this for initialization
 	void Start () {
 		quitMenu = quitMenu.GetComponent<Canvas> ();
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
-		quitMenu.enabled = false;
+        if (PlayerPrefs.GetInt("Checkpoint", -1) == -1)  
+            continueButton.interactable = false;
+        quitMenu.enabled = false;
 	}
 	
 	public void ExitPress()
@@ -32,11 +35,19 @@ public class menuScript1 : MonoBehaviour {
 
 	public void StartLevel()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+        LoadNextScene.Level = SceneManager.GetActiveScene().buildIndex + 1;
+		SceneManager.LoadScene ("Loading");
 	}
 
 	public void ExitGame()
 	{
 		Application.Quit ();
 	}
+
+    public void ContinueGame()
+    {
+        LoadNextScene.Level = PlayerPrefs.GetInt("Level", 1);
+        Saving.doLoad = true;
+        SceneManager.LoadScene("Loading");
+    }
 }

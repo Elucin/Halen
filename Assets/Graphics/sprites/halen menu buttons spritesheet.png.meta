@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e0e27e62957234a4aab88895a7b8ecca
-timeCreated: 1478129034
+timeCreated: 1486394093
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,12 +13,16 @@ TextureImporter:
     21300012: halen menu buttons spritesheet_6
     21300014: halen menu buttons spritesheet_7
     21300016: halen menu buttons spritesheet_8
-  serializedVersion: 2
+    21300018: halen menu buttons spritesheet_9
+    21300020: halen menu buttons spritesheet_10
+    21300022: halen menu buttons spritesheet_11
+    21300024: halen menu buttons spritesheet_12
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -30,10 +34,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
@@ -44,9 +46,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -54,388 +54,203 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: halen menu buttons spritesheet_0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1224
-        width: 2096
-        height: 432
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 261, y: -30.997284}
-        - {x: 245, y: -9.997284}
-        - {x: 326, y: -9.997284}
-        - {x: 326, y: -4.997284}
-        - {x: 325, y: -2.997284}
-        - {x: 288, y: 16.002716}
-        - {x: 248, y: 19.002716}
-        - {x: 256, y: 28.002716}
-        - {x: 261, y: 34.002716}
-        - {x: 299, y: 34.002716}
-        - {x: 301, y: 36.002716}
-        - {x: 301, y: 68.002716}
-        - {x: -298, y: 68.002716}
-        - {x: -298, y: 36.002716}
-        - {x: -296, y: 34.002716}
-        - {x: -260, y: 33.002716}
-        - {x: -290, y: 17.002716}
-        - {x: -293, y: 14.002716}
-        - {x: -306, y: 7.002716}
-        - {x: -326, y: -4.997284}
-        - {x: -326, y: -9.997284}
-        - {x: -247, y: -13.997284}
-        - {x: -259, y: -29.997284}
-        - {x: -296, y: -31.997284}
-        - {x: -298, y: -33.997284}
-        - {x: -298, y: -65.997284}
-        - {x: -297, y: -66.997284}
-        - {x: 300, y: -66.997284}
-        - {x: 301, y: -65.997284}
-        - {x: 301, y: -33.997284}
-        - {x: 299, y: -31.997284}
-    - name: halen menu buttons spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 2219
-        y: 1224
-        width: 2099
-        height: 432
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 253.81659, y: -18.997284}
-        - {x: 245.81659, y: -9.997284}
-        - {x: 326.8166, y: -9.997284}
-        - {x: 327.8166, y: -8.997284}
-        - {x: 327.8166, y: -4.997284}
-        - {x: 293.8166, y: 14.002716}
-        - {x: 259.8166, y: 31.002716}
-        - {x: 299.8166, y: 34.002716}
-        - {x: 301.8166, y: 36.002716}
-        - {x: 301.8166, y: 68.002716}
-        - {x: -297.1834, y: 68.002716}
-        - {x: -297.1834, y: 36.002716}
-        - {x: -295.1834, y: 34.002716}
-        - {x: -258.1834, y: 34.002716}
-        - {x: -243.18341, y: 16.002716}
-        - {x: -287.1834, y: 17.002716}
-        - {x: -310.1834, y: 5.002716}
-        - {x: -326.1834, y: -5.997284}
-        - {x: -326.1834, y: -9.997284}
-        - {x: -244.18341, y: -12.997284}
-        - {x: -250.18341, y: -19.997284}
-        - {x: -258.1834, y: -31.997284}
-        - {x: -295.1834, y: -31.997284}
-        - {x: -297.1834, y: -33.997284}
-        - {x: -297.1834, y: -65.997284}
-        - {x: -296.1834, y: -66.997284}
-        - {x: 300.8166, y: -66.997284}
-        - {x: 301.8166, y: -65.997284}
-        - {x: 301.8166, y: -33.997284}
-        - {x: 299.8166, y: -31.997284}
-    - name: halen menu buttons spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 4489
-        y: 1224
-        width: 2099
-        height: 432
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 262.98755, y: -31.997284}
-        - {x: 246.98755, y: -9.997284}
-        - {x: 326.98755, y: -9.997284}
-        - {x: 326.98755, y: -3.997284}
-        - {x: 294.98755, y: 15.002716}
-        - {x: 289.98755, y: 16.002716}
-        - {x: 258.98755, y: 30.002716}
-        - {x: 261.98755, y: 34.002716}
-        - {x: 299.98755, y: 34.002716}
-        - {x: 301.98755, y: 36.002716}
-        - {x: 301.98755, y: 68.002716}
-        - {x: -297.01245, y: 68.002716}
-        - {x: -297.01245, y: 36.002716}
-        - {x: -295.01245, y: 34.002716}
-        - {x: -258.01245, y: 34.002716}
-        - {x: -243.01245, y: 16.002716}
-        - {x: -287.01245, y: 16.002716}
-        - {x: -296.01245, y: 12.002716}
-        - {x: -310.01245, y: 4.002716}
-        - {x: -326.01245, y: -5.997284}
-        - {x: -326.01245, y: -9.997284}
-        - {x: -245.01245, y: -12.997284}
-        - {x: -259.01245, y: -31.997284}
-        - {x: -295.01245, y: -31.997284}
-        - {x: -297.01245, y: -33.997284}
-        - {x: -297.01245, y: -65.997284}
-        - {x: -296.01245, y: -66.997284}
-        - {x: 300.98755, y: -66.997284}
-        - {x: 301.98755, y: -65.997284}
-        - {x: 301.98755, y: -33.997284}
-        - {x: 299.98755, y: -31.997284}
-    - name: halen menu buttons spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 597
-        width: 2099
-        height: 437
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 260.5, y: -31.911667}
-        - {x: 255.5, y: -23.911667}
-        - {x: 245.5, y: -10.911667}
-        - {x: 325.5, y: -10.911667}
-        - {x: 326.5, y: -9.911667}
-        - {x: 326.5, y: -5.911667}
-        - {x: 287.5, y: 17.088333}
-        - {x: 260.5, y: 29.088333}
-        - {x: 303.5, y: 34.088333}
-        - {x: 300.5, y: 68.08833}
-        - {x: 299.5, y: 69.08833}
-        - {x: -297.5, y: 69.08833}
-        - {x: -298.5, y: 68.08833}
-        - {x: -301.5, y: 33.088333}
-        - {x: -259.5, y: 29.088333}
-        - {x: -244.5, y: 16.088333}
-        - {x: -288.5, y: 16.088333}
-        - {x: -298.5, y: 12.088333}
-        - {x: -321.5, y: -1.9116669}
-        - {x: -326.5, y: -5.911667}
-        - {x: -326.5, y: -10.911667}
-        - {x: -248.5, y: -16.911667}
-        - {x: -254.5, y: -24.911667}
-        - {x: -296.5, y: -31.911667}
-        - {x: -298.5, y: -33.911667}
-        - {x: -298.5, y: -66.91167}
-        - {x: -297.5, y: -67.91167}
-        - {x: 299.5, y: -67.91167}
-        - {x: 300.5, y: -66.91167}
-        - {x: 300.5, y: -33.911667}
-        - {x: 298.5, y: -31.911667}
-    - name: halen menu buttons spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 2218
-        y: 597
+        y: 1824
         width: 2101
         height: 437
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 247.50574, y: -10.911667}
-        - {x: 327.50574, y: -10.911667}
-        - {x: 327.50574, y: -5.911667}
-        - {x: 326.50574, y: -3.9116669}
-        - {x: 288.50574, y: 16.088333}
-        - {x: 248.50574, y: 18.088333}
-        - {x: 255.50574, y: 26.088333}
-        - {x: 261.50574, y: 33.088333}
-        - {x: 299.50574, y: 33.088333}
-        - {x: 301.50574, y: 35.088333}
-        - {x: 301.50574, y: 68.08833}
-        - {x: 300.50574, y: 69.08833}
-        - {x: -296.49426, y: 69.08833}
-        - {x: -297.49426, y: 68.08833}
-        - {x: -297.49426, y: 35.088333}
-        - {x: -295.49426, y: 33.088333}
-        - {x: -252.49426, y: 26.088333}
-        - {x: -243.49426, y: 16.088333}
-        - {x: -286.49426, y: 17.088333}
-        - {x: -325.49426, y: -4.911667}
-        - {x: -326.49426, y: -5.911667}
-        - {x: -326.49426, y: -10.911667}
-        - {x: -255.49426, y: -27.911667}
-        - {x: -295.49426, y: -31.911667}
-        - {x: -297.49426, y: -33.911667}
-        - {x: -297.49426, y: -66.91167}
-        - {x: -296.49426, y: -67.91167}
-        - {x: 300.50574, y: -67.91167}
-        - {x: 301.50574, y: -66.91167}
-        - {x: 303.50574, y: -32.911667}
-        - {x: 264.50574, y: -27.911667}
-    - name: halen menu buttons spritesheet_5
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_1
       rect:
         serializedVersion: 2
-        x: 4489
-        y: 597
-        width: 2099
+        x: 2215
+        y: 1824
+        width: 2106
         height: 437
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 262.98755, y: -30.911667}
-        - {x: 246.98755, y: -10.911667}
-        - {x: 326.98755, y: -10.911667}
-        - {x: 326.98755, y: -4.911667}
-        - {x: 289.98755, y: 17.088333}
-        - {x: 249.98755, y: 18.088333}
-        - {x: 262.98755, y: 32.088333}
-        - {x: 299.98755, y: 33.088333}
-        - {x: 301.98755, y: 35.088333}
-        - {x: 301.98755, y: 68.08833}
-        - {x: 300.98755, y: 69.08833}
-        - {x: -296.01245, y: 69.08833}
-        - {x: -297.01245, y: 68.08833}
-        - {x: -297.01245, y: 35.088333}
-        - {x: -295.01245, y: 33.088333}
-        - {x: -257.01245, y: 33.088333}
-        - {x: -255.01245, y: 29.088333}
-        - {x: -243.01245, y: 16.088333}
-        - {x: -286.01245, y: 17.088333}
-        - {x: -325.01245, y: -4.911667}
-        - {x: -326.01245, y: -5.911667}
-        - {x: -326.01245, y: -10.911667}
-        - {x: -258.01245, y: -31.911667}
-        - {x: -295.01245, y: -31.911667}
-        - {x: -297.01245, y: -33.911667}
-        - {x: -297.01245, y: -66.91167}
-        - {x: -296.01245, y: -67.91167}
-        - {x: 300.98755, y: -67.91167}
-        - {x: 301.98755, y: -66.91167}
-        - {x: 301.98755, y: -33.911667}
-        - {x: 299.98755, y: -31.911667}
-    - name: halen menu buttons spritesheet_6
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 1824
+        width: 2105
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1199
+        width: 2100
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 1199
+        width: 2106
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 1199
+        width: 2105
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 2101
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 601
+        width: 2107
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 601
+        width: 2105
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2099
-        height: 432
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 252.5, y: -21.5}
-        - {x: 244.5, y: -12.5}
-        - {x: 326.5, y: -12.5}
-        - {x: 326.5, y: -7.5}
-        - {x: 325.5, y: -5.5}
-        - {x: 295.5, y: 10.5}
-        - {x: 286.5, y: 14.5}
-        - {x: 260.5, y: 32.5}
-        - {x: 298.5, y: 32.5}
-        - {x: 300.5, y: 34.5}
-        - {x: 300.5, y: 66.5}
-        - {x: 299.5, y: 67.5}
-        - {x: -297.5, y: 67.5}
-        - {x: -298.5, y: 66.5}
-        - {x: -298.5, y: 34.5}
-        - {x: -296.5, y: 32.5}
-        - {x: -260.5, y: 32.5}
-        - {x: -324.5, y: -5.5}
-        - {x: -326.5, y: -7.5}
-        - {x: -326.5, y: -12.5}
-        - {x: -248.5, y: -18.5}
-        - {x: -254.5, y: -25.5}
-        - {x: -258.5, y: -31.5}
-        - {x: -259.5, y: -33.5}
-        - {x: -296.5, y: -33.5}
-        - {x: -298.5, y: -35.5}
-        - {x: -298.5, y: -67.5}
-        - {x: 300.5, y: -67.5}
-        - {x: 300.5, y: -35.5}
-        - {x: 298.5, y: -33.5}
-        - {x: 261.5, y: -33.5}
-    - name: halen menu buttons spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 2218
-        y: 0
         width: 2101
-        height: 432
+        height: 437
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 249.50574, y: -15.5}
-        - {x: 245.50574, y: -12.5}
-        - {x: 327.50574, y: -12.5}
-        - {x: 327.50574, y: -7.5}
-        - {x: 326.50574, y: -5.5}
-        - {x: 288.50574, y: 14.5}
-        - {x: 250.50574, y: 16.5}
-        - {x: 300.50574, y: 31.5}
-        - {x: 301.50574, y: 34.5}
-        - {x: 301.50574, y: 66.5}
-        - {x: 300.50574, y: 67.5}
-        - {x: -296.49426, y: 67.5}
-        - {x: -297.49426, y: 66.5}
-        - {x: -297.49426, y: 34.5}
-        - {x: -295.49426, y: 32.5}
-        - {x: -258.49426, y: 32.5}
-        - {x: -246.49426, y: 18.5}
-        - {x: -287.49426, y: 14.5}
-        - {x: -309.49426, y: 2.5}
-        - {x: -325.49426, y: -6.5}
-        - {x: -326.49426, y: -8.5}
-        - {x: -326.49426, y: -12.5}
-        - {x: -249.49426, y: -20.5}
-        - {x: -255.49426, y: -29.5}
-        - {x: -295.49426, y: -33.5}
-        - {x: -297.49426, y: -35.5}
-        - {x: -297.49426, y: -67.5}
-        - {x: 301.50574, y: -67.5}
-        - {x: 301.50574, y: -35.5}
-        - {x: 299.50574, y: -33.5}
-        - {x: 262.50574, y: -32.5}
-    - name: halen menu buttons spritesheet_8
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_10
       rect:
         serializedVersion: 2
-        x: 4489
+        x: 2215
         y: 0
-        width: 2099
-        height: 432
+        width: 2106
+        height: 437
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 249.98755, y: -15.5}
-        - {x: 326.98755, y: -12.5}
-        - {x: 326.98755, y: -6.5}
-        - {x: 316.98755, y: 0.5}
-        - {x: 288.98755, y: 14.5}
-        - {x: 248.98755, y: 15.5}
-        - {x: 261.98755, y: 30.5}
-        - {x: 299.98755, y: 32.5}
-        - {x: 301.98755, y: 34.5}
-        - {x: 301.98755, y: 66.5}
-        - {x: 300.98755, y: 67.5}
-        - {x: -296.01245, y: 67.5}
-        - {x: -297.01245, y: 66.5}
-        - {x: -297.01245, y: 34.5}
-        - {x: -295.01245, y: 32.5}
-        - {x: -259.01245, y: 32.5}
-        - {x: -246.01245, y: 17.5}
-        - {x: -287.01245, y: 14.5}
-        - {x: -310.01245, y: 4.5}
-        - {x: -326.01245, y: -7.5}
-        - {x: -326.01245, y: -12.5}
-        - {x: -242.01245, y: -12.5}
-        - {x: -250.01245, y: -20.5}
-        - {x: -259.01245, y: -33.5}
-        - {x: -295.01245, y: -33.5}
-        - {x: -297.01245, y: -35.5}
-        - {x: -297.01245, y: -67.5}
-        - {x: 301.98755, y: -67.5}
-        - {x: 301.98755, y: -35.5}
-        - {x: 299.98755, y: -33.5}
-        - {x: 262.98755, y: -33.5}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 0
+        width: 2105
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: halen menu buttons spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 6713
+        y: 0
+        width: 2102
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -14,19 +14,22 @@ public class Checkpoint : MonoBehaviour {
         transform.name = "Checkpoint" + ID.ToString();
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
-
     void OnTriggerEnter(Collider c)
     {
 		if (c.CompareTag("Player") && !isActivated)
         {
             isActivated = true;
 			GetComponent<MeshRenderer>().material = activeMat;
-            Saving.CheckpointID = ID;
-            Saving.Score = Scoring.PlayerScore;
+            //Saving.CheckpointID = ID;
+            PlayerPrefs.SetInt("Checkpoint", ID);
+            PlayerPrefs.SetInt("Brawlers", Scoring.brawlersKilled);
+            PlayerPrefs.SetInt("Gunners", Scoring.gunnersKilled);
+            PlayerPrefs.SetInt("Snipers", Scoring.snipersKilled);
+            PlayerPrefs.SetInt("Chargers", Scoring.chargersKilled);
+            PlayerPrefs.SetInt("Floaters", Scoring.floatersKilled);
+            PlayerPrefs.SetInt("Combo", Scoring.biggestCombo);
+            //Saving.Score = Scoring.PlayerScore;
+            PlayerPrefs.SetInt("Score", Scoring.PlayerScore);
         }
     }
 }

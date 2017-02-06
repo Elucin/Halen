@@ -11,12 +11,12 @@ public static class Scoring{
     public static float comboTimer = Time.time - TIMER_LENGTH;
     public static float comboMultiplier;
 
-    public static int brawlersKilled = 0;
-    public static int chargersKilled = 0;
-    public static int gunnersKilled = 0;
-    public static int snipersKilled = 0;
-    public static int floatersKilled = 0;
-    public static int biggestCombo = 0;
+    public static int brawlersKilled = PlayerPrefs.GetInt("Brawlers", 0);
+    public static int chargersKilled = PlayerPrefs.GetInt("Chargers", 0);
+    public static int gunnersKilled = PlayerPrefs.GetInt("Gunners", 0);
+    public static int snipersKilled = PlayerPrefs.GetInt("Snipers", 0);
+    public static int floatersKilled = PlayerPrefs.GetInt("Floaters", 0);
+    public static int biggestCombo = PlayerPrefs.GetInt("Combo", 0);
 
     public static int PlayerScore
     {
