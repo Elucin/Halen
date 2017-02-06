@@ -41,7 +41,7 @@ public class halenEyes_Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (blink && !running) {
-			float delay = Random.Range (3f, 8f);
+			float delay = Random.Range (0.5f, 8f);
 			StartCoroutine (Blink (delay));
 		}
 		//StartCoroutine (EyeExpression (0, 2,true));
