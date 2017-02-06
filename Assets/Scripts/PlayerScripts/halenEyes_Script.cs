@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class halenEyes_Script : MonoBehaviour {
 
-
-
 	public Texture2D[] Eyes = new Texture2D[14];
 	/*
 	0 - squint
@@ -29,13 +27,23 @@ public class halenEyes_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//This is what it looks like to change the expression. Just specify what expression needed
-		//GetComponent<MeshRenderer> ().material.mainTexture = Eyes [0];
-			
+		
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+		//StartCoroutine (EyeExpression (0, 2));
+
+	}
+
+	IEnumerator EyeExpression(int EyeIndex, float Duration)//If duration 0, expression stays
+	{
+		GetComponent<MeshRenderer> ().material.mainTexture = Eyes [EyeIndex];
+		if (Duration != 0) {
+			yield return new WaitForSeconds (Duration);
+			GetComponent<MeshRenderer> ().material.mainTexture = Eyes [13];
+		}
 	}
 }
