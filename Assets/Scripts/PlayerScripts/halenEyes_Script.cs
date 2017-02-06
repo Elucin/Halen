@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class halenEyes_Script : MonoBehaviour {
-
+	public static bool finished = true;
 	public Texture2D[] Eyes = new Texture2D[14];
+	[System.Serializable]
+	public struct EyeStruct
+	{
+		public int index;
+		public float duration;
+	};
+
 	/*
 	0 - squint
 	1 - confused
@@ -24,26 +31,36 @@ public class halenEyes_Script : MonoBehaviour {
 
 
 
-
 	// Use this for initialization
 	void Start () {
-		
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		//StartCoroutine (EyeExpression (0, 2));
+		//StartCoroutine (EyeExpression (0, 2,true));
 
 	}
 
-	IEnumerator EyeExpression(int EyeIndex, float Duration)//If duration 0, expression stays
+	public IEnumerator EyeExpression(int EyeIndex, float Duration, bool ReturntoNeutral = true, EyeStruct[] e = null, int i = 0)
 	{
 		GetComponent<MeshRenderer> ().material.mainTexture = Eyes [EyeIndex];
-		if (Duration != 0) {
-			yield return new WaitForSeconds (Duration);
+		//finished = false;
+		yield return new WaitForSeconds (Duration);
+		if (ReturntoNeutral ==true) {	
 			GetComponent<MeshRenderer> ().material.mainTexture = Eyes [13];
 		}
+		if(e != null)
+			RunSequence (e, ++i); 
+		//finished = true;
+	}
+
+	public void RunSequence(EyeStruct[] e, int i = 0)
+	{
+		//if (halenEyes_Script.finished) {
+		if(i < e.Length)
+			StartCoroutine(EyeExpression(e[i].index,e[i].duration, i == e.Length - 1, e, i));
+		//}
 	}
 }
