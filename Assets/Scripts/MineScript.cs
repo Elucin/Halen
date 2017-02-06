@@ -14,6 +14,7 @@ public class MineScript : MonoBehaviour {
     public SphereCollider explosionTrigger;
     float t = 0f;
     const float MINE_EXPLODE_RADIUS = 13f;
+    const float ARM_TIME = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -29,12 +30,14 @@ public class MineScript : MonoBehaviour {
             {
                 t = Time.deltaTime / EXPLODE_TIME;
             }
-            GetComponent<MeshRenderer>().material = triggeredMat;
+            GetComponent<MeshRenderer>().materials[1].SetColor("_EmissionColor", new Color(0.75f, 0f, 0f));
+            GetComponent<MeshRenderer>().materials[1].color = Color.red;
         }
         else if (armed)
         {
             GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<MeshRenderer>().material = armedMat;
+            GetComponent<MeshRenderer>().materials[1].SetColor("_EmissionColor", new Color(0.75f, 0.75f, 0f));
+            GetComponent<MeshRenderer>().materials[1].color = Color.yellow;
         }
 
         if (triggered && Time.time - explodeTimer > EXPLODE_TIME)
@@ -95,11 +98,17 @@ public class MineScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision c)
     {
-        armed = true;
+        StartCoroutine(Arm());
         if (c.transform.tag == "Player")
         {
             triggered = true;
         }
+    }
+
+    IEnumerator Arm()
+    {
+        yield return new WaitForSeconds(ARM_TIME);
+        armed = true;
     }
 
 

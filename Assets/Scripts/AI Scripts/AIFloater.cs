@@ -14,7 +14,7 @@ public class AIFloater : AIBase {
     public float patrolRange;
 
     float mineTimer;
-    const float MINE_TIME = 3.0f;
+    const float MINE_TIME = 4.0f;
 
     protected static int FloaterCount = 0;
 
