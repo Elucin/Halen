@@ -631,7 +631,6 @@ public class PlayerControl : MonoBehaviour
         {
             RaycastHit hit;
             float inclineMod;
-            Debug.DrawRay(transform.position, transform.forward, Color.white, 0.01f);
             if (Physics.Raycast(transform.position, transform.forward, out hit, 1.0f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
             { 
                 float dot = Vector3.Dot(Vector3.up, hit.normal);
