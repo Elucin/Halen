@@ -61,6 +61,12 @@ public class PlayerControl : MonoBehaviour
 	private Vector3 secondPos;
 	private float dashPower;
 
+    private float prevDegree = 0;
+    private float targetAngle;
+    private bool swapping = false;
+    private float swapTimer;
+    private const float SWAP_TIME = 0.25f;
+
 	private Animator anim;
 	private int speedFloat;
 	private int vSpeedFloat;
@@ -761,7 +767,7 @@ public class PlayerControl : MonoBehaviour
 					
 				_PlayerSFXManager.playSoundEffect ("largeShot");
 
-			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim")) {
+			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim") && !swapping && currentBaseState != rollState) {
 				shortShootCooldownStart = Time.time;
 				MuzzleFlash.Play ();
 				SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
@@ -904,8 +910,8 @@ public class PlayerControl : MonoBehaviour
                     anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
             }
 
-            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight);
-            anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight);
+            //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
         }
 	}
 
@@ -1121,14 +1127,32 @@ public class PlayerControl : MonoBehaviour
 
 	float getCamPlayerAngle()
 	{
-		float angle = Vector3.Angle (transform.forward, cameraTransform.TransformDirection (Vector3.forward));
-		if (Vector3.Angle (transform.right, cameraTransform.TransformDirection (Vector3.forward)) < 90f)
-			return angle;
-		else if (Vector3.Angle (transform.right, cameraTransform.TransformDirection (Vector3.forward)) > 90f)
-			return -angle;
-		else
-			return 0f;
-	}
+        float angle = Vector3.Angle (transform.forward, cameraTransform.TransformDirection (Vector3.forward));
+        if (Vector3.Angle(transform.right, cameraTransform.TransformDirection(Vector3.forward)) > 90f)
+        {
+            angle = -angle;
+        }
+
+        if (Mathf.Abs(prevDegree) > 150f && ((prevDegree < 0 && angle > 0) || (prevDegree > 0 && angle < 0)) && !swapping)
+        {
+            swapping = true;
+            targetAngle = angle;
+            swapTimer = Time.time;
+        }
+
+        if (swapping && (Time.time - swapTimer) / SWAP_TIME < 1f)
+        {
+            return Mathf.Lerp(prevDegree, targetAngle, (Time.time - swapTimer) / SWAP_TIME);
+        }
+        else
+        {
+            swapping = false;
+            return prevDegree = angle;
+        }
+
+    }
+            
+
 
 	void footStepSounds()
 	{		
