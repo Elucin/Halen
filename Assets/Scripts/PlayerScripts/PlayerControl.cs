@@ -140,6 +140,16 @@ public class PlayerControl : MonoBehaviour
     private static int slashState;
 	private static int noSlashState;
 
+	private static int lookUpState;
+	private static int lookDownState;
+	private static int lookRightState;
+	private static int lookLeftState;
+
+	private static float eyeLookX;
+	private static float eyeLookY;
+
+	private int currentLookState;
+
 	private int currentBaseState;
 	private int currentDashState;
 	private int currentSlashState;
@@ -184,9 +194,12 @@ public class PlayerControl : MonoBehaviour
 	bool dashManagement;
 	int dashFlashManagement;
 
+	halenEyes_Script eyeScript;
+
     void Awake()
 	{
-		
+		eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
+
 		dashManagement = false;
 		dashFlashManagement = 0;
 		colour_DashReady = Color.red;
@@ -248,6 +261,8 @@ public class PlayerControl : MonoBehaviour
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
 
+		eyeLookY = Animator.StringToHash ("eyeLookY");
+		eyeLookX = Animator.StringToHash ("eyeLookX");
 
 		rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
@@ -260,6 +275,15 @@ public class PlayerControl : MonoBehaviour
 		noSlashState = Animator.StringToHash("SwordSlash.NoSlash");
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
+
+		lookUpState = Animator.StringToHash ("EyesLook.LookUp");
+		lookDownState = Animator.StringToHash ("EyesLook.LookDown");
+		lookRightState = Animator.StringToHash ("EyesLook.LookRight");
+		lookLeftState = Animator.StringToHash ("EyesLook.LookLeft");
+
+
+
+
 
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
@@ -445,6 +469,9 @@ public class PlayerControl : MonoBehaviour
 		currentDashState = anim.GetCurrentAnimatorStateInfo (5).fullPathHash;
 		currentSlashState = anim.GetCurrentAnimatorStateInfo (4).fullPathHash;
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
+
+		currentLookState = anim.GetCurrentAnimatorStateInfo (7).fullPathHash;
+
         if (!jump)
         {
             if (wallHoldStatus == 1)
@@ -687,10 +714,12 @@ public class PlayerControl : MonoBehaviour
 					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashNotReady);
 					dashManagement = false;
 					dashFlashManagement = 20;
+
 				}
 				anim.SetBool (dashBool, true); //Sets animator transition
 				dashTimer = Time.time;
 				_PlayerSFXManager.playSoundEffect ("dash");
+				StartCoroutine(eyeScript.EyeExpression (8, 1f));
 			}
 			else
 
@@ -708,7 +737,7 @@ public class PlayerControl : MonoBehaviour
         //Execute only when dashing
         if (IsDashing())
         {
-
+			
             dashVelocityCoefficient = anim.GetFloat(dashVelocityFloat);
             if (dashVelocityCoefficient > 0)
                 GetComponent<Rigidbody>().velocity = dashDirection * 60.0f * dashVelocityCoefficient;
@@ -722,44 +751,43 @@ public class PlayerControl : MonoBehaviour
 	void ShootManagement()
 	{
 		if (shoot) {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            if (Physics.Raycast(ray, out hit, 10f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore))
-            {
-                if (hit.transform.CompareTag("Enemy") && Vector3.Distance(transform.position, hit.transform.position) < 2f)
-                {
-                    anim.SetTrigger(slashTrig);
+			
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2, Screen.height / 2, 0));
+			if (Physics.Raycast (ray, out hit, 10f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore)) {
+				if (hit.transform.CompareTag ("Enemy") && Vector3.Distance (transform.position, hit.transform.position) < 2f) {
+					anim.SetTrigger (slashTrig);
 				
-                    if (!hit.transform.name.Contains("Charger"))
-                        hit.transform.GetComponent<AIBase>().health = 0;
-                    return;
+					if (!hit.transform.name.Contains ("Charger"))
+						hit.transform.GetComponent<AIBase> ().health = 0;
+					return;
 
-                }
-            }
-                anim.SetBool(shootBool, true);
-                if (IsAiming() && (Time.time - longShootCooldownStart) >= LONG_SHOT_COOLDOWN && currentShots > 0)
-                {
-                    longShootCooldownStart = Time.time;
-                    MuzzleFlash.Play();
-                    LargeShot newShot = Instantiate(largeShot, ShotEmitterTrans.position, Quaternion.identity) as LargeShot;
-                    newShot.emitter = ShotEmitterTrans;
-                    currentShots--;
+				}
+			}
+			StartCoroutine (eyeScript.EyeExpression (9, 0, false));
+			anim.SetBool (shootBool, true);
+			if (IsAiming () && (Time.time - longShootCooldownStart) >= LONG_SHOT_COOLDOWN && currentShots > 0) {
+				longShootCooldownStart = Time.time;
+				MuzzleFlash.Play ();
+				LargeShot newShot = Instantiate (largeShot, ShotEmitterTrans.position, Quaternion.identity) as LargeShot;
+				newShot.emitter = ShotEmitterTrans;
+				currentShots--;
+					
+				_PlayerSFXManager.playSoundEffect ("largeShot");
 
-                    _PlayerSFXManager.playSoundEffect("largeShot");
-
-                }
-                else if (!IsAiming() && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo(1).fullPathHash == Animator.StringToHash("RunAndGun.RunAim"))
-                {
-                    shortShootCooldownStart = Time.time;
-                    MuzzleFlash.Play();
-                    SmallShot newShot = Instantiate(smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
-                    newShot.emitter = ShotEmitterTrans;
-
-                    _PlayerSFXManager.playSoundEffect("smallShot");
-                }
-        }
-		else
+			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim")) {
+				shortShootCooldownStart = Time.time;
+				MuzzleFlash.Play ();
+				SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
+				newShot.emitter = ShotEmitterTrans;
+					
+					
+				_PlayerSFXManager.playSoundEffect ("smallShot");
+			}
+		} else {
 			anim.SetBool (shootBool, false);
+			StartCoroutine(eyeScript.EyeExpression (13, 0,true));
+		}
 	}
 
 	Vector3 Rotating(float horizontal, float vertical)

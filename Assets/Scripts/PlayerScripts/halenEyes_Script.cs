@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class halenEyes_Script : MonoBehaviour {
+
+	public float eyeDirectionY;
+	public float eyeDirectionX;
+
 	public static bool finished = true;
 	public Texture2D[] Eyes = new Texture2D[14];
 	bool blink = true;
@@ -35,7 +39,8 @@ public class halenEyes_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		eyeDirectionY = 0;
+		eyeDirectionX = 0;
 	}
 	
 	// Update is called once per frame
