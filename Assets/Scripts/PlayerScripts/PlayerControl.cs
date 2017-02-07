@@ -907,7 +907,15 @@ public class PlayerControl : MonoBehaviour
             anim.SetIKRotation(AvatarIKGoal.LeftFoot, lFRot);
 
             anim.SetLookAtWeight(aimingWeight);
-            anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.forward) < 85)
+                anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            else
+            {
+                if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.right) <= 88f)
+                    anim.SetLookAtPosition((transform.right + transform.forward * 0.3f) * 1000.0f);
+                else if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), -transform.right) <= 88f)
+                    anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
+            }
 
             anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight);
             anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);

@@ -106,17 +106,6 @@ public class UIScript : MonoBehaviour {
             comboCounter.color = new Color(Scoring.comboCounter / 20f, (20f - Scoring.comboCounter) / 20f, 0f);
             comboMultiplier.text = "x" + Scoring.comboMultiplier.ToString("F2");
         }
-        /*
-        for (int i = 0; i < shotFills.GetLength(0); i++)
-        {
-            if (i < PlayerControl.Ammo)
-            {
-                shotFills[i].enabled = true;
-            }
-            else
-                shotFills[i].enabled = false;
-
-        }
 
 		if (wristUI != null) {
 			if (aiming)
@@ -124,8 +113,8 @@ public class UIScript : MonoBehaviour {
 			else
 				wristUI.SetActive (false);
 
-			shotCooldownBarWrist.fillAmount = (Time.time - Halen.shotRecoverTimer) / 10f;
-			for (int i = 0; i < shotFills.GetLength (0); i++) {
+			shotCooldownBarWrist.fillAmount = PlayerControl.ShotCharge * 0.5f;
+            for (int i = 0; i < shotFillsWrist.GetLength (0); i++) {
 				if (i < PlayerControl.Ammo) {
 					shotFillsWrist [i].enabled = true;
 				} else
@@ -135,7 +124,6 @@ public class UIScript : MonoBehaviour {
 		} else {
 			wristUI = GameObject.Find ("aimShotUI");
 		}
-        */
         
         /*
         if (dashTimer > 0f)
