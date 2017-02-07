@@ -549,7 +549,6 @@ public class PlayerControl : MonoBehaviour
             wallRun = false;
 			GetComponent<Rigidbody> ().AddForce (cameraTransform.TransformDirection(Vector3.forward).normalized * jumpHeight * 1f, ForceMode.Impulse);
 			anim.SetBool (jumpBool, false);
-            Debug.Log("Backflip");
             anim.SetTrigger(backFlipTrig);
         }
 
