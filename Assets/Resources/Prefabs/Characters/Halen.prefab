@@ -3004,8 +3004,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138880}
-  m_LocalRotation: {x: 0, y: -0.40266237, z: 0, w: 0.9153486}
-  m_LocalPosition: {x: 80.63, y: -35.19, z: -35}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.61, y: 0, z: -36.615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402918}
@@ -4416,21 +4416,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.83448267, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6d33dc924664aaf4086b36f5e0579cd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d15bbe7a728736f488aa4ef3dfd858b9, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.479
+  m_FillAmount: 0.503
   m_FillClockwise: 0
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!114 &11471812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5350,8 +5350,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.0000019073486, y: 0, z: 0.035938263}
-    m_Extent: {x: 0.0797642, y: 0.28962222, z: 0.0752545}
+    m_Center: {x: -0.0000019073486, y: 0, z: 0.035936356}
+    m_Extent: {x: 0.048354086, y: 0.28907475, z: 0.043065485}
   m_DirtyAABB: 0
 --- !u!137 &13749810
 SkinnedMeshRenderer:
@@ -20802,15 +20802,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1.2165686, y: 1.2165684, z: 1.2165684}
   m_Children: []
   m_Father: {fileID: 22458634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00025248528, y: -0.0002746582}
+  m_AnchoredPosition: {x: 0, y: -18.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22461158
@@ -21026,6 +21026,7 @@ GameObject:
   - component: {fileID: 33722564297387854}
   - component: {fileID: 135486622187663774}
   - component: {fileID: 23049563563589482}
+  - component: {fileID: 95813899572911660}
   m_Layer: 0
   m_Name: EyePivot
   m_TagString: Untagged
@@ -21052,14 +21053,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394941582266890}
-  m_LocalRotation: {x: 0.033784144, y: -0.000000007502523, z: -0.00000009003028, w: 0.99942917}
-  m_LocalPosition: {x: -0, y: -0.1158, z: -0.073}
-  m_LocalScale: {x: 0.24799706, y: 0.24799693, z: 0.24799639}
+  m_LocalRotation: {x: 0.02642812, y: -0.09123797, z: 0.028497212, w: 0.99507046}
+  m_LocalPosition: {x: 0.0010654585, y: -0.115857355, z: -0.07290348}
+  m_LocalScale: {x: 0.24799713, y: 0.24799709, z: 0.24799635}
   m_Children:
   - {fileID: 4410987660587576}
   m_Father: {fileID: 409736}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.8450003, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.634, y: -10.345, z: 3.7480001}
 --- !u!4 &4410987660587576
 Transform:
   m_ObjectHideFlags: 1
@@ -21166,6 +21167,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95813899572911660
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394941582266890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b261a5d001c1c0a488c57e3eab4f1641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108801648900614666
 Light:
   m_ObjectHideFlags: 1
@@ -21211,8 +21229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6bb743aaeaaf642b1fe5d8bae0953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeDirectionY: 0
-  eyeDirectionX: 0
   Eyes:
   - {fileID: 2800000, guid: 9886f73756b80764ab368d2ad7380f46, type: 3}
   - {fileID: 2800000, guid: 676fe42e83147bb43bc988e445f9dac0, type: 3}
@@ -21247,7 +21263,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304761326374416}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 0.15
   simulationSpeed: 1
   looping: 1
   prewarm: 0
@@ -21295,7 +21311,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1364651512
+  randomSeed: -979043838
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -21738,13 +21754,13 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 200
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21756,7 +21772,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.15
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21803,11 +21819,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 0
+    cnt0: 1
     cnt1: 6
     cnt2: 30
     cnt3: 30
-    cntmax0: 0
+    cntmax0: 30
     cntmax1: 6
     cntmax2: 30
     cntmax3: 30
@@ -21815,7 +21831,7 @@ ParticleSystem:
     time1: 0.3
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 1
     curve:
@@ -22717,7 +22733,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     strengthY:
-      scalar: 1
+      scalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -22794,7 +22810,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    separateAxes: 0
+    separateAxes: 1
     frequency: 0.5
     damping: 1
     octaves: 1
