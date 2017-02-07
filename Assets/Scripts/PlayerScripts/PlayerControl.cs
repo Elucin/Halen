@@ -597,27 +597,57 @@ public class PlayerControl : MonoBehaviour
 		}
 		//turnSmoothing = 10 - speed;
 		anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
-		//GetComponent<Rigidbody>().AddForce(transform.forward*speed*100);
-		if (IsGrounded () && currentBaseState != rollState && !IsAiming ())
-			GetComponent<Rigidbody> ().velocity = new Vector3 (transform.forward.x * speed, GetComponent<Rigidbody> ().velocity.y, transform.forward.z * speed);
-		else if(wallRun){
-			GetComponent<Rigidbody> ().velocity = Vector3.up * wallSpeed;
-			Debug.DrawLine(transform.position+Vector3.up*1.8f, transform.position+Vector3.up*1.8f + transform.TransformDirection(transform.up));
-		}
-		else if (currentBaseState == rollState && IsGrounded ()) {
-            if(IsAiming())
+        //GetComponent<Rigidbody>().AddForce(transform.forward*speed*100);
+
+
+        if (IsGrounded() && currentBaseState != rollState && !IsAiming())
+        {
+            RaycastHit hit;
+            float inclineMod;
+            Debug.DrawRay(transform.position, transform.forward, Color.white, 0.01f);
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 1.0f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
+            { 
+                float dot = Vector3.Dot(Vector3.up, hit.normal);
+                inclineMod = (dot - 0.15f) / 0.85f;
+                inclineMod = Mathf.Clamp(inclineMod, 0.0f, 1.0f);
+            }
+            else
+                inclineMod = 1.0f;
+            GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * speed * inclineMod, GetComponent<Rigidbody>().velocity.y * inclineMod, transform.forward.z * speed);
+        }
+        else if (wallRun)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.up * wallSpeed;
+        }
+        else if (currentBaseState == rollState && IsGrounded())
+        {
+            if (IsAiming())
             {
                 Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
                 GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * 10.0f, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * 10.0f);
             }
             else
-			    GetComponent<Rigidbody> ().velocity = new Vector3 (transform.forward.x * 10.0f, GetComponent<Rigidbody> ().velocity.y, transform.forward.z * 10.0f);
-		} else if (IsAiming () && IsGrounded()) {
-			Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
-			GetComponent<Rigidbody> ().velocity = new Vector3 (strafeDirection.x * speed, GetComponent<Rigidbody> ().velocity.y, strafeDirection.z * speed);
-		} else if (!IsGrounded ()) {
-			GetComponent<Rigidbody> ().AddForce( new Vector3 (transform.forward.x * speed * 50, 0, transform.forward.z * speed * 50), ForceMode.Force);
-		}
+                GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * 10.0f, GetComponent<Rigidbody>().velocity.y, transform.forward.z * 10.0f);
+        }
+        else if (IsAiming() && IsGrounded())
+        {
+            Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
+            GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * speed, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * speed);
+        }
+        else if (!IsGrounded())
+        {
+            RaycastHit hit;
+            float inclineMod;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 1.0f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
+            {
+                float dot = Vector3.Dot(Vector3.up, hit.normal);
+                inclineMod = (dot - 0.15f) / 0.85f;
+                inclineMod = Mathf.Clamp(inclineMod, 0.0f, 1.0f);
+            }
+            else
+                inclineMod = 1.0f;
+            GetComponent<Rigidbody>().AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod, 0, transform.forward.z * speed * 50), ForceMode.Force);
+        }
 	}
 
 	void DashManagement()
@@ -989,7 +1019,7 @@ public class PlayerControl : MonoBehaviour
         else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState)
         {
           
-            if (GetComponent<Rigidbody>().velocity.y > -2f && canWallRun)
+            if (GetComponent<Rigidbody>().velocity.y > -3f && canWallRun)
                 StartCoroutine(wallRunDuration(1f));
             else
                 wallHoldStatus = 2;

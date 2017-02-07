@@ -56,8 +56,11 @@ public class MineScript : MonoBehaviour {
                     }
                     else
                     {
-                        c.GetComponent<MineScript>().triggered = true;
-                        c.GetComponent<MineScript>().explodeTimer = Time.time - 0.4f;
+                        if (c.GetComponent<MineScript>().triggered == false)
+                        {
+                            c.GetComponent<MineScript>().triggered = true;
+                            c.GetComponent<MineScript>().explodeTimer = Time.time - 0.4f;
+                        }
                     }
                 
 
