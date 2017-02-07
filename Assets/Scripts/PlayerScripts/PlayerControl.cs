@@ -140,15 +140,7 @@ public class PlayerControl : MonoBehaviour
     private static int slashState;
 	private static int noSlashState;
 
-	private static int lookUpState;
-	private static int lookDownState;
-	private static int lookRightState;
-	private static int lookLeftState;
 
-	private static float eyeLookX;
-	private static float eyeLookY;
-
-	private int currentLookState;
 
 	private int currentBaseState;
 	private int currentDashState;
@@ -261,8 +253,7 @@ public class PlayerControl : MonoBehaviour
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
 
-		eyeLookY = Animator.StringToHash ("eyeLookY");
-		eyeLookX = Animator.StringToHash ("eyeLookX");
+
 
 		rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
@@ -276,10 +267,7 @@ public class PlayerControl : MonoBehaviour
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
 
-		lookUpState = Animator.StringToHash ("EyesLook.LookUp");
-		lookDownState = Animator.StringToHash ("EyesLook.LookDown");
-		lookRightState = Animator.StringToHash ("EyesLook.LookRight");
-		lookLeftState = Animator.StringToHash ("EyesLook.LookLeft");
+
 
 
 
@@ -470,7 +458,7 @@ public class PlayerControl : MonoBehaviour
 		currentSlashState = anim.GetCurrentAnimatorStateInfo (4).fullPathHash;
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
-		currentLookState = anim.GetCurrentAnimatorStateInfo (7).fullPathHash;
+
 
         if (!jump)
         {
