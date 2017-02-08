@@ -95,8 +95,9 @@ public class halenEyes_Script : MonoBehaviour {
 	IEnumerator Blink(float delay)
 	{
 		blink = false;
+
 		yield return new WaitForSeconds (delay);
-		StartCoroutine(EyeExpression (0, 0.05f,true, -0.5f,0f));
+		StartCoroutine(EyeExpression (0, 1f,true, -0.5f,0f));
 		blink = true;
 	}
 }

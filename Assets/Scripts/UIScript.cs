@@ -11,7 +11,7 @@ public class UIScript : MonoBehaviour {
     public Image dashBarReady;
     public Image shotRechargeBar;
     public Image shotFills;
-    public Image[] shotFillsWrist;
+    public Image shotFillsWrist;
     public Image shotCooldownBarWrist;
     public Image shotCooldownBar;
     public GameObject stylePointObject;
@@ -113,14 +113,10 @@ public class UIScript : MonoBehaviour {
 			else
 				wristUI.SetActive (false);
 
-			shotCooldownBarWrist.fillAmount = PlayerControl.ShotCharge * 0.5f;
-            for (int i = 0; i < shotFillsWrist.GetLength (0); i++) {
-				if (i < PlayerControl.Ammo) {
-					shotFillsWrist [i].enabled = true;
-				} else
-					shotFillsWrist [i].enabled = false;
+			shotCooldownBarWrist.fillAmount = 0.25f * PlayerControl.ShotCharge;
+			shotFillsWrist.fillAmount = 0.032f * PlayerControl.Ammo;
 
-			}
+
 		} else {
 			wristUI = GameObject.Find ("aimShotUI");
 		}
