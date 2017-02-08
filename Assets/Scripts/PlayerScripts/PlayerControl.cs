@@ -910,7 +910,7 @@ public class PlayerControl : MonoBehaviour
                     anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
             }
 
-            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight);
+            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
             //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
         }
 	}
@@ -986,7 +986,6 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(g.transform.position, g.transform.position + g.transform.forward, Color.white);
                 Physics.Raycast(g.transform.position, g.transform.forward, out hit, 1f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
                 if (hit.collider == null)
                     footGrab = false;

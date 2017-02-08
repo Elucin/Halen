@@ -65,7 +65,7 @@ public class AIFloater : AIBase {
         Instantiate(mine, transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 
-    void OnCollisionEnter(Collision c)
+    void OnCollisionStay(Collision c)
     {
         float x = Random.Range(-1f, 1f);
         float z = Random.Range(-1f, 1f);
