@@ -778,7 +778,8 @@ public class PlayerControl : MonoBehaviour
 			}
 		} else {
 			anim.SetBool (shootBool, false);
-			StartCoroutine(eyeScript.EyeExpression (13, 0,true));
+            if(halenEyes_Script.currentEyeIndex == 9)
+			    StartCoroutine(eyeScript.EyeExpression (13, 0,true));
 		}
 	}
 
