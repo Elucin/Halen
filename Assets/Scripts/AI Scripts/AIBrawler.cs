@@ -17,6 +17,7 @@ public class AIBrawler : AIBase {
     private float flashTimer;
     private const float flashTime = 0.1f;
     private bool attacked = false;
+    private bool didDamage = false;
 
     //Brawler Paramters
     private int inRangeBool;
@@ -68,8 +69,14 @@ public class AIBrawler : AIBase {
                 Patrol();
                 DetectPlayer();
             }
+            else if(currentAIState == idleState)
+            {
+                meshAgent.speed = 0;
+                DetectPlayer();
+            }
             else if (currentAIState == moveState)
             {
+                didDamage = false;
                 meshAgent.speed = runSpeed;
                 Move();
             }
@@ -95,15 +102,12 @@ public class AIBrawler : AIBase {
             }
             if (currentAIState == attackState)
             {
-				
                 //GetComponent<MeshRenderer>().material.color = Color.clear;
                 if (!attacked)
                 {
 					AttackParticle.Play ();
                     //GetComponent<Rigidbody>().AddForce(Vector3.up * 10000f, ForceMode.Impulse);
                     attacked = true;
-
-
                 }
             }
             
@@ -112,13 +116,10 @@ public class AIBrawler : AIBase {
 
     void OnCollisionEnter(Collision c)
     {
-        if(currentAIState == attackState)
+        if(currentAIState == attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.1f && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.3f && !didDamage && c.transform.CompareTag("Player"))
         {
-            if(c.transform.tag == ("Player"))
-            {
-                halen.GetComponent<PlayerControl>().damageBuffer += 40;
-            }
-
+            halen.GetComponent<PlayerControl>().damageBuffer += 70;
+            didDamage = true;
         }
     }
 

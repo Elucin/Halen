@@ -14,7 +14,7 @@ public class gun_glowing : MonoBehaviour {
 	void Update () {
 		
 
-		if (Halen.IsAiming () == true) {
+		if (PlayerControl.isAiming) {
 			
 			Glow.Play ();
 		} else {

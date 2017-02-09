@@ -106,7 +106,7 @@ public class PlayerControl : MonoBehaviour
     private float hk;
     private float vk;
 
-	private bool aim;
+	private static bool aim;
 	private bool roll;
 	private bool run;
 	private bool sprint;
@@ -177,6 +177,7 @@ public class PlayerControl : MonoBehaviour
     bool clickToRespawn = false;
     
     public static bool isDead{get{return health <= 0;}}
+    public static bool isAiming { get { return IsAiming(); } }
     public static float Health { get { return health;} set { health = value; }}
     public static int Ammo { get { return currentShots; } set { currentShots = value; } }
     public static float DashCooldown { get { return (Mathf.Clamp(Time.time - dashTimer, 0, DASH_COOLDOWN)) / DASH_COOLDOWN;} }
@@ -840,7 +841,7 @@ public class PlayerControl : MonoBehaviour
         return health <= 0;
     }
 
-	public bool IsAiming()
+	public static bool IsAiming()
 	{
 		return aim;
 	}

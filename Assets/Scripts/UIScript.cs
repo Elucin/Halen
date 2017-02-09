@@ -21,7 +21,7 @@ public class UIScript : MonoBehaviour {
     Text ShotCDText;
     Text DashCDText;
     bool aiming;
-	private GameObject wristUI;
+	public Canvas wristUI;
     public Text comboCounter;
     public Image comboTimer;
     public Text comboMultiplier;
@@ -49,24 +49,20 @@ public class UIScript : MonoBehaviour {
 		shotFillsWrist[4] = GameObject.Find ("aimShot2Full").GetComponent<Image>();
 		shotFillsWrist[5] = GameObject.Find ("aimShot1Full").GetComponent<Image>();
 		wristUI = GameObject.Find ("aimShotUI"); */
+        wristUI = GameObject.Find("aimShotUI").GetComponent<Canvas>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        /*
+        
 		if (shotCooldownBarWrist == null && PlayerControl.Health>0) {
-			shotCooldownBarWrist = GameObject.Find ("aimShotCooldownFill").GetComponent<Image>();
-			shotFillsWrist[0] = GameObject.Find ("aimShot6Full").GetComponent<Image>();
-			shotFillsWrist[1] = GameObject.Find ("aimShot5Full").GetComponent<Image>();
-			shotFillsWrist[2] = GameObject.Find ("aimShot4Full").GetComponent<Image>();
-			shotFillsWrist[3] = GameObject.Find ("aimShot3Full").GetComponent<Image>();
-			shotFillsWrist[4] = GameObject.Find ("aimShot2Full").GetComponent<Image>();
-			shotFillsWrist[5] = GameObject.Find ("aimShot1Full").GetComponent<Image>();
-			wristUI = GameObject.Find ("aimShotUI");
+			shotCooldownBarWrist = GameObject.Find ("wrist_RechargeFill").GetComponent<Image>();
+            shotFillsWrist = GameObject.Find("wrist_BulletFill").GetComponent<Image>();
+			wristUI = GameObject.Find ("aimShotUI").GetComponent<Canvas>();
 		}
 
-
+        /*
 		for (int i = 0; i < shotFills.GetLength (0); i++) {
 			shotFills [i].color = Color.Lerp (Color.black, Color.white, (Time.time - Halen.longShootCooldownStart) / 2f);
 			shotFillsWrist [i].color = Color.Lerp (Color.black, Color.white, (Time.time - Halen.longShootCooldownStart) / 2f);
@@ -81,7 +77,7 @@ public class UIScript : MonoBehaviour {
 			GameObject.Find ("Theravall_healthBG").SetActive (false);
 		}
 
-        aiming = Halen.IsAiming();
+        aiming = PlayerControl.isAiming;
 
         healthBar.fillAmount = PlayerControl.Health / 100f;
        // healthBar.color = Color.Lerp(Color.red, Color.cyan, Halen.damageReduction * 3f);
@@ -109,16 +105,14 @@ public class UIScript : MonoBehaviour {
 
 		if (wristUI != null) {
 			if (aiming)
-				wristUI.SetActive (true);
+				wristUI.enabled = true;
 			else
-				wristUI.SetActive (false);
+                wristUI.enabled = false;
 
 			shotCooldownBarWrist.fillAmount = 0.25f * PlayerControl.ShotCharge;
 			shotFillsWrist.fillAmount = 0.032f * PlayerControl.Ammo;
 
 
-		} else {
-			wristUI = GameObject.Find ("aimShotUI");
 		}
         
         /*

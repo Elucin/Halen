@@ -5,6 +5,12 @@ public class ChargerWeakSpot : MonoBehaviour {
     //public ParticleSystem sparks;
     public bool exposed = false;
     public GameObject[] backpanels;
+    private AIBase chargerScript;
+
+    void Start()
+    {
+        chargerScript = GetComponentInParent<AIBase>();
+    }
 
 	void OnCollisionEnter(Collision c)
     {
@@ -12,12 +18,13 @@ public class ChargerWeakSpot : MonoBehaviour {
         {
             PlayerControl halen = c.transform.GetComponent<PlayerControl>();
             if (halen.IsDashing() && exposed)
-                GetComponentInParent<AIBase>().health = 0;
+                chargerScript.health = 0;
         }
         else if (c.transform.name.Contains("LargeShot"))
         {
             if (!exposed)
             {
+                chargerScript.DoAlerted();
                 exposed = true;
                 Destroy(backpanels[0]);
                 Destroy(backpanels[1]);
@@ -27,7 +34,7 @@ public class ChargerWeakSpot : MonoBehaviour {
         }
         else if (c.transform.name.Contains("SmallShot") && exposed)
         {
-            GetComponentInParent<AIBase>().doStun(1f);
+            chargerScript.doStun(1f);
         }
     }
 }
