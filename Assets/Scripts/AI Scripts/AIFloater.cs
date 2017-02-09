@@ -45,11 +45,7 @@ public class AIFloater : AIBase {
             foreach(Transform g in MineScript.mineList)
             {
                 if (Vector3.Distance(transform.position, g.position) < 5.85f)
-                {
-                    Debug.Log("Nope!");
                     return;
-                }
-
             }
             mineTimer = Time.time;
             anim.SetTrigger(mineTrigger);
