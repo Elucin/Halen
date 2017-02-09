@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class halenEyes_Script : MonoBehaviour {
 
-	public float eyeDirectionY;
-	public float eyeDirectionX;
-
+	Animator EyeLookanim;
+	public static int eyeY; 
+	public static int eyeX;
 	public static bool finished = true;
 	public Texture2D[] Eyes = new Texture2D[14];
 	bool blink = true;
@@ -16,9 +16,17 @@ public class halenEyes_Script : MonoBehaviour {
 	{
 		public int index;
 		public float duration;
+		public float eyeDirectionY;
+		public float eyeDirectionX;
 	};
 
 	/*
+	 * eye direction
+	 * eyeX - -1 is left, 1 is right
+	 * eyeY - 1 is up, -1 is down
+	 * 
+	 * 
+	 * eye expression
 	0 - squint
 	1 - confused
 	2 - annoyed
@@ -39,8 +47,10 @@ public class halenEyes_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		eyeDirectionY = 0;
-		eyeDirectionX = 0;
+		EyeLookanim = transform.parent.GetComponent<Animator> ();
+		eyeY = Animator.StringToHash ("EyesY");
+		eyeX = Animator.StringToHash ("EyesX");
+
 	}
 	
 	// Update is called once per frame
@@ -53,15 +63,20 @@ public class halenEyes_Script : MonoBehaviour {
 
 	}
 
-	public IEnumerator EyeExpression(int EyeIndex, float Duration, bool ReturntoNeutral = true, EyeStruct[] e = null, int i = 0)
+	public IEnumerator EyeExpression(int EyeIndex, float Duration,bool ReturntoNeutral = true, float EyeY =0f, float EyeX =0f,  EyeStruct[] e = null, int i = 0)
 	{
 		GetComponent<MeshRenderer> ().material.mainTexture = Eyes [EyeIndex];
+		EyeLookanim.SetFloat (eyeX, EyeX);
+		EyeLookanim.SetFloat (eyeY, EyeY);
 		yield return new WaitForSeconds (Duration);
 		if (ReturntoNeutral ==true) {	
 			GetComponent<MeshRenderer> ().material.mainTexture = Eyes [13];
+			EyeLookanim.SetFloat (eyeX, 0f);
+			EyeLookanim.SetFloat (eyeY, 0f);
 		}
 		if(e != null)
 			RunSequence (e, ++i); 
+		
 		
 	}
 
@@ -70,7 +85,7 @@ public class halenEyes_Script : MonoBehaviour {
 		//if (halenEyes_Script.finished) {
 		if (i < e.Length) {
 			running = true;
-			StartCoroutine (EyeExpression (e [i].index, e [i].duration, i == e.Length - 1, e, i));
+			StartCoroutine (EyeExpression (e [i].index, e [i].duration, i == e.Length - 1, e[i].eyeDirectionY,e[i].eyeDirectionX,  e, i));
 		}
 		else
 			running = false;
@@ -80,8 +95,9 @@ public class halenEyes_Script : MonoBehaviour {
 	IEnumerator Blink(float delay)
 	{
 		blink = false;
+
 		yield return new WaitForSeconds (delay);
-		StartCoroutine(EyeExpression (0, 0.05f));
+		StartCoroutine(EyeExpression (0, 1f,true, -0.5f,0f));
 		blink = true;
 	}
 }

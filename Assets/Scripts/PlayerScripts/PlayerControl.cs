@@ -61,6 +61,12 @@ public class PlayerControl : MonoBehaviour
 	private Vector3 secondPos;
 	private float dashPower;
 
+    private float prevDegree = 0;
+    private float targetAngle;
+    private bool swapping = false;
+    private float swapTimer;
+    private const float SWAP_TIME = 0.25f;
+
 	private Animator anim;
 	private int speedFloat;
 	private int vSpeedFloat;
@@ -140,15 +146,7 @@ public class PlayerControl : MonoBehaviour
     private static int slashState;
 	private static int noSlashState;
 
-	private static int lookUpState;
-	private static int lookDownState;
-	private static int lookRightState;
-	private static int lookLeftState;
 
-	private static float eyeLookX;
-	private static float eyeLookY;
-
-	private int currentLookState;
 
 	private int currentBaseState;
 	private int currentDashState;
@@ -261,8 +259,7 @@ public class PlayerControl : MonoBehaviour
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
 
-		eyeLookY = Animator.StringToHash ("eyeLookY");
-		eyeLookX = Animator.StringToHash ("eyeLookX");
+
 
 		rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
@@ -276,10 +273,7 @@ public class PlayerControl : MonoBehaviour
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
 
-		lookUpState = Animator.StringToHash ("EyesLook.LookUp");
-		lookDownState = Animator.StringToHash ("EyesLook.LookDown");
-		lookRightState = Animator.StringToHash ("EyesLook.LookRight");
-		lookLeftState = Animator.StringToHash ("EyesLook.LookLeft");
+
 
 
 
@@ -470,7 +464,7 @@ public class PlayerControl : MonoBehaviour
 		currentSlashState = anim.GetCurrentAnimatorStateInfo (4).fullPathHash;
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
-		currentLookState = anim.GetCurrentAnimatorStateInfo (7).fullPathHash;
+
 
         if (!jump)
         {
@@ -561,7 +555,6 @@ public class PlayerControl : MonoBehaviour
             wallRun = false;
 			GetComponent<Rigidbody> ().AddForce (cameraTransform.TransformDirection(Vector3.forward).normalized * jumpHeight * 1f, ForceMode.Impulse);
 			anim.SetBool (jumpBool, false);
-            Debug.Log("Backflip");
             anim.SetTrigger(backFlipTrig);
         }
 
@@ -631,7 +624,6 @@ public class PlayerControl : MonoBehaviour
         {
             RaycastHit hit;
             float inclineMod;
-            Debug.DrawRay(transform.position, transform.forward, Color.white, 0.01f);
             if (Physics.Raycast(transform.position, transform.forward, out hit, 1.0f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
             { 
                 float dot = Vector3.Dot(Vector3.up, hit.normal);
@@ -775,7 +767,7 @@ public class PlayerControl : MonoBehaviour
 					
 				_PlayerSFXManager.playSoundEffect ("largeShot");
 
-			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim")) {
+			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim") && !swapping && currentBaseState != rollState) {
 				shortShootCooldownStart = Time.time;
 				MuzzleFlash.Play ();
 				SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
@@ -908,10 +900,18 @@ public class PlayerControl : MonoBehaviour
             anim.SetIKRotation(AvatarIKGoal.LeftFoot, lFRot);
 
             anim.SetLookAtWeight(aimingWeight);
-            anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.forward) < 85)
+                anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            else
+            {
+                if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.right) <= 88f)
+                    anim.SetLookAtPosition((transform.right + transform.forward * 0.3f) * 1000.0f);
+                else if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), -transform.right) <= 88f)
+                    anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
+            }
 
-            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight);
-            anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
+            //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
         }
 	}
 
@@ -986,7 +986,6 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(g.transform.position, g.transform.position + g.transform.forward, Color.white);
                 Physics.Raycast(g.transform.position, g.transform.forward, out hit, 1f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
                 if (hit.collider == null)
                     footGrab = false;
@@ -1127,14 +1126,32 @@ public class PlayerControl : MonoBehaviour
 
 	float getCamPlayerAngle()
 	{
-		float angle = Vector3.Angle (transform.forward, cameraTransform.TransformDirection (Vector3.forward));
-		if (Vector3.Angle (transform.right, cameraTransform.TransformDirection (Vector3.forward)) < 90f)
-			return angle;
-		else if (Vector3.Angle (transform.right, cameraTransform.TransformDirection (Vector3.forward)) > 90f)
-			return -angle;
-		else
-			return 0f;
-	}
+        float angle = Vector3.Angle (transform.forward, cameraTransform.TransformDirection (Vector3.forward));
+        if (Vector3.Angle(transform.right, cameraTransform.TransformDirection(Vector3.forward)) > 90f)
+        {
+            angle = -angle;
+        }
+
+        if (Mathf.Abs(prevDegree) > 150f && ((prevDegree < 0 && angle > 0) || (prevDegree > 0 && angle < 0)) && !swapping)
+        {
+            swapping = true;
+            targetAngle = angle;
+            swapTimer = Time.time;
+        }
+
+        if (swapping && (Time.time - swapTimer) / SWAP_TIME < 1f)
+        {
+            return Mathf.Lerp(prevDegree, targetAngle, (Time.time - swapTimer) / SWAP_TIME);
+        }
+        else
+        {
+            swapping = false;
+            return prevDegree = angle;
+        }
+
+    }
+            
+
 
 	void footStepSounds()
 	{		
