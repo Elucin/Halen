@@ -872,10 +872,11 @@ MonoBehaviour:
   explosion: {fileID: 180316, guid: 7b1cdfcdd409d684882a2aafd839d344, type: 2}
   patrolSet: {fileID: 0}
   halen: {fileID: 0}
+  Idle: 0
   triggerCount: 0
   _BrawlerSFXManager: {fileID: 0}
   mine: {fileID: 1065794125394444, guid: 5b7fb2210be9d7747a33e3e0d3232427, type: 2}
-  patrolRange: 200
+  patrolRange: 25
 --- !u!135 &13587222
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -896,8 +897,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 135904}
   m_Enabled: 1
   m_Radius: 0.52
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4
+  m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 240
   m_StoppingDistance: 0
