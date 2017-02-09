@@ -14,7 +14,7 @@ public class AIFloater : AIBase {
     public float patrolRange;
 
     float mineTimer;
-    const float MINE_TIME = 4.0f;
+    const float MINE_TIME = 2.5f;
 
     protected static int FloaterCount = 0;
 
@@ -38,8 +38,17 @@ public class AIFloater : AIBase {
         {
             DetectPlayer();
         }
-        else if(Time.time - mineTimer > MINE_TIME)
+        else if(Time.time - mineTimer > MINE_TIME && Vector3.Distance(halenPos, transform.position) < 100f)
         {
+            foreach(Transform g in MineScript.mineList)
+            {
+                if (Vector3.Distance(transform.position, g.position) < 7f)
+                {
+                    Debug.Log("Nope!");
+                    return;
+                }
+
+            }
             mineTimer = Time.time;
             anim.SetTrigger(mineTrigger);
             StartCoroutine(dropMine(1f));

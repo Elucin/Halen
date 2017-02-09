@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 
 	private float timeToNextJump = 0;
 
-    private const float DASH_COOLDOWN = 2.0f;
+    private const float DASH_COOLDOWN = 3.0f;
     public static float dashTimer;
     private bool collateral = false;
 

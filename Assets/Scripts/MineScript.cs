@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MineScript : MonoBehaviour {
+    public static List<Transform> mineList = new List<Transform>();
     List<Collider> Colliders = new List<Collider>();
     public bool triggered = false;
     bool armed;
@@ -18,13 +19,14 @@ public class MineScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        mineList.Add(transform);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if(triggered)
         {
+            mineList.Remove(transform);
             explosionTrigger.radius = Mathf.Lerp(explosionTrigger.radius, MINE_EXPLODE_RADIUS, t);
             if (t < 1)
             {

@@ -105,7 +105,6 @@ public class AIBase : MonoBehaviour {
             meshAgent.SetDestination(transform.position);
         }
         halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
-        Debug.Log(meshAgent.speed);
         //anim.SetFloat(speedFloat, meshAgent.speed);
         if(Name[0] != "Sniper" && Name[0] != "Floater")
             anim.SetBool(idleBool, Idle);
