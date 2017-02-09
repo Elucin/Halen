@@ -122,7 +122,6 @@ public class AIGunner : AIBase
             shootCooldownStart = Time.time;
 			GunnerMuzzleFlash.Play ();
 			SmallShot newShot = Instantiate(smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
-            newShot.GetComponent<ParticleSystem>().startColor = new Color(108f / 255f, 103f/255f, 227f / 255f);
             newShot.GetComponent<SmallShot>().emitter = ShotEmitterTrans;
             newShot.GetComponent<SmallShot>().bulletSpeed = 50f;
         }
