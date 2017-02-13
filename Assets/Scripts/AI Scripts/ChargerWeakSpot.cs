@@ -18,7 +18,10 @@ public class ChargerWeakSpot : MonoBehaviour {
         {
             PlayerControl halen = c.transform.GetComponent<PlayerControl>();
             if (halen.IsDashing() && exposed)
+            {
                 chargerScript.health = 0;
+                PlayerControl.dashTimer = Time.time - PlayerControl.DASH_COOLDOWN;
+            }
         }
         else if (c.transform.name.Contains("LargeShot"))
         {

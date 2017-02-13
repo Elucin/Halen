@@ -42,7 +42,8 @@ public class UIScript : MonoBehaviour {
 		TheravallUIset = false;
 
         wristUI = GameObject.Find("aimShotUI").GetComponent<Canvas>();
-
+        shotCooldownBarWrist = GameObject.Find("wrist_RechargeFill").GetComponent<Image>();
+        shotFillsWrist = GameObject.Find("wrist_BulletFill").GetComponent<Image>();
     }
 	
 	// Update is called once per frame

@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 
 	private float timeToNextJump = 0;
 
-    private const float DASH_COOLDOWN = 3.0f;
+    public const float DASH_COOLDOWN = 3.0f;
     public static float dashTimer;
     private bool collateral = false;
 
@@ -180,7 +180,7 @@ public class PlayerControl : MonoBehaviour
     public static bool isAiming { get { return IsAiming(); } }
     public static float Health { get { return health;} set { health = value; }}
     public static int Ammo { get { return currentShots; } set { currentShots = value; } }
-    public static float DashCooldown { get { return (Mathf.Clamp(Time.time - dashTimer, 0, DASH_COOLDOWN)) / DASH_COOLDOWN;} }
+    public static float DashCooldown { get { return (Mathf.Clamp(Time.time - dashTimer, 0, DASH_COOLDOWN)) / DASH_COOLDOWN;} set { dashTimer = value; } }
     public static float ShotCharge { get { return (Mathf.Clamp(Time.time - shotRecoverTimer, 0, SHOT_RECOVER_TIME)) / SHOT_RECOVER_TIME; } }
     public static float ShotCooldown { get { return (Mathf.Clamp(Time.time - longShootCooldownStart, 0, LONG_SHOT_COOLDOWN)) / LONG_SHOT_COOLDOWN; } }
 
@@ -260,8 +260,6 @@ public class PlayerControl : MonoBehaviour
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
 
-
-
 		rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
 		doubleJumpState = Animator.StringToHash ("Base.AirJump");
@@ -273,12 +271,6 @@ public class PlayerControl : MonoBehaviour
 		noSlashState = Animator.StringToHash("SwordSlash.NoSlash");
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
-
-
-
-
-
-
 
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
@@ -471,11 +463,6 @@ public class PlayerControl : MonoBehaviour
         {
             if (wallHoldStatus == 1)
                 wallHeld();
-            else if (GetComponent<Rigidbody>().useGravity == false)
-            {
-                //GetComponent<Rigidbody>().velocity = Vector3.down * -27f * Time.deltaTime;
-                //GetComponent<Rigidbody>().useGravity = true;
-            }
             else if (wallHoldStatus == 2)
                 wallSlide();
         }
@@ -485,6 +472,10 @@ public class PlayerControl : MonoBehaviour
         if (wallHoldStatus > 0) {
 			transform.LookAt(transform.position + wallLook);
 		}
+        else if(!wallRun)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+        }
 
         if (previousHoldStatus == 0 && wallHoldStatus == 1)
         {
@@ -554,9 +545,10 @@ public class PlayerControl : MonoBehaviour
             wallHoldStatus = 0;
             wallHold = false;
             wallRun = false;
-			GetComponent<Rigidbody> ().AddForce (cameraTransform.TransformDirection(Vector3.forward).normalized * jumpHeight * 1f, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (-transform.forward.normalized * 400f, ForceMode.Impulse);
 			anim.SetBool (jumpBool, false);
             anim.SetTrigger(backFlipTrig);
+            StartCoroutine(wallRunCooldown(1.5f));
         }
 
         //Resets Double Jump
@@ -1074,7 +1066,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetTrigger(backFlipTrig);
         wallRun = false;
 		GetComponent<Rigidbody> ().useGravity = true;
-        StartCoroutine(wallRunCooldown(1f));
+        StartCoroutine(wallRunCooldown(1.5f));
 
     }
 
