@@ -84,7 +84,7 @@ public class StylePointObject : MonoBehaviour {
         if(destroyed)
             yield return null;
         transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, targetY, 0), Time.deltaTime * 2);
-        if (transform.localPosition.y > targetY + 0.0001f && !destroyed)
+        if (transform.localPosition.y >= targetY + 0.005f && !destroyed)
         {
             StartCoroutine(UpdatePosition());
             yield return null;

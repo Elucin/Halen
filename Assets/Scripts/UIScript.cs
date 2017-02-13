@@ -40,15 +40,7 @@ public class UIScript : MonoBehaviour {
 		}
 	
 		TheravallUIset = false;
-        /*
-		shotCooldownBarWrist = GameObject.Find ("aimShotCooldownFill").GetComponent<Image>();
-		shotFillsWrist[0] = GameObject.Find ("aimShot6Full").GetComponent<Image>();
-		shotFillsWrist[1] = GameObject.Find ("aimShot5Full").GetComponent<Image>();
-		shotFillsWrist[2] = GameObject.Find ("aimShot4Full").GetComponent<Image>();
-		shotFillsWrist[3] = GameObject.Find ("aimShot3Full").GetComponent<Image>();
-		shotFillsWrist[4] = GameObject.Find ("aimShot2Full").GetComponent<Image>();
-		shotFillsWrist[5] = GameObject.Find ("aimShot1Full").GetComponent<Image>();
-		wristUI = GameObject.Find ("aimShotUI"); */
+
         wristUI = GameObject.Find("aimShotUI").GetComponent<Canvas>();
 
     }
@@ -61,12 +53,6 @@ public class UIScript : MonoBehaviour {
             shotFillsWrist = GameObject.Find("wrist_BulletFill").GetComponent<Image>();
 			wristUI = GameObject.Find ("aimShotUI").GetComponent<Canvas>();
 		}
-
-        /*
-		for (int i = 0; i < shotFills.GetLength (0); i++) {
-			shotFills [i].color = Color.Lerp (Color.black, Color.white, (Time.time - Halen.longShootCooldownStart) / 2f);
-			shotFillsWrist [i].color = Color.Lerp (Color.black, Color.white, (Time.time - Halen.longShootCooldownStart) / 2f);
-        }*/
 
 
 		if (Theravall && !TheravallUIset) {
