@@ -56,7 +56,7 @@ public class AIBase : MonoBehaviour {
     // Use this for initialization
     protected virtual void Start () {
         Name = transform.name.Split('-');
-        ui = GameObject.Find("UI").GetComponent<UIScript>();
+        ui = GameObject.Find("UI 1").GetComponent<UIScript>();
         stylePoints = new StylePointsData();
         triggerCount = 0;
         health = 100f;
