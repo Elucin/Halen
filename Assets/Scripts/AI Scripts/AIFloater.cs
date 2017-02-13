@@ -22,8 +22,8 @@ public class AIFloater : AIBase {
 
     // Use this for initialization
     protected override void Start () {
-        base.Start();
         transform.name = "Floater-" + FloaterCount++.ToString();
+        base.Start();
         Name = transform.name.Split('-');
         point = transform.position;
         mineTimer = Time.time;

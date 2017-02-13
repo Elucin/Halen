@@ -47,9 +47,9 @@ public class AICharger : AIBase {
 
     // Use this for initialization
     protected override void Start () {
-        base.Start();
         transform.name = "Charger-" + ChargerCount++.ToString();
-        Name = transform.name.Split('-');
+        base.Start();
+        //Name = transform.name.Split('-');
         basePoints = 500;
         patrolState = Animator.StringToHash("States.Patrol");
         moveState = Animator.StringToHash("States.Move");

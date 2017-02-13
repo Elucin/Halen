@@ -27,10 +27,9 @@ public class AIBrawler : AIBase {
 
 	// Use this for initialization
 	protected override void Start () {
-		
-        base.Start(); 
         transform.name = "Brawler-" + BrawlerCount++.ToString();
-        Name = transform.name.Split('-');
+        base.Start(); 
+        //Name = transform.name.Split('-');
         basePoints = 100;
         //GetComponent<MeshRenderer>().material.color = Color.clear;
         flashTimer = Time.time;

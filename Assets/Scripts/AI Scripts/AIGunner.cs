@@ -31,9 +31,8 @@ public class AIGunner : AIBase
     // Use this for initialization
     protected override void Start()
     {
-        base.Start();
-        transform.name = "Gunner-" + GunnerCount++.ToString();
         Name = transform.name.Split('-');
+        base.Start();
         basePoints = 150;
         //Initialise Gunner States
         patrolState = Animator.StringToHash("States.Patrol");

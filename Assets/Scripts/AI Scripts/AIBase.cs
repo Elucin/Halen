@@ -55,14 +55,15 @@ public class AIBase : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
-        
+        Name = transform.name.Split('-');
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         stylePoints = new StylePointsData();
         triggerCount = 0;
         health = 100f;
         //Initialise Animator
         anim = GetComponent<Animator>();
-        anim.SetBool(idleBool, Idle);
+        if (Name[0] != "Sniper" && Name[0] != "Floater")
+            anim.SetBool(idleBool, Idle);
         //Initialize NavMeshAgent
         meshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
@@ -83,8 +84,6 @@ public class AIBase : MonoBehaviour {
 
         }
         stunnedBool = Animator.StringToHash("Stunned");
- 
-
 
         //oldHealth = health;
     }

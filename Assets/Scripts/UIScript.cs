@@ -16,6 +16,7 @@ public class UIScript : MonoBehaviour {
     public Image shotCooldownBar;
     public GameObject stylePointObject;
     public Image DamageHaze;
+	public Image SwordGlow;
     Text HP_Text;
     Text Ammo_Text;
     Text ShotCDText;
@@ -29,9 +30,14 @@ public class UIScript : MonoBehaviour {
 	public bool Theravall;
 	bool TheravallUIset;
 
+	bool dashFlash;
+	float dashCounter;
+
     // Use this for initialization
     void Start () {
         Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
+
+		dashFlash = false;
 
 		if (GameObject.Find ("Rival 1") != null) {
 			Theravall = true;
@@ -73,6 +79,24 @@ public class UIScript : MonoBehaviour {
 
         //float dashTimer = Mathf.Clamp(2.0f - (Time.time - Halen.dashTimer), 0, 2);
         dashBar.fillAmount = PlayerControl.DashCooldown;
+		if (dashBar.fillAmount == 1f) {
+			if (dashFlash == false) {
+				SwordGlow.color = new Color (1f, 1f, 1f, 1f);
+				dashFlash = true;
+				dashCounter = 20f;
+
+			} else {
+				if (dashCounter > 0) {
+					SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f-(dashCounter / 20f)));
+					dashCounter--;
+				}
+			}
+
+		} else {
+			dashFlash = false;
+			SwordGlow.color = new Color (1f, 1f, 1f, 0f);
+		}
+
         shotCooldownBar.fillAmount = 0.925f - PlayerControl.ShotCooldown * 0.925f;
         shotFills.fillAmount = 0.032f * PlayerControl.Ammo;
         shotRechargeBar.fillAmount = 0.25f * PlayerControl.ShotCharge;
