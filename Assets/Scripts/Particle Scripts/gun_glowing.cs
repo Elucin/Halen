@@ -15,7 +15,6 @@ public class gun_glowing : MonoBehaviour {
 		
 
 		if (PlayerControl.isAiming) {
-			
 			Glow.Play ();
 		} else {
 			Glow.Stop ();
