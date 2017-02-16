@@ -335,7 +335,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48, y: 7.6515, z: -24.91}
+  m_LocalPosition: {x: 10.17, y: 7.6515, z: 2.14}
   m_LocalScale: {x: 1.5607264, y: 1.5607274, z: 1.5607274}
   m_Children:
   - {fileID: 433256}
@@ -872,10 +872,11 @@ MonoBehaviour:
   explosion: {fileID: 180316, guid: 7b1cdfcdd409d684882a2aafd839d344, type: 2}
   patrolSet: {fileID: 0}
   halen: {fileID: 0}
+  Idle: 0
   triggerCount: 0
   _BrawlerSFXManager: {fileID: 0}
   mine: {fileID: 1065794125394444, guid: 5b7fb2210be9d7747a33e3e0d3232427, type: 2}
-  patrolRange: 200
+  patrolRange: 25
 --- !u!135 &13587222
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -886,8 +887,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.53, z: 0}
+  m_Radius: 0.89
+  m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!195 &19566992
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -896,8 +897,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 135904}
   m_Enabled: 1
   m_Radius: 0.52
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4
+  m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 240
   m_StoppingDistance: 0
@@ -963,7 +964,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 0
+  randomSeed: -1375082280
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1442,7 +1443,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 0
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1481,7 +1482,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     rateOverDistance:
-      scalar: 1.5
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3559,7 +3560,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3099ab90e3f612f49a4f8b8e363b98e3, type: 2}
+  - {fileID: 2100000, guid: a11d71baae0909c48b80b11cfb4a4a30, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3571,7 +3572,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

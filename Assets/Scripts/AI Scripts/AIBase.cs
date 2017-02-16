@@ -26,6 +26,7 @@ public class AIBase : MonoBehaviour {
     Vector3 halenDir;
     float halenSpeed;
     bool halenAlive;
+    public bool Idle;
     protected int basePoints;
 
     //AI Parameters
@@ -37,6 +38,7 @@ public class AIBase : MonoBehaviour {
     protected int speedFloat;
     protected int stunnedBool;
     protected int stunTrigger;
+    protected int idleBool;
     protected bool destroyed = false;
 
     //Other Stuff
@@ -53,14 +55,15 @@ public class AIBase : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
-       
-        ui = GameObject.Find("UI").GetComponent<UIScript>();
+        Name = transform.name.Split('-');
+        ui = GameObject.Find("UI 1").GetComponent<UIScript>();
         stylePoints = new StylePointsData();
         triggerCount = 0;
         health = 100f;
         //Initialise Animator
         anim = GetComponent<Animator>();
-
+        if (Name[0] != "Sniper" && Name[0] != "Floater")
+            anim.SetBool(idleBool, Idle);
         //Initialize NavMeshAgent
         meshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
@@ -77,16 +80,17 @@ public class AIBase : MonoBehaviour {
             playerDead = Animator.StringToHash("playerDead");
             speedFloat = Animator.StringToHash("speed");
             stunTrigger = Animator.StringToHash("Stun");
+            idleBool = Animator.StringToHash("Idle");
+
         }
         stunnedBool = Animator.StringToHash("Stunned");
- 
-
 
         //oldHealth = health;
     }
 
     // Update is called once per frame
     protected virtual void Update () {
+
         //Update Halen's Info
         //Should probably add these variables to Halen's script :L
         if (halen == null)
@@ -94,8 +98,15 @@ public class AIBase : MonoBehaviour {
         halenPos = halen.transform.position;
         halenDir = halen.GetComponent<Rigidbody>().velocity.normalized;
         halenAlive = !PlayerControl.isDead;
+        if (!halenAlive && anim.GetBool(alertBool) == true)
+        {
+            anim.SetBool(alertBool, false);
+            meshAgent.SetDestination(transform.position);
+        }
         halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
         //anim.SetFloat(speedFloat, meshAgent.speed);
+        if(Name[0] != "Sniper" && Name[0] != "Floater")
+            anim.SetBool(idleBool, Idle);
         //Update Current State
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         currentAIState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
@@ -120,7 +131,7 @@ public class AIBase : MonoBehaviour {
     {
         //Random Point In A Set
         Transform[] points;
-        if (patrolSet != null && meshAgent != null && meshAgent.isOnNavMesh)
+        if (patrolSet != null && meshAgent != null && meshAgent.isOnNavMesh && !Idle)
         {
             points = patrolSet.GetComponentsInChildren<Transform>();
             if (meshAgent.remainingDistance <= meshAgent.radius)
@@ -151,7 +162,7 @@ public class AIBase : MonoBehaviour {
 
     protected virtual void DetectPlayer()
     {
-        if (Vector3.Angle(transform.forward, halenPos - transform.position) < 85f && (Vector3.Distance(halenPos, transform.position) < 50f || Name[0] == "Sniper"))
+        if (Vector3.Angle(transform.forward, halenPos - transform.position) < 85f && (Vector3.Distance(halenPos, transform.position) < 50f || Name[0] == "Sniper") && halenAlive)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + Vector3.up, (halenPos - transform.position).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))

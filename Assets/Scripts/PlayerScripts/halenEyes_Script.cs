@@ -8,6 +8,7 @@ public class halenEyes_Script : MonoBehaviour {
 	public static int eyeY; 
 	public static int eyeX;
 	public static bool finished = true;
+    public static int currentEyeIndex = 13;
 	public Texture2D[] Eyes = new Texture2D[14];
 	bool blink = true;
 	bool running = false;
@@ -56,20 +57,21 @@ public class halenEyes_Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (blink && !running) {
-			float delay = Random.Range (0.5f, 8f);
+			float delay = Random.Range (3f, 8f);
 			StartCoroutine (Blink (delay));
 		}
 		//StartCoroutine (EyeExpression (0, 2,true));
 
 	}
 
-	public IEnumerator EyeExpression(int EyeIndex, float Duration,bool ReturntoNeutral = true, float EyeY =0f, float EyeX =0f,  EyeStruct[] e = null, int i = 0)
+	public IEnumerator EyeExpression(int EyeIndex, float Duration, bool ReturntoNeutral = true, float EyeY =0f, float EyeX =0f,  EyeStruct[] e = null, int i = 0)
 	{
 		GetComponent<MeshRenderer> ().material.mainTexture = Eyes [EyeIndex];
+        currentEyeIndex = EyeIndex;
 		EyeLookanim.SetFloat (eyeX, EyeX);
 		EyeLookanim.SetFloat (eyeY, EyeY);
 		yield return new WaitForSeconds (Duration);
-		if (ReturntoNeutral ==true) {	
+		if (ReturntoNeutral ==true) {
 			GetComponent<MeshRenderer> ().material.mainTexture = Eyes [13];
 			EyeLookanim.SetFloat (eyeX, 0f);
 			EyeLookanim.SetFloat (eyeY, 0f);
@@ -95,9 +97,8 @@ public class halenEyes_Script : MonoBehaviour {
 	IEnumerator Blink(float delay)
 	{
 		blink = false;
-
 		yield return new WaitForSeconds (delay);
-		StartCoroutine(EyeExpression (0, 1f,true, -0.5f,0f));
+        StartCoroutine(EyeExpression (0, 0.1f, true, -0.5f,0f));
 		blink = true;
 	}
 }

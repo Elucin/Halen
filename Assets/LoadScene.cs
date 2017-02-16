@@ -14,6 +14,7 @@ public class LoadScene : MonoBehaviour {
     {
         if(c.tag == "Player")
         {
+            StopAllCoroutines();
             if(!loadNextScene)
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
             else

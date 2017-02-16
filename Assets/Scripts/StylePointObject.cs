@@ -63,16 +63,7 @@ public class StylePointObject : MonoBehaviour {
         }
         Destroy(gameObject);
     }
-    /*
-    IEnumerator Bump()
-    {
-        targetY -= 12f;
-        while (transform.localPosition.y > targetY + 0.0001f)
-        {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, targetY, 0), Time.deltaTime * 3);
-            yield return null;
-        }
-    }*/
+
     IEnumerator Bump()
     {
         targetY -= 12f;
@@ -84,7 +75,7 @@ public class StylePointObject : MonoBehaviour {
         if(destroyed)
             yield return null;
         transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, targetY, 0), Time.deltaTime * 2);
-        if (transform.localPosition.y > targetY + 0.0001f && !destroyed)
+        if (transform.localPosition.y >= targetY + 0.005f && !destroyed)
         {
             StartCoroutine(UpdatePosition());
             yield return null;

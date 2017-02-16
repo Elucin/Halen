@@ -21,6 +21,7 @@ public class AICharger : AIBase {
     private int smashExecuteState;
     private int aimState;
     private int recoverState;
+    private int idleState;
 
     //Paramaters
     private int smashBool;
@@ -46,9 +47,9 @@ public class AICharger : AIBase {
 
     // Use this for initialization
     protected override void Start () {
-        base.Start();
         transform.name = "Charger-" + ChargerCount++.ToString();
-        Name = transform.name.Split('-');
+        base.Start();
+        //Name = transform.name.Split('-');
         basePoints = 500;
         patrolState = Animator.StringToHash("States.Patrol");
         moveState = Animator.StringToHash("States.Move");
@@ -59,6 +60,7 @@ public class AICharger : AIBase {
         smashExecuteState = Animator.StringToHash("States.Smash_Execute");
         aimState = Animator.StringToHash("States.Aim");
         recoverState = Animator.StringToHash("States.Recover");
+        idleState = Animator.StringToHash("States.Idle");
 
         smashBool = Animator.StringToHash("Smash");
         inRangeBool = Animator.StringToHash("inRange");
@@ -80,6 +82,11 @@ public class AICharger : AIBase {
         {
             meshAgent.speed = walkSpeed;
             Patrol();
+            DetectPlayer();
+        }
+        else if(currentAIState == idleState)
+        {
+            meshAgent.speed = 0;
             DetectPlayer();
         }
         else if (currentAIState == moveState)

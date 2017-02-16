@@ -27,8 +27,8 @@ public class AISniper : AIBase {
 
     // Use this for initialization
     protected override void Start () {
-        base.Start();
         transform.name = "Sniper-" + SniperCount++.ToString();
+        base.Start();
         Name = transform.name.Split('-');
         basePoints = 300;
         //Initialise Gunner States

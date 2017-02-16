@@ -17,8 +17,10 @@ public class AIGunner : AIBase
     private int idleState;
     private int shootState;
     private int aimState;
+    private int meleeState;
     private float shootCooldownStart;
     private int currentAIWeaponState;
+    private int currentAIMeleeState;
     private int aimingWeight;
     //Gunner Paramters
     private int rangeCountInt;
@@ -29,9 +31,8 @@ public class AIGunner : AIBase
     // Use this for initialization
     protected override void Start()
     {
-        base.Start();
-        transform.name = "Gunner-" + GunnerCount++.ToString();
         Name = transform.name.Split('-');
+        base.Start();
         basePoints = 150;
         //Initialise Gunner States
         patrolState = Animator.StringToHash("States.Patrol");
@@ -41,6 +42,8 @@ public class AIGunner : AIBase
         idleState = Animator.StringToHash("States.Idle");
         shootState = Animator.StringToHash("States2.Shoot");
         aimState = Animator.StringToHash("States2.Aim");
+        meleeState = Animator.StringToHash("Melee.Melee");
+        //meleeRecoverState = Animator.StringToHash("Melee.MeleeRecover");
 
         //Initialise Gunner Parameters
         rangeCountInt = Animator.StringToHash("rangeCount");
@@ -60,12 +63,18 @@ public class AIGunner : AIBase
 		}
         base.Update();
         currentAIWeaponState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
+        currentAIMeleeState = anim.GetCurrentAnimatorStateInfo(3).fullPathHash;
         anim.SetInteger(rangeCountInt, triggerCount);
         //Debug.Log(triggerCount);
         if (currentAIState == patrolState)
         {
             meshAgent.speed = walkSpeed;
             Patrol();
+            DetectPlayer();
+        }
+        else if (currentAIState == idleState)
+        {
+            meshAgent.speed = 0;
             DetectPlayer();
         }
         else if (currentAIState == moveState)
@@ -80,24 +89,28 @@ public class AIGunner : AIBase
                 meshAgent.speed = walkSpeed;
                 Move();
             }
-            else if (triggerCount == 3)
+            else if (triggerCount >= 3)
             {
                 meshAgent.speed = walkSpeed;
                 Retreat();
             }
+
+            if (triggerCount <= 3 && !PlayerControl.isDead)
+                aimingWeight = 1;
+            else
+                aimingWeight = 0;
         }
 
-        if(currentAIWeaponState == shootState && health > 0)
+        if(currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
         {
             Shoot();
         }
-
-        if (currentAIWeaponState == shootState || currentAIWeaponState == aimState)
+        /*
+        if (currentAIWeaponState == shootState || currentAIWeaponState == aimState && currentAIMeleeState != meleeState && !anim.IsInTransition(3) && rangeCountInt < 4)
             aimingWeight = 1;
         else
             aimingWeight = 0;
-
-
+            */
     }
 
     protected void Shoot()
@@ -108,7 +121,6 @@ public class AIGunner : AIBase
             shootCooldownStart = Time.time;
 			GunnerMuzzleFlash.Play ();
 			SmallShot newShot = Instantiate(smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
-            newShot.GetComponent<ParticleSystem>().startColor = new Color(108f / 255f, 103f/255f, 227f / 255f);
             newShot.GetComponent<SmallShot>().emitter = ShotEmitterTrans;
             newShot.GetComponent<SmallShot>().bulletSpeed = 50f;
         }

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AIFloater : AIBase {
 
+    private const float FLOAT_SPEED = 4.0f;
+
     //Parameters
     private int mineTrigger;
 
@@ -14,14 +16,14 @@ public class AIFloater : AIBase {
     public float patrolRange;
 
     float mineTimer;
-    const float MINE_TIME = 4.0f;
+    const float MINE_TIME = 1.0f;
 
     protected static int FloaterCount = 0;
 
     // Use this for initialization
     protected override void Start () {
-        base.Start();
         transform.name = "Floater-" + FloaterCount++.ToString();
+        base.Start();
         Name = transform.name.Split('-');
         point = transform.position;
         mineTimer = Time.time;
@@ -38,11 +40,16 @@ public class AIFloater : AIBase {
         {
             DetectPlayer();
         }
-        else if(Time.time - mineTimer > MINE_TIME)
+        else if(Time.time - mineTimer > MINE_TIME && Vector3.Distance(halenPos, transform.position) < 100f)
         {
+            foreach(Transform g in MineScript.mineList)
+            {
+                if (Vector3.Distance(transform.position, g.position) < 5.85f)
+                    return;
+            }
             mineTimer = Time.time;
             anim.SetTrigger(mineTrigger);
-            StartCoroutine(dropMine(1f));
+            StartCoroutine(dropMine(0.5f));
         }
 	}
 
@@ -62,6 +69,7 @@ public class AIFloater : AIBase {
     IEnumerator dropMine(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+
         Instantiate(mine, transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 

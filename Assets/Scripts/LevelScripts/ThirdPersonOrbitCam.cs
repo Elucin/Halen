@@ -89,7 +89,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
                 yAxis = Input.GetAxis("Camera Y Mouse");
             }
 
-            if (!player.GetComponent<PlayerControl>().IsAiming())
+            if (!PlayerControl.isAiming)
             {
                 angleH += Mathf.Clamp(xAxis, -5, 5) * horizontalAimingSpeed * Time.deltaTime;
                 angleV += Mathf.Clamp(yAxis, -5, 5) * verticalAimingSpeed * Time.deltaTime;
@@ -112,7 +112,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
             Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
             cam.rotation = Quaternion.Lerp(cam.rotation, aimRotation, Time.deltaTime * smooth);
 
-            if (playerControl.IsAiming())
+            if (PlayerControl.isAiming)
             {
                 targetPivotOffset = aimPivotOffset;
                 targetCamOffset = aimCamOffset;
@@ -204,8 +204,8 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	void OnGUI () 
 	{
             if(!Cursor.visible)
-			    GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
-			                         Screen.height/2-(crosshair.height*0.5f), 
-			                         crosshair.width, crosshair.height), crosshair);
+			    GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width * Screen.width / 1280f) * 0.5f, 
+			                         Screen.height/2 - (crosshair.width * Screen.width / 1280f) * 0.5f, 
+			                         crosshair.width * Screen.width / 1280f, crosshair.height * Screen.width / 1280f), crosshair);
 	}
 }
