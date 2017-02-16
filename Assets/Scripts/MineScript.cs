@@ -56,12 +56,18 @@ public class MineScript : MonoBehaviour {
                         c.GetComponent<AIBase>().health = 0;
                         c.GetComponent<AIBase>().stylePoints.deathType = "FloaterMine";
                     }
+                    else if(c.transform.tag == "Charger")
+                    {
+                        c.GetComponent<AIBase>().health -= 20f;
+                        if(c.GetComponent<AIBase>().health <= 0)
+                            c.GetComponent<AIBase>().stylePoints.deathType = "FloaterMine";
+                    }
                     else
                     {
                         if (c.GetComponent<MineScript>().triggered == false)
                         {
                             c.GetComponent<MineScript>().triggered = true;
-                            c.GetComponent<MineScript>().explodeTimer = Time.time - 0.4f;
+                            c.GetComponent<MineScript>().explodeTimer = Time.time - 0.3f;
                         }
                     }
                 
@@ -85,6 +91,18 @@ public class MineScript : MonoBehaviour {
             {
                 triggered = true;
                 explodeTimer = Time.time;
+            }
+        }
+        else if(c.CompareTag("Charger"))
+        {
+            if (!Colliders.Contains(c))
+                Colliders.Add(c);
+
+            AICharger script = c.GetComponent<AICharger>();
+            if(script.IsCharging() && armed)
+            {
+                triggered = true;
+                explodeTimer = Time.time - 0.45f;
             }
         }
         else if(c.CompareTag("Enemy") || c.CompareTag("Mine"))
