@@ -9,6 +9,7 @@ public class CameraSequence : MonoBehaviour {
 		public GameObject Camera;
 		public float duration;
 		public GameObject Subject;
+
 	};
 
 	public CameraStruct[] CamStep;
@@ -26,21 +27,25 @@ public class CameraSequence : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (goTime) {
-			
-			CamStep [index].Camera.SetActive (true);
-			CamStep[index].Subject.SetActive (true);
 			if (index != 0) {
 				CamStep [index-1].Camera.SetActive (false);
 				CamStep [index-1].Subject.SetActive (false);
+
 			}
+			CamStep [index].Camera.SetActive (true);
+			CamStep[index].Subject.SetActive (true);
+		
+
 			goTime = false;
 			Timer = 0;
 
 		}
 		else {
 			if (Timer >= CamStep [index].duration) {
-				index++;
-				goTime = true;
+				if (index + 1 < CamStep.Length) {
+					index++;
+					goTime = true;
+				}
 			} else {
 				Timer += Time.deltaTime; 
 			}
