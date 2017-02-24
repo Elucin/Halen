@@ -3152,6 +3152,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 23498053674542286, guid: a76511c766565b347846d415b1b8db58,
+        type: 2}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4426869181763494, guid: a76511c766565b347846d415b1b8db58, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.86
@@ -3244,6 +3249,11 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23498053674542286, guid: a76511c766565b347846d415b1b8db58,
+        type: 2}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a2bc5ec76a621b49801ea6e1c822ed8, type: 2}
     m_RemovedComponents:
     - {fileID: 108192201168136364, guid: a76511c766565b347846d415b1b8db58, type: 2}
     - {fileID: 114405743501818904, guid: a76511c766565b347846d415b1b8db58, type: 2}
@@ -3467,7 +3477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1007292360
 AudioListener:
   m_ObjectHideFlags: 0
