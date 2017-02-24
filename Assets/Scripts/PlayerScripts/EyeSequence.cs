@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class EyeSequence : MonoBehaviour {
 
-	halenEyes_Script eyeScript;
+	public halenEyes_Script eyeScript;
 	public halenEyes_Script.EyeStruct[] EyeStep;
+
+	public bool triggered = false; 
 
 	// Use this for initialization
 	void Start () {
-		eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
+		if (eyeScript == null) {
+			eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
+		}
+	
 	}
 	
 	// Update is called once per frame
@@ -19,6 +24,18 @@ public class EyeSequence : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+	void Update() {
+		if(triggered)
+		{
+			eyeScript.RunSequence (EyeStep);
+			Destroy (gameObject);
+		}
+	
+	}
+
+
+
+
 
 
 }

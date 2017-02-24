@@ -9,6 +9,7 @@ public class CameraSequence : MonoBehaviour {
 		public GameObject Camera;
 		public float duration;
 		public GameObject Subject;
+		public EyeSequence Eyes;
 
 	};
 
@@ -34,6 +35,9 @@ public class CameraSequence : MonoBehaviour {
 			}
 			CamStep [index].Camera.SetActive (true);
 			CamStep[index].Subject.SetActive (true);
+			if (CamStep [index].Eyes != null) {
+				CamStep [index].Eyes.triggered = true;
+			}
 		
 
 			goTime = false;
