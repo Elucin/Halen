@@ -30,8 +30,9 @@ public class CameraSequence : MonoBehaviour {
 		if (goTime) {
 			if (index != 0) {
 				CamStep [index-1].Camera.SetActive (false);
-				CamStep [index-1].Subject.SetActive (false);
-
+				if (CamStep [index - 1].Subject != CamStep [index].Subject) {
+					CamStep [index - 1].Subject.SetActive (false);
+				}
 			}
 			CamStep [index].Camera.SetActive (true);
 			CamStep[index].Subject.SetActive (true);
