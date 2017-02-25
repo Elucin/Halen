@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0b846be1b116429409a7669cacf2a62e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43698186, g: 0.48466253, b: 0.56492376, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1761,7 +1761,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351067397}
-  m_LocalRotation: {x: -0.05965275, y: -0.2595658, z: -0.016066253, w: 0.9637474}
+  m_LocalRotation: {x: -0.059684433, y: -0.2586785, z: -0.016015895, w: 0.9639848}
   m_LocalPosition: {x: 2183, y: 153, z: 685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1799,12 +1799,15 @@ MonoBehaviour:
   - Camera: {fileID: 351067397}
     duration: 5
     Subject: {fileID: 1911009462}
+    Eyes: {fileID: 0}
   - Camera: {fileID: 1844423457}
     duration: 10.5
     Subject: {fileID: 259367038}
+    Eyes: {fileID: 0}
   - Camera: {fileID: 2063298448}
     duration: 3
     Subject: {fileID: 1563207804}
+    Eyes: {fileID: 0}
 --- !u!4 &361098230
 Transform:
   m_ObjectHideFlags: 0
