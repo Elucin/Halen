@@ -87,10 +87,12 @@ public class halenEyes_Script : MonoBehaviour {
 		//if (halenEyes_Script.finished) {
 		if (i < e.Length) {
 			running = true;
-			StartCoroutine (EyeExpression (e [i].index, e [i].duration, i == e.Length - 1, e[i].eyeDirectionY,e[i].eyeDirectionX,  e, i));
+			StartCoroutine (EyeExpression (e [i].index, e [i].duration, i == e.Length - 1, e [i].eyeDirectionY, e [i].eyeDirectionX, e, i));
+
 		}
-		else
+		else {
 			running = false;
+		}
 		//}
 	}
 

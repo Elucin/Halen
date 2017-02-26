@@ -33,8 +33,13 @@ public class CameraSequence_2 : MonoBehaviour {
 				CamStep [index-1].Camera.SetActive (false);
 
 				for (int i = 0; i < CamStep [index-1].Subject.Length; i++) {
-					if (CamStep [index - 1].Subject[i] != CamStep [index].Subject[i]) {
-						CamStep [index - 1].Subject[i].SetActive (false);
+					if (i < CamStep [index].Subject.Length) {
+						if (CamStep [index - 1].Subject [i] != CamStep [index].Subject [i]) {
+							CamStep [index - 1].Subject [i].SetActive (false);
+						}
+					}
+					else {
+						CamStep [index - 1].Subject [i].SetActive (false);
 					}
 				}
 
@@ -42,8 +47,8 @@ public class CameraSequence_2 : MonoBehaviour {
 			//camera
 			CamStep [index].Camera.SetActive (true);
 		
-			for (int i = 0; i < CamStep [index].Subject.Length; i++) {
-				CamStep [index].Subject[i].SetActive (true);
+			for (int j = 0; j < CamStep [index].Subject.Length; j++) {
+				CamStep [index].Subject[j].SetActive (true);
 			}
 			//eyes
 			if (CamStep [index].Eyes != null) {
