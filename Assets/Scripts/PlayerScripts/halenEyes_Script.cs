@@ -100,7 +100,10 @@ public class halenEyes_Script : MonoBehaviour {
 	{
 		blink = false;
 		yield return new WaitForSeconds (delay);
-        StartCoroutine(EyeExpression (0, 0.1f, true, -0.5f,0f));
+		if (!running) {
+			StartCoroutine (EyeExpression (0, 0.1f, true, -0.5f, 0f));
+
+		}
 		blink = true;
 	}
 }
