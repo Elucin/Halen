@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour {
     [Tooltip("The location where the enemies spawn.")]
     public Transform[] Spawn_Point;
 
-    bool PlayerInTrigger = false;
+    int PlayerInTrigger = 0;
     [Tooltip("If TRUE, spawner will only spawn while player is in the trigger. Otherwise, it will not stop even if the player exits the trigger.")]
     public bool DoToggleSpawn = true;
 
@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Time.time - spawnTimerBrawler >= spawnTimeBrawler || initialSpawn) && PlayerInTrigger && brawlerCount < brawler_Spawn_Count && !PlayerControl.isDead) {
+		if ((Time.time - spawnTimerBrawler >= spawnTimeBrawler || initialSpawn) && PlayerInTrigger > 0 && brawlerCount < brawler_Spawn_Count && !PlayerControl.isDead) {
             if (initialSpawn)
                 initialSpawn = false;
 			Vector3 pos = Spawn_Point[Random.Range(0, Spawn_Point.Length)].transform.position + Random.insideUnitSphere * SpawnArea;
@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour {
             brawlerCount++;
         }
 
-        if ((Time.time - spawnTimerGunner >= spawnTimeGunner || initialSpawn) && PlayerInTrigger && gunnerCount < gunner_Spawn_Count && !PlayerControl.isDead)
+        if ((Time.time - spawnTimerGunner >= spawnTimeGunner || initialSpawn) && PlayerInTrigger > 0 && gunnerCount < gunner_Spawn_Count && !PlayerControl.isDead)
         {
             if (initialSpawn)
                 initialSpawn = false;
@@ -81,12 +81,12 @@ public class Spawner : MonoBehaviour {
     public void OnChildTriggerEnter(Collider c)
     {
         if (c.transform.tag == "Player")
-            PlayerInTrigger = true;
+			++PlayerInTrigger;
     }
 
     public void OnChildTriggerExit(Collider c)
     {
         if (c.transform.tag == "Player" && DoToggleSpawn)
-            PlayerInTrigger = false;
+            --PlayerInTrigger;
     }
 }
