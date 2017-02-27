@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RignLight
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
+  m_Name: GreenGlow
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -75,7 +75,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 207cd7d6bdf48884581528e5cefd1cd7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ToonShade
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _BumpAmt
+      second: 10
     - first:
         name: _BumpScale
       second: 1
@@ -89,13 +98,10 @@ Material:
         name: _DstBlend
       second: 0
     - first:
-        name: _GlossMapScale
-      second: 1
-    - first:
         name: _Glossiness
-      second: 1
+      second: 0.5
     - first:
-        name: _GlossyReflections
+        name: _InvFade
       second: 1
     - first:
         name: _Metallic
@@ -107,6 +113,9 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
+        name: _Outline
+      second: 0.005
+    - first:
         name: _Parallax
       second: 0.02
     - first:
@@ -114,13 +123,7 @@ Material:
       second: 1
     - first:
         name: _RimMin
-      second: 0.211
-    - first:
-        name: _SmoothnessTextureChannel
       second: 0
-    - first:
-        name: _SpecularHighlights
-      second: 1
     - first:
         name: _SrcBlend
       second: 1
@@ -133,16 +136,22 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0, g: 1, b: 0.7103448, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _HColor
-      second: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
+      second: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _RimColor
       second: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
     - first:
         name: _SColor
-      second: {r: 0.21323532, g: 0.21323532, b: 0.21323532, a: 1}
+      second: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - first:
+        name: _TintColor
+      second: {r: 0, g: 0.30882353, b: 0.0021298002, a: 0.5}
