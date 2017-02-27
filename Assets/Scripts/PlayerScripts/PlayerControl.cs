@@ -149,7 +149,7 @@ public class PlayerControl : MonoBehaviour
 
 
 	private int currentBaseState;
-	private int currentDashState;
+	public static int currentDashState;
 	private int currentSlashState;
 	private AnimatorStateInfo baseStateInfo;
 
@@ -175,6 +175,8 @@ public class PlayerControl : MonoBehaviour
 	float wallSpeed;
 
     bool clickToRespawn = false;
+
+    static bool charged;
     
     public static bool isDead{get{return health <= 0;}}
     public static bool isAiming { get { return IsAiming(); } }
@@ -183,6 +185,7 @@ public class PlayerControl : MonoBehaviour
     public static float DashCooldown { get { return (Mathf.Clamp(Time.time - dashTimer, 0, DASH_COOLDOWN)) / DASH_COOLDOWN;} set { dashTimer = value; } }
     public static float ShotCharge { get { return (Mathf.Clamp(Time.time - shotRecoverTimer, 0, SHOT_RECOVER_TIME)) / SHOT_RECOVER_TIME; } }
     public static float ShotCooldown { get { return (Mathf.Clamp(Time.time - longShootCooldownStart, 0, LONG_SHOT_COOLDOWN)) / LONG_SHOT_COOLDOWN; } }
+    public static bool Charged { get { return charged; } set { charged = value; } }
 
 	MeleeWeaponTrail SliceTrail;
 
@@ -722,10 +725,17 @@ public class PlayerControl : MonoBehaviour
         //Execute only when dashing
         if (IsDashing())
         {
-			
             dashVelocityCoefficient = anim.GetFloat(dashVelocityFloat);
-            if (dashVelocityCoefficient > 0)
-                GetComponent<Rigidbody>().velocity = dashDirection * 60.0f * dashVelocityCoefficient;
+            if (!Charged)
+            {
+                if (dashVelocityCoefficient > 0)
+                    GetComponent<Rigidbody>().velocity = dashDirection * 60.0f * dashVelocityCoefficient;
+            }
+            else
+            {
+                if (dashVelocityCoefficient > 0)
+                    GetComponent<Rigidbody>().velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
+            }
         }
         else if (collateral)
             collateral = false;
@@ -838,7 +848,7 @@ public class PlayerControl : MonoBehaviour
 		return aim;
 	}
 
-	public bool IsDashing()
+	public static bool IsDashing()
 	{
 		return currentDashState == dashState;
 	}

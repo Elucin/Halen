@@ -662,6 +662,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4466823487852618}
+  - component: {fileID: 114695785279375200}
+  - component: {fileID: 114956496904414926}
   m_Layer: 10
   m_Name: grp_Root
   m_TagString: Untagged
@@ -6366,6 +6368,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &114695785279375200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217714356543886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b985bf082359e6e46a9787c591f5bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 1985223810916664}
 --- !u!114 &114698015706714890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6542,6 +6556,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &114956496904414926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217714356543886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08b7436a011bb24bb6355e3acb14fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vargamragdoll: {fileID: 455870, guid: a83e8f6114e009646ab74269c9a3f8e9, type: 2}
 --- !u!135 &135168475863913664
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -49,7 +49,7 @@ public class Halen_Particles : MonoBehaviour {
         if (!PlayerControl.isDead)
         {
             // DASH PARTICLES
-            if (Halen.IsDashing()) 
+            if (PlayerControl.IsDashing()) 
 			{
                 if(dashStorage == false)
                 {
@@ -88,13 +88,6 @@ public class Halen_Particles : MonoBehaviour {
 				landingStorage = true;
 				StopDust.Play ();
 			}
-
-
-
-
-
-
-
 
             // RUN DUST PARTICLES
 
