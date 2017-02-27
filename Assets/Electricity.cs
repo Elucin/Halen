@@ -8,12 +8,13 @@ public class Electricity : MonoBehaviour {
     ParticleSystem.Particle[] particlePos;
     public Transform Source;
     public Transform Target;
-    public float Threshold = 5f;
+    public float Threshold;
     // Use this for initialization
     void Start () {
         p = GetComponent<ParticleSystem>();
         line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
+        Target = GameObject.Find("sword_base").transform;
 	}
 	
 	// Update is called once per frame
@@ -26,11 +27,9 @@ public class Electricity : MonoBehaviour {
         ParticleSystem.ShapeModule s = p.shape;
         Vector3[] pos = new Vector3[p.particleCount];
         p.GetParticles(particlePos);
-
-        if (Vector3.Distance(Source.position, Target.position) < Threshold && Target != null)
+        if (Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.root.position)) < Threshold && Target != null && !PlayerControl.isDead)
         {
-            Debug.Log("In range");
-            s.length = Vector3.Distance(Source.position, Target.position);
+            s.length = 2 * Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.position));
             transform.LookAt(Target.position);
             s.angle = 0;
             line.numPositions = p.particleCount + 2;
@@ -38,9 +37,9 @@ public class Electricity : MonoBehaviour {
         }
         else
         {
-            s.length = 5f;
+            s.length = 20f;
             transform.LookAt(transform.position + Vector3.up);
-            s.angle = 25;
+            s.angle = 20;
             line.numPositions = p.particleCount + 1;
         }
 
@@ -51,6 +50,7 @@ public class Electricity : MonoBehaviour {
         }
 
         bool sorted = true;
+
         do
         {
             sorted = true;
@@ -67,9 +67,8 @@ public class Electricity : MonoBehaviour {
                     }
                 }
             }
-        } while (!sorted);
-
-
+        }while (!sorted);
+        line.SetPosition(0, transform.InverseTransformPoint(Source.position));
         for (int i = 0; i < p.particleCount; i++)
         {
             line.SetPosition(i + 1, pos[i]);
@@ -84,5 +83,10 @@ public class Electricity : MonoBehaviour {
         }
 
         particlePos = new ParticleSystem.Particle[p.particleCount];
+
+        if(Target == null)
+        {
+            Target = GameObject.Find("sword_base").transform;
+        }
     }
 }

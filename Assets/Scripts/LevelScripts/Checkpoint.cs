@@ -7,9 +7,11 @@ public class Checkpoint : MonoBehaviour {
     public int ID;
 	public Material activeMat;
 	public Material inactiveMat;
+    Jumo jumper;
 
     // Use this for initialization
     void Start() {
+        jumper = GameObject.FindObjectOfType<Jumo>();
         ID = numCheckpoints++;
         transform.name = "Checkpoint" + ID.ToString();
     }
@@ -18,6 +20,7 @@ public class Checkpoint : MonoBehaviour {
     {
 		if (c.CompareTag("Player") && !isActivated)
         {
+            jumper.CheckpointY = transform.position.y + 60f;
             isActivated = true;
 			GetComponent<MeshRenderer>().material = activeMat;
             //Saving.CheckpointID = ID;

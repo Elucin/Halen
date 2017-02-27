@@ -16,8 +16,8 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	float horizontalAimingSpeed = Options.mouseSensitivity;
 	float verticalAimingSpeed = Options.mouseSensitivity;
-	private float maxVerticalAngle = 70f;
-	private float minVerticalAngle = -70f;
+	private float maxVerticalAngle = 80f;
+	private float minVerticalAngle = -80f;
 
 	public float sprintFOV = 100f;
 	
