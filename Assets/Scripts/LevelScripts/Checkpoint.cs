@@ -20,7 +20,8 @@ public class Checkpoint : MonoBehaviour {
     {
 		if (c.CompareTag("Player") && !isActivated)
         {
-            jumper.CheckpointY = transform.position.y + 60f;
+            if(jumper != null)
+                jumper.CheckpointY = transform.position.y + 60f;
             isActivated = true;
 			GetComponent<MeshRenderer>().material = activeMat;
             //Saving.CheckpointID = ID;
