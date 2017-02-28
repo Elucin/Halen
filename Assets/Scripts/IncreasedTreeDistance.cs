@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class IncreasedTreeDistance : MonoBehaviour {
 
-	public float distance;
+	private float distance;
 	public Terrain terrain;
 
 	void Start () {
-		terrain.treeDistance = distance;
+		terrain.treeDistance = 6000;
 	}
 }
