@@ -7,7 +7,6 @@ public class PlayerSFXManager : MonoBehaviour
 	public AudioClip smallShotSFX;
 	public AudioClip largeShotSFX;
 	public AudioClip dashSFX;
-	public AudioClip rollSFX;
 	public AudioClip wallGrabSFX;
 
 	public AudioClip [] footStepSFX;
@@ -78,15 +77,7 @@ public class PlayerSFXManager : MonoBehaviour
 			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
 			CurrentSound.pitch = randPitch;
 			CurrentSound.PlayOneShot (dashSFX, randVol - 0.2f);
-		} else if (soundID == "roll") {
-			pitchHighRange = 2.0f;
-			pitchLowRange = 1.7f;
-			volLowRange = 0.5f;
-			volHighRange = 1.0f;
-			float randVol = Random.Range (volLowRange, volHighRange);
-			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
-			CurrentSound.pitch = randPitch;
-			CurrentSound.PlayOneShot (rollSFX, randVol - 0.2f);
+
 		} else if (soundID == "wallGrab") {
 			pitchHighRange = 2.0f;
 			pitchLowRange = 1.7f;

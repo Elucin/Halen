@@ -565,15 +565,16 @@ public class PlayerControl : MonoBehaviour
 	{
         
 		anim.SetBool (rollBool, roll);
-        if (anim.GetBool(rollBool))
+		if (anim.GetBool(rollBool) && anim.GetBool(rollBool))
         {
-            _PlayerSFXManager.playSoundEffect("roll");
+			_PlayerSFXManager.playSoundEffect("roll");
         }
 
         if (currentBaseState == rollState)
         {
             GetComponent<CapsuleCollider>().height = 0.9f + anim.GetFloat("Height") * 0.9f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.45f + 0.45f * anim.GetFloat("Height"), 0);
+
         }
         else
         {
