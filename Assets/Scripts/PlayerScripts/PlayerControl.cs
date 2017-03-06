@@ -145,6 +145,7 @@ public class PlayerControl : MonoBehaviour
 	private static int dashFinishState;
     private static int slashState;
 	private static int noSlashState;
+    private static int backFlipState;
 
 
 
@@ -269,6 +270,7 @@ public class PlayerControl : MonoBehaviour
 		fallingState = Animator.StringToHash ("Base.Falling");
 		idleState = Animator.StringToHash ("Base.Idle");
 		movingState = Animator.StringToHash ("Base.Locomotion");
+        backFlipState = Animator.StringToHash("Base.Backflip");
 		dashState = Animator.StringToHash ("Dash.Dash");
         slashState = Animator.StringToHash("SwordSlash.Slash");
 		noSlashState = Animator.StringToHash("SwordSlash.NoSlash");
@@ -487,12 +489,11 @@ public class PlayerControl : MonoBehaviour
 			anim.SetFloat (dashHeldFloat, 0.75f);
 		else
 			anim.SetFloat (dashHeldFloat, 1f);
-
-        if(wallRun == false)
+        /*
+        if(currentBaseState == backFlipState)
         {
-            GetComponent<CapsuleCollider>().center = Vector3.Lerp(GetComponent<CapsuleCollider>().center, new Vector3(0, 0.9f, 0f), Time.deltaTime * 12);
-        }
-			
+            GetComponent<CapsuleCollider>().center = Vector3.Lerp(GetComponent<CapsuleCollider>().center, new Vector3(0, 0.9f, 0f), anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+       }*/
 	}
 
 	void FixedUpdate()
@@ -513,11 +514,15 @@ public class PlayerControl : MonoBehaviour
 		
 		if (anim.IsInTransition (0))
 			characterVel = GetComponent<Rigidbody> ().velocity;
+        
+        if(currentBaseState == fallingState)
+        {
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 0.9f, 0f);
+        }
 	}
 
 	void JumpManagement()
 	{
-
 		if (anim.GetBool(doDoubleJump)) {
 			anim.SetBool (doDoubleJump, false);
 		}
@@ -563,10 +568,9 @@ public class PlayerControl : MonoBehaviour
 		}
 
         if(!IsGrounded())
-            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.0f, Time.deltaTime * 4f);
+            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.0f, Time.deltaTime);
         else
-            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.8f, Time.deltaTime * 4f);
-        Debug.Log(GetComponent<CapsuleCollider>().height);
+            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.8f, Time.deltaTime);
     }
 
 	void RollManagement()
