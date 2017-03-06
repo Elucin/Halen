@@ -39,7 +39,7 @@ public class PlayerControl : MonoBehaviour
 	public float aimTurnSmoothing = 15.0f;
 	public float speedDampTime = 0.1f;
 
-	private float jumpHeight = 650.0f;
+	private float jumpHeight = 700.0f;
 	public float jumpCooldown = 1.0f;
 
 	private float timeToNextJump = 0;
@@ -306,8 +306,6 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-		
-
 		if (!IsAiming ()) {
 			GameObject.Find ("Main Camera").GetComponent<ThirdPersonOrbitCam> ().crosshair = reticleDot;
 		} else {
@@ -489,6 +487,11 @@ public class PlayerControl : MonoBehaviour
 			anim.SetFloat (dashHeldFloat, 0.75f);
 		else
 			anim.SetFloat (dashHeldFloat, 1f);
+
+        if(wallRun == false)
+        {
+            GetComponent<CapsuleCollider>().center = Vector3.Lerp(GetComponent<CapsuleCollider>().center, new Vector3(0, 0.9f, 0f), Time.deltaTime * 12);
+        }
 			
 	}
 
@@ -538,12 +541,12 @@ public class PlayerControl : MonoBehaviour
 			}
 		}
 
-		if (currentBaseState == jumpState && speed > 0.1f && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpHeight, ForceMode.Impulse);
-			anim.SetBool (jumpBool, false);
-		} else if (currentBaseState == jumpState && speed < 0.05f && baseStateInfo.normalizedTime >= 0.5f && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpHeight * 1.1f, ForceMode.Impulse);
-			anim.SetBool (jumpBool, false);
+		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
+            if(speed > 0.1f)
+                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            else
+                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
+            anim.SetBool(jumpBool, false);
 		} else if (anim.GetBool (jumpBool) && (wallHoldStatus != 0 || wallRun)) {
             wallHoldStatus = 0;
             wallHold = false;
@@ -559,11 +562,15 @@ public class PlayerControl : MonoBehaviour
 			canDoubleJump = true;
 		}
 
-	}
+        if(!IsGrounded())
+            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.0f, Time.deltaTime * 4f);
+        else
+            GetComponent<CapsuleCollider>().height = Mathf.Lerp(GetComponent<CapsuleCollider>().height, 1.8f, Time.deltaTime * 4f);
+        Debug.Log(GetComponent<CapsuleCollider>().height);
+    }
 
 	void RollManagement()
-	{
-        
+	{  
 		anim.SetBool (rollBool, roll);
 		if (anim.GetBool(rollBool) && anim.GetBool(rollBool))
         {
@@ -576,7 +583,7 @@ public class PlayerControl : MonoBehaviour
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.45f + 0.45f * anim.GetFloat("Height"), 0);
 
         }
-        else
+        else if(IsGrounded())
         {
             GetComponent<CapsuleCollider>().height = 1.8f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.9f, 0);
@@ -858,7 +865,7 @@ public class PlayerControl : MonoBehaviour
 	{
 		return !IsAiming() && isMoving && speed >= sprintSpeed;
 	}
-
+    
 	void OnAnimatorIK(int layerIndex)
 	{
         if (!isDead)
@@ -867,56 +874,55 @@ public class PlayerControl : MonoBehaviour
             Transform rightFoot = anim.GetBoneTransform(HumanBodyBones.RightFoot);
             float rFootWeight = anim.GetFloat("rFootWeight");
             float lFootWeight = anim.GetFloat("lFootWeight");
+                RaycastHit lFtRay;
+                RaycastHit rFtRay;
 
-            RaycastHit lFtRay;
-            RaycastHit rFtRay;
+                Vector3 lFootPos = leftFoot.TransformPoint(Vector3.zero);
+                Vector3 rFootPos = rightFoot.TransformPoint(Vector3.zero);
 
-            Vector3 lFootPos = leftFoot.TransformPoint(Vector3.zero);
-            Vector3 rFootPos = rightFoot.TransformPoint(Vector3.zero);
+                Vector3 lFPos = lFootPos;
+                Vector3 rFPos = rFootPos;
 
-            Vector3 lFPos = lFootPos;
-            Vector3 rFPos = rFootPos;
+                Quaternion lFRot = leftFoot.rotation;
+                Quaternion rFRot = rightFoot.rotation;
 
-            Quaternion lFRot = leftFoot.rotation;
-            Quaternion rFRot = rightFoot.rotation;
+                if (Physics.Raycast(lFootPos, -Vector3.up, out lFtRay, 1))
+                {
+                    lFPos = lFtRay.point;
+                    lFRot = Quaternion.FromToRotation(transform.up, lFtRay.normal) * transform.rotation;
+                }
 
-            if (Physics.Raycast(lFootPos, -Vector3.up, out lFtRay, 1))
-            {
-                lFPos = lFtRay.point;
-                lFRot = Quaternion.FromToRotation(transform.up, lFtRay.normal) * transform.rotation;
-            }
+                if (Physics.Raycast(rFootPos, -Vector3.up, out rFtRay, 1))
+                {
+                    rFPos = rFtRay.point;
+                    rFRot = Quaternion.FromToRotation(transform.up, rFtRay.normal) * transform.rotation;
+                }
 
-            if (Physics.Raycast(rFootPos, -Vector3.up, out rFtRay, 1))
-            {
-                rFPos = rFtRay.point;
-                rFRot = Quaternion.FromToRotation(transform.up, rFtRay.normal) * transform.rotation;
-            }
+                anim.SetIKPositionWeight(AvatarIKGoal.RightFoot, rFootWeight);
+                anim.SetIKPosition(AvatarIKGoal.RightFoot, rFPos + new Vector3(0, OffsetY, 0));
 
-            anim.SetIKPositionWeight(AvatarIKGoal.RightFoot, rFootWeight);
-            anim.SetIKPosition(AvatarIKGoal.RightFoot, rFPos + new Vector3(0, OffsetY, 0));
+                anim.SetIKPositionWeight(AvatarIKGoal.LeftFoot, lFootWeight);
+                anim.SetIKPosition(AvatarIKGoal.LeftFoot, lFPos + new Vector3(0, OffsetY, 0));
 
-            anim.SetIKPositionWeight(AvatarIKGoal.LeftFoot, lFootWeight);
-            anim.SetIKPosition(AvatarIKGoal.LeftFoot, lFPos + new Vector3(0, OffsetY, 0));
+                anim.SetIKRotationWeight(AvatarIKGoal.RightFoot, rFootWeight);
+                anim.SetIKRotation(AvatarIKGoal.RightFoot, rFRot);
 
-            anim.SetIKRotationWeight(AvatarIKGoal.RightFoot, rFootWeight);
-            anim.SetIKRotation(AvatarIKGoal.RightFoot, rFRot);
+                anim.SetIKRotationWeight(AvatarIKGoal.LeftFoot, lFootWeight);
+                anim.SetIKRotation(AvatarIKGoal.LeftFoot, lFRot);
 
-            anim.SetIKRotationWeight(AvatarIKGoal.LeftFoot, lFootWeight);
-            anim.SetIKRotation(AvatarIKGoal.LeftFoot, lFRot);
+                anim.SetLookAtWeight(aimingWeight);
+                if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.forward) < 85)
+                    anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+                else
+                {
+                    if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.right) <= 88f)
+                        anim.SetLookAtPosition((transform.right + transform.forward * 0.3f) * 1000.0f);
+                    else if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), -transform.right) <= 88f)
+                        anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
+                }
 
-            anim.SetLookAtWeight(aimingWeight);
-            if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.forward) < 85)
-                anim.SetLookAtPosition(cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
-            else
-            {
-                if (Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), transform.right) <= 88f)
-                    anim.SetLookAtPosition((transform.right + transform.forward * 0.3f) * 1000.0f);
-                else if(Vector3.Angle(cameraTransform.TransformDirection(Vector3.forward), -transform.right) <= 88f)
-                    anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
-            }
-
-            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
-            //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+                //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
+                //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
         }
 	}
 
@@ -936,15 +942,17 @@ public class PlayerControl : MonoBehaviour
 
     int WallGrabManagement(int onWallStatus)
     {
-        //0 = No Grab, 1 = Hold, 2 = Slide
+            //0 = No Grab, 1 = Hold, 2 = Slide
         if (IsGrounded() || jump || health <= 0)
-            return 0;
-
-        if (!checkForWall() && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
         {
             return 0;
         }
-            
+
+        if (!checkForWall() && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
+        {    
+            return 0;
+        }
+
         if (onWallStatus == 0 && wallHold)
         {
 			_PlayerSFXManager.playSoundEffect("wallGrab");
@@ -1068,6 +1076,7 @@ public class PlayerControl : MonoBehaviour
 
 	IEnumerator wallRunDuration(float duration)
 	{
+        GetComponent<CapsuleCollider>().center = new Vector3(0, 1.5f, -0.5f);
         wallRun = true;
 		GetComponent<Rigidbody> ().useGravity = false;
 		wallSpeed = Mathf.Clamp(speed, runSpeed, sprintSpeed);
@@ -1078,7 +1087,6 @@ public class PlayerControl : MonoBehaviour
         wallRun = false;
 		GetComponent<Rigidbody> ().useGravity = true;
         StartCoroutine(wallRunCooldown(1.5f));
-
     }
 
     void Healing()

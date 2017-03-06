@@ -164,19 +164,19 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	// concave objects doesn't detect hit from outside, so cast in both directions
 	bool DoubleViewingPosCheck(Vector3 checkPos)
 	{
-		float playerFocusHeight = player.GetComponent<CapsuleCollider> ().height *0.5f;
+		Vector3 playerFocusHeight = player.GetComponent<CapsuleCollider> ().center;
 		return ViewingPosCheck (checkPos, playerFocusHeight) && ReverseViewingPosCheck (checkPos, playerFocusHeight);
 	}
 
-	bool ViewingPosCheck (Vector3 checkPos, float deltaPlayerHeight)
+	bool ViewingPosCheck (Vector3 checkPos, Vector3 colliderCenter)
 	{
 		RaycastHit hit;
 		
 		// If a raycast from the check position to the player hits something...
-		if(Physics.Raycast(checkPos, player.position+(Vector3.up* deltaPlayerHeight) - checkPos, out hit, relCameraPosMag))
+		if(Physics.Raycast(checkPos, colliderCenter - checkPos, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{
 			// ... if it is not the player...
-			if(hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
+			if(hit.transform != player)
 			{
 				// This position isn't appropriate.
 				return false;
@@ -186,13 +186,13 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		return true;
 	}
 
-	bool ReverseViewingPosCheck(Vector3 checkPos, float deltaPlayerHeight)
+	bool ReverseViewingPosCheck(Vector3 checkPos, Vector3 colliderCenter)
 	{
 		RaycastHit hit;
 
-		if(Physics.Raycast(player.position+(Vector3.up* deltaPlayerHeight), checkPos - player.position, out hit, relCameraPosMag))
+		if(Physics.Raycast(colliderCenter, checkPos - colliderCenter, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{
-			if(hit.transform != player && hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
+			if(hit.transform != player && hit.transform != transform)
 			{
 				return false;
 			}
