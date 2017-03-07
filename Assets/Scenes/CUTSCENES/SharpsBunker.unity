@@ -7036,7 +7036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &762525321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7067,10 +7067,16 @@ MonoBehaviour:
     - {fileID: 64072223}
     Eyes: {fileID: 0}
   - Camera: {fileID: 871973785}
-    duration: 8
+    duration: 18
     Subject:
     - {fileID: 1948984495}
     - {fileID: 595308128}
+    - {fileID: 1850453556}
+    Eyes: {fileID: 0}
+  - Camera: {fileID: 871973785}
+    duration: 11
+    Subject:
+    - {fileID: 1948984495}
     Eyes: {fileID: 0}
 --- !u!4 &762525322
 Transform:
@@ -23082,7 +23088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1428688087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33667,6 +33673,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818740055}
+--- !u!1 &1850453556 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5f4872a9542974443b2f54be75346226, type: 3}
+  m_PrefabInternal: {fileID: 524081806}
 --- !u!1 &1853940914
 GameObject:
   m_ObjectHideFlags: 0
@@ -34355,7 +34365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1948984496
 Animator:
   serializedVersion: 3
