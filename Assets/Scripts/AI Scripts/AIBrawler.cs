@@ -88,7 +88,7 @@ public class AIBrawler : AIBase {
                 meshAgent.Stop();
                 meshAgent.acceleration = 8f;
                 meshAgent.updateRotation = false;
-                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed) - transform.position;
+                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
                 halenGroundPos.y = 0;
                 Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
@@ -96,7 +96,7 @@ public class AIBrawler : AIBase {
             else if(currentAttackState == closeAttackState)
             {
                 meshAgent.updateRotation = false;
-                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed) - transform.position;
+                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
                 halenGroundPos.y = 0;
                 Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
@@ -137,9 +137,9 @@ public class AIBrawler : AIBase {
         if ((currentAttackState == attackState || currentAttackState == closeAttackState) && anim.GetCurrentAnimatorStateInfo(2).normalizedTime > 0.1f && anim.GetCurrentAnimatorStateInfo(2).normalizedTime < 0.3f && !didDamage && c.transform.CompareTag("Player"))
         {
             if (currentAttackState == attackState)
-                halen.GetComponent<PlayerControl>().damageBuffer += 60;
+                halen.GetComponent<PlayerControl>().damageBuffer += 50;
             else
-                halen.GetComponent<PlayerControl>().damageBuffer += 40;
+                halen.GetComponent<PlayerControl>().damageBuffer += 30;
 
             didDamage = true;
         }

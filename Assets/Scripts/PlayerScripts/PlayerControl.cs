@@ -147,8 +147,6 @@ public class PlayerControl : MonoBehaviour
 	private static int noSlashState;
     private static int backFlipState;
 
-
-
 	private int currentBaseState;
 	public static int currentDashState;
 	private int currentSlashState;
@@ -461,8 +459,6 @@ public class PlayerControl : MonoBehaviour
 		currentSlashState = anim.GetCurrentAnimatorStateInfo (4).fullPathHash;
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
-
-
         if (!jump)
         {
             if (wallHoldStatus == 1)
@@ -487,9 +483,10 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (dashHeld)
-			anim.SetFloat (dashHeldFloat, 0.75f);
-		else
 			anim.SetFloat (dashHeldFloat, 1f);
+		else
+			anim.SetFloat (dashHeldFloat, 2f);
+
         /*
         if(currentBaseState == backFlipState)
         {
