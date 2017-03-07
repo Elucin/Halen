@@ -7,8 +7,7 @@ public class PlayerSFXManager : MonoBehaviour
 	public AudioClip smallShotSFX;
 	public AudioClip largeShotSFX;
 	public AudioClip dashSFX;
-	public AudioClip rollSFX;
-	public AudioClip wallGrabSFX;
+	public AudioClip dashReadySFX;
 
 	public AudioClip [] footStepSFX;
 
@@ -33,17 +32,17 @@ public class PlayerSFXManager : MonoBehaviour
 	{
 		
 		if (soundID == "smallShot") {
-			pitchHighRange = 1.2f;
+			pitchHighRange = 1.0f;
 			pitchLowRange = 0.8f;
-			volLowRange = 0.05f;
-			volHighRange = 0.25f;
+			volLowRange = 0.5f;
+			volHighRange = 1.0f;
 			float randVol = Random.Range (volLowRange, volHighRange);
 			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
 			CurrentSound.pitch = randPitch;
 			CurrentSound.PlayOneShot (smallShotSFX, randVol);
 		} else if (soundID == "largeShot") {
-			pitchHighRange = 0.6f;
-			pitchLowRange = 0.4f;
+			pitchHighRange = 1.2f;
+			pitchLowRange = 0.8f;
 			volLowRange = 0.5f;
 			volHighRange = 1.0f;
 			float randVol = Random.Range (volLowRange, volHighRange);
@@ -78,24 +77,10 @@ public class PlayerSFXManager : MonoBehaviour
 			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
 			CurrentSound.pitch = randPitch;
 			CurrentSound.PlayOneShot (dashSFX, randVol - 0.2f);
-		} else if (soundID == "roll") {
-			pitchHighRange = 2.0f;
-			pitchLowRange = 1.7f;
-			volLowRange = 0.5f;
-			volHighRange = 1.0f;
-			float randVol = Random.Range (volLowRange, volHighRange);
-			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
-			CurrentSound.pitch = randPitch;
-			CurrentSound.PlayOneShot (rollSFX, randVol - 0.2f);
-		} else if (soundID == "wallGrab") {
-			pitchHighRange = 2.0f;
-			pitchLowRange = 1.7f;
-			volLowRange = 0.5f;
-			volHighRange = 1.0f;
-			float randVol = Random.Range (volLowRange, volHighRange);
-			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
-			CurrentSound.pitch = randPitch;
-			CurrentSound.PlayOneShot (wallGrabSFX, randVol - 0.2f);
+
+		} else if (soundID == "dashReady") {
+			CurrentSound.pitch = 1;
+			CurrentSound.PlayOneShot (dashReadySFX, 0.5f);
 		}
 	}
 }

@@ -42,7 +42,7 @@ public class UIScript : MonoBehaviour {
 
 		dashFlash = false;
 
-		if (GameObject.Find ("Rival 1") != null) {
+		if (GameObject.FindGameObjectWithTag ("Rival") != null) {
 			Theravall = true;
 		} else {
 			Theravall = false;

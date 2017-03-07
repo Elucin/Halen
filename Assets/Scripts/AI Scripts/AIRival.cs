@@ -6,6 +6,7 @@ public class AIRival : AIBase {
 
     const float MIN_TELEPORT_DISTANCE = 20f;
     const float TELEPORT_DELAY = 3.0f;
+    const float TELEPORT_MELEE_DELAY = 1.0f;
 
     public GameObject teleportInParticles;
     public GameObject teleportOutParticles;
@@ -18,6 +19,10 @@ public class AIRival : AIBase {
     protected int lightShotsBool;
     protected int heavyShotTrig;
     protected int playerCloseTrig;
+    protected int bossStageInt;
+    protected int finishTeleportTrig;
+    protected int doMeleeBool;
+    protected int doMeleeTeleportBool;
 
     protected static int teleportStartState;
     protected static int teleportEndState;
@@ -26,6 +31,7 @@ public class AIRival : AIBase {
     protected static int dodgeState;
     protected static int waitState;
     protected static int attackState;
+    protected static int meleeState;
    
     private int currentAttackState;
 
@@ -46,17 +52,22 @@ public class AIRival : AIBase {
         playerInRangeBool = Animator.StringToHash("PlayerInRange");
         heavyShotTrig = Animator.StringToHash("HeavyShotIncoming");
         playerCloseTrig = Animator.StringToHash("PlayerClose");
+        bossStageInt = Animator.StringToHash("Stage");
+        finishTeleportTrig = Animator.StringToHash("FinishTeleport");
+        doMeleeBool = Animator.StringToHash("doMelee");
+        doMeleeTeleportBool = Animator.StringToHash("doMeleeTeleport");
 
         teleportStartState = Animator.StringToHash("Base.Teleport Start");
         teleportEndState = Animator.StringToHash("Base.Teleport Finish");
         moveState = Animator.StringToHash("Base.Move");
         blockState = Animator.StringToHash("Base.Blocking");
         dodgeState = Animator.StringToHash("Base.Dodge");
+        meleeState = Animator.StringToHash("Base.Melee");
 
         waitState = Animator.StringToHash("Attack.Wait");
         attackState = Animator.StringToHash("Attack.Attack");
         currentGun = false;
-		GameObject.Find ("UI").GetComponent<UIScript> ().Theravall = true;
+		GameObject.Find ("UI 1").GetComponent<UIScript> ().Theravall = true;
         
     }
 
@@ -64,15 +75,20 @@ public class AIRival : AIBase {
     protected override void Update () {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
-
+        if (halen == null)
+            halen = GameObject.FindGameObjectWithTag("Player");
 		GameObject.Find ("Theravall_health").GetComponent<Image> ().fillAmount = health / 100f;
 
-        if (health <= 0)
+        if (health < 100f && health > 40f)
+            anim.SetInteger(bossStageInt, 2);
+        else if (health <= 40f && health > 0f)
+            anim.SetInteger(bossStageInt, 3);
+        else if (health <= 0f)
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        
 
         if (!IsGrounded() && !meshAgent.isOnOffMeshLink)
         {
-            Debug.Log("Not Grounded");
             meshAgent.enabled = false;
             GetComponent<Rigidbody>().drag = 0;
         }
@@ -114,32 +130,58 @@ public class AIRival : AIBase {
         }
 
         anim.SetBool(playerInRangeBool, triggerCount > 0);
-        
-        if (triggerCount > 1)
+        Debug.Log(currentBaseState == meleeState);
+        if (triggerCount > 1 && currentBaseState != meleeState && currentBaseState != teleportEndState)
         {
+            anim.SetBool(doMeleeBool, false);
+            anim.SetBool(doMeleeTeleportBool, false);
+            anim.ResetTrigger(finishTeleportTrig);
             anim.SetTrigger(playerCloseTrig);
             GameObject TeleportExit = Instantiate(teleportOutParticles, transform.position, Quaternion.identity) as GameObject;
             meshAgent.Warp(teleportHub.position);
-            Teleport();
+            bool doMelee = false;
+            if(anim.GetInteger(bossStageInt) > 1)
+            {
+                if(Random.Range(0, 2) == 1)
+                    doMelee = true;
+                anim.SetBool(doMeleeTeleportBool, true);
+            }
+            Teleport(doMelee);
         }
-
-
-        
+  
 	}
 
-    void Teleport()
+    void Teleport(bool doMelee)
     {
         if (!teleporting)
         {
-            int selectedLocation = Random.Range(0, teleportLocation.Length);
-            if (checkDistance(teleportLocation[selectedLocation]))
+            if (!doMelee)
             {
-                StartCoroutine(doWarp(teleportLocation[selectedLocation]));
+                int selectedLocation = Random.Range(0, teleportLocation.Length);
+                if (checkDistance(teleportLocation[selectedLocation]))
+                {
+                    StartCoroutine(doWarp(teleportLocation[selectedLocation]));
+                }
+                else
+                    Teleport(false);
             }
             else
-                Teleport();
-        }
+            {
+                int angle = 0;
+                do
+                {
+                    Vector3 location = Quaternion.Euler(0, angle, 0) * (-halen.transform.forward * 4f);
+                    if(!Physics.Raycast(PlayerControl.position + halen.transform.up, halen.transform.InverseTransformDirection(location), 4.5f))
+                    {
+                        StartCoroutine(doMeleeWarp(location));
+                        return;
+                    }
+                    angle += 15;
 
+                } while (angle < 360);
+                Teleport(false);
+            }
+        }
     }
 
     IEnumerator doWarp(Transform location)
@@ -148,6 +190,23 @@ public class AIRival : AIBase {
         GameObject TeleportEnter = Instantiate(teleportInParticles, location.position, Quaternion.identity) as GameObject;
         yield return new WaitForSeconds(TELEPORT_DELAY);
         meshAgent.Warp(location.position);
+        anim.SetTrigger(finishTeleportTrig);
+        teleporting = false;
+    }
+
+    IEnumerator doMeleeWarp(Vector3 location)
+    {
+        if(Random.Range(0, 2) == 1)
+            anim.SetBool(doMeleeBool, true);
+        teleporting = true;
+        GameObject TeleportEnter = Instantiate(teleportInParticles, halen.transform.TransformPoint(location), Quaternion.identity) as GameObject;
+        yield return new WaitForSeconds(TELEPORT_MELEE_DELAY);
+        meshAgent.enabled = false;
+        transform.position = halen.transform.TransformPoint(location);
+        if (anim.GetBool(doMeleeBool))
+        {
+            GetComponent<Rigidbody>().AddForce(transform.forward * 100f, ForceMode.Impulse);
+        }
         teleporting = false;
     }
 
@@ -203,8 +262,6 @@ public class AIRival : AIBase {
                     checkVector = Quaternion.Euler(0, degrees, 0) * checkVector;
                 else
                     checkVector = Quaternion.Euler(0, -degrees, 0) * checkVector;
-               
-
             }
         }
         meshAgent.SetDestination(transform.position + checkVector);
@@ -216,7 +273,6 @@ public class AIRival : AIBase {
     {
         RaycastHit hit;
         float offset = GetComponent<CapsuleCollider>().height / 2;
-        Debug.DrawLine(transform.position, transform.position - Vector3.up * (offset + 0.32f));
         return Physics.Raycast(transform.position, -Vector3.up, out hit, offset + 0.7f);
 
         //return Physics.Raycast(transform.position + new Vector3(0, distToGround, 0), -Vector3.up, distToGround + 0.1f);
