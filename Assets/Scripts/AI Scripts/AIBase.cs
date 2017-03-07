@@ -101,6 +101,7 @@ public class AIBase : MonoBehaviour {
         if (!halenAlive && anim.GetBool(alertBool) == true)
         {
             anim.SetBool(alertBool, false);
+            triggerCount = 0;
             meshAgent.SetDestination(transform.position);
         }
         halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;

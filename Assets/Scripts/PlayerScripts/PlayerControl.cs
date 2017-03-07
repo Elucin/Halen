@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviour
     public static float dashTimer;
     private bool collateral = false;
 
-	public float speed;
+	public static float speed;
 
     const float LONG_SHOT_COOLDOWN = 2f;
     const float shortShotCooldown = 0.1f;
@@ -187,6 +187,7 @@ public class PlayerControl : MonoBehaviour
     public static float ShotCharge { get { return (Mathf.Clamp(Time.time - shotRecoverTimer, 0, SHOT_RECOVER_TIME)) / SHOT_RECOVER_TIME; } }
     public static float ShotCooldown { get { return (Mathf.Clamp(Time.time - longShootCooldownStart, 0, LONG_SHOT_COOLDOWN)) / LONG_SHOT_COOLDOWN; } }
     public static bool Charged { get { return charged; } set { charged = value; } }
+    public static float Speed { get { return speed; } }
 
 	MeleeWeaponTrail SliceTrail;
 

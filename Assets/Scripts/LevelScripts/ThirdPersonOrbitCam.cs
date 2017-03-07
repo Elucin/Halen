@@ -148,13 +148,16 @@ public class ThirdPersonOrbitCam : MonoBehaviour
                 }
             }
 
-       
+        if (PlayerControl.IsDashing())
+            smooth = Mathf.Lerp(smooth, 10f, Time.deltaTime * 10f);
+        else
+            smooth = Mathf.Lerp(smooth, 25f, Time.deltaTime * 10f);
+
         smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
         if (player.gameObject.GetComponent<PlayerControl>().IsDead())
             smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset + new Vector3(0,0,-5), smooth * Time.deltaTime);
         smoothCamOffset = Vector3.Lerp(smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
-
-            cam.position = Vector3.Lerp(cam.position, player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset, smooth / 2 * Time.deltaTime);
+        cam.position = Vector3.Lerp(cam.position, player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset, smooth / 2 * Time.deltaTime);
         if(player.gameObject.GetComponent<PlayerControl>().IsDead())
             cam.position = Vector3.Lerp(cam.position, player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset + new Vector3(0,2,0), smooth / 2 * Time.deltaTime);
 
