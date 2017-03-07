@@ -39,7 +39,7 @@ public class AIBase : MonoBehaviour {
     protected int stunnedBool;
     protected int stunTrigger;
     protected int idleBool;
-    protected bool destroyed = false;
+    public bool destroyed = false;
 
     //Other Stuff
     protected Animator anim;

@@ -691,6 +691,7 @@ public class PlayerControl : MonoBehaviour
 					}
 					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetFloat ("_Outline", 0.002f);
 					dashManagement = true;
+
 				} else {
 					//flash outline
 					SkinnedMeshRenderer[] arm = GameObject.Find ("sharp_grp").GetComponentsInChildren<SkinnedMeshRenderer> ();
@@ -701,6 +702,8 @@ public class PlayerControl : MonoBehaviour
 					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashReady);
 					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetFloat ("_Outline", Mathf.Lerp(0.002f,0.01f,dashFlashManagement/20f));
 					dashFlashManagement--;
+					if (dashFlashManagement == 19)
+						_PlayerSFXManager.playSoundEffect("dashReady");
 				}
 
 			}
