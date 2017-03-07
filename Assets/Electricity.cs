@@ -84,7 +84,7 @@ public class Electricity : MonoBehaviour {
 
         particlePos = new ParticleSystem.Particle[p.particleCount];
 
-        if(Target == null)
+        if(Target == null && !PlayerControl.isDead)
         {
             Target = GameObject.Find("sword_base").transform;
         }
