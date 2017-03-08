@@ -198,6 +198,8 @@ public class PlayerControl : MonoBehaviour
 
 	halenEyes_Script eyeScript;
 
+    public bool twoArm = false;
+
     void Awake()
 	{
 		eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
@@ -206,8 +208,9 @@ public class PlayerControl : MonoBehaviour
 		dashFlashManagement = 0;
 		colour_DashReady = Color.red;
 		colour_DashNotReady = new Color (0.3f, 0, 0);
-
-		SliceTrail = GameObject.Find ("Sword_Model").GetComponent<MeleeWeaponTrail> ();
+        Saving.twoArm = twoArm = name.Contains("2Arm");
+        if(!twoArm)
+		    SliceTrail = GameObject.Find ("Sword_Model").GetComponent<MeleeWeaponTrail> ();
 
         transform.name = "Halen";
         health = 100f;
@@ -316,15 +319,19 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.BackQuote))
             godMode = !godMode;
 
-		//GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
-	
+        //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
 
-		if (currentSlashState != slashState && currentDashState != dashState) {
-			SliceTrail.Emit = false;
-		}
-		else if(currentSlashState == slashState || currentDashState == dashState){
-			SliceTrail.Emit = true;
-		}
+        if (!twoArm)
+        {
+            if (currentSlashState != slashState && currentDashState != dashState)
+            {
+                SliceTrail.Emit = false;
+            }
+            else if (currentSlashState == slashState || currentDashState == dashState)
+            {
+                SliceTrail.Emit = true;
+            }
+        }
 
         /*
         if (Input.GetButtonDown("EditorPause"))
@@ -386,7 +393,8 @@ public class PlayerControl : MonoBehaviour
 			JumpManagement ();
 			RollManagement ();
 	        MovementManagement(h, v, run, sprint);
-	        DashManagement ();
+            if(!twoArm)
+	            DashManagement ();
 			ShootManagement ();
 	        previousHoldStatus = wallHoldStatus;
 	        wallHoldStatus = WallGrabManagement(wallHoldStatus);
@@ -759,19 +767,24 @@ public class PlayerControl : MonoBehaviour
 	void ShootManagement()
 	{
 		if (shoot) {
-			
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2, Screen.height / 2, 0));
-			if (Physics.Raycast (ray, out hit, 10f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore)) {
-				if (hit.transform.CompareTag ("Enemy") && Vector3.Distance (transform.position, hit.transform.position) < 2f) {
-					anim.SetTrigger (slashTrig);
-				
-					if (!hit.transform.name.Contains ("Charger"))
-						hit.transform.GetComponent<AIBase> ().health = 0;
-					return;
 
-				}
-			}
+            if (!twoArm)
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+                if (Physics.Raycast(ray, out hit, 10f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.transform.CompareTag("Enemy") && Vector3.Distance(transform.position, hit.transform.position) < 2f)
+                    {
+                        anim.SetTrigger(slashTrig);
+
+                        if (!hit.transform.name.Contains("Charger"))
+                            hit.transform.GetComponent<AIBase>().health = 0;
+                        return;
+
+                    }
+                }
+            }
 			StartCoroutine (eyeScript.EyeExpression (9, 0, false));
 			anim.SetBool (shootBool, true);
 			if (IsAiming () && (Time.time - longShootCooldownStart) >= LONG_SHOT_COOLDOWN && currentShots > 0) {
