@@ -39,7 +39,7 @@ public class AIBase : MonoBehaviour {
     protected int stunnedBool;
     protected int stunTrigger;
     protected int idleBool;
-    protected bool destroyed = false;
+    public bool destroyed = false;
 
     //Other Stuff
     protected Animator anim;
@@ -101,6 +101,7 @@ public class AIBase : MonoBehaviour {
         if (!halenAlive && anim.GetBool(alertBool) == true)
         {
             anim.SetBool(alertBool, false);
+            triggerCount = 0;
             meshAgent.SetDestination(transform.position);
         }
         halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;

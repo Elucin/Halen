@@ -6,12 +6,15 @@ public class Saving : MonoBehaviour
     //public static int Score = 0;
     //public static int CheckpointID = -1;
     public static bool doLoad = false;
-    
+    public static bool twoArm = false;
     public static GameObject halen;
+    public static GameObject halen2Arm;
 
     void Start()
     {
-        halen = Resources.Load("Prefabs/Characters/Halen") as GameObject;
+        halen = Resources.Load("Prefabs/Characters/Halen/Halen_Final") as GameObject;
+        halen2Arm = Resources.Load("Prefabs/Characters/Halen/Halen_2Arm") as GameObject;
+        
         if(doLoad)
         {
             Load();
@@ -28,7 +31,15 @@ public class Saving : MonoBehaviour
         PlayerControl.Ammo = PlayerControl.MAX_SHOTS;
         if (dead)
         {
-            GameObject g = Instantiate(halen, GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform.position, Quaternion.identity) as GameObject;
+            GameObject g;
+            if (!twoArm)
+            {
+                 g = Instantiate(halen, GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform.position, Quaternion.identity) as GameObject;
+            }
+            else
+            {
+                g = Instantiate(halen2Arm, GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform.position, Quaternion.identity) as GameObject;
+            }
             Camera.main.GetComponent<ThirdPersonOrbitCam>().player = g.transform;
             GameObject[] gs = GameObject.FindGameObjectsWithTag("Ragdoll");
             foreach (GameObject r in gs)

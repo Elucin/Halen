@@ -13,15 +13,18 @@ public class Halen_Particles : MonoBehaviour {
     public bool dashStorage;
 	public bool sprintStorage;
 	public bool landingStorage;
+    bool twoArm = false;
 
 	// Use this for initialization
 	void Start () {
 		Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
-		//DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem> ();
-		//DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem> ();
-		//GunGlow = GameObject.FindGameObjectWithTag ("HalenGun").GetComponent<ParticleSystem> ();
-		//LeftFoot = GameObject.Find("jnt_L_toe").GetComponent<ParticleSystem> ();
-		//RightFoot = GameObject.Find("jnt_R_toe").GetComponent<ParticleSystem> ();
+        //DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem> ();
+        //DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem> ();
+        //GunGlow = GameObject.FindGameObjectWithTag ("HalenGun").GetComponent<ParticleSystem> ();
+        //LeftFoot = GameObject.Find("jnt_L_toe").GetComponent<ParticleSystem> ();
+        //RightFoot = GameObject.Find("jnt_R_toe").GetComponent<ParticleSystem> ();
+
+        twoArm = Halen.twoArm;
 
         dashStorage = false;
 		sprintStorage = false;
@@ -31,25 +34,28 @@ public class Halen_Particles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Halen == null) {
-			Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
+            Halen = GameObject.FindObjectOfType<PlayerControl>();
 		}
-		/*
+        /*
         if (LeftFoot == null)
             LeftFoot = GameObject.Find("jnt_L_toe").GetComponent<ParticleSystem>();
         if(RightFoot == null)
             RightFoot = GameObject.Find("jnt_R_toe").GetComponent<ParticleSystem>();
             */
-        if(DashGlow == null)
-            DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem>();
-        if(DashEffect == null)
-            DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem>();
+        if (!twoArm)
+        {
+            if (DashGlow == null)
+                DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem>();
+            if (DashEffect == null)
+                DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem>();
+        }
 		if(StopDust == null)
 			StopDust = GameObject.Find ("Dust_Puff").GetComponent<ParticleSystem> ();
 
         if (!PlayerControl.isDead)
         {
             // DASH PARTICLES
-            if (Halen.IsDashing()) 
+            if (PlayerControl.IsDashing() && !twoArm) 
 			{
                 if(dashStorage == false)
                 {
@@ -88,13 +94,6 @@ public class Halen_Particles : MonoBehaviour {
 				landingStorage = true;
 				StopDust.Play ();
 			}
-
-
-
-
-
-
-
 
             // RUN DUST PARTICLES
 

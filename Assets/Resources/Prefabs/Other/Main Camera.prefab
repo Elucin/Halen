@@ -83,14 +83,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145850}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.8, y: 1.99, z: -38.54}
+  m_LocalRotation: {x: 0.054121196, y: 0.0729668, z: -0.0039652605, w: 0.99585694}
+  m_LocalPosition: {x: -16.318687, y: 130.43576, z: 0.23474547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467728}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -63.5812, z: 0}
 --- !u!4 &429094
 Transform:
   m_ObjectHideFlags: 1
@@ -150,7 +150,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -179,7 +179,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196174}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24371398, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
     type: 2}
@@ -241,7 +241,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -265,7 +265,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.714
+  m_Volume: 0.823
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -321,7 +321,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -340,7 +340,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196174}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24348260, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
     type: 2}
@@ -402,7 +402,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -421,7 +421,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196174}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24394864, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
     type: 2}
@@ -483,7 +483,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -508,7 +508,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 28a63a19fdffb1846be5a9da29704f61, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.318
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -583,7 +583,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196174}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24334244, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
     type: 2}
@@ -645,7 +645,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -746,12 +746,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Radius: 0.4
+  m_Radius: 0.59
   m_SampleCount: 2
   m_OcclusionIntensity: 1.03
   m_Blur: 2
   m_Downsampling: 1
-  m_OcclusionAttenuation: 1.13
+  m_OcclusionAttenuation: 1.08
   m_MinZ: 0.01
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
@@ -767,9 +767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  crosshair: {fileID: 2800000, guid: 145fa8a1dfcf6c3459f8df4ac782dba2, type: 3}
+  crosshair: {fileID: 2800000, guid: 6760c9e86d08aaa45843130f0326b61a, type: 3}
   pivotOffset: {x: 0, y: 1.1, z: 0}
-  camOffset: {x: 0, y: 0.7, z: -3}
+  camOffset: {x: 0, y: 0.7, z: -4}
   aimPivotOffset: {x: 0, y: 1.7, z: -0.3}
   aimCamOffset: {x: 0.8, y: 0, z: -1}
   sprintFOV: 100

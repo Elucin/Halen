@@ -16,6 +16,7 @@ public class UIScript : MonoBehaviour {
     public Image shotCooldownBar;
     public GameObject stylePointObject;
     public Image DamageHaze;
+    public Image ChargeHaze;
 	public Image SwordGlow;
     Text HP_Text;
     Text Ammo_Text;
@@ -33,13 +34,15 @@ public class UIScript : MonoBehaviour {
 	bool dashFlash;
 	float dashCounter;
 
+    float chargeHazeAlpha = 0f;
+
     // Use this for initialization
     void Start () {
         Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
 
 		dashFlash = false;
 
-		if (GameObject.Find ("Rival 1") != null) {
+		if (GameObject.FindGameObjectWithTag ("Rival") != null) {
 			Theravall = true;
 		} else {
 			Theravall = false;
@@ -122,17 +125,18 @@ public class UIScript : MonoBehaviour {
 
 			shotCooldownBarWrist.fillAmount = 0.25f * PlayerControl.ShotCharge;
 			shotFillsWrist.fillAmount = 0.032f * PlayerControl.Ammo;
-
-
 		}
         
-        /*
-        if (dashTimer > 0f)
-            DashCDText.text = "Dash Cooldown: " + dashTimer.ToString("F1");
+        if(PlayerControl.Charged)
+        {
+            chargeHazeAlpha = 0.5f;
+        }
         else
-            DashCDText.text = "Dash Cooldown: Ready";
-            */
-
+        {
+            chargeHazeAlpha -= Time.deltaTime;
+        }
+        chargeHazeAlpha = Mathf.Clamp(chargeHazeAlpha, 0f, 0.5f);
+        ChargeHaze.color = Color.Lerp(ChargeHaze.color, new Color(ChargeHaze.color.r, ChargeHaze.color.g, ChargeHaze.color.b, chargeHazeAlpha), Time.deltaTime * 3);
     }
 
     public GameObject AddStylePoint(int points, string source)
