@@ -4005,6 +4005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7918dde8ded75c469a66456b926aaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyeScript: {fileID: 0}
   EyeStep:
   - index: 1
     duration: 2
@@ -4018,6 +4019,7 @@ MonoBehaviour:
     duration: 1
     eyeDirectionY: 0
     eyeDirectionX: 0
+  triggered: 0
 --- !u!65 &637297556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7170,36 +7172,6 @@ Prefab:
     - target: {fileID: 4192219890735350, guid: c84b50f03572f134580f5f7c5cd179ce, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: -0.0000009536743
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.035938263
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.048354097
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.28907457
-      objectReference: {fileID: 0}
-    - target: {fileID: 137739362264031078, guid: c84b50f03572f134580f5f7c5cd179ce,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.043065462
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c84b50f03572f134580f5f7c5cd179ce, type: 2}
@@ -10995,6 +10967,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19949354, guid: 5cd79be31a3244648818792a6853894d, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b18660d13dff63144b6c1fc1c8ec638c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cd79be31a3244648818792a6853894d, type: 2}
   m_IsPrefabParent: 0
