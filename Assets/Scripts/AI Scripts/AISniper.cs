@@ -25,6 +25,9 @@ public class AISniper : AIBase {
 
 	public ParticleSystem MuzzleFlash;
 
+	public AudioClip shot;
+	public AudioSource CurrentSound;
+
     // Use this for initialization
     protected override void Start () {
         transform.name = "Sniper-" + SniperCount++.ToString();
@@ -91,6 +94,7 @@ public class AISniper : AIBase {
 			newShot.GetComponent<LargeShot>().emitter = ShotEmitterTrans;
             newShot.GetComponent<LargeShot>().bulletSpeed = 200f;
 			MuzzleFlash.Play ();
+			CurrentSound.PlayOneShot (shot, 1);
         }
     }
 

@@ -1671,6 +1671,7 @@ GameObject:
   - component: {fileID: 54946497050896382}
   - component: {fileID: 136931318469317864}
   - component: {fileID: 114833784119744348}
+  - component: {fileID: 114694425091632996}
   m_Layer: 10
   m_Name: Halen
   m_TagString: Player
@@ -4733,7 +4734,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563900850683610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.79208, y: -35.458683, z: -37.546303}
+  m_LocalPosition: {x: -21.371086, y: -0.0000042404304, z: -35.571316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4050735469963902}
@@ -6288,6 +6289,30 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114694425091632996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563900850683610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bcecca989ec5f44bb57d96f0314aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rollSFX: {fileID: 8300000, guid: 4d5aa9a29e6195c47a584abed576234e, type: 3}
+  meleeSFX:
+  - {fileID: 8300000, guid: 89d55b30f0dc2a549b047c7a2d7906c8, type: 3}
+  - {fileID: 8300000, guid: 098a396ee18623f4a80754512049298f, type: 3}
+  - {fileID: 8300000, guid: fc6acf7b57f05454d98ba6a60ed11e31, type: 3}
+  - {fileID: 8300000, guid: 931e5ed4f0df38041a8349d2c373a070, type: 3}
+  stoneStepSFX:
+  - {fileID: 8300000, guid: f42ad333a1a4a164cb5e085f4eb2c8c1, type: 3}
+  - {fileID: 8300000, guid: 52982bde244d30e4bb1c5651f55d3dcd, type: 3}
+  - {fileID: 8300000, guid: c869ffb4c28c2964187d30f0878c9b67, type: 3}
+  - {fileID: 8300000, guid: dc102cfd4b25d574e96d53239ce2b078, type: 3}
+  - {fileID: 8300000, guid: b8425bdcefa7423429a91fb7d72b1609, type: 3}
+  CurrentSound: {fileID: 0}
 --- !u!114 &114713191003721952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6407,10 +6432,10 @@ MonoBehaviour:
   aimTurnSmoothing: 15
   speedDampTime: 0.1
   jumpCooldown: 1
-  speed: 0
   MuzzleFlash: {fileID: 198452741293538416}
   MomentumShield: {fileID: 198140745815331686}
   _PlayerSFXManager: {fileID: 0}
+  twoArm: 0
 --- !u!114 &114850097758543148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7521,8 +7546,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.0000038146973, y: 0, z: 0.035938263}
-    m_Extent: {x: 0.048354033, y: 0.2890744, z: 0.043065432}
+    m_Center: {x: 0.0000009536743, y: -0.00000011920929, z: 0.035936356}
+    m_Extent: {x: 0.04835404, y: 0.2890746, z: 0.043065436}
   m_DirtyAABB: 0
 --- !u!137 &137656189869126288
 SkinnedMeshRenderer:

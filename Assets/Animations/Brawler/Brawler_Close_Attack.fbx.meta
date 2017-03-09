@@ -71,9 +71,14 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
-      does not match:\n\tTransform 'Pelvis_jnt' for human bone 'Hips' not found\n"
-    animationImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'jnt_R_shoulder_Base' has translation animation
+      that will be discarded.\n\t'jnt_R_elbow_Base' has translation animation that
+      will be discarded.\n\t'jnt_L_ball' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'jnt_R_ball' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -106,7 +111,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.27889448
+        functionName: lightAttackSFXEvent
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: dc545f7144f3300479c7bf8c0eb38af8,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
