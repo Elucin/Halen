@@ -6,7 +6,7 @@ public class CargTalking : MonoBehaviour {
 
 	public AudioClip talking;
 	AIBase ai;
-	private AudioSource CurrentSound;
+	public AudioSource CurrentSound;
 
 	//private float volLowRange;
 	//private float volHighRange;
@@ -18,7 +18,7 @@ public class CargTalking : MonoBehaviour {
 
 	void Start()
 	{
-		CurrentSound = GetComponent<AudioSource> ();
+		//CurrentSound = GetComponent<AudioSource> ();
 		ai = GetComponent<AIBase> ();
 		isTalking = false;
 	}

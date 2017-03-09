@@ -28,6 +28,10 @@ public class AIGunner : AIBase
 
 	public ParticleSystem GunnerMuzzleFlash;
 
+	public AudioClip shootSFX;
+	public AudioClip reloadSFX;
+	public AudioSource CurrentSound;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -101,10 +105,10 @@ public class AIGunner : AIBase
                 aimingWeight = 0;
         }
 
-        if(currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
-        {
-            Shoot();
-        }
+		if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4) {
+			Shoot ();
+		}
+			
         /*
         if (currentAIWeaponState == shootState || currentAIWeaponState == aimState && currentAIMeleeState != meleeState && !anim.IsInTransition(3) && rangeCountInt < 4)
             aimingWeight = 1;
@@ -116,14 +120,15 @@ public class AIGunner : AIBase
     protected void Shoot()
     {
 
-        if (Time.time - shootCooldownStart >= shootDelay )
-        {
-            shootCooldownStart = Time.time;
+		if (Time.time - shootCooldownStart >= shootDelay) {
+			shootCooldownStart = Time.time;
 			GunnerMuzzleFlash.Play ();
-			SmallShot newShot = Instantiate(smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
-            newShot.GetComponent<SmallShot>().emitter = ShotEmitterTrans;
-            newShot.GetComponent<SmallShot>().bulletSpeed = 50f;
-        }
+			SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
+			newShot.GetComponent<SmallShot> ().emitter = ShotEmitterTrans;
+			newShot.GetComponent<SmallShot> ().bulletSpeed = 50f;
+			CurrentSound.pitch = 0.8f;
+			CurrentSound.PlayOneShot (shootSFX, 1.5f);
+		}
     }
 
     protected void Retreat()
