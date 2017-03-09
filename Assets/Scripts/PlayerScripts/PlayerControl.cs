@@ -401,7 +401,6 @@ public class PlayerControl : MonoBehaviour
 	        Healing();
 	        Damage();
             Scoring.UpdateCombo();
-			footStepSounds();
         }
         else
         {
@@ -540,7 +539,7 @@ public class PlayerControl : MonoBehaviour
 			if (IsGrounded () || wallHoldStatus != 0 || wallRun) {
                 anim.ResetTrigger(backFlipTrig);
 				anim.SetBool (jumpBool, true);
-				_PlayerSFXManager.playSoundEffect("jump");
+				_PlayerSFXManager.playSoundEffect("jump1");
 			}
 			//If not grounded, attempt to double jump
  			else if (canDoubleJump) {
@@ -548,7 +547,7 @@ public class PlayerControl : MonoBehaviour
 				canDoubleJump = false;
 				GetComponent<Rigidbody> ().velocity = new Vector3 (targetDirection.x * speed / 1.5f, 0, targetDirection.z * speed / 1.5f);
 				GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpHeight * 1.5f, ForceMode.Impulse);
-				_PlayerSFXManager.playSoundEffect("jump");
+				_PlayerSFXManager.playSoundEffect("jump2");
 			}
 		}
 
@@ -1181,22 +1180,7 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-            
 
-
-	void footStepSounds()
-	{		
-		if (anim.GetFloat ("stepSounds") > 0.99f && step) {
-			_PlayerSFXManager.playSoundEffect ("Footstep");
-			StartCoroutine (WaitForFootSteps (0.156f));
-		}
-
-	}
-	IEnumerator WaitForFootSteps(float stepsLength){
-		step = false;
-		yield return new WaitForSeconds (stepsLength);
-		step = true;
-	}
     IEnumerator preSpawn(float spawnDelay)
     {
         yield return new WaitForSeconds(spawnDelay);
