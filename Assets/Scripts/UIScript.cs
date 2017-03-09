@@ -38,7 +38,7 @@ public class UIScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
+        Halen = GameObject.FindObjectOfType<PlayerControl>();
 
 		dashFlash = false;
 
@@ -57,6 +57,8 @@ public class UIScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        dashBar.gameObject.SetActive(!Halen.twoArm);
         
 		if (shotCooldownBarWrist == null && PlayerControl.Health>0) {
 			shotCooldownBarWrist = GameObject.Find ("wrist_RechargeFill").GetComponent<Image>();
