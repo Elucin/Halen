@@ -8,19 +8,37 @@ using System.Collections.Generic;
 public class AddCancel : MonoBehaviour
 {
     public Button gotoButton;
-    
+
     void Start()
     {
-        GetComponent<CancelButton>().onCancel.AddListener(delegate 
+        if (GetComponent<CancelButton>())
         {
-            CancelCallBack(gotoButton);
-        });
+            GetComponent<CancelButton>().onCancel.AddListener(delegate
+            {
+                CancelCallBack(gotoButton, "Button");
+            });
+        }
+        else if (GetComponent<CancelSlider>())
+        {
+            GetComponent<CancelSlider>().onCancel.AddListener(delegate
+            {
+                CancelCallBack(gotoButton, "Slider");
+            });
+        }
     }
 
-    void CancelCallBack(Button b)
+    void CancelCallBack(Button b, string type)
     {
-        if(GetComponent<Button>().IsActive())
-            b.Select();
+        if (type == "Button")
+        {
+            if (GetComponent<Button>().IsActive())
+                b.Select();
+        }
+        else if(type == "Slider")
+        {
+            if (GetComponent<Slider>().IsActive())
+                b.Select();
+        }
     }
 }
 

@@ -401,8 +401,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300006, guid: f0ec93d3d5ffbe74da26e789fa7a4805,
+      type: 3}
+    m_PressedSprite: {fileID: 21300006, guid: f0ec93d3d5ffbe74da26e789fa7a4805, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -793,6 +794,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 123703769}
+  - component: {fileID: 123703770}
   - component: {fileID: 123703768}
   m_Layer: 5
   m_Name: musicVolume_slider
@@ -809,11 +811,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 123703767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 701a2ee1f4208c4489e18f88bc6e2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -843,7 +845,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -870,6 +872,18 @@ RectTransform:
   m_AnchoredPosition: {x: 356.00003, y: -15}
   m_SizeDelta: {x: 408, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123703770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123703767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393e669e4d1b5ec4d9e5021cb82341f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gotoButton: {fileID: 166124890}
 --- !u!1 &155136682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191482759}
   - component: {fileID: 191482760}
+  - component: {fileID: 191482761}
   m_Layer: 5
   m_Name: sensitivity_slider
   m_TagString: Untagged
@@ -1130,11 +1145,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 191482758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 701a2ee1f4208c4489e18f88bc6e2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1164,12 +1179,24 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &191482761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191482758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393e669e4d1b5ec4d9e5021cb82341f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gotoButton: {fileID: 502890170}
 --- !u!1 &205975995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 418195465}
+  - component: {fileID: 418195466}
   - component: {fileID: 418195464}
   m_Layer: 5
   m_Name: voiceVolume_slider
@@ -2096,11 +2124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 418195463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 701a2ee1f4208c4489e18f88bc6e2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2130,7 +2158,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2157,6 +2185,18 @@ RectTransform:
   m_AnchoredPosition: {x: 356.2577, y: -15}
   m_SizeDelta: {x: 408, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &418195466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418195463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393e669e4d1b5ec4d9e5021cb82341f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gotoButton: {fileID: 469237879}
 --- !u!1 &418553187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,7 +3335,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 121832244}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 5
   m_Options:
     m_Options:
     - m_Text: Fastest
@@ -4072,7 +4112,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &628183643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,6 +4685,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 680739020}
+  - component: {fileID: 680739022}
   - component: {fileID: 680739021}
   m_Layer: 5
   m_Name: soundFXVolume_slider
@@ -4682,11 +4723,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 680739019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 701a2ee1f4208c4489e18f88bc6e2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4716,12 +4757,24 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &680739022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680739019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393e669e4d1b5ec4d9e5021cb82341f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gotoButton: {fileID: 752054820}
 --- !u!1 &689919452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,6 +4914,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 702344271}
+  - component: {fileID: 702344273}
   - component: {fileID: 702344272}
   m_Layer: 5
   m_Name: generalVolume_slider
@@ -4898,11 +4952,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 702344270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 701a2ee1f4208c4489e18f88bc6e2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4932,12 +4986,24 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &702344273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 702344270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393e669e4d1b5ec4d9e5021cb82341f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gotoButton: {fileID: 644740353}
 --- !u!1 &705386608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,7 +10733,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 535801376}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 8
   m_Options:
     m_Options:
     - m_Text: 640x480
@@ -10877,7 +10943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 640x480
+  m_Text: 1280x768
 --- !u!222 &1880186933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12354,7 +12420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Fastest
+  m_Text: Fantastic
 --- !u!222 &2114974051
 CanvasRenderer:
   m_ObjectHideFlags: 0
