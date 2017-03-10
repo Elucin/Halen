@@ -7,14 +7,14 @@ using UnityEngine.EventSystems;
 
 public class CancelButton : Button, ICancelHandler
 {
-    public UnityEvent onCancel { get; private set; }
-    // Use this for initialization
+    public UnityEvent onCancel {get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
         onCancel = new UnityEvent();
     }
-
+    // Use this for initialization
     void ICancelHandler.OnCancel(BaseEventData eventData)
     {
         onCancel.Invoke();
