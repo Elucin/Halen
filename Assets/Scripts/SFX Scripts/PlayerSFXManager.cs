@@ -12,8 +12,11 @@ public class PlayerSFXManager : MonoBehaviour
 	public AudioClip jump1SFX;
 	public AudioClip jump2SFX;
 
+	public AudioClip hitSFX;
 
 	public AudioSource CurrentSound;
+
+	public AudioSource CurrentVO;
 
 	//max and min volume for sfx
 	private float volLowRange;
@@ -22,12 +25,20 @@ public class PlayerSFXManager : MonoBehaviour
 	private float pitchLowRange;
 	private float pitchHighRange;
 
+	private float hitCooldown;
+
 	Animator anim;
 
 	void Start()
 	{
 		anim = GameObject.Find("Halen").GetComponent<Animator> ();
+		hitCooldown = 0f;
 
+	}
+
+	void Update()
+	{
+		hitCooldown -= Time.deltaTime;
 	}
 
 	public void playSoundEffect(string soundID)
@@ -86,6 +97,16 @@ public class PlayerSFXManager : MonoBehaviour
 			float randPitch = Random.Range (pitchLowRange, pitchHighRange);
 			CurrentSound.pitch = randPitch;
 			CurrentSound.PlayOneShot (jump2SFX, randVol);
+		}
+		else if (soundID == "hit") 
+		{
+			if (hitCooldown <= 0) {
+				volLowRange = 0.3f;
+				volHighRange = 0.7f;
+				float randVol = Random.Range (volLowRange, volHighRange);
+				CurrentVO.PlayOneShot (hitSFX, randVol);
+				hitCooldown = 0.3f;
+			}
 		}
 	}
 }

@@ -107,7 +107,7 @@ public class PlayerControl : MonoBehaviour
     private float vk;
 
 	private static bool aim;
-	private bool roll;
+	public bool roll;
 	private bool run;
 	private bool sprint;
 	private bool jump;
@@ -1137,11 +1137,15 @@ public class PlayerControl : MonoBehaviour
                 damageBuffer = 0f;
                 return;
             }
-
         }
         float originalDamage = damageBuffer; //Original damage amount backed up
         damageBuffer -= damageBuffer*damageReduction; // Damage taken modified by shield
         health -= damageBuffer; //Damge subtracted from health
+
+		if (damageBuffer > 0) {
+			_PlayerSFXManager.playSoundEffect ("hit");
+		}
+
         if(godMode)
         {
             health = Mathf.Clamp(health, 1f, 100f);
