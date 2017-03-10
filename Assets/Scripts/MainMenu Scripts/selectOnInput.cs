@@ -22,6 +22,11 @@ public class selectOnInput : MonoBehaviour {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
         }
+
+		if (Input.GetAxisRaw ("Camera X Mouse") > 0.5f || Input.GetAxisRaw ("Camera Y Mouse") > 0.5f) {
+			eventSystem.SetSelectedGameObject(null);
+			buttonSelected = false;
+		}
 	}
 
     private void OnDisable()
