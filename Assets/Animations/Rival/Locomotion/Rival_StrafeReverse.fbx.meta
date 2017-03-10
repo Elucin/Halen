@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e7f03076d50f2264d99721cad75e8ed7
-timeCreated: 1489079434
+guid: 6879501f1aba49549af06f4b1a6471a5
+timeCreated: 1489169860
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -105,7 +105,7 @@ ModelImporter:
     400094: jnt_Spine3
     400096: jnt_Spine4
     400098: //RootNode
-    7400000: Rival_Strafe
+    7400000: Rival_StrafeR
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -118,23 +118,38 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'jnt_L_Knee2' is inbetween humanoid transforms
+    animationImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween
+      bone rotation in copied configuration does not match rotation in animation file\nRival_StrafeReverse\nClip
+      'Take 001' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'jnt_Spine2'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Arm'
+      has translation animation that will be discarded.\n\t'jnt_L_Arm' has translation
+      animation that will be discarded.\n\t'jnt_L_Knee2' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'jnt_L_Ball' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Knee2'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ball'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
-      average position error 90.3 mm and maximum position error 247.8 mm at time 0:15
-      (29.8%) Frame 15\n\tLeftFoot average position error 24.8 mm and maximum position
-      error 96.0 mm at time 1:15 (80.9%) Frame 39\n\tRightLowerLeg average position
-      error 64.3 mm and maximum position error 228.1 mm at time 0: 4 (6.4%) Frame
-      4\n\tRightFoot average position error 33.0 mm and maximum position error 125.1
-      mm at time 0:12 (23.4%) Frame 12\n\tHead average position error 46.7 mm and
-      maximum position error 46.7 mm at time 0:21 (42.6%) Frame 21\n\tLeftFoot average
-      orientation error 0.1 deg and maximum orientation error 0.6 deg at time 0:12
-      (23.4%) Frame 12\n\tRightFoot average orientation error 5.9 deg and maximum
-      orientation error 34.8 deg at time 1: 3 (57.4%) Frame 27\n"
+      average position error 87.7 mm and maximum position error 232.4 mm at time 0:17
+      (34.0%) Frame 17\n\tLeftFoot average position error 22.5 mm and maximum position
+      error 90.2 mm at time 0:17 (34.0%) Frame 17\n\tRightLowerLeg average position
+      error 74.9 mm and maximum position error 297.5 mm at time 1: 3 (55.3%) Frame
+      27\n\tRightFoot average position error 43.2 mm and maximum position error 219.5
+      mm at time 0:12 (23.4%) Frame 12\n\tLeftUpperArm average position error 121.8
+      mm and maximum position error 123.4 mm at time 0:16 (31.9%) Frame 16\n\tLeftLowerArm
+      average position error 115.4 mm and maximum position error 117.7 mm at time
+      0:16 (31.9%) Frame 16\n\tLeftHand average position error 110.3 mm and maximum
+      position error 112.9 mm at time 0:16 (31.9%) Frame 16\n\tRightUpperArm average
+      position error 121.1 mm and maximum position error 121.4 mm at time 0:16 (31.9%)
+      Frame 16\n\tRightLowerArm average position error 108.9 mm and maximum position
+      error 109.6 mm at time 0:16 (31.9%) Frame 16\n\tRightHand average position error
+      101.1 mm and maximum position error 101.9 mm at time 0:16 (31.9%) Frame 16\n\tHead
+      average position error 66.1 mm and maximum position error 66.3 mm at time 1:
+      8 (66.0%) Frame 32\n\tLeftFoot average orientation error 0.1 deg and maximum
+      orientation error 0.9 deg at time 0:12 (23.4%) Frame 12\n\tRightFoot average
+      orientation error 4.6 deg and maximum orientation error 45.5 deg at time 1:
+      3 (55.3%) Frame 27\n"
     animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
@@ -144,7 +159,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Rival_Strafe
+      name: Rival_StrafeR
       takeName: Take 001
       firstFrame: 1
       lastFrame: 30
@@ -158,10 +173,10 @@ ModelImporter:
       loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -294,7 +309,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 2
     human:
@@ -857,7 +872,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e7f03076d50f2264d99721cad75e8ed7,
+    type: 3}
   animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
