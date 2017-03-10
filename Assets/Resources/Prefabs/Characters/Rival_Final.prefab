@@ -3294,7 +3294,7 @@ Transform:
   m_GameObject: {fileID: 1617783393180828}
   m_LocalRotation: {x: -0, y: 0.17926978, z: -0, w: 0.9838}
   m_LocalPosition: {x: -0.00000022171, y: 0.96513, z: 0.000000087681}
-  m_LocalScale: {x: 0.9191572, y: 0.9191579, z: 0.91915834}
+  m_LocalScale: {x: 1.1386249, y: 1.138626, z: 1.1386266}
   m_Children: []
   m_Father: {fileID: 4042916339519200}
   m_RootOrder: 3
@@ -4545,7 +4545,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783652193092298}
-  m_LocalRotation: {x: -0.5237925, y: 0.48319286, z: 0.5073799, w: 0.48449135}
+  m_LocalRotation: {x: -0.5237925, y: 0.48319283, z: 0.5073799, w: 0.48449132}
   m_LocalPosition: {x: 2.0051975, y: -0.9876449, z: 0.55033636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5734,6 +5734,7 @@ MonoBehaviour:
   patrolSet: {fileID: 0}
   halen: {fileID: 0}
   Idle: 0
+  destroyed: 0
   triggerCount: 0
   _BrawlerSFXManager: {fileID: 0}
   teleportInParticles: {fileID: 132526, guid: 81ff00922d766d34fa85a14238b63359, type: 2}
@@ -5825,10 +5826,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.06
+  m_Radius: 0.68
+  m_Height: 2.98
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0.15}
 --- !u!137 &137021781770097784
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -7115,7 +7116,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405952515314870}
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
@@ -7124,7 +7125,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0.93
+  m_Height: 2.79
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

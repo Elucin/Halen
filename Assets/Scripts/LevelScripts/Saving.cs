@@ -12,7 +12,7 @@ public class Saving : MonoBehaviour
 
     void Start()
     {
-        halen = Resources.Load("Prefabs/Characters/Halen/Halen_Final") as GameObject;
+        halen = Resources.Load("Prefabs/Characters/Halen/Halen") as GameObject;
         halen2Arm = Resources.Load("Prefabs/Characters/Halen/Halen_2Arm") as GameObject;
         
         if(doLoad)
