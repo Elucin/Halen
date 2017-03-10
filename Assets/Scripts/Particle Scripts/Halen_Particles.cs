@@ -96,7 +96,6 @@ public class Halen_Particles : MonoBehaviour {
 				landingStorage = true;
 				StopDust.Play ();
 
-				Debug.Log (Halen.roll);
 
 				if (!Halen.roll) {
 					CurrentSound.pitch = Random.Range (0.8f, 1.2f);
