@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EyeSequence : MonoBehaviour {
 
-<<<<<<< HEAD
+
 	public halenEyes_Script eyeScript;
-=======
+
     public AudioClip aClip;
-	halenEyes_Script eyeScript;
->>>>>>> refs/remotes/origin/master
+
+
 	public halenEyes_Script.EyeStruct[] EyeStep;
     public bool interrupt = true;
     public float delay = 0f;
