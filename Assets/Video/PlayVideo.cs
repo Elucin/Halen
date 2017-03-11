@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayVideo : MonoBehaviour {
+    public static bool loadScoreScreen = false;
+    public static int clipIndex = 0;
+
     [System.Serializable]
     public struct av
     {
@@ -30,6 +33,9 @@ public class PlayVideo : MonoBehaviour {
     void Start () {
 
         Renderer r = GetComponent<Renderer>();
+        AudioSource a = GameObject.FindObjectOfType<AudioSource>();
+        r.material = CutsceneList[clipIndex].video;
+        a.clip = CutsceneList[clipIndex].audio;
         movie = (MovieTexture)r.material.mainTexture;
         movie.Play();
 	}
@@ -39,7 +45,10 @@ public class PlayVideo : MonoBehaviour {
  
         if(!movie.isPlaying)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+            if(!loadScoreScreen)
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+            else
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Score Screen");
         }
     }
 	
