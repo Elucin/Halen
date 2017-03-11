@@ -6,14 +6,20 @@ public class disableTime : MonoBehaviour {
 
 	public float duration;
 	public GameObject[] Object;
+	public GameObject[] Activated;
 	int amount;
+	int amount2;
 
 	// Use this for initialization
 	void Start () {
 		amount = Object.Length;
+		amount2 = Activated.Length;
 		if (duration == null) {
 			for (int i = 0; i < amount; i++) {
 				Object[i].SetActive (false); 
+			}
+			for (int j = 0; j < amount2; j++) {
+				Activated[j].SetActive (true); 
 			}
 			gameObject.SetActive (false); 
 		}
@@ -25,6 +31,9 @@ public class disableTime : MonoBehaviour {
 		if (duration <= 0) {
 			for (int i = 0; i < amount; i++) {
 				Object[i].SetActive (false); 
+			}
+			for (int j = 0; j < amount2; j++) {
+				Activated[j].SetActive (true); 
 			}
 			gameObject.SetActive (false); 
 		}
