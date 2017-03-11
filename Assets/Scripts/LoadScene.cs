@@ -4,6 +4,7 @@ using System.Collections;
 public class LoadScene : MonoBehaviour {
     public int sceneIndex = 0;
     public bool loadNextScene = false;
+    public bool loadScoreScreen = false;
 	// Use this for initialization
 	void Start () {
 	    
@@ -15,13 +16,17 @@ public class LoadScene : MonoBehaviour {
         if(c.tag == "Player")
         {
             StopAllCoroutines();
-            if(!loadNextScene)
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
-            else
+            if (!loadNextScene && !loadScoreScreen)
+                LoadNextScene.Level = sceneIndex;
+            else if (loadNextScene)
             {
                 int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-                if(thisIndex >= UnityEngine.SceneManagement.SceneManager.sceneCount)
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(thisIndex + 1);
+                if (thisIndex <= UnityEngine.SceneManagement.SceneManager.sceneCount)
+                    LoadNextScene.Level = thisIndex + 1;
+            }
+            else if (loadScoreScreen)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Score Screen");
             }
         }
     }
