@@ -99,7 +99,7 @@ public class Halen_Particles : MonoBehaviour {
 
 				if (!Halen.roll) {
 					CurrentSound.pitch = Random.Range (0.8f, 1.2f);
-					CurrentSound.PlayOneShot (landing, 1);
+					CurrentSound.PlayOneShot (landing, 0.3f);
 				}
 
 			}

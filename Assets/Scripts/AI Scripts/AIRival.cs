@@ -47,6 +47,10 @@ public class AIRival : AIBase {
 
 	public ParticleSystem RivalMuzzleFlash;
 
+	public AudioClip [] hit;
+	public AudioClip [] taunt;
+	public AudioSource CurrentSound;
+
     int dodgeDirection = -1;
     
 
@@ -80,7 +84,20 @@ public class AIRival : AIBase {
 
     // Update is called once per frame
     protected override void Update () {
-        currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
+		if (TakenDamage()) {
+			int randSound = Random.Range (0, hit.GetLength (0) - 1);
+			CurrentSound.PlayOneShot (hit [randSound], 1f);
+		}
+
+
+		if (Random.RandomRange(0, 1500) == 0)
+		{
+			int randSound = Random.Range (0, taunt.GetLength (0) - 1);
+			CurrentSound.PlayOneShot (taunt [randSound], 1f);
+		}
+
+
+		currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
         if (halen == null)
             halen = GameObject.FindGameObjectWithTag("Player");

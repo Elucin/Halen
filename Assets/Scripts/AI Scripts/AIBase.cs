@@ -154,7 +154,7 @@ public class AIBase : MonoBehaviour {
 
     }
 
-    bool TakenDamage()
+    public bool TakenDamage()
     {
         bool damaged = oldHealth > health;
         oldHealth = health;
