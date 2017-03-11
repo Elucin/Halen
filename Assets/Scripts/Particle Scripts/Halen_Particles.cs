@@ -14,6 +14,8 @@ public class Halen_Particles : MonoBehaviour {
 	public bool sprintStorage;
 	public bool landingStorage;
     bool twoArm = false;
+	public AudioClip landing;
+	public AudioSource CurrentSound;
 
 	// Use this for initialization
 	void Start () {
@@ -93,6 +95,13 @@ public class Halen_Particles : MonoBehaviour {
 			if (Halen.IsGrounded () && landingStorage == false) {
 				landingStorage = true;
 				StopDust.Play ();
+
+
+				if (!Halen.roll) {
+					CurrentSound.pitch = Random.Range (0.8f, 1.2f);
+					CurrentSound.PlayOneShot (landing, 1);
+				}
+
 			}
 
             // RUN DUST PARTICLES

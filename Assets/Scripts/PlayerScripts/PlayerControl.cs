@@ -65,7 +65,7 @@ public class PlayerControl : MonoBehaviour
     private float targetAngle;
     private bool swapping = false;
     private float swapTimer;
-    private const float SWAP_TIME = 0.25f;
+    private const float SWAP_TIME = 0.15f;
 
 	private Animator anim;
 	private int speedFloat;
@@ -84,6 +84,7 @@ public class PlayerControl : MonoBehaviour
 	private int dashVelocityFloat;
 	private int dashHeldFloat;
 	private int CamAngleHFloat;
+    private int CamAngleVFloat;
 	private int wallHeldBool;
     private int footHoldFloat;
 	private int wallRunBool;
@@ -107,7 +108,7 @@ public class PlayerControl : MonoBehaviour
     private float vk;
 
 	private static bool aim;
-	private bool roll;
+	public bool roll;
 	private bool run;
 	private bool sprint;
 	private bool jump;
@@ -260,7 +261,8 @@ public class PlayerControl : MonoBehaviour
 		dashVelocityFloat = Animator.StringToHash ("DashVelocity");
 		dashHeldFloat = Animator.StringToHash ("dashHeld");
 		CamAngleHFloat = Animator.StringToHash ("CamAngleH");
-		wallHeldBool = Animator.StringToHash ("WallHeld");
+        CamAngleVFloat = Animator.StringToHash("CamAngleV");
+        wallHeldBool = Animator.StringToHash ("WallHeld");
         footHoldFloat = Animator.StringToHash("footGrab");
 		wallRunBool = Animator.StringToHash ("wallRun");
         backFlipTrig = Animator.StringToHash("Backflip");
@@ -389,7 +391,8 @@ public class PlayerControl : MonoBehaviour
 			anim.SetBool (groundedBool, IsGrounded ());
 			anim.SetBool (wallHeldBool, wallHoldStatus > 0);
 			anim.SetFloat (CamAngleHFloat, getCamPlayerAngle ());
-			anim.SetBool (wallRunBool, wallRun);
+            //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
+            anim.SetBool (wallRunBool, wallRun);
 			JumpManagement ();
 			RollManagement ();
 	        MovementManagement(h, v, run, sprint);
@@ -462,8 +465,8 @@ public class PlayerControl : MonoBehaviour
         currentShots = Mathf.Clamp(currentShots, 0, MAX_SHOTS);
 
         currentBaseState = anim.GetCurrentAnimatorStateInfo (0).fullPathHash;
-		currentDashState = anim.GetCurrentAnimatorStateInfo (5).fullPathHash;
-		currentSlashState = anim.GetCurrentAnimatorStateInfo (4).fullPathHash;
+		currentDashState = anim.GetCurrentAnimatorStateInfo (6).fullPathHash;
+		currentSlashState = anim.GetCurrentAnimatorStateInfo (5).fullPathHash;
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
         if (!jump)
@@ -795,7 +798,7 @@ public class PlayerControl : MonoBehaviour
 					
 				_PlayerSFXManager.playSoundEffect ("largeShot");
 
-			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && anim.GetCurrentAnimatorStateInfo (1).fullPathHash == Animator.StringToHash ("RunAndGun.RunAim") && !swapping && currentBaseState != rollState) {
+			} else if (!IsAiming () && Time.time - shortShootCooldownStart >= shortShotCooldown && (anim.GetCurrentAnimatorStateInfo (1).fullPathHash != Animator.StringToHash ("IdleAndGun.New State") || anim.GetCurrentAnimatorStateInfo(2).fullPathHash != Animator.StringToHash("RunAndGun.New State")) && !swapping && currentBaseState != rollState) {
 				shortShootCooldownStart = Time.time;
 				MuzzleFlash.Play ();
 				SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
@@ -938,8 +941,8 @@ public class PlayerControl : MonoBehaviour
                         anim.SetLookAtPosition((-transform.right + transform.forward * 0.3f) * 1000.0f);
                 }
 
-                //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
-                //anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
+                anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimingWeight / 10f);
+                anim.SetIKPosition(AvatarIKGoal.RightHand, cameraTransform.TransformDirection(Vector3.forward) * 1000.0f);
         }
 	}
 
@@ -1137,11 +1140,15 @@ public class PlayerControl : MonoBehaviour
                 damageBuffer = 0f;
                 return;
             }
-
         }
         float originalDamage = damageBuffer; //Original damage amount backed up
         damageBuffer -= damageBuffer*damageReduction; // Damage taken modified by shield
         health -= damageBuffer; //Damge subtracted from health
+
+		if (damageBuffer > 0) {
+			_PlayerSFXManager.playSoundEffect ("hit");
+		}
+
         if(godMode)
         {
             health = Mathf.Clamp(health, 1f, 100f);
@@ -1156,13 +1163,19 @@ public class PlayerControl : MonoBehaviour
 
 	float getCamPlayerAngle()
 	{
-        float angle = Vector3.Angle (transform.forward, cameraTransform.TransformDirection (Vector3.forward));
-        if (Vector3.Angle(transform.right, cameraTransform.TransformDirection(Vector3.forward)) > 90f)
+        Vector3 XZ_Cam = cameraTransform.TransformDirection(Vector3.forward);
+        XZ_Cam.y = 0;
+        float angle = Vector3.Angle (transform.forward, XZ_Cam);
+        if (Vector3.Angle(transform.right, XZ_Cam) > 90f)
         {
-            angle = -angle;
+            if (prevDegree > 150f && 360 - angle <= 195)
+                angle = 360 - angle;
+            else
+                angle = -angle;
         }
 
-        if (Mathf.Abs(prevDegree) > 150f && ((prevDegree < 0 && angle > 0) || (prevDegree > 0 && angle < 0)) && !swapping)
+        /*
+        if (Mathf.Abs(prevDegree) > 190f && ((prevDegree < 0 && angle > 0) || (prevDegree > 0 && angle < 0)) && !swapping)
         {
             swapping = true;
             targetAngle = angle;
@@ -1177,9 +1190,29 @@ public class PlayerControl : MonoBehaviour
         {
             swapping = false;
             return prevDegree = angle;
-        }
+        }*/
+        return prevDegree = angle;
 
-    }
+    }      
+    
+    float getCamPlayerVAngle()
+    {
+        return Vector3.Angle(transform.up, cameraTransform.TransformDirection(Vector3.forward));
+    } 
+
+	void footStepSounds()
+	{		
+		if (anim.GetFloat ("stepSounds") > 0.99f && step) {
+			_PlayerSFXManager.playSoundEffect ("Footstep");
+			StartCoroutine (WaitForFootSteps (0.156f));
+		}
+
+	}
+	IEnumerator WaitForFootSteps(float stepsLength){
+		step = false;
+		yield return new WaitForSeconds (stepsLength);
+		step = true;
+	}
 
     IEnumerator preSpawn(float spawnDelay)
     {

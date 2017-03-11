@@ -81,7 +81,7 @@ public class SmallShot : MonoBehaviour {
                         if (c.gameObject.GetComponent<AIBase>().health <= 0)
                             c.gameObject.GetComponent<AIBase>().stylePoints.deathType = damageType;
                     }
-                        c.gameObject.GetComponent<AIBase>().doStun(1f);
+                    c.gameObject.GetComponent<AIBase>().doStun(1f);
                     DestroyBullet();
                 }
                 else

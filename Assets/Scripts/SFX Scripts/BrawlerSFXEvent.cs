@@ -20,12 +20,12 @@ public class BrawlerSFXEvent : MonoBehaviour {
 
 	public void lightAttackSFXEvent ()
 	{
-		CurrentSound.PlayOneShot (lightAttack, 1);
+		CurrentSound.PlayOneShot (lightAttack, 0.7f);
 	}
 
 	public void heavyAttackSFXEvent ()
 	{
-		CurrentSound.PlayOneShot (heavyAttack, 2);
+		CurrentSound.PlayOneShot (heavyAttack, 1.5f);
 	}
 
 	public void StepSFXEvent()
