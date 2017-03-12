@@ -14,8 +14,10 @@ public class Halen_Particles : MonoBehaviour {
 	public bool sprintStorage;
 	public bool landingStorage;
     bool twoArm = false;
+
 	public AudioClip landing;
 	public AudioSource CurrentSound;
+
 
 	// Use this for initialization
 	void Start () {
