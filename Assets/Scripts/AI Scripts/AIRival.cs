@@ -182,7 +182,8 @@ public class AIRival : AIBase {
             didFire = false;
             anim.SetBool (doSnipeTeleportBool, false);
 			LineRenderer l = GetComponent<LineRenderer> ();
-			l.enabled = true;
+            if (!teleporting)
+                l.enabled = true;
             Vector3 halenGroundPos = PlayerControl.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
@@ -198,7 +199,7 @@ public class AIRival : AIBase {
             {
                 if (hit.transform.CompareTag("Player"))
                 {
-                    halen.GetComponent<PlayerControl>().damageBuffer += 60f;
+                    halen.GetComponent<PlayerControl>().damageBuffer += 75f;
                 }
             }
 			didFire = true;
@@ -420,7 +421,7 @@ public class AIRival : AIBase {
         if(c.transform.CompareTag("Player") && currentBaseState == meleeState && !didMeleeDamage)
         {
             didMeleeDamage = true;
-            halen.GetComponent<PlayerControl>().damageBuffer += 50f;
+            halen.GetComponent<PlayerControl>().damageBuffer += 60f;
         }
     }
 }
