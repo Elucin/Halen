@@ -24,11 +24,6 @@ public class ScoreScreen : MonoBehaviour {
         Combo.text = "Highest Combo: " + Scoring.biggestCombo.ToString();
         Total.text = "TOTAL SCORE: " + Scoring.PlayerScore.ToString();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void Restart()
     {
@@ -46,7 +41,8 @@ public class ScoreScreen : MonoBehaviour {
     public void Continue()
     {
         //StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
-        Debug.Log("Going To Load Scene: " + LoadNextScene.Level);
+        if (LoadNextScene.Level == 7)
+            LoadNextScene.Level = 8;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
     }
 }

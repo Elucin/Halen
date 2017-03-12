@@ -24,6 +24,13 @@ public class menuScript1 : MonoBehaviour {
 
 	public void StartLevel()
 	{
+        Scoring.brawlersKilled = 0;
+        Scoring.gunnersKilled = 0;
+        Scoring.chargersKilled = 0;
+        Scoring.floatersKilled = 0;
+        Scoring.snipersKilled = 0;
+        Scoring.biggestCombo = 0;
+        Scoring.PlayerScore = 0;
         LoadNextScene.Level = SceneManager.GetActiveScene().buildIndex + 1;
         PlayVideo.clipIndex = 0;
         SceneManager.LoadScene("Cutscene");
