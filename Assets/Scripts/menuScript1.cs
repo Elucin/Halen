@@ -25,7 +25,8 @@ public class menuScript1 : MonoBehaviour {
 	public void StartLevel()
 	{
         LoadNextScene.Level = SceneManager.GetActiveScene().buildIndex + 1;
-		SceneManager.LoadScene ("Loading");
+        PlayVideo.clipIndex = 0;
+        SceneManager.LoadScene("Cutscene");
 	}
 
 	public void ExitGame()

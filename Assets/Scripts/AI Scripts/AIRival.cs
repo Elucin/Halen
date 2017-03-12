@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class AIRival : AIBase {
 
     const float MIN_TELEPORT_DISTANCE = 20f;
-    const float TELEPORT_DELAY = 3.0f;
+    const float TELEPORT_DELAY = 2.1f;
     const float TELEPORT_MELEE_DELAY = 1.0f;
 
     public GameObject teleportInParticles;
@@ -27,6 +27,7 @@ public class AIRival : AIBase {
     protected int xMove;
     protected int zMove;
     protected int dodgeVelocityCoefficient;
+    protected int meleeVelocityCoefficient;
 
     protected static int teleportStartState;
     protected static int teleportEndState;
@@ -36,6 +37,7 @@ public class AIRival : AIBase {
     protected static int waitState;
     protected static int attackState;
     protected static int meleeState;
+    protected static int teleportingState;
     private int currentAttackState;
 
     const float shootDelay = 0.1f;
@@ -62,12 +64,15 @@ public class AIRival : AIBase {
         playerCloseTrig = Animator.StringToHash("PlayerClose");
         bossStageInt = Animator.StringToHash("Stage");
         finishTeleportTrig = Animator.StringToHash("FinishTeleport");
+        
         doMeleeBool = Animator.StringToHash("doMelee");
         doMeleeTeleportBool = Animator.StringToHash("doMeleeTeleport");
         xMove = Animator.StringToHash("X_Move");
         zMove = Animator.StringToHash("Z_Move");
         dodgeVelocityCoefficient = Animator.StringToHash("DodgeCurve");
+        meleeVelocityCoefficient = Animator.StringToHash("MeleeCurve");
 
+        teleportingState = Animator.StringToHash("Base.Teleporting");
         teleportStartState = Animator.StringToHash("Base.Teleport Start");
         teleportEndState = Animator.StringToHash("Base.Teleport Finish");
         moveState = Animator.StringToHash("Base.Move");
@@ -90,7 +95,7 @@ public class AIRival : AIBase {
 		}
 
 
-		if (Random.RandomRange(0, 1500) == 0)
+		if (Random.Range(0, 1500) == 0)
 		{
 			int randSound = Random.Range (0, taunt.GetLength (0) - 1);
 			CurrentSound.PlayOneShot (taunt [randSound], 1f);
@@ -110,7 +115,12 @@ public class AIRival : AIBase {
         else if (health <= 40f && health > 0f)
             anim.SetInteger(bossStageInt, 3);
         else if (health <= 0f)
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        {
+            int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            LoadNextScene.Level = thisIndex + 1;
+            PlayVideo.clipIndex = 3;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Cutscene");
+        }
         
 
         if (!IsGrounded() && !meshAgent.isOnOffMeshLink)
@@ -128,6 +138,7 @@ public class AIRival : AIBase {
         //meshAgent.SetDestination(transform.position - transform.forward);
         if (currentBaseState == moveState)
         {
+            meshAgent.updateRotation = true;
             if (Vector3.Distance(transform.position, halenPos) < 10)
             {
                 StartCoroutine(Retreat());
@@ -147,7 +158,22 @@ public class AIRival : AIBase {
 
         }
 
-        if (currentAttackState == attackState && !teleporting && currentBaseState != teleportEndState && currentBaseState != teleportStartState)
+        if(currentBaseState == meleeState)
+        {
+            anim.SetBool(doMeleeTeleportBool, false);
+            anim.SetBool(doMeleeBool, false);
+            if (Vector3.Angle(transform.forward, transform.position - halenPos) < 90f)
+            {
+                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / 4f) - transform.position;
+                //halenGroundPos.y = 0;
+                Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+                GetComponent<Rigidbody>().velocity = -transform.forward * dodgeDirection * 60.0f * anim.GetFloat(meleeVelocityCoefficient);
+            }
+        
+        }
+
+        if (currentAttackState == attackState && !teleporting && currentBaseState != teleportEndState && currentBaseState != teleportStartState && currentBaseState != meleeState)
         {
 
             if (currentGun)
@@ -162,38 +188,36 @@ public class AIRival : AIBase {
         }
 
         anim.SetBool(playerInRangeBool, triggerCount > 0);
-        if (triggerCount > 1 && currentBaseState != meleeState && currentBaseState != teleportEndState)
+
+        //If the Rival is close to Halen (T > 1) and he isn't already teleporting (for the sake of melee teleporting that requires proximity)
+        if (triggerCount > 1 && !anim.GetBool(doMeleeTeleportBool) && !startTeleport)
         {
-            anim.SetBool(doMeleeBool, false);
-            anim.SetBool(doMeleeTeleportBool, false);
             anim.SetTrigger(playerCloseTrig);
             startTeleport = true;
         }
-
-        if(!teleporting && currentBaseState == teleportEndState && startTeleport)
+        if(!teleporting && currentBaseState == teleportingState && startTeleport)
         {
             startTeleport = false;
             GameObject TeleportExit = Instantiate(teleportOutParticles, transform.position + Vector3.up, Quaternion.identity) as GameObject;
             meshAgent.Warp(teleportHub.position);
-            bool doMelee = false;
             if (anim.GetInteger(bossStageInt) > 1)
             {
-                if (Random.Range(0, 2) == 1)
-                    doMelee = true;
-                anim.SetBool(doMeleeTeleportBool, true);
+                if (Random.Range(0, 3) == 1)
+                {
+                    anim.SetBool(doMeleeTeleportBool, true);
+                }
             }
-            anim.ResetTrigger(finishTeleportTrig);
             anim.ResetTrigger(playerCloseTrig);
-            Teleport(doMelee);
+            Teleport();
         }
   
 	}
 
-    void Teleport(bool doMelee)
+    void Teleport()
     {
         if (!teleporting)
         {
-            if (!doMelee)
+            if (!anim.GetBool(doMeleeTeleportBool))
             {
                 int selectedLocation = Random.Range(0, teleportLocation.Length);
                 if (checkDistance(teleportLocation[selectedLocation]))
@@ -201,11 +225,15 @@ public class AIRival : AIBase {
                     StartCoroutine(doWarp(teleportLocation[selectedLocation]));
                 }
                 else
-                    Teleport(false);
+                {
+                    Teleport();
+                }
             }
             else
             {
-                int angle = 0;
+                anim.SetBool(doMeleeBool, false);
+                int angle = Random.Range(0, 24) * 15;
+                int i = 0;
                 do
                 {
                     Vector3 location = Quaternion.Euler(0, angle, 0) * (-halen.transform.forward * 4f);
@@ -215,9 +243,13 @@ public class AIRival : AIBase {
                         return;
                     }
                     angle += 15;
+                    i++;
+                    if (angle >= 360)
+                        angle -= 360;
 
-                } while (angle < 360);
-                Teleport(false);
+                } while (i < 24);
+                anim.SetBool(doMeleeTeleportBool, false);
+                Teleport();
             }
         }
     }
@@ -229,23 +261,41 @@ public class AIRival : AIBase {
         yield return new WaitForSeconds(TELEPORT_DELAY);
         meshAgent.Warp(location.position);
         anim.SetTrigger(finishTeleportTrig);
+        startTeleport = false;
         teleporting = false;
     }
 
     IEnumerator doMeleeWarp(Vector3 location)
     {
-        if(Random.Range(0, 2) == 1)
-            anim.SetBool(doMeleeBool, true);
+        
         teleporting = true;
         GameObject TeleportEnter = Instantiate(teleportInParticles, halen.transform.TransformPoint(location), Quaternion.identity) as GameObject;
         yield return new WaitForSeconds(TELEPORT_MELEE_DELAY);
+        if (Random.Range(0, 2) == 1)
+            anim.SetBool(doMeleeBool, true);
         meshAgent.enabled = false;
-        transform.position = halen.transform.TransformPoint(location);
+        teleporting = false;
+        if (!anim.GetBool(doMeleeBool))
+        {
+            Teleport();
+        }
+        else
+        {
+            FacePlayer(halen.transform.TransformPoint(location));
+        }
+        
+
+        /*
         if (anim.GetBool(doMeleeBool))
         {
-            GetComponent<Rigidbody>().AddForce(transform.forward * 100f, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(transform.forward * 1000f, ForceMode.Impulse);
+            teleporting = false;
         }
-        teleporting = false;
+        else
+        {
+            Teleport(true);
+        }*/
+
     }
 
     bool checkDistance(Transform location)
@@ -253,6 +303,15 @@ public class AIRival : AIBase {
         return (location.position - PlayerControl.position).magnitude > MIN_TELEPORT_DISTANCE;
     }
 
+    void FacePlayer(Vector3 location)
+    {
+        meshAgent.updateRotation = false;
+        transform.position = location;
+        Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / 4f) - transform.position;
+        //halenGroundPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
+        transform.rotation = rotation;
+    }
 
     protected void Shoot(Transform ShotTrans)
     {
@@ -319,6 +378,14 @@ public class AIRival : AIBase {
         return Physics.Raycast(transform.position, -Vector3.up, out hit, offset + 0.7f);
 
         //return Physics.Raycast(transform.position + new Vector3(0, distToGround, 0), -Vector3.up, distToGround + 0.1f);
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if(c.transform.CompareTag("Player") && currentBaseState == meleeState)
+        {
+            halen.GetComponent<PlayerControl>().damageBuffer += 50f;
+        }
     }
 }
 

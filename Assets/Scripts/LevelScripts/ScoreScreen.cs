@@ -45,7 +45,8 @@ public class ScoreScreen : MonoBehaviour {
 
     public void Continue()
     {
-        StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        //StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
+        Debug.Log("Going To Load Scene: " + LoadNextScene.Level);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
     }
 }

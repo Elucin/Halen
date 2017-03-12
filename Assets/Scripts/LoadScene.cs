@@ -5,8 +5,11 @@ public class LoadScene : MonoBehaviour {
     public int sceneIndex = 0;
     public bool loadNextScene = false;
     public bool loadScoreScreen = false;
-	// Use this for initialization
-	void Start () {
+    public bool loadCutscene = false;
+    public int cutsceneID = 0;
+   
+    // Use this for initialization
+    void Start () {
 	    
 	}
 	
@@ -16,17 +19,28 @@ public class LoadScene : MonoBehaviour {
         if(c.tag == "Player")
         {
             StopAllCoroutines();
-            if (!loadNextScene && !loadScoreScreen)
+            if (!loadNextScene)
+            {
                 LoadNextScene.Level = sceneIndex;
-            else if (loadNextScene)
+            }
+            else
             {
                 int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-                if (thisIndex <= UnityEngine.SceneManagement.SceneManager.sceneCount)
-                    LoadNextScene.Level = thisIndex + 1;
+                LoadNextScene.Level = thisIndex + 1;
             }
-            else if (loadScoreScreen)
+            Debug.Log("Set To Load Scene: " + LoadNextScene.Level);
+            if (loadScoreScreen)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Score Screen");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+            }
+            else if(loadCutscene)
+            {
+                PlayVideo.clipIndex = cutsceneID;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Cutscene");
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
             }
         }
     }
