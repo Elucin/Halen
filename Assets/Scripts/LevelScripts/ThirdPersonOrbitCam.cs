@@ -172,6 +172,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
             smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset + new Vector3(0,0,-5), smooth * Time.deltaTime);
         smoothCamOffset = Vector3.Lerp(smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
         cam.position = Vector3.Lerp(cam.position, player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset, smooth / 2 * Time.deltaTime);
+
         if(player.gameObject.GetComponent<PlayerControl>().IsDead())
             cam.position = Vector3.Lerp(cam.position, player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset + new Vector3(0,2,0), smooth / 2 * Time.deltaTime);
 
@@ -181,24 +182,25 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	// concave objects doesn't detect hit from outside, so cast in both directions
 	bool DoubleViewingPosCheck(Vector3 checkPos)
 	{
-		Vector3 playerFocusHeight = player.GetComponent<CapsuleCollider> ().center;
+		Vector3 playerFocusHeight = player.transform.TransformPoint(player.GetComponent<CapsuleCollider> ().center);
+        //Debug.Log(checkPos);
 		return ViewingPosCheck (checkPos, playerFocusHeight) && ReverseViewingPosCheck (checkPos, playerFocusHeight);
 	}
 
 	bool ViewingPosCheck (Vector3 checkPos, Vector3 colliderCenter)
 	{
 		RaycastHit hit;
-		
+        //Debug.DrawRay(checkPos, colliderCenter - checkPos, Color.green, relCameraPosMag);
 		// If a raycast from the check position to the player hits something...
 		if(Physics.Raycast(checkPos, colliderCenter - checkPos, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{
 			// ... if it is not the player...
-			if(hit.transform != player)
+			if(hit.transform != player && hit.transform != transform)
 			{
-				// This position isn't appropriate.
-				return false;
+                // This position isn't appropriate.
+                return false;
 			}
-		}
+        }
 		// If we haven't hit anything or we've hit the player, this is an appropriate position.
 		return true;
 	}

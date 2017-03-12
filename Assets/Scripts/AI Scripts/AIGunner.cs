@@ -35,7 +35,7 @@ public class AIGunner : AIBase
     // Use this for initialization
     protected override void Start()
     {
-        Name = transform.name.Split('-');
+        transform.name = "Gunner-" + GunnerCount++.ToString();
         base.Start();
         basePoints = 150;
         //Initialise Gunner States
@@ -53,9 +53,6 @@ public class AIGunner : AIBase
         rangeCountInt = Animator.StringToHash("rangeCount");
 
         shootCooldownStart = Time.time;
-
-       
-            
     }
 
     // Update is called once per frame

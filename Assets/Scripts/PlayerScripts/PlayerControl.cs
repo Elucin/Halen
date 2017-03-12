@@ -1143,7 +1143,6 @@ public class PlayerControl : MonoBehaviour
         }
         float originalDamage = damageBuffer; //Original damage amount backed up
         damageBuffer -= damageBuffer*damageReduction; // Damage taken modified by shield
-        Debug.Log(originalDamage + " modified to " + damageBuffer);
         health -= damageBuffer; //Damge subtracted from health
 
 		if (damageBuffer > 0) {
