@@ -15,6 +15,7 @@ public class AIRival : AIBase {
     bool startTeleport = false;
 	bool didSpecialTeleport = false;
 	bool didFire = false;
+    bool didMeleeDamage = false;
 
     public Transform[] teleportLocation;
 	public Transform[] sniperLocation;
@@ -178,21 +179,32 @@ public class AIRival : AIBase {
 			}
         
 		} else if (currentBaseState == snipeState) {
-			anim.SetBool (doSnipeTeleportBool, false);
+            didFire = false;
+            anim.SetBool (doSnipeTeleportBool, false);
 			LineRenderer l = GetComponent<LineRenderer> ();
 			l.enabled = true;
-			Debug.DrawRay (transform.TransformPoint(l.GetPosition (0)), (halen.transform.position + Vector3.up * 1.5f) - transform.TransformPoint(l.GetPosition (0)), Color.green, 0.05f, false);
-			RaycastHit hit;
+            Vector3 halenGroundPos = PlayerControl.position - transform.position;
+            halenGroundPos.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
+            RaycastHit hit;
 			if (Physics.Raycast (transform.TransformPoint(l.GetPosition (0)), (halen.transform.position + Vector3.up * 1.5f) - transform.TransformPoint(l.GetPosition (0)), out hit, 1000f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
 				l.SetPosition (1, transform.InverseTransformPoint(hit.point));
 
 		} else if (currentBaseState == fireState && !didFire) {
-			halen.GetComponent<PlayerControl> ().damageBuffer += 60f;
+            LineRenderer l = GetComponent<LineRenderer>();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.TransformPoint(l.GetPosition(0)), (halen.transform.position + Vector3.up * 1.5f) - transform.TransformPoint(l.GetPosition(0)), out hit, 1000f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    halen.GetComponent<PlayerControl>().damageBuffer += 60f;
+                }
+            }
 			didFire = true;
 			startTeleport = true;
 			GetComponent<LineRenderer> ().enabled = false;
 		} else {
-			didFire = false;
 			GetComponent<LineRenderer> ().enabled = false;
 		}
 
@@ -230,7 +242,7 @@ public class AIRival : AIBase {
 					int random = Random.Range (0, 3);
 					if (random == 0) {
 						anim.SetBool (doMeleeTeleportBool, true);
-					} else if (random >= 1) {
+					} else if (random == 1) {
 						anim.SetBool (doSnipeTeleportBool, true);
 					}
 				} else if (anim.GetInteger (bossStageInt) > 1) {
@@ -327,10 +339,11 @@ public class AIRival : AIBase {
 
     void FacePlayer(Vector3 location)
     {
+        didMeleeDamage = false;
         meshAgent.updateRotation = false;
         transform.position = location;
         Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / 4f) - transform.position;
-        //halenGroundPos.y = 0;
+        halenGroundPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
         transform.rotation = rotation;
     }
@@ -404,8 +417,9 @@ public class AIRival : AIBase {
 
     void OnCollisionEnter(Collision c)
     {
-        if(c.transform.CompareTag("Player") && currentBaseState == meleeState)
+        if(c.transform.CompareTag("Player") && currentBaseState == meleeState && !didMeleeDamage)
         {
+            didMeleeDamage = true;
             halen.GetComponent<PlayerControl>().damageBuffer += 50f;
         }
     }
