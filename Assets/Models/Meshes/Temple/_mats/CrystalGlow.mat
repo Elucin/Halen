@@ -8,10 +8,11 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: CrystalGlow
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -69,7 +70,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Ramp
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _BumpAmt
+      second: 10
     - first:
         name: _BumpScale
       second: 1
@@ -81,10 +91,10 @@ Material:
       second: 1
     - first:
         name: _DstBlend
-      second: 0
+      second: 10
     - first:
         name: _GlossMapScale
-      second: 1
+      second: 0
     - first:
         name: _Glossiness
       second: 0
@@ -96,13 +106,19 @@ Material:
       second: 0
     - first:
         name: _Mode
-      second: 0
+      second: 2
     - first:
         name: _OcclusionStrength
       second: 1
     - first:
         name: _Parallax
       second: 0.02
+    - first:
+        name: _RimMax
+      second: 1
+    - first:
+        name: _RimMin
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 1
@@ -111,17 +127,26 @@ Material:
       second: 1
     - first:
         name: _SrcBlend
-      second: 1
+      second: 5
     - first:
         name: _UVSec
       second: 0
     - first:
         name: _ZWrite
-      second: 1
+      second: 0
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.90344834, g: 1, b: 0, a: 1}
+      second: {r: 1, g: 0.9725491, b: 0, a: 0.759}
     - first:
         name: _EmissionColor
       second: {r: 1, g: 0.9724138, b: 0, a: 1}
+    - first:
+        name: _HColor
+      second: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+    - first:
+        name: _RimColor
+      second: {r: 1, g: 1, b: 1, a: 0.6}
+    - first:
+        name: _SColor
+      second: {r: 1, g: 1, b: 1, a: 1}

@@ -11,6 +11,8 @@ public class TheravallSFXEvent : MonoBehaviour {
 	public AudioClip footstep;
 	public AudioClip melee;
 	public AudioClip taunt;
+	public AudioClip aim;
+	public AudioClip fire;
 
 
 	private float volLowRange;
@@ -47,13 +49,17 @@ public class TheravallSFXEvent : MonoBehaviour {
 	{
 		CurrentSound.PlayOneShot (melee, 1);
 	}
-
-	public void tauntSFXEvent ()
+		
+	public void railGunAimSFXEvent ()
 	{
-		//if (Random.RandomRange(0, 3) == 3)
-		//{
-		//	CurrentVO.PlayOneShot (taunt, 1);	
-		//}
+		//Debug.Log ("AIM SOUND");
+		CurrentVO.PlayOneShot (aim, 1);
+	}
+
+	public void railGunFireSFXEvent ()
+	{
+		//Debug.Log ("FIRE SOUND");
+		CurrentVO.PlayOneShot (fire, 2);
 	}
 
 	public void StepSFXEvent()

@@ -21,7 +21,8 @@ public class Halen_Particles : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
+        CurrentSound = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+		Halen = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         //DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem> ();
         //DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem> ();
         //GunGlow = GameObject.FindGameObjectWithTag ("HalenGun").GetComponent<ParticleSystem> ();

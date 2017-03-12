@@ -321,6 +321,31 @@ Prefab:
       propertyPath: _PlayerSFXManager
       value: 
       objectReference: {fileID: 526776575}
+    - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
+        type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.00000017881393
+      objectReference: {fileID: 0}
+    - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
+        type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.048354372
+      objectReference: {fileID: 0}
+    - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.28907654
+      objectReference: {fileID: 0}
+    - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.043066
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb9a1876cb5f434fadc5954d57c69cf, type: 2}
   m_IsPrefabParent: 0
@@ -1786,10 +1811,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.size
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 418422, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
       propertyPath: m_LocalPosition.x
       value: -16.98
@@ -1826,107 +1847,15 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1340151367}
-    - target: {fileID: 11494972, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: camOffset.z
-      value: -3
+    - target: {fileID: 196174, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: CurrentVO
-      value: 
-      objectReference: {fileID: 1878653662}
     - target: {fileID: 82536971420465482, guid: 1015fcd549105cf43a9eab1ec8b1e552,
         type: 2}
-      propertyPath: m_Volume
-      value: 0.828
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248848, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485584, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: dc49888f853c1a2479b490cdea8f3628, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 12033501e1f3c944387395d251f2040b, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3999fa4252a5f3e439ab2c80be4b274a, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: ffb17ac56acee134697be9c42fafba52, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: b94449fe96f0cf04491d553e81edc207, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: c2b7e37362dd2e94faef558ba6b9b3c0, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: aab6abc34044bf14db31c83ee31b71aa, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: b43adfa14567605478e2550f69baa3c4, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0a392021808532e498a3cd64d791f8b5, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f96552e7bb69c34f872d9c9dc409d91, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[10]
-      value: 
-      objectReference: {fileID: 8300000, guid: 28f89483948779545a73aaaaed4cf34f, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[11]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4b7d18c92184f39438c81a7f1779c5e7, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[12]
-      value: 
-      objectReference: {fileID: 8300000, guid: dd2fa29b734de574e84b8d80865a7f38, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[13]
-      value: 
-      objectReference: {fileID: 8300000, guid: 24632e4f3ff196647bcf2c585a230a2b, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[14]
-      value: 
-      objectReference: {fileID: 8300000, guid: a651712d0c4550a41b4bcfda832d9588, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[15]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2e8d1b2eef596e847ab1bead3cddbee6, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[16]
-      value: 
-      objectReference: {fileID: 8300000, guid: 7cd2797c22bc5bd468363c5c88c636f3, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[17]
-      value: 
-      objectReference: {fileID: 8300000, guid: 45e67e75aa2e5fd43b1d0a612aa18528, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[18]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5fdf815f934e45e4299addadc0cd5c71, type: 3}
-    - target: {fileID: 11449500, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: hitSFX.Array.data[19]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3b5eef6b4720e2a4db36d5f743a7858b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
   m_IsPrefabParent: 0
@@ -2265,10 +2194,6 @@ Prefab:
       propertyPath: teleportHub
       value: 
       objectReference: {fileID: 1591353848}
-    - target: {fileID: 1405952515314870, guid: 053f8385077f1584d82b21391ee39f0f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 053f8385077f1584d82b21391ee39f0f, type: 2}
   m_IsPrefabParent: 0
@@ -2957,95 +2882,11 @@ Transform:
   m_Father: {fileID: 2118663075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -159.84001, z: 0}
---- !u!1 &1878653658 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 118470, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-  m_PrefabInternal: {fileID: 795519860}
 --- !u!82 &1878653659 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82536971420465482, guid: 1015fcd549105cf43a9eab1ec8b1e552,
     type: 2}
   m_PrefabInternal: {fileID: 795519860}
---- !u!82 &1878653662
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1878653658}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.784
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!1 &1902950913 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: a329e17f03e2eae4fa1d28f4fb9f7b25, type: 3}
