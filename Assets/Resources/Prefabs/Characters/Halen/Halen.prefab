@@ -3679,7 +3679,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686282913487684}
   m_LocalRotation: {x: 0.012641484, y: -0.00025392137, z: -0.00038817062, w: -0.99992}
-  m_LocalPosition: {x: -0, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0, y: -0.134, z: -0.002}
   m_LocalScale: {x: 0.24799787, y: 0.2479974, z: 0.24799697}
   m_Children:
   - {fileID: 4252735665573342}
@@ -4735,7 +4735,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563900850683610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.371086, y: -0.0000042404304, z: -35.571316}
+  m_LocalPosition: {x: -3.66, y: 128.469, z: -12.616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4050735469963902}
@@ -6406,6 +6406,8 @@ MonoBehaviour:
   dashStorage: 0
   sprintStorage: 0
   landingStorage: 0
+  landing: {fileID: 8300000, guid: 8a9475df24f776747a530182a7ca01b5, type: 3}
+  CurrentSound: {fileID: 0}
 --- !u!114 &114833784119744348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6432,6 +6434,7 @@ MonoBehaviour:
   aimTurnSmoothing: 15
   speedDampTime: 0.1
   jumpCooldown: 1
+  roll: 0
   MuzzleFlash: {fileID: 198452741293538416}
   MomentumShield: {fileID: 198140745815331686}
   _PlayerSFXManager: {fileID: 0}
@@ -7270,6 +7273,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8f97606f0c00bb44c84098c321e602a2, type: 2}
+  - {fileID: 2100000, guid: 1c0f8f3a78c26df4e99a9c3bafbda61d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7546,8 +7550,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.0000009536743, y: -0.00000011920929, z: 0.035936356}
-    m_Extent: {x: 0.04835404, y: 0.2890746, z: 0.043065436}
+    m_Center: {x: -0.00000017881393, y: -0.0000076293945, z: 0.035938263}
+    m_Extent: {x: 0.048354372, y: 0.28907654, z: 0.043066}
   m_DirtyAABB: 0
 --- !u!137 &137656189869126288
 SkinnedMeshRenderer:

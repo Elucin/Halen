@@ -12,18 +12,10 @@ public class PlayVideo : MonoBehaviour {
         public string name;
         public Material video;
         public AudioClip audio;
+        public bool loadScoreScreen;
     }
 
-    public enum clipNames
-    {
-        Intro,
-        Sharp,
-        Rival,
-        RivalOut,
-        Gauntlet,
-        Outro,
-        MAX_CLIP_NAMES
-    }
+   
 
     public static string csName;
     MovieTexture movie;
@@ -43,12 +35,12 @@ public class PlayVideo : MonoBehaviour {
     void Update()
     {
  
-        if(!movie.isPlaying)
+        if(!movie.isPlaying || Input.GetButtonDown("Cancel"))
         {
-            if(!loadScoreScreen)
+            if(!CutsceneList[clipIndex].loadScoreScreen)
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
             else
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Score Screen");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
         }
     }
 	
