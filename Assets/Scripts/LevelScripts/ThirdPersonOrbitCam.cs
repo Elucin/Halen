@@ -37,8 +37,16 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	private float defaultFOV;
 	private float targetFOV;
     string[] joysticks;
+
+    protected int CamAngleH;
+    protected int CamAngleV;
+
+    Animator playerAnim;
     void Awake()
 	{
+        CamAngleH = Animator.StringToHash("CamAngleH");
+        CamAngleV = Animator.StringToHash("CamAngleV");
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 		cam = transform;
 		playerControl = player.GetComponent<PlayerControl> ();
 
@@ -53,6 +61,8 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	void OnPreRender()
 	{
+        if(playerAnim == null)
+            playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         if (playerControl == null)
             playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         //Apply button should do this
@@ -101,12 +111,16 @@ public class ThirdPersonOrbitCam : MonoBehaviour
             }
 
 
-            if (angleH > 180f)
+            if (angleH > 195f)
                 angleH -= 360f;
-            else if (angleH < -180f)
+            else if (angleH < -195f)
                 angleH += 360f;
             
             angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
+            //playerAnim.SetFloat(CamAngleH, angleH);
+
+            playerAnim.SetFloat(CamAngleV, angleV);
+            
         }
             Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
             Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);

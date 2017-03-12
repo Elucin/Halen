@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 19974118}
   - component: {fileID: 11489332}
   - component: {fileID: 8264602}
+  - component: {fileID: 114227336174544764}
   m_Layer: 2
   m_Name: Explosion
   m_TagString: Untagged
@@ -135,7 +136,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d0cd00b91c4c85c49a3972bca38996ee, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10968,3 +10969,19 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114227336174544764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e0fcc6c6f91fe4d82c3b4d220d4b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX:
+  - {fileID: 8300000, guid: ffa4edca90a879147ba97c17dbb77b2d, type: 3}
+  - {fileID: 8300000, guid: d0cd00b91c4c85c49a3972bca38996ee, type: 3}
+  - {fileID: 8300000, guid: 0f4007924f745c445a901e66bc5b5cd5, type: 3}
+  CurrentSound: {fileID: 8264602}
