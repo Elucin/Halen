@@ -52,12 +52,14 @@ public class TheravallSFXEvent : MonoBehaviour {
 		
 	public void railGunAimSFXEvent ()
 	{
-		CurrentSound.PlayOneShot (aim, 1);
+		//Debug.Log ("AIM SOUND");
+		CurrentVO.PlayOneShot (aim, 1);
 	}
 
-	public void railGunShootSFXEvent ()
+	public void railGunFireSFXEvent ()
 	{
-		CurrentSound.PlayOneShot (fire, 1);
+		//Debug.Log ("FIRE SOUND");
+		CurrentVO.PlayOneShot (fire, 2);
 	}
 
 	public void StepSFXEvent()
