@@ -402,8 +402,8 @@ public class AIRival : AIBase {
                     checkVector = Quaternion.Euler(0, -degrees, 0) * checkVector;
             }
         }
-        meshAgent.SetDestination(transform.position + checkVector);
-
+        destination = transform.position + checkVector;
+    
         yield return new WaitForSeconds(0.3f); ;
 
     }
