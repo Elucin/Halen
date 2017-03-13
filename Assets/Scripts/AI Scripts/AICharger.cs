@@ -94,6 +94,13 @@ public class AICharger : AIBase {
 
         base.Update();
 
+        if (distanceToPlayer < 3)
+            triggerCount = 2;
+        else if (distanceToPlayer < 45)
+            triggerCount = 1;
+        else
+            triggerCount = 0;
+
         if (currentBaseState == patrolState)
         {
             meshAgent.speed = walkSpeed;

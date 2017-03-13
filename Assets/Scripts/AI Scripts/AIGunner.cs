@@ -58,11 +58,46 @@ public class AIGunner : AIBase
     // Update is called once per frame
     protected override void Update()
     {
-		if (IsGrounded () && meshAgent.enabled != true) {
-			meshAgent.enabled = true;
-			anim.applyRootMotion = true;
-		}
+        if (count == updateCount)
+        {
+            ActuallyUpdate();
+        }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
+        if (IsGrounded() && meshAgent.enabled != true)
+        {
+            meshAgent.enabled = true;
+            anim.applyRootMotion = true;
+        }
         base.Update();
+
+        if (distanceToPlayer < 3f)
+        {
+            triggerCount = 4;
+        }
+        else if (distanceToPlayer < 30f)
+        {
+            triggerCount = 3;
+        }
+        else if (distanceToPlayer < 60f)
+        {
+            triggerCount = 2;
+        }
+        else if (distanceToPlayer < 80f)
+        {
+            triggerCount = 1;
+        }
+        else
+            triggerCount = 0;
+
         currentAIWeaponState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
         currentAIMeleeState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
         anim.SetInteger(rangeCountInt, triggerCount);
@@ -102,10 +137,11 @@ public class AIGunner : AIBase
                 aimingWeight = 0;
         }
 
-		if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4) {
-			Shoot ();
-		}
-			
+        if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
+        {
+            Shoot();
+        }
+
         /*
         if (currentAIWeaponState == shootState || currentAIWeaponState == aimState && currentAIMeleeState != meleeState && !anim.IsInTransition(3) && rangeCountInt < 4)
             aimingWeight = 1;

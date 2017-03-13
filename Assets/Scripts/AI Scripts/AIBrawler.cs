@@ -73,6 +73,15 @@ public class AIBrawler : AIBase {
 
     void ActuallyUpdate()
     {
+        base.Update();
+
+        if (distanceToPlayer < 2)
+            triggerCount = 2;
+        else if (distanceToPlayer < 6)
+            triggerCount = 1;
+        else
+            triggerCount = 0;
+
         currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
         currentStunState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
         if (IsGrounded() && GetComponent<UnityEngine.AI.NavMeshAgent>().enabled != true)
@@ -81,7 +90,7 @@ public class AIBrawler : AIBase {
             anim.applyRootMotion = true;
         }
 
-        base.Update();
+        
         if (health > 0 && currentStunState != stunState)
         {
             anim.SetBool(inRangeBool, triggerCount >= 1 && !PlayerControl.isDead && anim.GetBool(alertBool));

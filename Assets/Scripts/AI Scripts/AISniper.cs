@@ -67,6 +67,14 @@ public class AISniper : AIBase {
     {
         base.Update();
         //anim.SetFloat(speedFloat, GetComponent<Rigidbody>().velocity.magnitude);
+
+        if (distanceToPlayer < 24)
+            triggerCount = 2;
+        else if (distanceToPlayer < 90)
+            triggerCount = 1;
+        else
+            triggerCount = 0;
+
         if (currentBaseState == idleState)
         {
             DetectPlayer();
