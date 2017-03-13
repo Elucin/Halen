@@ -12,7 +12,7 @@ public class selectOnInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        eventSystem = GameObject.FindObjectOfType<EventSystem>();
 	}
 	
 	// Update is called once per frame

@@ -314,7 +314,7 @@ ModelImporter:
     4300128: Case
     4300130: pSphere14
     4300132: pSphere15
-    7400000: Take 001
+    7400000: Sniper_Idle
     9500000: //RootNode
     13700000: Case
     13700002: pCube1
@@ -403,7 +403,283 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sniper_Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BackLeg
+        weight: 1
+      - path: BackLeg/Back_Foot
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder29
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder30
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder31
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder32
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder33
+        weight: 1
+      - path: BackLeg/Back_Foot/pCylinder34
+        weight: 1
+      - path: BackLeg/Back_Foot/pSphere8
+        weight: 1
+      - path: BackLeg/Back_Foot/pSphere9
+        weight: 1
+      - path: BackLeg/Back_Foot/pSphere10
+        weight: 1
+      - path: BackLeg/Back_Foot/pSphere11
+        weight: 1
+      - path: BackLeg/pCylinder26
+        weight: 1
+      - path: BackLeg/pCylinder27
+        weight: 1
+      - path: BackLeg/pCylinder35
+        weight: 1
+      - path: BackLeg/pCylinder36
+        weight: 1
+      - path: BackLeg/polySurface4
+        weight: 1
+      - path: BackLeg/pSphere7
+        weight: 1
+      - path: BackLeg/pSphere12
+        weight: 1
+      - path: BackLeg/pSphere13
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Head/pCube1
+        weight: 1
+      - path: Head/pCube2
+        weight: 1
+      - path: Head/polySurface2
+        weight: 1
+      - path: jnt_Root
+        weight: 1
+      - path: jnt_Root/jnt_Hips
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle/jnt_B_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_B_Ankle/jnt_B_Ball/jnt_B_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle/jnt_L_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_L_Ankle/jnt_L_Ball/jnt_L_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle/jnt_R_Ball
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_B_Hip/jnt_B_Knee/jnt_B_Foot/jnt_R_Ankle/jnt_R_Ball/jnt_R_Toe
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/jnt_L_Target
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/jnt_R_Target
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint1/joint2
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_Head/jnt_HeadTop/joint3
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1/jnt_B_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_B_Ankle1/jnt_B_Ball1/jnt_B_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1/jnt_L_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_L_Ankle1/jnt_L_Ball1/jnt_L_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1/jnt_R_Ball1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_L_Hip/jnt_L_Knee/jnt_L_Foot/jnt_R_Ankle1/jnt_R_Ball1/jnt_R_Toe1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1/jnt_B_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_B_Ankle 1/jnt_B_Ball
+          1/jnt_B_Toe 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1/jnt_L_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_L_Ankle 1/jnt_L_Ball
+          1/jnt_L_Toe 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1/jnt_R_Ball
+          1
+        weight: 1
+      - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1/jnt_R_Ball
+          1/jnt_R_Toe 1
+        weight: 1
+      - path: Left_Targeting
+        weight: 1
+      - path: Left_Targeting/pCube3
+        weight: 1
+      - path: Left_Targeting/pCylinder1
+        weight: 1
+      - path: Left_Targeting/pCylinder2
+        weight: 1
+      - path: Left_Targeting/pCylinder3
+        weight: 1
+      - path: Left_Targeting/pCylinder5
+        weight: 1
+      - path: LeftLeg
+        weight: 1
+      - path: LeftLeg/pCylinder10
+        weight: 1
+      - path: LeftLeg/pCylinder16
+        weight: 1
+      - path: LeftLeg/pCylinder18
+        weight: 1
+      - path: LeftLeg/pCylinder19
+        weight: 1
+      - path: LeftLeg/pCylinder21
+        weight: 1
+      - path: LeftLeg/pCylinder22
+        weight: 1
+      - path: LeftLeg/pCylinder23
+        weight: 1
+      - path: LeftLeg/pCylinder24
+        weight: 1
+      - path: LeftLeg/pCylinder25
+        weight: 1
+      - path: LeftLeg/pSphere1
+        weight: 1
+      - path: LeftLeg/pSphere2
+        weight: 1
+      - path: LeftLeg/pSphere3
+        weight: 1
+      - path: LeftLeg/pSphere4
+        weight: 1
+      - path: LeftLeg/pSphere5
+        weight: 1
+      - path: LeftLeg/pSphere6
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: Right_Targeting
+        weight: 1
+      - path: Right_Targeting/pCube6
+        weight: 1
+      - path: Right_Targeting/pCylinder6
+        weight: 1
+      - path: Right_Targeting/pCylinder7
+        weight: 1
+      - path: Right_Targeting/pCylinder8
+        weight: 1
+      - path: Right_Targeting/pCylinder9
+        weight: 1
+      - path: RightLeg
+        weight: 1
+      - path: RightLeg/pCylinder10 1
+        weight: 1
+      - path: RightLeg/pCylinder16 1
+        weight: 1
+      - path: RightLeg/pCylinder19 1
+        weight: 1
+      - path: RightLeg/pCylinder21 1
+        weight: 1
+      - path: RightLeg/pCylinder22 1
+        weight: 1
+      - path: RightLeg/pCylinder23 1
+        weight: 1
+      - path: RightLeg/pCylinder24 1
+        weight: 1
+      - path: RightLeg/pCylinder25 1
+        weight: 1
+      - path: RightLeg/pCylinder37
+        weight: 1
+      - path: RightLeg/pSphere1 1
+        weight: 1
+      - path: RightLeg/pSphere2 1
+        weight: 1
+      - path: RightLeg/pSphere3 1
+        weight: 1
+      - path: RightLeg/pSphere4 1
+        weight: 1
+      - path: RightLeg/pSphere5 1
+        weight: 1
+      - path: RightLeg/pSphere6 1
+        weight: 1
+      - path: RightLeg/pSphere15
+        weight: 1
+      - path: RightLeg/pSphere16
+        weight: 1
+      - path: Torso
+        weight: 1
+      - path: Torso/Case
+        weight: 1
+      - path: Torso/pSphere14
+        weight: 1
+      - path: Torso/pSphere15 1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

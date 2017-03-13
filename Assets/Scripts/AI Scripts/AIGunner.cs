@@ -66,7 +66,7 @@ public class AIGunner : AIBase
         currentAIWeaponState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
         currentAIMeleeState = anim.GetCurrentAnimatorStateInfo(3).fullPathHash;
         anim.SetInteger(rangeCountInt, triggerCount);
-        //Debug.Log(triggerCount);
+
         if (currentAIState == patrolState)
         {
             meshAgent.speed = walkSpeed;
