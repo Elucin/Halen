@@ -67,7 +67,7 @@ public class AICharger : AIBase {
         lineOfSightBool = Animator.StringToHash("LineOfSight");
         stopChargeTrigger = Animator.StringToHash("StopCharge");
         hitWallTrigger = Animator.StringToHash("HitWall");
-        StartCoroutine(DelayGetLineOfSight());
+        //StartCoroutine(DelayGetLineOfSight());
     }
 	
 	// Update is called once per frame
@@ -107,6 +107,7 @@ public class AICharger : AIBase {
         }
         else if (currentBaseState == moveState)
         {
+            anim.SetBool(lineOfSightBool, GetLineOfSight());
             if (DustTrail.isPlaying)
             {
                 DustTrail.Stop();
@@ -187,7 +188,7 @@ public class AICharger : AIBase {
             if (c.transform.CompareTag("Player") && dealSmashDamage)
             {
                 dealSmashDamage = false;
-                playerControl.damageBuffer += 80;
+                PlayerControl.playerControl.damageBuffer += 80;
                 c.rigidbody.AddForce(transform.TransformDirection(new Vector3(0, 500, 1000)), ForceMode.Impulse);
             }
             else if (c.transform.CompareTag("Enemy"))
@@ -203,7 +204,7 @@ public class AICharger : AIBase {
             if (c.transform.CompareTag("Player") && dealSmashDamage)
             {
                 dealSmashDamage = false;
-                playerControl.damageBuffer += 75;
+                PlayerControl.playerControl.damageBuffer += 75;
 
                 Vector3 collisionDir = c.contacts[0].normal;
                 collisionDir.y = Mathf.Abs(collisionDir.y);
@@ -241,6 +242,6 @@ public class AICharger : AIBase {
 
     public bool IsCharging()
     {
-        return currentAIState == chargeChargeState;
+        return currentBaseState == chargeChargeState;
     }
 }
