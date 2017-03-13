@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 11496650}
   - component: {fileID: 82596633712626996}
   - component: {fileID: 114065357948972938}
+  - component: {fileID: 114161563577738142}
   m_Layer: 9
   m_Name: Charger_Basic
   m_TagString: Charger
@@ -1922,8 +1923,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6100197, y: 0.0000006549197, z: -36.9}
+  m_LocalRotation: {x: -0, y: 0.79322445, z: -0, w: 0.60892946}
+  m_LocalPosition: {x: -491.75635, y: -19.661152, z: -416.37415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473578}
@@ -9317,4 +9318,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talking: {fileID: 8300000, guid: b166a9eafbbf6d042b21b5b2a8aabc72, type: 3}
+  CurrentSound: {fileID: 82596633712626996}
+--- !u!114 &114161563577738142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9c2164da8d99b49a50364c812db595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scream: {fileID: 0}
+  fistPound: {fileID: 0}
+  groundPound: {fileID: 0}
+  slide: {fileID: 0}
+  footstep: {fileID: 0}
   CurrentSound: {fileID: 82596633712626996}

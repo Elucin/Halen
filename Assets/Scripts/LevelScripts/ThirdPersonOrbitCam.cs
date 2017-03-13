@@ -66,7 +66,6 @@ public class ThirdPersonOrbitCam : MonoBehaviour
         if (playerControl == null)
             playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         //Apply button should do this
-        Debug.Log(Options.mouseSensitivity);
         horizontalAimingSpeed = Options.mouseSensitivity;
         int invert = Options.invertY ? -1 : 1;
         verticalAimingSpeed = invert * Options.mouseSensitivity;

@@ -7,6 +7,7 @@ public class AISniper : AIBase {
     public LargeShot largeShot;
     public Transform ShotEmitterTrans;
     private float shotDelay = 3.0f;
+    bool retreating = false;
 
     //Sniper States
     private int readyState;
@@ -50,20 +51,34 @@ public class AISniper : AIBase {
 
     // Update is called once per frame
     protected override void Update () {
+        if (count == updateCount)
+        {
+            ActuallyUpdate();
+        }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
         base.Update();
         //anim.SetFloat(speedFloat, GetComponent<Rigidbody>().velocity.magnitude);
-        if (currentAIState == idleState)
+        if (currentBaseState == idleState)
         {
             DetectPlayer();
         }
-        else if(currentAIState == readyState)
+        else if (currentBaseState == readyState)
         {
             Shoot();
         }
-        else if(currentAIState == moveState)
+        else if (currentBaseState == moveState)
         {
-            
-            StartCoroutine(Retreat());
+            if (!retreating)
+                StartCoroutine(Retreat());
         }
 
         if (triggerCount > 1)
@@ -80,7 +95,7 @@ public class AISniper : AIBase {
 
     void LateUpdate()
     {
-        if(triggerCount <= 1 && currentAIState != idleState)
+        if(triggerCount <= 1 && currentBaseState != idleState)
             HeadBone.LookAt(halen.transform.position + new Vector3(0, 1, 0));
     }
 
@@ -101,6 +116,7 @@ public class AISniper : AIBase {
 
     IEnumerator Retreat()
     {
+        retreating = true;
         bool moving = false;
         float degrees = 10f;
         Vector3 checkVector = (transform.position - halenPos).normalized;
@@ -120,20 +136,9 @@ public class AISniper : AIBase {
                 c++;
             }
         }
-        meshAgent.SetDestination(transform.position + checkVector);
+        destination = transform.position + checkVector;
 
         yield return new WaitForSeconds(0.3f); ;
-
+        retreating = false;
     }
-    /*
-    protected void Retreat()
-    {
-        if (health > 0)
-        {
-            meshAgent.SetDestination(transform.position - (halen.transform.position - transform.position));
-            //transform.LookAt(halen.transform, Vector3.up);
-        }
-    }*/
-
-
 }
