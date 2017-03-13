@@ -67,6 +67,7 @@ public class AICharger : AIBase {
         lineOfSightBool = Animator.StringToHash("LineOfSight");
         stopChargeTrigger = Animator.StringToHash("StopCharge");
         hitWallTrigger = Animator.StringToHash("HitWall");
+        //StartCoroutine(DelayGetLineOfSight());
     }
 	
 	// Update is called once per frame
@@ -91,7 +92,8 @@ public class AICharger : AIBase {
         }
         else if (currentAIState == moveState)
         {
-			if (DustTrail.isPlaying) {
+            anim.SetBool(lineOfSightBool, GetLineOfSight());
+            if (DustTrail.isPlaying) {
 				DustTrail.Stop ();
 			}
             dealSmashDamage = true;
@@ -141,17 +143,19 @@ public class AICharger : AIBase {
         }
         else if (currentAIState == chargeRecoverState)
         {
-			
-
             anim.ResetTrigger(stopChargeTrigger);
             meshAgent.speed = 0;
             meshAgent.angularSpeed = walkAngularSpeed;
         }
         anim.SetBool(inRangeBool, triggerCount >= 1);
-        anim.SetBool(lineOfSightBool, GetLineOfSight());
         anim.SetBool(smashBool, triggerCount == 2);
     }
-
+    IEnumerator DelayGetLineOfSight()
+    {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool(lineOfSightBool, GetLineOfSight());
+        StartCoroutine(DelayGetLineOfSight());
+    }
     protected override bool IsGrounded()
     {
         RaycastHit hit;
