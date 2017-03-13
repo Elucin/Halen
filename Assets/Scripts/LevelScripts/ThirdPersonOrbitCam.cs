@@ -66,8 +66,10 @@ public class ThirdPersonOrbitCam : MonoBehaviour
         if (playerControl == null)
             playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         //Apply button should do this
+        Debug.Log(Options.mouseSensitivity);
         horizontalAimingSpeed = Options.mouseSensitivity;
-        verticalAimingSpeed = Options.mouseSensitivity;
+        int invert = Options.invertY ? -1 : 1;
+        verticalAimingSpeed = invert * Options.mouseSensitivity;
         joysticks = Input.GetJoystickNames();
         if (Cursor.visible == false)
         {
@@ -137,7 +139,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
                 targetCamOffset = camOffset;
             }
 
-            //targetFOV = 60 + playerControl.speed * 5.0f;
+            //targetFOV = 60 + PlayerControl.Speed * 5.0f;
             /*
             if(playerControl.isSprinting())
             {
@@ -190,13 +192,15 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	bool ViewingPosCheck (Vector3 checkPos, Vector3 colliderCenter)
 	{
 		RaycastHit hit;
-        //Debug.DrawRay(checkPos, colliderCenter - checkPos, Color.green, relCameraPosMag);
+       
 		// If a raycast from the check position to the player hits something...
 		if(Physics.Raycast(checkPos, colliderCenter - checkPos, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{
-			// ... if it is not the player...
-			if(hit.transform != player && hit.transform != transform)
+            Debug.DrawRay(colliderCenter, checkPos - colliderCenter, Color.green, 0.05f, false);
+            // ... if it is not the player...
+            if (hit.transform != player && hit.transform != transform)
 			{
+                //Debug.Log(hit.transform.name);
                 // This position isn't appropriate.
                 return false;
 			}
@@ -207,7 +211,8 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	bool ReverseViewingPosCheck(Vector3 checkPos, Vector3 colliderCenter)
 	{
-		RaycastHit hit;
+
+        RaycastHit hit;
 
 		if(Physics.Raycast(colliderCenter, checkPos - colliderCenter, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{

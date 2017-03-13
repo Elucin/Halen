@@ -62,13 +62,12 @@ public class AIBase : MonoBehaviour {
         health = 100f;
         //Initialise Animator
         anim = GetComponent<Animator>();
-        if (Name[0] != "Sniper" && Name[0] != "Floater")
-            anim.SetBool(idleBool, Idle);
+        
         //Initialize NavMeshAgent
         meshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         //Inititalize Halen
-        halen = GameObject.Find("Halen");
+        halen = GameObject.FindGameObjectWithTag("Player");
 
         if (!transform.CompareTag("Rival"))
         {
@@ -82,6 +81,8 @@ public class AIBase : MonoBehaviour {
             stunTrigger = Animator.StringToHash("Stun");
             idleBool = Animator.StringToHash("Idle");
 
+            if (Name[0] != "Sniper" && Name[0] != "Floater")
+                anim.SetBool(idleBool, Idle);
         }
         stunnedBool = Animator.StringToHash("Stunned");
 
@@ -146,7 +147,7 @@ public class AIBase : MonoBehaviour {
     protected virtual void Move()
     {
         if (health > 0 && !anim.GetBool(stunnedBool) && meshAgent != null && meshAgent.isOnNavMesh)
-        { 
+        {
             meshAgent.updateRotation = true;
             meshAgent.SetDestination(halenPos);
             meshAgent.Resume();

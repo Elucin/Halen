@@ -6,7 +6,7 @@ public class SniperSFXEvent : MonoBehaviour {
 
 	public AudioClip shot;
 
-	public AudioClip transform;
+	public AudioClip sTransform;
 
 	public AudioClip footstep;
 	private float volLowRange;
@@ -25,7 +25,7 @@ public class SniperSFXEvent : MonoBehaviour {
 
 	public void transformSFXEvent ()
 	{
-		CurrentSound.PlayOneShot (transform, 2);
+		CurrentSound.PlayOneShot (sTransform, 2);
 	}
 
 	public void StepSFXEvent()
