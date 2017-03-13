@@ -133,7 +133,7 @@ public class AIGunner : AIBase
         if (health > 0)
         {
             meshAgent.updateRotation = false;
-            destination = transform.position - transform.forward;
+            meshAgent.SetDestination(transform.position - transform.forward);
             Vector3 halenGroundPos = PlayerControl.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);

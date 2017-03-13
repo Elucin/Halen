@@ -4,6 +4,7 @@ using System.Collections;
 public class AIFloater : AIBase {
 
     private const float FLOAT_SPEED = 4.0f;
+
     //Parameters
     private int mineTrigger;
 
@@ -21,9 +22,7 @@ public class AIFloater : AIBase {
 
     // Use this for initialization
     protected override void Start () {
-        basePoints = 200;
         transform.name = "Floater-" + FloaterCount++.ToString();
-        patrolState = Animator.StringToHash("Base.Patrol");
         base.Start();
         Name = transform.name.Split('-');
         point = transform.position;
@@ -33,31 +32,17 @@ public class AIFloater : AIBase {
 	
 	// Update is called once per frame
 	protected override void Update () {
-        if(count == updateCount)
-        {
-            ActuallyUpdate();
-        }
-        else
-        {
-            ++count;
-        }
-        if (count >= 10)
-            count = 0;
-	}
-
-    void ActuallyUpdate()
-    {
-        
+        basePoints = 200;
         base.Update();
         Patrol();
 
-        if (currentBaseState == patrolState)
+        if(currentAIState == patrolState)
         {
             DetectPlayer();
         }
-        else if (Time.time - mineTimer > MINE_TIME && distanceToPlayer < 100f)
+        else if(Time.time - mineTimer > MINE_TIME && Vector3.Distance(halenPos, transform.position) < 100f)
         {
-            foreach (Transform g in MineScript.mineList)
+            foreach(Transform g in MineScript.mineList)
             {
                 if (Vector3.Distance(transform.position, g.position) < 5.85f)
                     return;
@@ -66,7 +51,7 @@ public class AIFloater : AIBase {
             anim.SetTrigger(mineTrigger);
             StartCoroutine(dropMine(0.5f));
         }
-    }
+	}
 
     protected override void Patrol()
     {
@@ -77,7 +62,7 @@ public class AIFloater : AIBase {
             Vector3 direction = new Vector3(x, 0, z);
             direction.Normalize();
 
-            destination = point + (direction * Random.Range(0f, patrolRange));
+            meshAgent.SetDestination(point + (direction * Random.Range(0f, patrolRange)));
         }
     }
 
@@ -95,6 +80,6 @@ public class AIFloater : AIBase {
         Vector3 direction = new Vector3(x, 0, z);
         direction.Normalize();
 
-        destination = point + (direction * Random.Range(0f, patrolRange));
+        meshAgent.SetDestination(point + (direction * Random.Range(0f, patrolRange)));
     }
 }
