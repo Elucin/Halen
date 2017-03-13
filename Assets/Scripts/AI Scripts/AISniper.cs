@@ -113,7 +113,6 @@ public class AISniper : AIBase {
         }
     }
 
-
     IEnumerator Retreat()
     {
         retreating = true;
