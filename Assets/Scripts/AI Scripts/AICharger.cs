@@ -113,7 +113,7 @@ public class AICharger : AIBase {
             }
             dealSmashDamage = true;
             meshAgent.speed = runSpeed;
-            destination = halen.transform.position;
+            destination = PlayerControl.halenGO.transform.position;
         }
         else if (currentBaseState == smashAimState)
         {
@@ -123,7 +123,7 @@ public class AICharger : AIBase {
             }
             meshAgent.speed = 0;
             meshAgent.updateRotation = false;
-            Vector3 halenGroundPos = halen.transform.position - transform.position;
+            Vector3 halenGroundPos = PlayerControl.halenGO.transform.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 6);
@@ -133,7 +133,7 @@ public class AICharger : AIBase {
         {
             meshAgent.speed = 0;
             meshAgent.updateRotation = false;
-            Vector3 halenGroundPos = halen.transform.position - transform.position;
+            Vector3 halenGroundPos = PlayerControl.halenGO.transform.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
@@ -146,7 +146,7 @@ public class AICharger : AIBase {
                 DustTrail.Play();
             }
 
-            destination = halen.transform.position;
+            destination = PlayerControl.halenGO.transform.position;
             meshAgent.speed = chargeSpeed;
             meshAgent.angularSpeed = chargeAngularSpeed;
             if (GetAngleToPlayer()) { anim.SetTrigger(stopChargeTrigger); }
@@ -224,7 +224,7 @@ public class AICharger : AIBase {
     {
         RaycastHit hit;
         //Physics.SphereCast(transform.position + Vector3.up, 0.5f, transform.TransformDirection(Vector3.forward), out hit, 100f, LayerMasks.ignoreEnemies, QueryTriggerInteraction.Ignore);
-        Physics.SphereCast(transform.position + Vector3.up + transform.forward, 0.4f, (halen.transform.position - transform.position + Vector3.up).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore);
+        Physics.SphereCast(transform.position + Vector3.up + transform.forward, 0.4f, (PlayerControl.halenGO.transform.position - transform.position + Vector3.up).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore);
 
         if (hit.transform == null)
             return false;
@@ -236,7 +236,7 @@ public class AICharger : AIBase {
 
     bool GetAngleToPlayer()
     {
-        return Mathf.Abs(Vector3.Angle(transform.TransformDirection(Vector3.forward), halen.transform.position - transform.position)) > 100;
+        return Mathf.Abs(Vector3.Angle(transform.TransformDirection(Vector3.forward), PlayerControl.halenGO.transform.position - transform.position)) > 100;
     }
 
     public bool IsCharging()

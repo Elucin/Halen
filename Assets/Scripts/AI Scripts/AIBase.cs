@@ -27,9 +27,8 @@ public class AIBase : MonoBehaviour {
 
     //Halen Variables
     public static GameObject halen;
-    protected static Vector3 halenPos;
     protected static float distanceToPlayer;
-    Vector3 halenDir;
+    //Vector3 halenDir;
     float halenSpeed;
     bool halenAlive;
     public bool Idle;
@@ -59,6 +58,7 @@ public class AIBase : MonoBehaviour {
     //Components
     protected CapsuleCollider capsuleCollider;
     protected PlayerControl playerControl;
+    protected Rigidbody rb;
 
     //SFX
     public BrawlerSFXManager _BrawlerSFXManager;
@@ -77,8 +77,8 @@ public class AIBase : MonoBehaviour {
         meshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         //Inititalize Halen
-        halen = GameObject.FindGameObjectWithTag("Player");
-        playerControl = halen.GetComponent<PlayerControl>();
+        //halen = GameObject.FindGameObjectWithTag("Player");
+        //playerControl = halen.GetComponent<PlayerControl>();
         if (!transform.CompareTag("Rival"))
         {
             //Initialize Parameters
@@ -97,6 +97,7 @@ public class AIBase : MonoBehaviour {
         stunnedBool = Animator.StringToHash("Stunned");
 
         capsuleCollider = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -105,14 +106,14 @@ public class AIBase : MonoBehaviour {
 
         //Update Halen's Info
         //Should probably add these variables to Halen's script :L
-        if (halen == null)
-        {
-            halen = GameObject.FindGameObjectWithTag("Player");
-            playerControl = halen.GetComponent<PlayerControl>();
-        }
-        halenPos = halen.transform.position;
-        halenDir = halen.GetComponent<Rigidbody>().velocity.normalized;
-        distanceToPlayer = Vector3.Distance(transform.position, halenPos);
+        //if (halen == null)
+        //{
+            //halen = GameObject.FindGameObjectWithTag("Player");
+            //playerControl = halen.GetComponent<PlayerControl>();
+        //}
+        //halenPos = halen.transform.position;
+        //halenDir = halen.GetComponent<Rigidbody>().velocity.normalized;
+        distanceToPlayer = Vector3.Distance(transform.position, PlayerControl.Position);
         halenAlive = !PlayerControl.isDead;
         if (!halenAlive && anim.GetBool(alertBool) == true)
         {
@@ -120,7 +121,8 @@ public class AIBase : MonoBehaviour {
             triggerCount = 0;
             destination = transform.position;
         }
-        halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
+        halenSpeed = PlayerControl.Speed;
+        //halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
         //anim.SetFloat(speedFloat, meshAgent.speed);
         if(Name[0] != "Sniper" && Name[0] != "Floater")
             anim.SetBool(idleBool, Idle);
@@ -167,7 +169,7 @@ public class AIBase : MonoBehaviour {
         if (health > 0 && !anim.GetBool(stunnedBool) && meshAgent != null && meshAgent.isOnNavMesh)
         {
             meshAgent.updateRotation = true;
-            destination = halenPos;
+            destination = PlayerControl.Position;
             meshAgent.Resume();
         }
 
@@ -182,10 +184,10 @@ public class AIBase : MonoBehaviour {
 
     protected virtual void DetectPlayer()
     {
-        if (Vector3.Angle(transform.forward, halenPos - transform.position) < 85f && (distanceToPlayer < 50f || Name[0] == "Sniper") && halenAlive)
+        if (Vector3.Angle(transform.forward, PlayerControl.Position - transform.position) < 85f && (distanceToPlayer < 50f || Name[0] == "Sniper") && halenAlive)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + Vector3.up, (halenPos - transform.position).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(transform.position + Vector3.up, (PlayerControl.Position - transform.position).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
             {
                 if (hit.transform.tag == "Player")
                 {
@@ -266,7 +268,7 @@ public class AIBase : MonoBehaviour {
     protected virtual bool IsGrounded()
     {
         RaycastHit hit;
-        float offset = GetComponent<CapsuleCollider>().height / 2;
+        float offset = capsuleCollider.height / 2;
         return Physics.Raycast(transform.position + Vector3.up * offset, -Vector3.up, out hit, offset + 0.05f);
       
         //return Physics.Raycast(transform.position + new Vector3(0, distToGround, 0), -Vector3.up, distToGround + 0.1f);

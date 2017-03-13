@@ -96,7 +96,7 @@ public class AISniper : AIBase {
     void LateUpdate()
     {
         if(triggerCount <= 1 && currentBaseState != idleState)
-            HeadBone.LookAt(halen.transform.position + new Vector3(0, 1, 0));
+            HeadBone.LookAt(PlayerControl.halenGO.transform.position + new Vector3(0, 1, 0));
     }
 
     void Shoot()
@@ -119,7 +119,7 @@ public class AISniper : AIBase {
         retreating = true;
         bool moving = false;
         float degrees = 10f;
-        Vector3 checkVector = (transform.position - halenPos).normalized;
+        Vector3 checkVector = (transform.position - PlayerControl.Position).normalized;
         int c = 0;
         while (moving == false && c < 36)
         {
@@ -129,7 +129,7 @@ public class AISniper : AIBase {
             }
             else
             {
-                if (transform.worldToLocalMatrix.MultiplyPoint(halenPos).x < 0)
+                if (transform.worldToLocalMatrix.MultiplyPoint(PlayerControl.Position).x < 0)
                     checkVector = Quaternion.Euler(0, degrees, 0) * checkVector;
                 else
                     checkVector = Quaternion.Euler(0, -degrees, 0) * checkVector;

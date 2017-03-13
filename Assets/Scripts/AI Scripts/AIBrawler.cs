@@ -40,11 +40,11 @@ public class AIBrawler : AIBase {
         //GetComponent<MeshRenderer>().material.color = Color.clear;
         flashTimer = Time.time;
         //Initialise Brawler States
-        patrolState = Animator.StringToHash("States.Patrol");
-        moveState = Animator.StringToHash("States.Move");
-        diveState = Animator.StringToHash("States.Dive");
-        avoidState = Animator.StringToHash("States.Avoid");
-        idleState = Animator.StringToHash("States.Idle");
+        patrolState = Animator.StringToHash("Base.Patrol");
+        moveState = Animator.StringToHash("Base.Move");
+        diveState = Animator.StringToHash("Base.Dive");
+        avoidState = Animator.StringToHash("Base.Avoid");
+        idleState = Animator.StringToHash("Base.Idle");
         aimState = Animator.StringToHash("Attack.Aim");
         attackState = Animator.StringToHash("Attack.Attack");
         closeAttackState = Animator.StringToHash("Attack.CloseAttack");
@@ -54,25 +54,38 @@ public class AIBrawler : AIBase {
         //Initialise Brawler Parameters
         inRangeBool = Animator.StringToHash("inRange");
         closeAttackBool = Animator.StringToHash("CloseAttack");
-
-
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        currentAttackState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
-        currentStunState = anim.GetCurrentAnimatorStateInfo(3).fullPathHash;
-		if (IsGrounded () && GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled != true) {
-			meshAgent.enabled = true;
-			anim.applyRootMotion = true;
-		}
+        if (count == updateCount)
+        {
+            ActuallyUpdate();
+        }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
+        currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
+        currentStunState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
+        if (IsGrounded() && GetComponent<UnityEngine.AI.NavMeshAgent>().enabled != true)
+        {
+            meshAgent.enabled = true;
+            anim.applyRootMotion = true;
+        }
 
         base.Update();
         if (health > 0 && currentStunState != stunState)
         {
-                anim.SetBool(inRangeBool, triggerCount >= 1 && !PlayerControl.isDead && anim.GetBool(alertBool));
-                anim.SetBool(closeAttackBool, triggerCount == 2 && !PlayerControl.isDead && anim.GetBool(alertBool));
+            anim.SetBool(inRangeBool, triggerCount >= 1 && !PlayerControl.isDead && anim.GetBool(alertBool));
+            anim.SetBool(closeAttackBool, triggerCount == 2 && !PlayerControl.isDead && anim.GetBool(alertBool));
 
             if (currentAttackState == attackState || currentAttackState == closeAttackState)
             {
@@ -82,42 +95,42 @@ public class AIBrawler : AIBase {
                     attacked = true;
                 }
             }
-            else if(currentAttackState == aimState)
+            else if (currentAttackState == aimState)
             {
                 meshAgent.acceleration = 100f;
                 meshAgent.Stop();
                 meshAgent.acceleration = 8f;
                 meshAgent.updateRotation = false;
-                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
+                Vector3 halenGroundPos = PlayerControl.halenGO.transform.position + (PlayerControl.halenGO.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
                 halenGroundPos.y = 0;
                 Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
             }
-            else if(currentAttackState == closeAttackState)
+            else if (currentAttackState == closeAttackState)
             {
                 meshAgent.updateRotation = false;
-                Vector3 halenGroundPos = halen.transform.position + (halen.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
+                Vector3 halenGroundPos = PlayerControl.halenGO.transform.position + (PlayerControl.halenGO.transform.forward * PlayerControl.Speed / Random.Range(3.5f, 5.5f)) - transform.position;
                 halenGroundPos.y = 0;
                 Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
             }
-            else if(currentAttackState == nullAttackState)
+            else if (currentAttackState == nullAttackState)
             {
                 meshAgent.updateRotation = true;
                 didDamage = false;
                 attacked = false;
-                if (currentAIState == patrolState)
+                if (currentBaseState == patrolState)
                 {
                     meshAgent.speed = walkSpeed;
                     Patrol();
                     DetectPlayer();
                 }
-                else if (currentAIState == idleState)
+                else if (currentBaseState == idleState)
                 {
                     meshAgent.speed = 0;
                     DetectPlayer();
                 }
-                else if (currentAIState == moveState)
+                else if (currentBaseState == moveState)
                 {
                     meshAgent.speed = runSpeed;
                     Move();
@@ -125,7 +138,6 @@ public class AIBrawler : AIBase {
             }
         }
     }
-
     void OnCollisionEnter(Collision c)
     {
         OnChildCollisionEnter(c);
@@ -133,15 +145,17 @@ public class AIBrawler : AIBase {
 
     public void OnChildCollisionEnter(Collision c)
     {
-       
-        if ((currentAttackState == attackState || currentAttackState == closeAttackState) && anim.GetCurrentAnimatorStateInfo(2).normalizedTime > 0.1f && anim.GetCurrentAnimatorStateInfo(2).normalizedTime < 0.3f && !didDamage && c.transform.CompareTag("Player"))
+        if (c.transform.CompareTag("Player"))
         {
-            if (currentAttackState == attackState)
-                halen.GetComponent<PlayerControl>().damageBuffer += 50;
-            else
-                halen.GetComponent<PlayerControl>().damageBuffer += 30;
+            if ((currentAttackState == attackState || currentAttackState == closeAttackState) && anim.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.1f && anim.GetCurrentAnimatorStateInfo(1).normalizedTime < 0.3f && !didDamage)
+            {
+                if (currentAttackState == attackState)
+                    PlayerControl.playerControl.damageBuffer += 50;
+                else
+                    PlayerControl.playerControl.damageBuffer += 30;
 
-            didDamage = true;
+                didDamage = true;
+            }
         }
     }
 

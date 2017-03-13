@@ -177,6 +177,11 @@ public class PlayerControl : MonoBehaviour
     bool clickToRespawn = false;
 
     static bool charged;
+
+    Rigidbody rb;
+    private static Vector3 pos;
+    private static PlayerControl pc;
+    private static GameObject go;
     
     public static bool isDead{get{return health <= 0;}}
     public static bool isAiming { get { return IsAiming(); } }
@@ -187,7 +192,9 @@ public class PlayerControl : MonoBehaviour
     public static float ShotCooldown { get { return (Mathf.Clamp(Time.time - longShootCooldownStart, 0, LONG_SHOT_COOLDOWN)) / LONG_SHOT_COOLDOWN; } }
     public static bool Charged { get { return charged; } set { charged = value; } }
     public static float Speed { get { return speed; } }
-
+    public static Vector3 Position { get { return pos; } }
+    public static PlayerControl playerControl { get { return pc; } }
+    public static GameObject halenGO { get { return go; } }
 	MeleeWeaponTrail SliceTrail;
 
 	//colours for sharp status
@@ -204,7 +211,7 @@ public class PlayerControl : MonoBehaviour
     void Awake()
 	{
 		eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
-
+        rb = GetComponent<Rigidbody>();
 		dashManagement = false;
 		dashFlashManagement = 0;
 		colour_DashReady = Color.red;
@@ -296,6 +303,9 @@ public class PlayerControl : MonoBehaviour
         reticleDot = Resources.Load("wide_reticule") as Texture2D; 
 
         _PlayerSFXManager = GameObject.Find("SoundManager").GetComponent<PlayerSFXManager>();
+
+        pc = GetComponent<PlayerControl>();
+        go = gameObject;
 	}
 
 	public bool IsGrounded() {
@@ -322,6 +332,8 @@ public class PlayerControl : MonoBehaviour
             godMode = !godMode;
 
         //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
+
+        pos = transform.position;
 
         if (!twoArm)
         {
@@ -383,8 +395,8 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform == null)
                 {
                     wallRun = false;
-                    GetComponent<Rigidbody>().AddForce(Vector3.up * 500f, ForceMode.Impulse);
-                    GetComponent<Rigidbody>().useGravity = true;
+                    rb.AddForce(Vector3.up * 500f, ForceMode.Impulse);
+                    rb.useGravity = true;
                 }
             }
             isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
@@ -410,7 +422,7 @@ public class PlayerControl : MonoBehaviour
             if (GetComponentInChildren<clsragdollhelper>() != null)
             {
                 GetComponentInChildren<clsragdollhelper>().metgoragdoll();
-				GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
                 wallHoldStatus = 0;
                 StartCoroutine(preSpawn(3f));
             }   
@@ -484,7 +496,7 @@ public class PlayerControl : MonoBehaviour
 		}
         else if(!wallRun)
         {
-            GetComponent<Rigidbody>().useGravity = true;
+             rb.useGravity = true;
         }
 
         if (previousHoldStatus == 0 && wallHoldStatus == 1)
@@ -509,7 +521,7 @@ public class PlayerControl : MonoBehaviour
 		anim.SetBool (aimBool, IsAiming());
 		anim.SetFloat(hFloat, h);
 		anim.SetFloat(vFloat, v);
-		anim.SetFloat (vSpeedFloat, GetComponent<Rigidbody> ().velocity.y);
+		anim.SetFloat (vSpeedFloat, rb.velocity.y);
 
 		gravityMod = anim.GetFloat ("gravityWeight");
 
@@ -521,7 +533,7 @@ public class PlayerControl : MonoBehaviour
 			aimingWeight = shoot.GetHashCode ();
 		
 		if (anim.IsInTransition (0))
-			characterVel = GetComponent<Rigidbody> ().velocity;
+			characterVel = rb.velocity;
         
         if(currentBaseState == fallingState)
         {
@@ -548,23 +560,23 @@ public class PlayerControl : MonoBehaviour
  			else if (canDoubleJump) {
 				anim.SetBool (doDoubleJump, true);
 				canDoubleJump = false;
-				GetComponent<Rigidbody> ().velocity = new Vector3 (targetDirection.x * speed / 1.5f, 0, targetDirection.z * speed / 1.5f);
-				GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpHeight * 1.5f, ForceMode.Impulse);
+                rb.velocity = new Vector3 (targetDirection.x * speed / 1.5f, 0, targetDirection.z * speed / 1.5f);
+                rb.AddForce (Vector3.up * jumpHeight * 1.5f, ForceMode.Impulse);
 				_PlayerSFXManager.playSoundEffect("jump2");
 			}
 		}
 
 		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
             if(speed > 0.1f)
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             else
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
             anim.SetBool(jumpBool, false);
 		} else if (anim.GetBool (jumpBool) && (wallHoldStatus != 0 || wallRun)) {
             wallHoldStatus = 0;
             wallHold = false;
             wallRun = false;
-			GetComponent<Rigidbody> ().AddForce (-transform.forward.normalized * 400f, ForceMode.Impulse);
+            rb.AddForce (-transform.forward.normalized * 400f, ForceMode.Impulse);
 			anim.SetBool (jumpBool, false);
             anim.SetTrigger(backFlipTrig);
             StartCoroutine(wallRunCooldown(1.5f));
@@ -633,7 +645,6 @@ public class PlayerControl : MonoBehaviour
 		}
 		//turnSmoothing = 10 - speed;
 		anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
-        //GetComponent<Rigidbody>().AddForce(transform.forward*speed*100);
 
 
         if (IsGrounded() && currentBaseState != rollState && !IsAiming())
@@ -648,26 +659,26 @@ public class PlayerControl : MonoBehaviour
             }
             else
                 inclineMod = 1.0f;
-            GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * speed * inclineMod, GetComponent<Rigidbody>().velocity.y * inclineMod, transform.forward.z * speed);
+            rb.velocity = new Vector3(transform.forward.x * speed * inclineMod, rb.velocity.y * inclineMod, transform.forward.z * speed);
         }
         else if (wallRun)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.up * wallSpeed;
+            rb.velocity = Vector3.up * wallSpeed;
         }
         else if (currentBaseState == rollState && IsGrounded())
         {
             if (IsAiming())
             {
                 Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
-                GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * 10.0f, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * 10.0f);
+                rb.velocity = new Vector3(strafeDirection.x * 10.0f, rb.velocity.y, strafeDirection.z * 10.0f);
             }
             else
-                GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * 10.0f, GetComponent<Rigidbody>().velocity.y, transform.forward.z * 10.0f);
+                rb.velocity = new Vector3(transform.forward.x * 10.0f, rb.velocity.y, transform.forward.z * 10.0f);
         }
         else if (IsAiming() && IsGrounded())
         {
             Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
-            GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * speed, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * speed);
+            rb.velocity = new Vector3(strafeDirection.x * speed, rb.velocity.y, strafeDirection.z * speed);
         }
         else if (!IsGrounded())
         {
@@ -681,7 +692,7 @@ public class PlayerControl : MonoBehaviour
             }
             else
                 inclineMod = 1.0f;
-            GetComponent<Rigidbody>().AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod, 0, transform.forward.z * speed * 50), ForceMode.Force);
+            rb.AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod, 0, transform.forward.z * speed * 50), ForceMode.Force);
         }
 	}
 
@@ -752,12 +763,12 @@ public class PlayerControl : MonoBehaviour
             if (!Charged)
             {
                 if (dashVelocityCoefficient > 0)
-                    GetComponent<Rigidbody>().velocity = dashDirection * 60.0f * dashVelocityCoefficient;
+                    rb.velocity = dashDirection * 60.0f * dashVelocityCoefficient;
             }
             else
             {
                 if (dashVelocityCoefficient > 0)
-                    GetComponent<Rigidbody>().velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
+                    rb.velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
             }
         }
         else if (collateral)
@@ -841,8 +852,8 @@ public class PlayerControl : MonoBehaviour
 		{
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 
-			Quaternion newRotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
-			GetComponent<Rigidbody>().MoveRotation (newRotation);
+			Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
+            rb.MoveRotation (newRotation);
 			lastDirection = targetDirection;
 		}
 		//idle - fly or grounded
@@ -861,8 +872,8 @@ public class PlayerControl : MonoBehaviour
 		{
 			repositioning.y = 0;
 			Quaternion targetRotation = Quaternion.LookRotation (repositioning, Vector3.up);
-			Quaternion newRotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, targetRotation, turnSmoothing * Time.deltaTime);
-			GetComponent<Rigidbody>().MoveRotation (newRotation);
+			Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSmoothing * Time.deltaTime);
+            rb.MoveRotation (newRotation);
 		}
 	}
 
@@ -948,15 +959,14 @@ public class PlayerControl : MonoBehaviour
 
 	void wallSlide()
 	{
-		Vector3 vel = GetComponent<Rigidbody> ().velocity;
-		GetComponent<Rigidbody> ().velocity = new Vector3 (0, vel.y / 1.1f, 0);
+		Vector3 vel = rb.velocity;
+        rb.velocity = new Vector3 (0, vel.y / 1.1f, 0);
 	}
 
 	void wallHeld()
 	{
-		GetComponent<Rigidbody> ().velocity = Vector3.zero;
-		GetComponent<Rigidbody> ().useGravity = false;
-		//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+        rb.velocity = Vector3.zero;
+        rb.useGravity = false;
 	}
 
 
@@ -1079,7 +1089,7 @@ public class PlayerControl : MonoBehaviour
         else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState)
         {
           
-            if (GetComponent<Rigidbody>().velocity.y > -3f && canWallRun)
+            if (rb.velocity.y > -3f && canWallRun)
                 StartCoroutine(wallRunDuration(1f));
             else
                 wallHoldStatus = 2;
@@ -1098,14 +1108,14 @@ public class PlayerControl : MonoBehaviour
 	{
         GetComponent<CapsuleCollider>().center = new Vector3(0, 1.5f, -0.5f);
         wallRun = true;
-		GetComponent<Rigidbody> ().useGravity = false;
+        rb.useGravity = false;
 		wallSpeed = Mathf.Clamp(speed, runSpeed, sprintSpeed);
 		yield return new WaitForSeconds (duration);
         if(wallRun)
-            GetComponent<Rigidbody>().AddForce(-transform.forward * 400f, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * 400f, ForceMode.Impulse);
         anim.SetTrigger(backFlipTrig);
         wallRun = false;
-		GetComponent<Rigidbody> ().useGravity = true;
+        rb.useGravity = true;
         StartCoroutine(wallRunCooldown(1.5f));
     }
 
