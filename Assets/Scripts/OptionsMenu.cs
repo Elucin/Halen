@@ -16,6 +16,7 @@ public class OptionsMenu : MonoBehaviour {
     public void ChangeGeneralAudio()
     {
        Options.generalAudio = sldGenAudio.value;
+        AudioListener.volume = Options.generalAudio;
     }
 
     public void InvertY()
