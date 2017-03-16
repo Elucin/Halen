@@ -36,6 +36,9 @@ public class UIScript : MonoBehaviour {
 
     float chargeHazeAlpha = 0f;
 
+	public Image ReticleSharpFlash;
+	public Image ReticleSharpReady;
+
     // Use this for initialization
     void Start () {
         Halen = GameObject.FindObjectOfType<PlayerControl>();
@@ -86,20 +89,32 @@ public class UIScript : MonoBehaviour {
         dashBar.fillAmount = PlayerControl.DashCooldown;
 		if (dashBar.fillAmount == 1f) {
 			if (dashFlash == false) {
+				//dash ready
+
+				ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
 				SwordGlow.color = new Color (1f, 1f, 1f, 1f);
 				dashFlash = true;
 				dashCounter = 20f;
 
 			} else {
 				if (dashCounter > 0) {
+					//dash getting ready
 					SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f-(dashCounter / 20f)));
+					ReticleSharpFlash.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f-(dashCounter / 20f)));
 					dashCounter--;
+				}
+				if (dashCounter == 0) {
+					ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+					ReticleSharpReady.color = new Color (1f, 1f, 1f, 1f);
 				}
 			}
 
 		} else {
+			//dash not ready
 			dashFlash = false;
 			SwordGlow.color = new Color (1f, 1f, 1f, 0f);
+		
+			ReticleSharpReady.color = new Color (1f, 1f, 1f, 0f);
 		}
 
         shotCooldownBar.fillAmount = 0.925f - PlayerControl.ShotCooldown * 0.925f;
