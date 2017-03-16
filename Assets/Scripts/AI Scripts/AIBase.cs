@@ -11,6 +11,11 @@ public class AIBase : MonoBehaviour {
         public bool bankshot;
     };
 
+    protected Vector3 destination;
+    protected bool doDest = true;
+    protected int updateCount;
+    protected int count;
+
     public float health;
     protected UnityEngine.AI.NavMeshAgent meshAgent;
     public Object explosion;
@@ -21,9 +26,9 @@ public class AIBase : MonoBehaviour {
     Vector3 point2;
 
     //Halen Variables
-    public GameObject halen;
-    protected Vector3 halenPos;
-    Vector3 halenDir;
+    public static GameObject halen;
+    protected static float distanceToPlayer;
+    //Vector3 halenDir;
     float halenSpeed;
     bool halenAlive;
     public bool Idle;
@@ -50,6 +55,11 @@ public class AIBase : MonoBehaviour {
     float oldHealth = 100f;
     protected string[] Name;
 
+    //Components
+    protected CapsuleCollider capsuleCollider;
+    protected PlayerControl playerControl;
+    protected Rigidbody rb;
+
     //SFX
     public BrawlerSFXManager _BrawlerSFXManager;
 
@@ -62,14 +72,13 @@ public class AIBase : MonoBehaviour {
         health = 100f;
         //Initialise Animator
         anim = GetComponent<Animator>();
-        if (Name[0] != "Sniper" && Name[0] != "Floater")
-            anim.SetBool(idleBool, Idle);
+        updateCount = Random.Range(0, 10);
         //Initialize NavMeshAgent
         meshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         //Inititalize Halen
-        halen = GameObject.Find("Halen");
-
+        //halen = GameObject.FindGameObjectWithTag("Player");
+        //playerControl = halen.GetComponent<PlayerControl>();
         if (!transform.CompareTag("Rival"))
         {
             //Initialize Parameters
@@ -82,10 +91,14 @@ public class AIBase : MonoBehaviour {
             stunTrigger = Animator.StringToHash("Stun");
             idleBool = Animator.StringToHash("Idle");
 
+            if (Name[0] != "Sniper" && Name[0] != "Floater")
+                anim.SetBool(idleBool, Idle);
         }
         stunnedBool = Animator.StringToHash("Stunned");
 
-        //oldHealth = health;
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -93,24 +106,29 @@ public class AIBase : MonoBehaviour {
 
         //Update Halen's Info
         //Should probably add these variables to Halen's script :L
-        if (halen == null)
-            halen = GameObject.FindGameObjectWithTag("Player");
-        halenPos = halen.transform.position;
-        halenDir = halen.GetComponent<Rigidbody>().velocity.normalized;
+        //if (halen == null)
+        //{
+            //halen = GameObject.FindGameObjectWithTag("Player");
+            //playerControl = halen.GetComponent<PlayerControl>();
+        //}
+        //halenPos = halen.transform.position;
+        //halenDir = halen.GetComponent<Rigidbody>().velocity.normalized;
+        distanceToPlayer = Vector3.Distance(transform.position, PlayerControl.Position);
         halenAlive = !PlayerControl.isDead;
         if (!halenAlive && anim.GetBool(alertBool) == true)
         {
             anim.SetBool(alertBool, false);
             triggerCount = 0;
-            meshAgent.SetDestination(transform.position);
+            destination = transform.position;
         }
-        halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
+        halenSpeed = PlayerControl.Speed;
+        //halenSpeed = halen.GetComponent<Rigidbody>().velocity.magnitude;
         //anim.SetFloat(speedFloat, meshAgent.speed);
         if(Name[0] != "Sniper" && Name[0] != "Floater")
             anim.SetBool(idleBool, Idle);
         //Update Current State
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
-        currentAIState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
+        //currentAIState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
 
         if (health <= 0 && !destroyed)
         {
@@ -126,6 +144,9 @@ public class AIBase : MonoBehaviour {
             DoAlerted();
         }
 
+        if (doDest)
+            StartCoroutine(AgentDestination());
+
     }
 
     protected virtual void Patrol()
@@ -138,7 +159,7 @@ public class AIBase : MonoBehaviour {
             if (meshAgent.remainingDistance <= meshAgent.radius)
             {
                 if (health > 0)
-                    meshAgent.SetDestination(points[Random.Range(0, points.Length)].position);
+                    destination = points[Random.Range(0, points.Length)].position;
             }
         }
     }
@@ -146,15 +167,15 @@ public class AIBase : MonoBehaviour {
     protected virtual void Move()
     {
         if (health > 0 && !anim.GetBool(stunnedBool) && meshAgent != null && meshAgent.isOnNavMesh)
-        { 
+        {
             meshAgent.updateRotation = true;
-            meshAgent.SetDestination(halenPos);
+            destination = PlayerControl.Position;
             meshAgent.Resume();
         }
 
     }
 
-    bool TakenDamage()
+    public bool TakenDamage()
     {
         bool damaged = oldHealth > health;
         oldHealth = health;
@@ -163,10 +184,10 @@ public class AIBase : MonoBehaviour {
 
     protected virtual void DetectPlayer()
     {
-        if (Vector3.Angle(transform.forward, halenPos - transform.position) < 85f && (Vector3.Distance(halenPos, transform.position) < 50f || Name[0] == "Sniper") && halenAlive)
+        if (Vector3.Angle(transform.forward, PlayerControl.Position - transform.position) < 85f && (distanceToPlayer < 50f || Name[0] == "Sniper") && halenAlive)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + Vector3.up, (halenPos - transform.position).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(transform.position + Vector3.up, (PlayerControl.Position - transform.position).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore))
             {
                 if (hit.transform.tag == "Player")
                 {
@@ -221,9 +242,6 @@ public class AIBase : MonoBehaviour {
         {
             Scoring.chargersKilled++;
         }
-        
-
-
         yield return StartCoroutine(StylePoints());
         //gameObject.SetActive(false);
         Destroy(gameObject);
@@ -250,7 +268,7 @@ public class AIBase : MonoBehaviour {
     protected virtual bool IsGrounded()
     {
         RaycastHit hit;
-        float offset = GetComponent<CapsuleCollider>().height / 2;
+        float offset = capsuleCollider.height / 2;
         return Physics.Raycast(transform.position + Vector3.up * offset, -Vector3.up, out hit, offset + 0.05f);
       
         //return Physics.Raycast(transform.position + new Vector3(0, distToGround, 0), -Vector3.up, distToGround + 0.1f);
@@ -312,5 +330,13 @@ public class AIBase : MonoBehaviour {
 
         Scoring.AddScore(transform, PlayerControl.comboMultiplier, basePoints, additionalPoints);
         yield return null;
+    }
+
+    IEnumerator AgentDestination()
+    {
+        doDest = false;
+        yield return new WaitForSeconds(0.5f);
+        meshAgent.SetDestination(destination);
+        doDest = true;
     }
 }

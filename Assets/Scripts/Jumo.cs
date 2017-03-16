@@ -7,7 +7,7 @@ public class Jumo : MonoBehaviour {
     bool resetCharge = false;
     public float CheckpointY {
         get { return checkpointY; }
-        set { if (value > checkpointY) { checkpointY = value; Debug.Log(checkpointY); } }
+        set { if (value > checkpointY) { checkpointY = value; } }
     }
 
 	// Use this for initialization

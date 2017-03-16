@@ -36,6 +36,9 @@ public class UIScript : MonoBehaviour {
 
     float chargeHazeAlpha = 0f;
 
+	public Image ReticleSharpFlash;
+	public Image ReticleSharpReady;
+
     // Use this for initialization
     void Start () {
         Halen = GameObject.FindObjectOfType<PlayerControl>();
@@ -83,25 +86,39 @@ public class UIScript : MonoBehaviour {
         Score_UI.transform.GetComponent<Text>().text = "Score:  " + Scoring.PlayerScore.ToString();
 
         //float dashTimer = Mathf.Clamp(2.0f - (Time.time - Halen.dashTimer), 0, 2);
-        dashBar.fillAmount = PlayerControl.DashCooldown;
-		if (dashBar.fillAmount == 1f) {
-			if (dashFlash == false) {
-				SwordGlow.color = new Color (1f, 1f, 1f, 1f);
-				dashFlash = true;
-				dashCounter = 20f;
+		if (!Halen.twoArm) {
+			dashBar.fillAmount = PlayerControl.DashCooldown;
+			if (dashBar.fillAmount ==1f) {
+																
+				if (dashFlash == false) {
+					//set up flash
 
-			} else {
-				if (dashCounter > 0) {
-					SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f-(dashCounter / 20f)));
-					dashCounter--;
+					ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+					SwordGlow.color = new Color (1f, 1f, 1f, 1f);
+					dashFlash = true;
+					dashCounter = 20f;
+
+				} else {
+					if (dashCounter > 0) {
+						//dash flashing
+						SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f - (dashCounter / 20f)));
+						ReticleSharpFlash.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f - (dashCounter / 20f)));
+						dashCounter--;
+					}
+					if (dashCounter == 0) {
+						ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+						ReticleSharpReady.color = new Color (1f, 1f, 1f, 1f);
+					}
 				}
+				
+			}else {
+				//dash not ready
+				dashFlash = false;
+				SwordGlow.color = new Color (1f, 1f, 1f, 0f);
+				ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+				ReticleSharpReady.color = new Color (1f, 1f, 1f, 0f);
 			}
-
-		} else {
-			dashFlash = false;
-			SwordGlow.color = new Color (1f, 1f, 1f, 0f);
 		}
-
         shotCooldownBar.fillAmount = 0.925f - PlayerControl.ShotCooldown * 0.925f;
         shotFills.fillAmount = 0.032f * PlayerControl.Ammo;
         shotRechargeBar.fillAmount = 0.25f * PlayerControl.ShotCharge;

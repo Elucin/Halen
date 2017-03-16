@@ -16,7 +16,7 @@ public class ChargerWeakSpot : MonoBehaviour {
     {
         if (c.transform.CompareTag("Player"))
         {
-            PlayerControl halen = c.transform.GetComponent<PlayerControl>();
+            //PlayerControl halen = c.transform.GetComponent<PlayerControl>();
             if (PlayerControl.IsDashing() && exposed)
             {
                 chargerScript.health = 0;

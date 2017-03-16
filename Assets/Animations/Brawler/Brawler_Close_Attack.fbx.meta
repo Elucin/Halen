@@ -60,6 +60,7 @@ ModelImporter:
     400050: jnt_spine1
     400052: jnt_spine2
     7400000: Brawler_CloseAttack
+    7400002: Brawler_Idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -176,6 +177,89 @@ ModelImporter:
       - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base/jnt_R_elbow_Base/jnt_R_wrist_Base/jnt_R_JackHammerBase/jnt_R_JackHammerBase
           1
         weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Brawler_Idle
+      takeName: Take 001
+      firstFrame: 33
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: jnt_root
+        weight: 1
+      - path: jnt_root/jnt_Pelvis
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_L_hip
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_L_hip/jnt_L_knee
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_L_hip/jnt_L_knee/jnt_L_ankle
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_L_hip/jnt_L_knee/jnt_L_ankle/jnt_L_ball
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_L_hip/jnt_L_knee/jnt_L_ankle/jnt_L_ball/jnt_L_toe
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_R_hip
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_R_hip/jnt_R_knee
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_R_hip/jnt_R_knee/jnt_R_ankle
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_R_hip/jnt_R_knee/jnt_R_ankle/jnt_R_ball
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_R_hip/jnt_R_knee/jnt_R_ankle/jnt_R_ball/jnt_R_toe
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_L_arm
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_L_arm/jnt_L_shoulder_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_L_arm/jnt_L_shoulder_Base/jnt_L_elbow_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_L_arm/jnt_L_shoulder_Base/jnt_L_elbow_Base/jnt_L_wrist_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_neckbase
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_neckbase/jnt_headtop
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base/jnt_R_elbow_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base/jnt_R_elbow_Base/jnt_R_wrist_Base
+        weight: 1
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base/jnt_R_elbow_Base/jnt_R_wrist_Base/jnt_R_JackHammerBase
+        weight: 0
+      - path: jnt_root/jnt_Pelvis/jnt_spine1/jnt_spine2/jnt_R_arm/jnt_R_shoulder_Base/jnt_R_elbow_Base/jnt_R_wrist_Base/jnt_R_JackHammerBase/jnt_R_JackHammerBase
+          1
+        weight: 0
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0

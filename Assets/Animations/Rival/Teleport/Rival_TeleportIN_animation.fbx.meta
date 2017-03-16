@@ -131,7 +131,26 @@ ModelImporter:
       humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Knee2'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ball'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
-    animationRetargetingWarnings: 
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
+      average position error 65.9 mm and maximum position error 135.4 mm at time 0:11
+      (52.6%) Frame 11\n\tLeftFoot average position error 28.9 mm and maximum position
+      error 136.2 mm at time 0:11 (52.6%) Frame 11\n\tRightLowerLeg average position
+      error 47.9 mm and maximum position error 91.6 mm at time 0:10 (47.4%) Frame
+      10\n\tRightFoot average position error 11.5 mm and maximum position error 39.7
+      mm at time 0:10 (47.4%) Frame 10\n\tLeftUpperArm average position error 55.1
+      mm and maximum position error 82.5 mm at time 0:14 (68.4%) Frame 14\n\tLeftLowerArm
+      average position error 55.1 mm and maximum position error 84.5 mm at time 0:14
+      (68.4%) Frame 14\n\tLeftHand average position error 56.4 mm and maximum position
+      error 88.9 mm at time 0:14 (68.4%) Frame 14\n\tRightUpperArm average position
+      error 57.3 mm and maximum position error 84.3 mm at time 0:14 (68.4%) Frame
+      14\n\tRightLowerArm average position error 56.5 mm and maximum position error
+      84.9 mm at time 0:14 (68.4%) Frame 14\n\tRightHand average position error 59.1
+      mm and maximum position error 90.4 mm at time 0:14 (68.4%) Frame 14\n\tHead
+      average position error 31.9 mm and maximum position error 42.7 mm at time 0:14
+      (68.4%) Frame 14\n\tLeftFoot average orientation error 13.5 deg and maximum
+      orientation error 51.5 deg at time 0: 6 (26.3%) Frame 6\n\tRightFoot average
+      orientation error 2.5 deg and maximum orientation error 10.7 deg at time 0:
+      6 (26.3%) Frame 6\n"
     animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
@@ -163,7 +182,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.030232573
+        functionName: teleportInSFXEvent
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 253664cce6553ef40a9cd6e082c59e80,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

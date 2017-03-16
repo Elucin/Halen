@@ -12,7 +12,7 @@ public class PlayerSFXManager : MonoBehaviour
 	public AudioClip jump1SFX;
 	public AudioClip jump2SFX;
 
-	public AudioClip hitSFX;
+	public AudioClip [] hitSFX;
 
 	public AudioSource CurrentSound;
 
@@ -104,7 +104,8 @@ public class PlayerSFXManager : MonoBehaviour
 				volLowRange = 0.3f;
 				volHighRange = 0.7f;
 				float randVol = Random.Range (volLowRange, volHighRange);
-				CurrentVO.PlayOneShot (hitSFX, randVol);
+				int randSound = Random.Range (0, hitSFX.GetLength (0) - 1);
+				CurrentVO.PlayOneShot (hitSFX [randSound], randVol);
 				hitCooldown = 0.3f;
 			}
 		}

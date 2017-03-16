@@ -51,122 +51,151 @@ public class AICharger : AIBase {
         base.Start();
         //Name = transform.name.Split('-');
         basePoints = 500;
-        patrolState = Animator.StringToHash("States.Patrol");
-        moveState = Animator.StringToHash("States.Move");
-        chargeAimState = Animator.StringToHash("States.Aim");
-        chargeChargeState = Animator.StringToHash("States.Charge");
-        chargeRecoverState = Animator.StringToHash("States.Recover");
-        smashAimState = Animator.StringToHash("States.Smash_Aim");
-        smashExecuteState = Animator.StringToHash("States.Smash_Execute");
-        aimState = Animator.StringToHash("States.Aim");
-        recoverState = Animator.StringToHash("States.Recover");
-        idleState = Animator.StringToHash("States.Idle");
+        patrolState = Animator.StringToHash("Base.Patrol");
+        moveState = Animator.StringToHash("Base.Move");
+        chargeAimState = Animator.StringToHash("Base.Aim");
+        chargeChargeState = Animator.StringToHash("Base.Charge");
+        chargeRecoverState = Animator.StringToHash("Base.Recover");
+        smashAimState = Animator.StringToHash("Base.Smash_Aim");
+        smashExecuteState = Animator.StringToHash("Base.Smash_Execute");
+        aimState = Animator.StringToHash("Base.Aim");
+        recoverState = Animator.StringToHash("Base.Recover");
+        idleState = Animator.StringToHash("Base.Idle");
 
         smashBool = Animator.StringToHash("Smash");
         inRangeBool = Animator.StringToHash("inRange");
         lineOfSightBool = Animator.StringToHash("LineOfSight");
         stopChargeTrigger = Animator.StringToHash("StopCharge");
         hitWallTrigger = Animator.StringToHash("HitWall");
+        //StartCoroutine(DelayGetLineOfSight());
     }
 	
 	// Update is called once per frame
 	protected override void Update () {
-        if (IsGrounded() && GetComponent<UnityEngine.AI.NavMeshAgent>().enabled != true)
+        if (count == updateCount)
         {
-            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-            GetComponent<Animator>().applyRootMotion = true;
+            ActuallyUpdate();
         }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
+        if (IsGrounded() && !meshAgent.enabled)
+        {
+            meshAgent.enabled = true;
+            anim.applyRootMotion = true;
+        }
+
         base.Update();
 
-        if (currentAIState == patrolState)
+        if (distanceToPlayer < 3)
+            triggerCount = 2;
+        else if (distanceToPlayer < 45)
+            triggerCount = 1;
+        else
+            triggerCount = 0;
+
+        if (currentBaseState == patrolState)
         {
             meshAgent.speed = walkSpeed;
             Patrol();
             DetectPlayer();
         }
-        else if(currentAIState == idleState)
+        else if (currentBaseState == idleState)
         {
             meshAgent.speed = 0;
             DetectPlayer();
         }
-        else if (currentAIState == moveState)
+        else if (currentBaseState == moveState)
         {
-			if (DustTrail.isPlaying) {
-				DustTrail.Stop ();
-			}
+            anim.SetBool(lineOfSightBool, GetLineOfSight());
+            if (DustTrail.isPlaying)
+            {
+                DustTrail.Stop();
+            }
             dealSmashDamage = true;
             meshAgent.speed = runSpeed;
-            if(meshAgent.isOnNavMesh)
-                meshAgent.SetDestination(halen.transform.position);
+            destination = PlayerControl.halenGO.transform.position;
         }
-        else if (currentAIState == smashAimState)
+        else if (currentBaseState == smashAimState)
         {
-			if (!Smash.isPlaying) {
-				Smash.Play ();
-			}
+            if (!Smash.isPlaying)
+            {
+                Smash.Play();
+            }
             meshAgent.speed = 0;
             meshAgent.updateRotation = false;
-            Vector3 halenGroundPos = halen.transform.position - transform.position;
+            Vector3 halenGroundPos = PlayerControl.halenGO.transform.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 6);
             meshAgent.updateRotation = true;
         }
-        else if (currentAIState == chargeAimState)
+        else if (currentBaseState == chargeAimState)
         {
             meshAgent.speed = 0;
             meshAgent.updateRotation = false;
-            Vector3 halenGroundPos = halen.transform.position - transform.position;
+            Vector3 halenGroundPos = PlayerControl.halenGO.transform.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
             meshAgent.updateRotation = true;
         }
-        else if (currentAIState == chargeChargeState)
+        else if (currentBaseState == chargeChargeState)
         {
-			if (!DustTrail.isPlaying) {
-				DustTrail.Play ();
-			}
+            if (!DustTrail.isPlaying)
+            {
+                DustTrail.Play();
+            }
 
-			meshAgent.SetDestination(halen.transform.position);
+            destination = PlayerControl.halenGO.transform.position;
             meshAgent.speed = chargeSpeed;
             meshAgent.angularSpeed = chargeAngularSpeed;
             if (GetAngleToPlayer()) { anim.SetTrigger(stopChargeTrigger); }
             else
             {
                 RaycastHit hit;
-                if(Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 3f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
-                    if (hit.transform.CompareTag("Terrain")) { anim.SetTrigger(hitWallTrigger); meshAgent.acceleration = 100f;  meshAgent.speed = 0; }
+                if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 3f, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
+                    if (hit.transform.CompareTag("Terrain")) { anim.SetTrigger(hitWallTrigger); meshAgent.acceleration = 100f; meshAgent.speed = 0; }
             }
         }
-        else if (currentAIState == chargeRecoverState)
+        else if (currentBaseState == chargeRecoverState)
         {
-			
-
             anim.ResetTrigger(stopChargeTrigger);
             meshAgent.speed = 0;
             meshAgent.angularSpeed = walkAngularSpeed;
         }
         anim.SetBool(inRangeBool, triggerCount >= 1);
-        anim.SetBool(lineOfSightBool, GetLineOfSight());
         anim.SetBool(smashBool, triggerCount == 2);
     }
 
+    IEnumerator DelayGetLineOfSight()
+    {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool(lineOfSightBool, GetLineOfSight());
+        StartCoroutine(DelayGetLineOfSight());
+    }
     protected override bool IsGrounded()
     {
         RaycastHit hit;
-        float offset = GetComponent<CapsuleCollider>().height / 2;
+        float offset = capsuleCollider.height / 2;
         return Physics.Raycast(transform.position + Vector3.up * offset, -transform.up, out hit, offset + 0.01f);
     }
 
     public void OnChildCollisionEnter(Collision c)
     {
-        if (currentAIState == smashExecuteState)
+        if (currentBaseState == smashExecuteState)
         {
             if (c.transform.CompareTag("Player") && dealSmashDamage)
             {
                 dealSmashDamage = false;
-                halen.GetComponent<PlayerControl>().damageBuffer += 80;
+                PlayerControl.playerControl.damageBuffer += 80;
                 c.rigidbody.AddForce(transform.TransformDirection(new Vector3(0, 500, 1000)), ForceMode.Impulse);
             }
             else if (c.transform.CompareTag("Enemy"))
@@ -177,12 +206,12 @@ public class AICharger : AIBase {
 
     void OnCollisionEnter(Collision c)
     {
-        if(currentAIState == chargeChargeState)
+        if(currentBaseState == chargeChargeState)
         {
             if (c.transform.CompareTag("Player") && dealSmashDamage)
             {
                 dealSmashDamage = false;
-                halen.GetComponent<PlayerControl>().damageBuffer += 75;
+                PlayerControl.playerControl.damageBuffer += 75;
 
                 Vector3 collisionDir = c.contacts[0].normal;
                 collisionDir.y = Mathf.Abs(collisionDir.y);
@@ -203,7 +232,7 @@ public class AICharger : AIBase {
     {
         RaycastHit hit;
         //Physics.SphereCast(transform.position + Vector3.up, 0.5f, transform.TransformDirection(Vector3.forward), out hit, 100f, LayerMasks.ignoreEnemies, QueryTriggerInteraction.Ignore);
-        Physics.SphereCast(transform.position + Vector3.up + transform.forward, 0.4f, (halen.transform.position - transform.position + Vector3.up).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore);
+        Physics.SphereCast(transform.position + Vector3.up + transform.forward, 0.4f, (PlayerControl.halenGO.transform.position - transform.position + Vector3.up).normalized, out hit, 100f, LayerMasks.terrainAndPlayer, QueryTriggerInteraction.Ignore);
 
         if (hit.transform == null)
             return false;
@@ -215,11 +244,11 @@ public class AICharger : AIBase {
 
     bool GetAngleToPlayer()
     {
-        return Mathf.Abs(Vector3.Angle(transform.TransformDirection(Vector3.forward), halen.transform.position - transform.position)) > 100;
+        return Mathf.Abs(Vector3.Angle(transform.TransformDirection(Vector3.forward), PlayerControl.halenGO.transform.position - transform.position)) > 100;
     }
 
     public bool IsCharging()
     {
-        return currentAIState == chargeChargeState;
+        return currentBaseState == chargeChargeState;
     }
 }

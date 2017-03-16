@@ -662,7 +662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &401006
 Transform:
   m_ObjectHideFlags: 1
@@ -766,7 +766,7 @@ Transform:
   m_GameObject: {fileID: 198488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.73, z: 0}
-  m_LocalScale: {x: 0.32289544, y: 0.32289544, z: 0.32289544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 422424}
   m_RootOrder: 4
@@ -818,7 +818,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.2, y: -0.0000041551184, z: -29.96}
+  m_LocalPosition: {x: -26.7, y: -0.0000041551184, z: 32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463018}
@@ -1377,7 +1377,6 @@ MonoBehaviour:
   health: 100
   explosion: {fileID: 180316, guid: 7b1cdfcdd409d684882a2aafd839d344, type: 2}
   patrolSet: {fileID: 0}
-  halen: {fileID: 0}
   Idle: 0
   destroyed: 0
   triggerCount: 0
@@ -1424,7 +1423,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.5
+  m_Radius: 2
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!136 &13649004
 CapsuleCollider:
@@ -4887,7 +4886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4526755483402002
 Transform:
   m_ObjectHideFlags: 1
@@ -4896,7 +4895,7 @@ Transform:
   m_GameObject: {fileID: 1716660947956300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3588, z: 0}
-  m_LocalScale: {x: 1.3488363, y: 1.3488362, z: 1.3488362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 422424}
   m_RootOrder: 2
@@ -5175,7 +5174,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.5
+  m_Radius: 6
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!136 &136932274491684912
 CapsuleCollider:

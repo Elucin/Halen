@@ -14,12 +14,15 @@ public class Halen_Particles : MonoBehaviour {
 	public bool sprintStorage;
 	public bool landingStorage;
     bool twoArm = false;
+
 	public AudioClip landing;
 	public AudioSource CurrentSound;
 
+
 	// Use this for initialization
 	void Start () {
-		Halen = GameObject.Find("Halen").GetComponent<PlayerControl>();
+        CurrentSound = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+		Halen = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         //DashEffect = GameObject.Find("Dash_Trail").GetComponent<ParticleSystem> ();
         //DashGlow = GameObject.Find("Dash_Glow").GetComponent<ParticleSystem> ();
         //GunGlow = GameObject.FindGameObjectWithTag ("HalenGun").GetComponent<ParticleSystem> ();
@@ -99,7 +102,7 @@ public class Halen_Particles : MonoBehaviour {
 
 				if (!Halen.roll) {
 					CurrentSound.pitch = Random.Range (0.8f, 1.2f);
-					CurrentSound.PlayOneShot (landing, 1);
+					CurrentSound.PlayOneShot (landing, 0.3f);
 				}
 
 			}

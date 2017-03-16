@@ -35,15 +35,15 @@ public class AIGunner : AIBase
     // Use this for initialization
     protected override void Start()
     {
-        Name = transform.name.Split('-');
+        transform.name = "Gunner-" + GunnerCount++.ToString();
         base.Start();
         basePoints = 150;
         //Initialise Gunner States
-        patrolState = Animator.StringToHash("States.Patrol");
-        moveState = Animator.StringToHash("States.Move");
-        diveState = Animator.StringToHash("States.Dive");
-        avoidState = Animator.StringToHash("States.Avoid");
-        idleState = Animator.StringToHash("States.Idle");
+        patrolState = Animator.StringToHash("Base.Patrol");
+        moveState = Animator.StringToHash("Base.Move");
+        diveState = Animator.StringToHash("Base.Dive");
+        avoidState = Animator.StringToHash("Base.Avoid");
+        idleState = Animator.StringToHash("Base.Idle");
         shootState = Animator.StringToHash("States2.Shoot");
         aimState = Animator.StringToHash("States2.Aim");
         meleeState = Animator.StringToHash("Melee.Melee");
@@ -53,35 +53,67 @@ public class AIGunner : AIBase
         rangeCountInt = Animator.StringToHash("rangeCount");
 
         shootCooldownStart = Time.time;
-
-       
-            
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-		if (IsGrounded () && GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled != true) {
-			GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = true;
-			GetComponent<Animator> ().applyRootMotion = true;
-		}
+        if (count == updateCount)
+        {
+            ActuallyUpdate();
+        }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
+        if (IsGrounded() && meshAgent.enabled != true)
+        {
+            meshAgent.enabled = true;
+            anim.applyRootMotion = true;
+        }
         base.Update();
-        currentAIWeaponState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
-        currentAIMeleeState = anim.GetCurrentAnimatorStateInfo(3).fullPathHash;
+
+        if (distanceToPlayer < 3f)
+        {
+            triggerCount = 4;
+        }
+        else if (distanceToPlayer < 30f)
+        {
+            triggerCount = 3;
+        }
+        else if (distanceToPlayer < 60f)
+        {
+            triggerCount = 2;
+        }
+        else if (distanceToPlayer < 80f)
+        {
+            triggerCount = 1;
+        }
+        else
+            triggerCount = 0;
+
+        currentAIWeaponState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
+        currentAIMeleeState = anim.GetCurrentAnimatorStateInfo(2).fullPathHash;
         anim.SetInteger(rangeCountInt, triggerCount);
-        //Debug.Log(triggerCount);
-        if (currentAIState == patrolState)
+
+        if (currentBaseState == patrolState)
         {
             meshAgent.speed = walkSpeed;
             Patrol();
             DetectPlayer();
         }
-        else if (currentAIState == idleState)
+        else if (currentBaseState == idleState)
         {
             meshAgent.speed = 0;
             DetectPlayer();
         }
-        else if (currentAIState == moveState)
+        else if (currentBaseState == moveState)
         {
             if (triggerCount == 0)
             {
@@ -105,10 +137,11 @@ public class AIGunner : AIBase
                 aimingWeight = 0;
         }
 
-		if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4) {
-			Shoot ();
-		}
-			
+        if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
+        {
+            Shoot();
+        }
+
         /*
         if (currentAIWeaponState == shootState || currentAIWeaponState == aimState && currentAIMeleeState != meleeState && !anim.IsInTransition(3) && rangeCountInt < 4)
             aimingWeight = 1;
@@ -136,24 +169,24 @@ public class AIGunner : AIBase
         if (health > 0)
         {
             meshAgent.updateRotation = false;
-            meshAgent.SetDestination(transform.position - transform.forward);
+            destination = transform.position - transform.forward;
             Vector3 halenGroundPos = PlayerControl.position - transform.position;
             halenGroundPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
-            //transform.LookAt(halen.transform, Vector3.up);
+            //transform.LookAt(PlayerControl.halenGO.transform, Vector3.up);
         }
     }
     void OnAnimatorIK(int layerIndex)
     {
         anim.SetLookAtWeight(aimingWeight);
-        anim.SetLookAtPosition(halen.transform.position + new Vector3(0,0.9f,0));
+        anim.SetLookAtPosition(PlayerControl.halenGO.transform.position + new Vector3(0,0.9f,0));
 
         //anim.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, aimingWeight);
         //anim.SetIKHintPosition(AvatarIKHint.LeftElbow, target.position);
 
         anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, aimingWeight);
-        anim.SetIKPosition(AvatarIKGoal.LeftHand, halen.transform.position + new Vector3(0,0.9f,0));
+        anim.SetIKPosition(AvatarIKGoal.LeftHand, PlayerControl.halenGO.transform.position + new Vector3(0,0.9f,0));
 
     }
 

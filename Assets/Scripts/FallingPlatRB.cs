@@ -10,6 +10,7 @@ public class FallingPlatRB : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		//_platCamShake = GameObject.Find ("Main_Camera").GetComponent<platform_CameraShake> ();
 	}
 	
 	// Update is called once per frame
