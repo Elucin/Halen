@@ -669,7 +669,6 @@ public class PlayerControl : MonoBehaviour
         }
         else if (currentBaseState == rollState)
         {
-            Debug.Log("Rolling");
             if (IsAiming())
             {
                 Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
