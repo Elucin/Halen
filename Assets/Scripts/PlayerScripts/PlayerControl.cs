@@ -603,6 +603,8 @@ public class PlayerControl : MonoBehaviour
 
         if (currentBaseState == rollState)
         {
+            if(speed == 0)
+                speed = sprintSpeed;
             GetComponent<CapsuleCollider>().height = 0.9f + anim.GetFloat("Height") * 0.9f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.45f + 0.45f * anim.GetFloat("Height"), 0);
 
@@ -665,8 +667,9 @@ public class PlayerControl : MonoBehaviour
         {
             rb.velocity = Vector3.up * wallSpeed;
         }
-        else if (currentBaseState == rollState && IsGrounded())
+        else if (currentBaseState == rollState)
         {
+            Debug.Log("Rolling");
             if (IsAiming())
             {
                 Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
@@ -1144,7 +1147,7 @@ public class PlayerControl : MonoBehaviour
 
         damageReduction = Mathf.Clamp(damageReduction, 0.0f, 0.5f);
         //Debug.Log((damageReduction / 0.5f) * 100 + ", " + damageReduction);
-
+        /*
         if (currentBaseState == rollState)
         {
             //33% chance to avoid damage
@@ -1154,7 +1157,7 @@ public class PlayerControl : MonoBehaviour
                 damageBuffer = 0f;
                 return;
             }
-        }
+        }*/
         float originalDamage = damageBuffer; //Original damage amount backed up
         damageBuffer -= damageBuffer*damageReduction; // Damage taken modified by shield
         health -= damageBuffer; //Damge subtracted from health

@@ -45,6 +45,7 @@ public class menuScript1 : MonoBehaviour {
     {
         LoadNextScene.Level = PlayerPrefs.GetInt("Level", 1);
         Saving.doLoad = true;
+        Saving.Checkpoint = PlayerPrefs.GetInt("Checkpoint", -1);
         SceneManager.LoadScene("Loading");
     }
 }

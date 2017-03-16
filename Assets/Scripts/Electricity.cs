@@ -9,12 +9,14 @@ public class Electricity : MonoBehaviour {
     public Transform Source;
     public Transform Target;
     public float Threshold;
+    public bool HalenZap = true;
     // Use this for initialization
     void Start () {
         p = GetComponent<ParticleSystem>();
         line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
-        Target = GameObject.Find("sword_base").transform;
+        if(HalenZap)
+            Target = GameObject.Find("sword_base").transform;
 	}
 	
 	// Update is called once per frame
@@ -27,7 +29,7 @@ public class Electricity : MonoBehaviour {
         ParticleSystem.ShapeModule s = p.shape;
         Vector3[] pos = new Vector3[p.particleCount];
         p.GetParticles(particlePos);
-        if (Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.root.position)) < Threshold && Target != null && !PlayerControl.isDead)
+        if (Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.root.position)) < Threshold && Target != null && (!HalenZap || !PlayerControl.isDead))
         {
             s.length = 2 * Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.position));
             transform.LookAt(Target.position);
@@ -84,7 +86,7 @@ public class Electricity : MonoBehaviour {
 
         particlePos = new ParticleSystem.Particle[p.particleCount];
 
-        if(Target == null && !PlayerControl.isDead)
+        if(Target == null && !PlayerControl.isDead && HalenZap)
         {
             Target = GameObject.Find("sword_base").transform;
         }
