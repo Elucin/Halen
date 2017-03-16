@@ -129,10 +129,25 @@ public class UIScript : MonoBehaviour {
         else
         {
             comboCounter.transform.parent.gameObject.SetActive(true);
-            comboTimer.fillAmount = (Scoring.TIMER_LENGTH - (Time.time - Scoring.comboTimer)) / Scoring.TIMER_LENGTH;
-            comboTimer.color = new Color(1f - comboTimer.fillAmount, comboTimer.fillAmount, 0f);
+            comboTimer.fillAmount = (Scoring.TIMER_LENGTH - (Time.time - Scoring.comboTimer)) / Scoring.TIMER_LENGTH;				
+          	comboTimer.color = new Color(1f - comboTimer.fillAmount, comboTimer.fillAmount, 0f);
             comboCounter.text = Scoring.comboCounter.ToString();
-            comboCounter.color = new Color(Scoring.comboCounter / 20f, (20f - Scoring.comboCounter) / 20f, 0f);
+
+
+			//combo count changes colour in stages
+			if (Scoring.comboCounter <= 5f) {
+				comboCounter.color = new Color (0f, 1f, 0f);
+			} else if (Scoring.comboCounter <= 10f) {
+				comboCounter.color = new Color (1f, 1f, 0f);
+			} else if (Scoring.comboCounter <= 15f) {
+				comboCounter.color = new Color (1f, 0.5f, 0f);
+			} else if (Scoring.comboCounter <= 20f){
+				comboCounter.color = new Color (1f, 0f, 0f);
+			}
+				
+
+
+            //comboCounter.color = new Color(Scoring.comboCounter / 20f, (20f - Scoring.comboCounter) / 20f, 0f);
             comboMultiplier.text = "x" + Scoring.comboMultiplier.ToString("F2");
         }
 
