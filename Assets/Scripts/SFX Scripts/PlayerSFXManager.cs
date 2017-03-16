@@ -106,7 +106,7 @@ public class PlayerSFXManager : MonoBehaviour
 				float randVol = Random.Range (volLowRange, volHighRange);
 				int randSound = Random.Range (0, hitSFX.GetLength (0) - 1);
 				CurrentVO.PlayOneShot (hitSFX [randSound], randVol);
-				hitCooldown = 0.3f;
+				hitCooldown = 0.75f;
 			}
 		}
 	}

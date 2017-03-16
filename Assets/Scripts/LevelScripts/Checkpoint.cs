@@ -27,6 +27,7 @@ public class Checkpoint : MonoBehaviour {
 			GetComponent<MeshRenderer>().material = activeMat;
             //Saving.CheckpointID = ID;
             PlayerPrefs.SetInt("Checkpoint", ID);
+            PlayerPrefs.SetInt("Level", UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
             PlayerPrefs.SetInt("Brawlers", Scoring.brawlersKilled);
             PlayerPrefs.SetInt("Gunners", Scoring.gunnersKilled);
             PlayerPrefs.SetInt("Snipers", Scoring.snipersKilled);

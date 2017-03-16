@@ -1172,7 +1172,6 @@ public class PlayerControl : MonoBehaviour
 		
         damageReduction -= damageReduction * (originalDamage / 33); //damage reduction modified based on amount of damage taken
         damageBuffer = 0f;
-
     }
 
 	float getCamPlayerAngle()
