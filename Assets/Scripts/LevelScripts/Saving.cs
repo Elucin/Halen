@@ -7,6 +7,7 @@ public class Saving : MonoBehaviour
     //public static int CheckpointID = -1;
     public static bool doLoad = false;
     public static bool twoArm = false;
+    public static int Checkpoint = 0;
     public static GameObject halen;
     public static GameObject halen2Arm;
 
@@ -28,7 +29,7 @@ public class Saving : MonoBehaviour
             Reload();
         else
         {
-            Scoring.AddScore(GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform, 0, -1000, 0);
+            Scoring.AddScore(GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform, 0, -200, 0);
             //Score -= 1000;
             //Scoring.PlayerScore = Score;
             Scoring.comboCounter = 0;
@@ -71,7 +72,8 @@ public class Saving : MonoBehaviour
         PlayerPrefs.GetInt("Floaters", 0);
         PlayerPrefs.GetInt("Combo", 0);
         Scoring.PlayerScore = PlayerPrefs.GetInt("Score", 0);
-        GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform.position;
+        Vector3 checkpoint = GameObject.Find("Checkpoint" + Checkpoint).transform.position;
+        GameObject.FindGameObjectWithTag("Player").transform.position = checkpoint;
     }
 
     public static void Reload()

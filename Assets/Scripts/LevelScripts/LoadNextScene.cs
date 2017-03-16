@@ -23,7 +23,6 @@ public class LoadNextScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Loading Scene: " + Level);
 		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (Level);
         GameObject.Find("Tip").GetComponent<Text>().text = "TIP: " + LoadingTips[Random.Range(0, LoadingTips.Length)];
 	}
