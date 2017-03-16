@@ -729,15 +729,19 @@ public class PlayerControl : MonoBehaviour
 			if (dashDown) {
 				if (dashManagement == true) {
 					//set to not ready colour
-					SkinnedMeshRenderer[] arm = GameObject.Find ("sharp_grp").GetComponentsInChildren<SkinnedMeshRenderer> ();
-					foreach (SkinnedMeshRenderer s in arm) {
-						s.material.SetColor ("_OutlineColor", colour_DashNotReady);
-					}
-					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashNotReady);
-					dashManagement = false;
-					dashFlashManagement = 20;
+
 
 				}
+				SkinnedMeshRenderer[] arm = GameObject.Find ("sharp_grp").GetComponentsInChildren<SkinnedMeshRenderer> ();
+				foreach (SkinnedMeshRenderer s in arm) {
+					s.material.SetColor ("_OutlineColor", colour_DashNotReady);
+					s.material.SetFloat ("_Outline", 0.002f);
+				}
+				GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashNotReady);
+				GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetFloat ("_Outline", 0.002f);
+				dashManagement = false;
+				dashFlashManagement = 20;
+
 				anim.SetBool (dashBool, true); //Sets animator transition
 				dashTimer = Time.time;
 				_PlayerSFXManager.playSoundEffect ("dash");
