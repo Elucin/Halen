@@ -119,6 +119,7 @@ public class PlayerControl : MonoBehaviour
     private bool walk;
 	private bool shoot;
     private bool cancel;
+	private bool melee;
 
 	private bool wallSliding;
 	private bool wallHolding;
@@ -144,7 +145,9 @@ public class PlayerControl : MonoBehaviour
 	private static int dashWindupState;
 	private static int dashState;
 	private static int dashFinishState;
-    private static int slashState;
+    private static int slashState1;
+	private static int slashState2;
+	private static bool slashState;
 	private static int noSlashState;
     private static int backFlipState;
 
@@ -283,7 +286,8 @@ public class PlayerControl : MonoBehaviour
 		movingState = Animator.StringToHash ("Base.Locomotion");
         backFlipState = Animator.StringToHash("Base.Backflip");
 		dashState = Animator.StringToHash ("Dash.Dash");
-        slashState = Animator.StringToHash("SwordSlash.Slash");
+        slashState1 = Animator.StringToHash("SwordSlash.Slash1");
+		slashState2 = Animator.StringToHash("SwordSlash.Slash2");
 		noSlashState = Animator.StringToHash("SwordSlash.NoSlash");
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
@@ -332,16 +336,16 @@ public class PlayerControl : MonoBehaviour
             godMode = !godMode;
 
         //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
-
+		slashState = currentSlashState == slashState1 || currentSlashState == slashState2;
         pos = transform.position;
 
         if (!twoArm)
         {
-            if (currentSlashState != slashState && currentDashState != dashState)
+			if (!slashState && currentDashState != dashState)
             {
                 SliceTrail.Emit = false;
             }
-            else if (currentSlashState == slashState || currentDashState == dashState)
+			else if (slashState || currentDashState == dashState)
             {
                 SliceTrail.Emit = true;
             }
@@ -358,7 +362,7 @@ public class PlayerControl : MonoBehaviour
             aim = Input.GetAxis("Aim Xbox") > 0 || Input.GetButton("Aim Mouse");
             roll = Input.GetButton("Roll Xbox");
             jump = Input.GetButtonDown("Jump Xbox");
-
+			melee = Input.GetButtonDown("Melee");
             dashDown = Input.GetButtonDown("Dash Xbox");
             dashHeld = Input.GetButton("Dash Xbox");
             dashUp = Input.GetButtonUp("Dash Xbox");
@@ -402,6 +406,8 @@ public class PlayerControl : MonoBehaviour
             isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 			anim.SetBool (groundedBool, IsGrounded ());
 			anim.SetBool (wallHeldBool, wallHoldStatus > 0);
+			if(melee)
+				anim.SetTrigger(slashTrig);
 			anim.SetFloat (CamAngleHFloat, getCamPlayerAngle ());
             //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
             anim.SetBool (wallRunBool, wallRun);
@@ -786,7 +792,7 @@ public class PlayerControl : MonoBehaviour
 	void ShootManagement()
 	{
 		if (shoot) {
-
+			/*
             if (!twoArm)
             {
                 RaycastHit hit;
@@ -803,7 +809,7 @@ public class PlayerControl : MonoBehaviour
 
                     }
                 }
-            }
+            }*/
 			StartCoroutine (eyeScript.EyeExpression (9, 0, false));
 			anim.SetBool (shootBool, true);
 			if (IsAiming () && (Time.time - longShootCooldownStart) >= LONG_SHOT_COOLDOWN && currentShots > 0) {
@@ -1236,5 +1242,13 @@ public class PlayerControl : MonoBehaviour
         //clickToRespawn = true;
     }
 
-    
+	public void OnChildCollisionEnter(Collider c)
+	{
+		if (slashState) {
+			if (c.transform.CompareTag ("Enemy")) {
+				if (!c.transform.name.Contains ("Charger"))
+					c.transform.GetComponent<AIBase> ().health = 0;
+			}
+		}
+	}
 }
