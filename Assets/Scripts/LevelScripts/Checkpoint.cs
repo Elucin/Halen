@@ -8,6 +8,8 @@ public class Checkpoint : MonoBehaviour {
 	public Material activeMat;
 	public Material inactiveMat;
 	public GameObject CheckLight;
+	public ParticleSystem Inactive;
+	public ParticleSystem Active;
     Jumo jumper;
 
     // Use this for initialization
@@ -15,6 +17,7 @@ public class Checkpoint : MonoBehaviour {
         jumper = GameObject.FindObjectOfType<Jumo>();
         ID = numCheckpoints++;
         transform.name = "Checkpoint" + ID.ToString();
+
     }
 
     void OnTriggerEnter(Collider c)
@@ -36,7 +39,8 @@ public class Checkpoint : MonoBehaviour {
             PlayerPrefs.SetInt("Combo", Scoring.biggestCombo);
             //Saving.Score = Scoring.PlayerScore;
             PlayerPrefs.SetInt("Score", Scoring.PlayerScore);
-			gameObject.GetComponent < ParticleSystem > ().Play ();
+			Active.Play ();
+			Inactive.Stop ();
 			CheckLight.SetActive (true);
         }
     }

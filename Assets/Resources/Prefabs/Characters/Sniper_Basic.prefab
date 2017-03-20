@@ -496,10 +496,10 @@ GameObject:
   - component: {fileID: 19550166}
   - component: {fileID: 13600030}
   - component: {fileID: 11481394}
-  - component: {fileID: 82749798968337264}
   - component: {fileID: 114559816530210236}
   - component: {fileID: 82408402462957462}
   - component: {fileID: 114021551076789156}
+  - component: {fileID: 82749798968337264}
   m_Layer: 9
   m_Name: Sniper_Basic
   m_TagString: Enemy
@@ -9498,11 +9498,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 828d60fe337bdd542b598bc0797307ea, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9721,9 +9721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 8300000, guid: fe874ca7b6577ac48a108c0e28395b21, type: 3}
-  sTransform: {fileID: 0}
+  sTransform: {fileID: 8300000, guid: 0d2396aea53d4694abea8aaea12a8364, type: 3}
   footstep: {fileID: 8300000, guid: 66e5980c1aa2edd4c9dba6881e2aafac, type: 3}
-  CurrentSound: {fileID: 82408402462957462}
+  CurrentSound: {fileID: 82749798968337264}
 --- !u!114 &114559816530210236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9736,4 +9736,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talking: {fileID: 8300000, guid: 828d60fe337bdd542b598bc0797307ea, type: 3}
-  CurrentSound: {fileID: 82749798968337264}
+  CurrentSound: {fileID: 82408402462957462}

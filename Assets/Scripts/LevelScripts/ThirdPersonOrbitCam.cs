@@ -195,7 +195,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		// If a raycast from the check position to the player hits something...
 		if(Physics.Raycast(checkPos, colliderCenter - checkPos, out hit, relCameraPosMag, LayerMasks.terrainOnly, QueryTriggerInteraction.Ignore))
 		{
-            Debug.DrawRay(colliderCenter, checkPos - colliderCenter, Color.green, 0.05f, false);
+            //Debug.DrawRay(colliderCenter, checkPos - colliderCenter, Color.green, 0.05f, false);
             // ... if it is not the player...
             if (hit.transform != player && hit.transform != transform)
 			{
