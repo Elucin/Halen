@@ -28,4 +28,19 @@ public class OptionsMenu : MonoBehaviour {
     {
         Options.musicAudio = sldMusicAudio.value;
     }
+
+    void Apply()
+    {
+        Options.ApplySettings();
+    }
+
+    void Cancel()
+    {
+        Options.LoadPrefs();
+        togInvertY.isOn = Options.invertY;
+        sldMusicAudio.value = Options.musicAudio;
+        sldGenAudio.value = Options.generalAudio;
+        AudioListener.volume = Options.generalAudio;
+        sldSensitivity.value = Options.mouseSensitivity;
+    }
 }

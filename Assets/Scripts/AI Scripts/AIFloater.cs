@@ -50,7 +50,7 @@ public class AIFloater : AIBase {
         
         base.Update();
         Patrol();
-
+        /*
         if (currentBaseState == patrolState)
         {
             DetectPlayer();
@@ -64,7 +64,17 @@ public class AIFloater : AIBase {
             }
             mineTimer = Time.time;
             anim.SetTrigger(mineTrigger);
-            StartCoroutine(dropMine(0.5f));
+            //StartCoroutine(dropMine(0.5f));
+        }*/
+        if(Time.time - mineTimer > MINE_TIME && distanceToPlayer < 100f)
+        {
+            foreach (Transform g in MineScript.mineList)
+            {
+                if (Vector3.Distance(transform.position, g.position) < 5.85f)
+                    return;
+            }
+            mineTimer = Time.time;
+            anim.SetTrigger(mineTrigger);
         }
     }
 
@@ -81,10 +91,8 @@ public class AIFloater : AIBase {
         }
     }
 
-    IEnumerator dropMine(float seconds)
+    void DropMine()
     {
-        yield return new WaitForSeconds(seconds);
-
         Instantiate(mine, transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 
