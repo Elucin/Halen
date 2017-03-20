@@ -29,12 +29,12 @@ public class OptionsMenu : MonoBehaviour {
         Options.musicAudio = sldMusicAudio.value;
     }
 
-    void Apply()
+    public void Apply()
     {
         Options.ApplySettings();
     }
 
-    void Cancel()
+    public void Cancel()
     {
         Options.LoadPrefs();
         togInvertY.isOn = Options.invertY;
