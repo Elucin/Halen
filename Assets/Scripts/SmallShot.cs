@@ -15,7 +15,6 @@ public class SmallShot : MonoBehaviour {
 	public Object explode_S;
     public string damageType = "HalenSmallShot";
 
-	public BrawlerSFXManager _BrawlerSFXManager;
 
 	// Use this for initialization
 	void Awake() {
@@ -75,7 +74,6 @@ public class SmallShot : MonoBehaviour {
                     //Play SFX of Enemy Being Hit
                     if (c.transform.tag == "Enemy")
                     {
-                        _BrawlerSFXManager = c.gameObject.GetComponentInChildren<BrawlerSFXManager>();
                         //_BrawlerSFXManager.playSoundEffect("hit");
                         c.gameObject.GetComponent<AIBase>().health -= bulletDamage;
                         if (c.gameObject.GetComponent<AIBase>().health <= 0)
