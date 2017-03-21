@@ -15,5 +15,7 @@ public class ChildCollision : MonoBehaviour {
 	{
 		if (transform.root.name.Contains ("Halen"))
 			GetComponentInParent<PlayerControl> ().OnChildCollisionEnter (c);
-	}
+        else if(transform.root.name.Contains("Gunner"))
+            GetComponentInParent<AIGunner>().OnChildCollisionEnter(c);
+    }
 }
