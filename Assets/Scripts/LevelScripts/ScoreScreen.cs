@@ -16,13 +16,13 @@ public class ScoreScreen : MonoBehaviour {
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
         hsControl = FindObjectOfType<HSController>();
-        Brawlers.text = "Brawlers Killed: " + Scoring.brawlersKilled.ToString();
-        Gunners.text = "Gunners Killed: " + Scoring.gunnersKilled.ToString();
-        Snipers.text = "Snipers Killed: " + Scoring.snipersKilled.ToString();
-        Chargers.text = "Chargers Killed: " + Scoring.chargersKilled.ToString();
-        Floaters.text = "Floaters Killed: " + Scoring.floatersKilled.ToString();
-        Combo.text = "Highest Combo: " + Scoring.biggestCombo.ToString();
-        Total.text = "TOTAL SCORE: " + Scoring.PlayerScore.ToString();
+        Brawlers.text = Scoring.brawlersKilled.ToString();
+        Gunners.text = Scoring.gunnersKilled.ToString();
+        Snipers.text = Scoring.snipersKilled.ToString();
+        Chargers.text = Scoring.chargersKilled.ToString();
+        Floaters.text = Scoring.floatersKilled.ToString();
+        Combo.text = Scoring.biggestCombo.ToString();
+        Total.text = Scoring.PlayerScore.ToString();
     }
 
     public void Restart()

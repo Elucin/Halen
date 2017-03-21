@@ -12,6 +12,7 @@ public class menuScript1 : MonoBehaviour {
 	void Start () {
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
+        Options.LoadPrefs();
         if (PlayerPrefs.GetInt("Checkpoint", -1) == -1)  
             continueButton.interactable = false;
 	}

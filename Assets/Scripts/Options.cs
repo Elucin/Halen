@@ -7,6 +7,8 @@ public static class Options{
     public static float generalAudio = 1f;
     public static bool invertY = false;
     public static float musicAudio = 1f;
+    public static bool autoRoll = true;
+    public static bool displayHUD = true;
 
     public static void ApplySettings()
     {
@@ -14,6 +16,8 @@ public static class Options{
         PlayerPrefs.SetFloat("generalAudio", generalAudio);
         PlayerPrefs.SetFloat("musicAudio", musicAudio);
         PlayerPrefs.SetFloat("mouseSensitivity", mouseSensitivity);
+        PlayerPrefs.SetInt("autoRoll", System.Convert.ToInt32(autoRoll));
+        PlayerPrefs.SetInt("displayHUD", System.Convert.ToInt32(displayHUD));
     }
 
     public static void LoadPrefs()
@@ -22,6 +26,8 @@ public static class Options{
         generalAudio = PlayerPrefs.GetFloat("generalAudio");
         musicAudio = PlayerPrefs.GetFloat("musicAudio");
         invertY = PlayerPrefs.GetInt("togInvertY") == 1;
+        autoRoll = PlayerPrefs.GetInt("autoRoll") == 1;
+        displayHUD = PlayerPrefs.GetInt("displayHUD") == 1;
     }
 
 }
