@@ -1,23 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class EventSensitiveScrollRect : MonoBehaviour, IUpdateSelectedHandler
 {
-
     private static float SCROLL_MARGIN = 0.3f; // how much to "overshoot" when scrolling, relative to the selected item's height
 
     private ScrollRect sr;
 
     public void Awake()
     {
-        sr = GetComponent<ScrollRect>();
+        sr = this.gameObject.GetComponent<ScrollRect>();
+    }
+
+    void Update()
+    {
+
     }
 
     public void OnUpdateSelected(BaseEventData eventData)
     {
+        
         // helper vars
         float contentHeight = sr.content.rect.height;
         float viewportHeight = sr.viewport.rect.height;

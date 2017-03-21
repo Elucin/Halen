@@ -13,7 +13,8 @@ public class selectOnInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         eventSystem = GameObject.FindObjectOfType<EventSystem>();
-	}
+        eventSystem.SetSelectedGameObject(selectedObject);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,5 +33,19 @@ public class selectOnInput : MonoBehaviour {
     private void OnDisable()
     {
         buttonSelected = false;
+    }
+
+    public void SetSelected(GameObject selected)
+    {
+        selectedObject = selected;
+        StartCoroutine(DelaySetSelected());
+        buttonSelected = false;
+    }
+
+    IEnumerator DelaySetSelected()
+    {
+        eventSystem.SetSelectedGameObject(null);
+        yield return null;
+        eventSystem.SetSelectedGameObject(selectedObject);
     }
 }
