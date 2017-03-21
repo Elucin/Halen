@@ -27,6 +27,7 @@ public class AIGunner : AIBase
     protected static int GunnerCount = 0;
 
 	public ParticleSystem GunnerMuzzleFlash;
+    bool didMeleeDamage = false;
 
 	public AudioClip shootSFX;
 	public AudioClip reloadSFX;
@@ -142,6 +143,11 @@ public class AIGunner : AIBase
             Shoot();
         }
 
+        if(currentAIMeleeState != meleeState)
+        {
+            didMeleeDamage = false;
+        }
+
         /*
         if (currentAIWeaponState == shootState || currentAIWeaponState == aimState && currentAIMeleeState != meleeState && !anim.IsInTransition(3) && rangeCountInt < 4)
             aimingWeight = 1;
@@ -197,5 +203,14 @@ public class AIGunner : AIBase
 		//Debug.DrawLine(transform.position + new Vector3(0, distToGround, 0), (transform.position + new Vector3(0, distToGround, 0)) - Vector3.up * (distToGround + 0.1f));
 		//return Physics.Raycast(transform.position + new Vector3(0, distToGround, 0), -Vector3.up, distToGround + 0.1f);
 	}
+
+    public void OnChildCollisionEnter(Collider c)
+    {
+        if(c.CompareTag("Player") && currentAIMeleeState == meleeState && !didMeleeDamage)
+        {
+            didMeleeDamage = true;
+            PlayerControl.playerControl.damageBuffer += 30f;
+        }
+    }
 
 }
