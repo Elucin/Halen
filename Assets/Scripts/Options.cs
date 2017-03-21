@@ -22,12 +22,12 @@ public static class Options{
 
     public static void LoadPrefs()
     {
-        mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity");
-        generalAudio = PlayerPrefs.GetFloat("generalAudio");
-        musicAudio = PlayerPrefs.GetFloat("musicAudio");
-        invertY = PlayerPrefs.GetInt("togInvertY") == 1;
-        autoRoll = PlayerPrefs.GetInt("autoRoll") == 1;
-        displayHUD = PlayerPrefs.GetInt("displayHUD") == 1;
+        mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", 300f);
+        generalAudio = PlayerPrefs.GetFloat("generalAudio", 1f);
+        musicAudio = PlayerPrefs.GetFloat("musicAudio", 1f);
+        invertY = PlayerPrefs.GetInt("togInvertY", 0) == 1;
+        autoRoll = PlayerPrefs.GetInt("autoRoll", 1) == 1;
+        displayHUD = PlayerPrefs.GetInt("displayHUD", 1) == 1;
     }
 
 }
