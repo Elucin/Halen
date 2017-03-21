@@ -32,7 +32,6 @@ public class CargTalking : MonoBehaviour {
 			CurrentSound.volume = 0f;
 			randomizer = Random.Range (0, 4);
 			if (randomizer == 0) {
-				Debug.Log ("Talking");
 				CurrentSound.volume = 1f;
 			}
 			randomDuration = (Random.value*3.5f)+0.5f;

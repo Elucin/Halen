@@ -90,7 +90,8 @@ public class PlayerControl : MonoBehaviour
 	private int wallRunBool;
     private int backFlipTrig;
     private int slashTrig;
-	private Transform cameraTransform;
+    private int doAutoRoll;
+    private Transform cameraTransform;
 	private Vector3 targetDirection;
 	private bool canDoubleJump = true;
 	private int doDoubleJump;
@@ -119,6 +120,7 @@ public class PlayerControl : MonoBehaviour
     private bool walk;
 	private bool shoot;
     private bool cancel;
+    private bool start;
 	private bool melee;
 
 	private bool wallSliding;
@@ -161,8 +163,8 @@ public class PlayerControl : MonoBehaviour
 	public ParticleSystem MuzzleFlash;
 	public ParticleSystem MomentumShield;
 
-    private GameObject pauseMenu;
-    private GameObject optionsMenu;
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
 
     private Texture2D reticleDot;
     private Texture2D reticleCircle;
@@ -226,8 +228,8 @@ public class PlayerControl : MonoBehaviour
         transform.name = "Halen";
         health = 100f;
         damageBuffer = 0f;
-        pauseMenu = GameObject.Find("Pause_Menu");
-        optionsMenu = GameObject.Find("OptionsMenu");
+        //pauseMenu = GameObject.Find("Pause_Menu");
+        //optionsMenu = GameObject.Find("settings_panel");
         //if (System.DateTime.Now.Ticks > expireDate.Ticks)
             //Application.Quit();
 
@@ -277,8 +279,9 @@ public class PlayerControl : MonoBehaviour
 		wallRunBool = Animator.StringToHash ("wallRun");
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
+        doAutoRoll = Animator.StringToHash("DoAutoRoll");
 
-		rollState = Animator.StringToHash ("Base.Rolling");
+        rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
 		doubleJumpState = Animator.StringToHash ("Base.AirJump");
 		fallingState = Animator.StringToHash ("Base.Falling");
@@ -302,8 +305,10 @@ public class PlayerControl : MonoBehaviour
         shotRecoverTimer = Time.time;
         dashTimer = Time.time - DASH_COOLDOWN;
 
-	
-		reticleCircle = Resources.Load("decal_crosshair") as Texture2D;
+        optionsMenu = GameObject.Find("UI 1").GetComponent<UIScript>().optionsMenu;
+        pauseMenu = GameObject.Find("UI 1").GetComponent<UIScript>().pauseMenu;
+
+        reticleCircle = Resources.Load("decal_crosshair") as Texture2D;
         reticleDot = Resources.Load("wide_reticule") as Texture2D; 
 
         _PlayerSFXManager = GameObject.Find("SoundManager").GetComponent<PlayerSFXManager>();
@@ -313,6 +318,12 @@ public class PlayerControl : MonoBehaviour
 	}
 
 	public bool IsGrounded() {
+        if(optionsMenu == null || pauseMenu == null)
+        {
+            optionsMenu = GameObject.Find("UI 1").GetComponent<UIScript>().optionsMenu;
+            pauseMenu = GameObject.Find("UI 1").GetComponent<UIScript>().pauseMenu;
+        }
+
 		RaycastHit hit;
 		bool ray =  Physics.SphereCast(transform.position + Vector3.up * 0.87f, 0.2f, -transform.up, out hit , 0.87f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
 		if (hit.transform != null) {
@@ -335,6 +346,8 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.BackQuote))
             godMode = !godMode;
 
+        anim.SetBool(doAutoRoll, Options.autoRoll);
+
         //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
 		slashState = currentSlashState == slashState1 || currentSlashState == slashState2;
         pos = transform.position;
@@ -355,7 +368,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("EditorPause"))
             UnityEditor.EditorApplication.isPaused = !UnityEditor.EditorApplication.isPaused; */
 
-        if (!isDead)
+        if (!optionsMenu.activeSelf && !pauseMenu.activeSelf && !isDead)
         {
             position = transform.position;
             wallHold = Input.GetButton("WallHold Xbox");
@@ -403,27 +416,27 @@ public class PlayerControl : MonoBehaviour
                     rb.useGravity = true;
                 }
             }
-            isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
-			anim.SetBool (groundedBool, IsGrounded ());
-			anim.SetBool (wallHeldBool, wallHoldStatus > 0);
-			if(melee)
-				anim.SetTrigger(slashTrig);
-			anim.SetFloat (CamAngleHFloat, getCamPlayerAngle ());
-            //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
-            anim.SetBool (wallRunBool, wallRun);
-			JumpManagement ();
-			RollManagement ();
-	        MovementManagement(h, v, run, sprint);
-            if(!twoArm)
-	            DashManagement ();
-			ShootManagement ();
-	        previousHoldStatus = wallHoldStatus;
-	        wallHoldStatus = WallGrabManagement(wallHoldStatus);
-	        Healing();
-	        Damage();
-            Scoring.UpdateCombo();
+                isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+                anim.SetBool(groundedBool, IsGrounded());
+                anim.SetBool(wallHeldBool, wallHoldStatus > 0);
+                if (melee)
+                    anim.SetTrigger(slashTrig);
+                anim.SetFloat(CamAngleHFloat, getCamPlayerAngle());
+                //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
+                anim.SetBool(wallRunBool, wallRun);
+                JumpManagement();
+                RollManagement();
+                MovementManagement(h, v, run, sprint);
+                if (!twoArm)
+                    DashManagement();
+                ShootManagement();
+                previousHoldStatus = wallHoldStatus;
+                wallHoldStatus = WallGrabManagement(wallHoldStatus);
+                Healing();
+                Damage();
+                Scoring.UpdateCombo();
         }
-        else
+        else if(isDead)
         {
             if (GetComponentInChildren<clsragdollhelper>() != null)
             {
@@ -433,44 +446,48 @@ public class PlayerControl : MonoBehaviour
                 StartCoroutine(preSpawn(3f));
             }   
         }
-        cancel = Input.GetButtonDown("Cancel Xbox");
-		UnityEngine.EventSystems.EventSystem e = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem> ();
-        if (pauseMenu.GetComponent<Canvas>().enabled == false && optionsMenu.GetComponent<Canvas>().enabled == false)
+
+        if (start)
         {
-			e.sendNavigationEvents = false;
+            if (pauseMenu.activeSelf)
+                pauseMenu.SetActive(false);
+            else
+                pauseMenu.SetActive(true);
+
+            if (optionsMenu.activeSelf)
+            {
+                optionsMenu.GetComponentInParent<OptionsMenu>().Cancel();
+                optionsMenu.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
+        }
+        else if (cancel)
+        {
+            if (pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(false);
+                anim.SetBool(rollBool, false);
+            }
+        }
+        UnityEngine.EventSystems.EventSystem e = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
+
+        if (!pauseMenu.activeSelf && !optionsMenu.activeSelf)
+        {
+            e.sendNavigationEvents = false;
             Time.timeScale = 1.0f;
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-			e.sendNavigationEvents = true;
+            e.sendNavigationEvents = true;
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
         }
 
-       
-        /*
-        if (joystick1.Contains("Xbox"))
-            cancel = Input.GetButtonDown("Cancel Xbox");
-        else
-            cancel = Input.GetButtonDown("Cancel PS"); */
+        cancel = Input.GetButtonDown("Cancel");
+        start = Input.GetButtonDown("Start");
 
-        if (cancel)
-        {
-            if (pauseMenu.GetComponent<Canvas>().enabled)
-                pauseMenu.GetComponent<Canvas>().enabled = false;
-            else
-                pauseMenu.GetComponent<Canvas>().enabled = true;
-
-            if(optionsMenu.GetComponent<Canvas>().enabled)
-            {
-                optionsMenu.GetComponent<Canvas>().enabled = false;
-                pauseMenu.GetComponent<Canvas>().enabled = true;
-            }
-             
-        }
-
-        Cursor.visible = (pauseMenu.GetComponent<Canvas>().enabled || optionsMenu.GetComponent<Canvas>().enabled);
+        Cursor.visible = (pauseMenu.activeSelf || pauseMenu.activeSelf);
 
         if (Time.time - shotRecoverTimer >= SHOT_RECOVER_TIME && currentShots < MAX_SHOTS)
         {

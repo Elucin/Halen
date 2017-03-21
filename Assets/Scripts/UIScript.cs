@@ -6,6 +6,8 @@ public class UIScript : MonoBehaviour {
 
     PlayerControl Halen;
     public GameObject Score_UI;
+    public GameObject optionsMenu;
+    public GameObject pauseMenu;
     public Image healthBar;
     public Image dashBar;
     public Image dashBarReady;

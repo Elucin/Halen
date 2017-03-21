@@ -11,22 +11,35 @@ public class Back : MonoBehaviour, IPointerEnterHandler
     public GameObject MainMenu;
     bool selected;
     EventSystem es;
+    bool cancel;
 
 	// Use this for initialization
 	void Start () {
         //optionsMenu = GameObject.Find("settings_panel");
         //MainMenu = GameObject.Find("mainMenu_panel");
+        Debug.Log("HEH?");
         es = GameObject.FindObjectOfType<EventSystem>();
 	}
 	
+    void Update()
+    {
+        cancel = Input.GetButtonDown("Cancel"); 
+    }
+
 	// Update is called once per frame
-	void FixedUpdate () {
-        if (Input.GetButtonDown("Cancel"))
+	void LateUpdate () {
+        if (cancel)
         {
             if (es.currentSelectedGameObject == gameObject)
             {
-                Debug.Log(name);
-                optionsMenu.transform.root.GetComponent<OptionsMenu>().Cancel();
+                if (MainMenu.name.Contains("Pause"))
+                {
+                    optionsMenu.GetComponentInParent<OptionsMenu>().Cancel();
+                }
+                else {
+                    optionsMenu.transform.root.GetComponent<OptionsMenu>().Cancel();
+                }
+
                 optionsMenu.SetActive(false);
                 MainMenu.SetActive(true);
             }
