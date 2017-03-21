@@ -17,7 +17,6 @@ public class Back : MonoBehaviour, IPointerEnterHandler
 	void Start () {
         //optionsMenu = GameObject.Find("settings_panel");
         //MainMenu = GameObject.Find("mainMenu_panel");
-        Debug.Log("HEH?");
         es = GameObject.FindObjectOfType<EventSystem>();
 	}
 	

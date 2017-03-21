@@ -446,6 +446,8 @@ public class PlayerControl : MonoBehaviour
                 StartCoroutine(preSpawn(3f));
             }   
         }
+        cancel = Input.GetButtonDown("Cancel");
+        start = Input.GetButtonDown("Start");
 
         if (start)
         {
@@ -484,10 +486,9 @@ public class PlayerControl : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        cancel = Input.GetButtonDown("Cancel");
-        start = Input.GetButtonDown("Start");
+        
 
-        Cursor.visible = (pauseMenu.activeSelf || pauseMenu.activeSelf);
+        Cursor.visible = (pauseMenu.activeSelf || optionsMenu.activeSelf);
 
         if (Time.time - shotRecoverTimer >= SHOT_RECOVER_TIME && currentShots < MAX_SHOTS)
         {
