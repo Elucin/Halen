@@ -9,8 +9,8 @@ public class LoadNextScene : MonoBehaviour {
     string[] LoadingTips = {
         "The Momentum Shield mitigates damage. It charges based on how fast you're moving and drains as you take damage or stand still, so keep moving!",
         "Sharp can absorb energy from the enemy's system when he destroys them. If you kill an enemy with a Dash or Melee attack, it will recharge your ammo!",
-        "If you get up close and personal with an enemy, you can use Sharp to execute a quick Melee attack by pressing the Shoot button.",
-        "Chargers are heavily armored and hard to kill. If you can open the weak point on their back, however, they become vulnerable.",
+        "If you get up close and personal with an enemy, you can use Sharp to execute a quick Melee attack!",
+        "Chargers are heavily armored and hard to kill. If you can open the weak point on their back, however, they become vulnerable to Sharp.",
         "Projectiles can block each other! You can use this to your advantage, but so can your enemies.",
         "Brawlers are weak and predictable, but be careful! They can sneak up on you if you ignore them.",
         "Snipers have a long range, but a low fire rate. Stay moving and use cover to avoid them.",
@@ -18,7 +18,8 @@ public class LoadNextScene : MonoBehaviour {
         "Minefields are a dangerous place for you, but you can make them a dangerous place for your enemies!",
         "If you kill an enemy with your Dash attack, it resets instantly! Use this to quickly dispatch another enemy, or get out of harm's way.",
         "Your Scattershot doesn't do much damage but it can stun enemies, rendering them temporarily helpless while you finish them off.",
-        "Creativity is rewarded! Find different ways to kill enemies to earn additional points."
+        "Creativity is rewarded! Find different ways to kill enemies to earn additional points.",
+		"If you fall down to the bottom of the level, look for the jumper! It will give you a power boost allowing you to Dash back up to the level of your last checkpoint!"
     };
 
 	// Use this for initialization
