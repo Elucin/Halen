@@ -329,6 +329,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4313065413191354}
+  - component: {fileID: 136898814049703278}
+  - component: {fileID: 114458409036495322}
   m_Layer: 9
   m_Name: jnt_L_Wrist
   m_TagString: Untagged
@@ -932,15 +934,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524078866621430}
-  m_LocalRotation: {x: -0, y: 0.9992469, z: -0, w: 0.03880197}
-  m_LocalPosition: {x: 0.1913269, y: -0.00000017053044, z: -1.4305131}
+  m_LocalRotation: {x: -0, y: 0.30483916, z: -0, w: 0.95240384}
+  m_LocalPosition: {x: -595.51025, y: 6.4910307, z: -444.16104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4113966695622580}
   - {fileID: 4892513284456790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 175.55301, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 35.497, z: 0}
 --- !u!4 &4221898960550966
 Transform:
   m_ObjectHideFlags: 1
@@ -1735,6 +1737,17 @@ MonoBehaviour:
   meleeAttack: {fileID: 8300000, guid: a103042ac72c7bc48aeba46660ba6458, type: 3}
   footstep: {fileID: 8300000, guid: ed321225de3ee5245a120da00bca9805, type: 3}
   CurrentSound: {fileID: 82148439330924344}
+--- !u!114 &114458409036495322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362646306287302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d198bcbda9e4c42865e4dcf22d5665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114489290367777874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1772,6 +1785,19 @@ CapsuleCollider:
   m_Height: 2.28
   m_Direction: 1
   m_Center: {x: 0, y: 1.15, z: 0}
+--- !u!136 &136898814049703278
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362646306287302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.15
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.47, z: -0.06}
 --- !u!137 &137246565675144416
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
