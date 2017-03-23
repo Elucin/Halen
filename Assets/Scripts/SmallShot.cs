@@ -59,8 +59,15 @@ public class SmallShot : MonoBehaviour {
             {
                 if (c.transform.tag == "Player")
                 {
-                    c.gameObject.GetComponent<PlayerControl>().damageBuffer += bulletDamage;
-                    DestroyBullet();
+                    if (!PlayerControl.IsDashing())
+                    {
+                        c.gameObject.GetComponent<PlayerControl>().damageBuffer += bulletDamage;
+                        DestroyBullet();
+                    }
+                    else
+                    {
+                        ricochet = true;
+                    }
 
                     //Play SFX of Halen Being Hurt
                 }

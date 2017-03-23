@@ -797,6 +797,7 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
+                dashTimer = Time.time - 2.5f;
                 if (dashVelocityCoefficient > 0)
                     rb.velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
             }
@@ -1009,7 +1010,6 @@ public class PlayerControl : MonoBehaviour
         }
 
         bool wall = checkForWall();
-        Debug.Log(wall);
         if (!wall && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
         {
             return 0;
@@ -1031,7 +1031,6 @@ public class PlayerControl : MonoBehaviour
         {
             if (Vector3.Angle(wallLook, targetDirection) > 120f && !IsAiming() && isMoving)
             {
-                Debug.Log("Moved Away");
                 return 0;
             }
             if (wallHold)
