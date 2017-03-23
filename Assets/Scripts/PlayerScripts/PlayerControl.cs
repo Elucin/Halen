@@ -607,7 +607,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         //Resets Double Jump
-		if ((IsGrounded () || wallHoldStatus != 0 || wallRun) && canDoubleJump == false) {
+		if ((IsGrounded () || wallRun) && canDoubleJump == false) {
 			canDoubleJump = true;
 		}
 
@@ -1008,8 +1008,10 @@ public class PlayerControl : MonoBehaviour
             return 0;
         }
 
-        if (!checkForWall() && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
-        {    
+        bool wall = checkForWall();
+        Debug.Log(wall);
+        if (!wall && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
+        {
             return 0;
         }
 
@@ -1028,7 +1030,10 @@ public class PlayerControl : MonoBehaviour
         else if (onWallStatus == 2)
         {
             if (Vector3.Angle(wallLook, targetDirection) > 120f && !IsAiming() && isMoving)
+            {
+                Debug.Log("Moved Away");
                 return 0;
+            }
             if (wallHold)
                 return 1;
             else
@@ -1053,7 +1058,7 @@ public class PlayerControl : MonoBehaviour
                 Physics.Raycast(g.transform.position, g.transform.forward, out hit, 1f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
                 if (hit.collider == null)
                     return false;
-                if (Mathf.Abs(hit.normal.y) > 0.01f)
+                if (Mathf.Abs(hit.normal.y) > 0.05f)
                     return false;
                 normalAvg += hit.normal;
             }
