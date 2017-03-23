@@ -30,11 +30,20 @@ public class AIBrawler : AIBase {
     protected int currentStunState;
     public ParticleSystem AttackParticle;
 
-	// Use this for initialization
-	protected override void Start () {
+    public System.Collections.Generic.List<Material> brawlerSkins = new System.Collections.Generic.List<Material>();
+
+    // Use this for initialization
+    protected override void Start () {
+        
+
         runSpeed += Random.Range(-2f, 2f);
         transform.name = "Brawler-" + BrawlerCount++.ToString();
-        base.Start(); 
+        base.Start();
+        SkinnedMeshRenderer[] skins = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (SkinnedMeshRenderer s in skins)
+        {
+            s.material = brawlerSkins[Random.Range(0, brawlerSkins.Count)];
+        }
         //Name = transform.name.Split('-');
         basePoints = 100;
         //GetComponent<MeshRenderer>().material.color = Color.clear;
