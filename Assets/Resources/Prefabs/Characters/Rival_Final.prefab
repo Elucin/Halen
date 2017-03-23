@@ -2139,7 +2139,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1888924861346684
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -2533,7 +2533,6 @@ Transform:
   - {fileID: 4226697561397326}
   - {fileID: 4396917768581330}
   - {fileID: 4822606653887122}
-  - {fileID: 4863004842706238}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 158.42201, z: 0}
@@ -2942,6 +2941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4655875184548772}
+  - {fileID: 4863004842706238}
   m_Father: {fileID: 4042916339519200}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4186,12 +4186,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888924861346684}
-  m_LocalRotation: {x: -0, y: 0.17926978, z: -0, w: 0.9838}
-  m_LocalPosition: {x: -0, y: 1.4473877, z: 0}
-  m_LocalScale: {x: 2.8967907, y: 6.0572567, z: 16.975471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4473877, z: 0}
+  m_LocalScale: {x: 2.8967915, y: 6.0572567, z: 16.975481}
   m_Children: []
-  m_Father: {fileID: 4042916339519200}
-  m_RootOrder: 5
+  m_Father: {fileID: 4226697561397326}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4868134014828168
 Transform:
@@ -5692,8 +5692,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5100759, y: 0.9999998, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.000000004581049}
+  m_Size: {x: 1.510076, y: 0.9999998, z: 1.8211274}
+  m_Center: {x: 0.000001810696, y: 0, z: 0.41056472}
 --- !u!82 &82203600154617528
 AudioSource:
   m_ObjectHideFlags: 1
@@ -6016,8 +6016,8 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: abe495ac819deba4d90993848f778a8c, type: 3}
   melee: {fileID: 8300000, guid: a9421dc90e2ce6945b01e8233222fec4, type: 3}
   taunt: {fileID: 8300000, guid: e169187043c58f743889107552a09c80, type: 3}
-  aim: {fileID: 8300000, guid: 7d695bfdc58db9b4c94b379d47994a15, type: 3}
-  fire: {fileID: 8300000, guid: ec96bc7007f259942a53f0edec9c461e, type: 3}
+  aim: {fileID: 8300000, guid: 2b3c55a5d7657fb4ca68fb75b5b42f53, type: 3}
+  fire: {fileID: 8300000, guid: 3d7ae691acf1fb046b262856c18f82a5, type: 3}
   CurrentSound: {fileID: 82203600154617528}
   CurrentVO: {fileID: 82965091131106620}
 --- !u!120 &120289613271007850
@@ -6140,7 +6140,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 11.185394
+  m_Radius: 14.4
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!136 &136871917530215936
 CapsuleCollider:

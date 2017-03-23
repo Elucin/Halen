@@ -101,6 +101,10 @@ public class AIRival : AIBase {
 		if (TakenDamage()) {
 			int randSound = Random.Range (0, hit.GetLength (0) - 1);
 			CurrentSound.PlayOneShot (hit [randSound], 1f);
+			anim.SetBool(playerInRangeBool, true);
+			anim.SetTrigger(playerCloseTrig);
+			startTeleport = true;
+
 		}
 
 
