@@ -16,6 +16,18 @@ public class ScoreObject : MonoBehaviour {
         transform.position += Vector3.up * Time.deltaTime;
         transform.LookAt(PlayerControl.position);
         GetComponent<RectTransform>().localScale = new Vector3(-0.2f, 0.2f, 0.2f) * (Vector3.Distance(transform.position, PlayerControl.position) / 20f);
+
+
+		if (Scoring.comboCounter <= 5f) {
+			color = new Color (0f, 1f, 0f);
+		} else if (Scoring.comboCounter <= 10f) {
+			color = new Color (1f, 1f, 0f);
+		} else if (Scoring.comboCounter <= 15f) {
+			color = new Color (1f, 0.5f, 0f);
+		} else if (Scoring.comboCounter <= 20f){
+			color = new Color (1f, 0f, 0f);
+		}
+
         GetComponent<TextMesh>().color = new Color(color.r, color.g, color.b, 1f - (Time.time - startTimer) / lifetime);
 
         if (Time.time - startTimer >= lifetime)
