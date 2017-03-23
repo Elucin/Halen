@@ -8,7 +8,7 @@ public class selectOnInput : MonoBehaviour {
     public EventSystem eventSystem;
     public GameObject selectedObject;
 
-    private bool buttonSelected;
+    private bool buttonSelected = true;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,8 @@ public class selectOnInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0) && buttonSelected == false)
+        Debug.Log(buttonSelected);
+		if((Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0) && !buttonSelected)
         {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;

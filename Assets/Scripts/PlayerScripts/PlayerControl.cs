@@ -718,7 +718,7 @@ public class PlayerControl : MonoBehaviour
             }
             else
                 inclineMod = 1.0f;
-            rb.AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod, 0, transform.forward.z * speed * 50), ForceMode.Force);
+            rb.AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod * Time.deltaTime * 32, 0, transform.forward.z * speed * 50 * inclineMod * Time.deltaTime * 32), ForceMode.Force);
         }
 	}
 
