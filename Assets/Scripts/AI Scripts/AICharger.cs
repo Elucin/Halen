@@ -45,10 +45,17 @@ public class AICharger : AIBase {
 	public ParticleSystem DustTrail;
 	public ParticleSystem Smash;
 
+	public System.Collections.Generic.List<Material> chargerSkins = new System.Collections.Generic.List<Material>();
+
     // Use this for initialization
     protected override void Start () {
         transform.name = "Charger-" + ChargerCount++.ToString();
         base.Start();
+		SkinnedMeshRenderer[] skins = GetComponentsInChildren<SkinnedMeshRenderer>();
+		foreach (SkinnedMeshRenderer s in skins)
+		{
+			s.material = chargerSkins[Random.Range(0, chargerSkins.Count)];
+		}
         //Name = transform.name.Split('-');
         basePoints = 500;
         patrolState = Animator.StringToHash("Base.Patrol");

@@ -33,11 +33,18 @@ public class AIGunner : AIBase
 	public AudioClip reloadSFX;
 	public AudioSource CurrentSound;
 
+	public System.Collections.Generic.List<Material> gunnerSkins = new System.Collections.Generic.List<Material>();
+
     // Use this for initialization
     protected override void Start()
     {
         transform.name = "Gunner-" + GunnerCount++.ToString();
         base.Start();
+		SkinnedMeshRenderer[] skins = GetComponentsInChildren<SkinnedMeshRenderer>();
+		foreach (SkinnedMeshRenderer s in skins)
+		{
+			s.material = gunnerSkins[Random.Range(0, gunnerSkins.Count)];
+		}
         basePoints = 150;
         //Initialise Gunner States
         patrolState = Animator.StringToHash("Base.Patrol");
