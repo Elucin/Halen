@@ -226,9 +226,9 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	// Crosshair
 	void OnGUI () 
 	{
-            if(!Cursor.visible)
-			    GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width * Screen.width / 1280f) * 0.5f, 
-			                         Screen.height/2 - (crosshair.width * Screen.width / 1280f) * 0.5f, 
-			                         crosshair.width * Screen.width / 1280f, crosshair.height * Screen.width / 1280f), crosshair);
+		if(!Cursor.visible)
+			GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width * Screen.width / 1280f) * 0.5f, 
+			                Screen.height/2 - (crosshair.width * Screen.width / 1280f) * 0.5f, 
+			                crosshair.width * Screen.width / 1280f, crosshair.height * Screen.width / 1280f), crosshair);
 	}
 }
