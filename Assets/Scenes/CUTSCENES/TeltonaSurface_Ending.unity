@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9991b6265f7f87d43b7e3c676739f203, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a4c19ceeb373e0f44ab88fc9c822e16b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -31307,6 +31307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeScript: {fileID: 211435734}
+  aClip: {fileID: 0}
   EyeStep:
   - index: 0
     duration: 3
@@ -31324,6 +31325,8 @@ MonoBehaviour:
     duration: 3
     eyeDirectionY: 0
     eyeDirectionX: 0
+  interrupt: 1
+  delay: 0
   triggered: 0
 --- !u!4 &1013693273
 Transform:
@@ -43553,6 +43556,8 @@ MonoBehaviour:
   dashStorage: 0
   sprintStorage: 0
   landingStorage: 0
+  landing: {fileID: 0}
+  CurrentSound: {fileID: 0}
 --- !u!1 &1600747631
 GameObject:
   m_ObjectHideFlags: 0
@@ -43867,6 +43872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeScript: {fileID: 1587659619}
+  aClip: {fileID: 0}
   EyeStep:
   - index: 13
     duration: 5
@@ -43892,6 +43898,8 @@ MonoBehaviour:
     duration: 6
     eyeDirectionY: 0
     eyeDirectionX: 0
+  interrupt: 1
+  delay: 0
   triggered: 0
 --- !u!4 &1626832872
 Transform:
@@ -47483,6 +47491,8 @@ MonoBehaviour:
   dashStorage: 0
   sprintStorage: 0
   landingStorage: 0
+  landing: {fileID: 0}
+  CurrentSound: {fileID: 0}
 --- !u!1 &1953741073
 GameObject:
   m_ObjectHideFlags: 0
