@@ -85,7 +85,7 @@ public class UIScript : MonoBehaviour {
         healthBar.fillAmount = PlayerControl.Health / 100f;
        // healthBar.color = Color.Lerp(Color.red, Color.cyan, Halen.damageReduction * 3f);
 
-        Score_UI.transform.GetComponent<Text>().text = "Score:  " + Scoring.PlayerScore.ToString();
+        Score_UI.transform.GetComponent<Text>().text = "POINTS:  " + Scoring.PlayerScore.ToString();
 
         //float dashTimer = Mathf.Clamp(2.0f - (Time.time - Halen.dashTimer), 0, 2);
 		if (!Halen.twoArm) {
