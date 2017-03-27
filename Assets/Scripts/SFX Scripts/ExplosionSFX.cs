@@ -27,5 +27,4 @@ public class ExplosionSFX : MonoBehaviour {
 		int randSound = Random.Range (0, explosionSFX.GetLength (0) - 1);
 		CurrentSound.PlayOneShot (explosionSFX [randSound], randVol);
 	}
-
 }
