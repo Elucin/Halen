@@ -12,12 +12,15 @@ public class Checkpoint : MonoBehaviour {
 	public ParticleSystem Active;
     Jumo jumper;
 
+	public AudioClip node;
+	public AudioClip [] nodeVO;
+	public AudioSource CurrentSound;
+
     // Use this for initialization
     void Start() {
         jumper = GameObject.FindObjectOfType<Jumo>();
         ID = numCheckpoints++;
         transform.name = "Checkpoint" + ID.ToString();
-
     }
 
     void OnTriggerEnter(Collider c)
@@ -42,6 +45,10 @@ public class Checkpoint : MonoBehaviour {
 			Active.Play ();
 			Inactive.Stop ();
 			CheckLight.SetActive (true);
+
+			int randSound = Random.Range (0, nodeVO.GetLength (0) - 1);
+			CurrentSound.PlayOneShot (nodeVO [randSound], 1);
+			CurrentSound.PlayOneShot (node, 1);
         }
     }
 }
