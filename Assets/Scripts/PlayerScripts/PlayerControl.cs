@@ -592,9 +592,9 @@ public class PlayerControl : MonoBehaviour
 
 		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
             if(speed > 0.1f)
-                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             else
-                rb.AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
+                rb.AddForce(transform.up * jumpHeight * 1.25f, ForceMode.Impulse);
             anim.SetBool(jumpBool, false);
 		} else if (anim.GetBool (jumpBool) && (wallHoldStatus != 0 || wallRun)) {
             wallHoldStatus = 0;
@@ -802,8 +802,11 @@ public class PlayerControl : MonoBehaviour
                     rb.velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
             }
         }
-        else if (collateral)
-            collateral = false;
+        else
+        {
+            if (collateral)
+                collateral = false;
+        }
 
 
 	}
@@ -1120,14 +1123,14 @@ public class PlayerControl : MonoBehaviour
                 dashTimer = Time.time - DASH_COOLDOWN;
             }
         }
-        else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState)
+        else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState && !IsDashing())
         {
           
             if (rb.velocity.y > -3f && canWallRun)
                 StartCoroutine(wallRunDuration(1f));
             else
                 wallHoldStatus = 2;
-
+ 
         }
 
 	}
@@ -1142,7 +1145,7 @@ public class PlayerControl : MonoBehaviour
 	{
         GetComponent<CapsuleCollider>().center = new Vector3(0, 1.5f, -0.5f);
         wallRun = true;
-        rb.useGravity = false;
+        //rb.useGravity = false;
 		wallSpeed = Mathf.Clamp(speed, runSpeed, sprintSpeed);
 		yield return new WaitForSeconds (duration);
         if(wallRun)
