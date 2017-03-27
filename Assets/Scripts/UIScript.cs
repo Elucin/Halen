@@ -6,6 +6,8 @@ public class UIScript : MonoBehaviour {
 
     PlayerControl Halen;
     public GameObject Score_UI;
+    public GameObject optionsMenu;
+    public GameObject pauseMenu;
     public Image healthBar;
     public Image dashBar;
     public Image dashBarReady;
@@ -35,6 +37,9 @@ public class UIScript : MonoBehaviour {
 	float dashCounter;
 
     float chargeHazeAlpha = 0f;
+
+	public Image ReticleSharpFlash;
+	public Image ReticleSharpReady;
 
     // Use this for initialization
     void Start () {
@@ -80,28 +85,42 @@ public class UIScript : MonoBehaviour {
         healthBar.fillAmount = PlayerControl.Health / 100f;
        // healthBar.color = Color.Lerp(Color.red, Color.cyan, Halen.damageReduction * 3f);
 
-        Score_UI.transform.GetComponent<Text>().text = "Score:  " + Scoring.PlayerScore.ToString();
+        Score_UI.transform.GetComponent<Text>().text = "POINTS:  " + Scoring.PlayerScore.ToString();
 
         //float dashTimer = Mathf.Clamp(2.0f - (Time.time - Halen.dashTimer), 0, 2);
-        dashBar.fillAmount = PlayerControl.DashCooldown;
-		if (dashBar.fillAmount == 1f) {
-			if (dashFlash == false) {
-				SwordGlow.color = new Color (1f, 1f, 1f, 1f);
-				dashFlash = true;
-				dashCounter = 20f;
+		if (!Halen.twoArm) {
+			dashBar.fillAmount = PlayerControl.DashCooldown;
+			if (dashBar.fillAmount ==1f) {
+																
+				if (dashFlash == false) {
+					//set up flash
 
-			} else {
-				if (dashCounter > 0) {
-					SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f-(dashCounter / 20f)));
-					dashCounter--;
+					ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+					SwordGlow.color = new Color (1f, 1f, 1f, 1f);
+					dashFlash = true;
+					dashCounter = 20f;
+
+				} else {
+					if (dashCounter > 0) {
+						//dash flashing
+						SwordGlow.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f - (dashCounter / 20f)));
+						ReticleSharpFlash.color = new Color (1f, 1f, 1f, Mathf.Lerp (1f, 0f, 1f - (dashCounter / 20f)));
+						dashCounter--;
+					}
+					if (dashCounter == 0) {
+						ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+						ReticleSharpReady.color = new Color (1f, 1f, 1f, 1f);
+					}
 				}
+				
+			}else {
+				//dash not ready
+				dashFlash = false;
+				SwordGlow.color = new Color (1f, 1f, 1f, 0f);
+				ReticleSharpFlash.color = new Color (1f, 1f, 1f, 0f);
+				ReticleSharpReady.color = new Color (1f, 1f, 1f, 0f);
 			}
-
-		} else {
-			dashFlash = false;
-			SwordGlow.color = new Color (1f, 1f, 1f, 0f);
 		}
-
         shotCooldownBar.fillAmount = 0.925f - PlayerControl.ShotCooldown * 0.925f;
         shotFills.fillAmount = 0.032f * PlayerControl.Ammo;
         shotRechargeBar.fillAmount = 0.25f * PlayerControl.ShotCharge;
@@ -112,10 +131,25 @@ public class UIScript : MonoBehaviour {
         else
         {
             comboCounter.transform.parent.gameObject.SetActive(true);
-            comboTimer.fillAmount = (Scoring.TIMER_LENGTH - (Time.time - Scoring.comboTimer)) / Scoring.TIMER_LENGTH;
-            comboTimer.color = new Color(1f - comboTimer.fillAmount, comboTimer.fillAmount, 0f);
+            comboTimer.fillAmount = (Scoring.TIMER_LENGTH - (Time.time - Scoring.comboTimer)) / Scoring.TIMER_LENGTH;				
+          	comboTimer.color = new Color(1f - comboTimer.fillAmount, comboTimer.fillAmount, 0f);
             comboCounter.text = Scoring.comboCounter.ToString();
-            comboCounter.color = new Color(Scoring.comboCounter / 20f, (20f - Scoring.comboCounter) / 20f, 0f);
+
+
+			//combo count changes colour in stages
+			if (Scoring.comboCounter <= 5f) {
+				comboCounter.color = new Color (0f, 1f, 0f);
+			} else if (Scoring.comboCounter <= 10f) {
+				comboCounter.color = new Color (1f, 1f, 0f);
+			} else if (Scoring.comboCounter <= 15f) {
+				comboCounter.color = new Color (1f, 0.5f, 0f);
+			} else if (Scoring.comboCounter <= 20f){
+				comboCounter.color = new Color (1f, 0f, 0f);
+			}
+				
+
+
+            //comboCounter.color = new Color(Scoring.comboCounter / 20f, (20f - Scoring.comboCounter) / 20f, 0f);
             comboMultiplier.text = "x" + Scoring.comboMultiplier.ToString("F2");
         }
 

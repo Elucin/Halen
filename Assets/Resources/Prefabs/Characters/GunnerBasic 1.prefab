@@ -122,10 +122,10 @@ GameObject:
   - component: {fileID: 13661618}
   - component: {fileID: 19556376}
   - component: {fileID: 11477438}
-  - component: {fileID: 82159791233512934}
   - component: {fileID: 114703566054127270}
   - component: {fileID: 82013095939070226}
   - component: {fileID: 114990020905687502}
+  - component: {fileID: 82159791233512934}
   m_Layer: 9
   m_Name: GunnerBasic 1
   m_TagString: Enemy
@@ -632,7 +632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &191926
 GameObject:
   m_ObjectHideFlags: 1
@@ -823,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 163720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.44401, z: 0}
-  m_LocalScale: {x: 1.4440114, y: 1.4440123, z: 1.4440123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401684}
   m_RootOrder: 2
@@ -1001,7 +1001,7 @@ Transform:
   m_GameObject: {fileID: 184418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.9781, z: 0}
-  m_LocalScale: {x: 1.9780978, y: 1.978099, z: 1.978099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401684}
   m_RootOrder: 1
@@ -1457,7 +1457,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 528281e7cec78a743be1fea9cd8d6707, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1520,7 +1520,6 @@ MonoBehaviour:
   health: 100
   explosion: {fileID: 180316, guid: 7b1cdfcdd409d684882a2aafd839d344, type: 2}
   patrolSet: {fileID: 0}
-  halen: {fileID: 0}
   Idle: 1
   destroyed: 0
   triggerCount: 0
@@ -1542,7 +1541,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 78.379875
+  m_Radius: 80
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!135 &13531502
 SphereCollider:
@@ -1554,7 +1553,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.2308438
+  m_Radius: 3
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!135 &13536212
 SphereCollider:
@@ -1566,7 +1565,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15.975412
+  m_Radius: 30
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!135 &13564968
 SphereCollider:
@@ -1578,7 +1577,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 56.345898
+  m_Radius: 60
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!136 &13661618
 CapsuleCollider:
@@ -7816,11 +7815,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 4ca211f3b48ed90479b440b3b06989d5, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7839,44 +7838,32 @@ AudioSource:
     - serializedVersion: 2
       time: 0.02
       value: 1
-      inSlope: -50.01992
-      outSlope: -50.01992
+      inSlope: -3.8013737
+      outSlope: -3.8013737
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.04
-      value: 0.5
-      inSlope: -12.50498
-      outSlope: -12.50498
+      time: 0.13053498
+      value: 0.68232036
+      inSlope: -3.1334
+      outSlope: -3.1334
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.08
-      value: 0.25
-      inSlope: -3.126245
-      outSlope: -3.126245
+      time: 0.3503706
+      value: 0.2794196
+      inSlope: -0.8222539
+      outSlope: -0.8222539
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.16
-      value: 0.125
-      inSlope: -0.78156126
-      outSlope: -0.78156126
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.30921832
-      value: 0.054557763
-      inSlope: -0.19539031
-      outSlope: -0.19539031
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.57531
-      value: 0.015884478
+      time: 0.65761447
+      value: 0.09488999
       inSlope: -0.04884758
       outSlope: -0.04884758
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: -0.020007975
-      outSlope: -0.020007975
+      inSlope: -0.43435162
+      outSlope: -0.43435162
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -7927,7 +7914,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -8033,7 +8020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talking: {fileID: 8300000, guid: 4ca211f3b48ed90479b440b3b06989d5, type: 3}
-  CurrentSound: {fileID: 82159791233512934}
+  CurrentSound: {fileID: 82013095939070226}
 --- !u!114 &114990020905687502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8047,4 +8034,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttack: {fileID: 8300000, guid: a103042ac72c7bc48aeba46660ba6458, type: 3}
   footstep: {fileID: 8300000, guid: ed321225de3ee5245a120da00bca9805, type: 3}
-  CurrentSound: {fileID: 82013095939070226}
+  CurrentSound: {fileID: 82159791233512934}

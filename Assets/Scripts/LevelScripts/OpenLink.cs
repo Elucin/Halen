@@ -5,7 +5,7 @@ public class OpenLink : MonoBehaviour {
 
 	public void OpenExternalLink()
     {
-        Application.OpenURL("https://goo.gl/forms/sWNGIon78fgSu89W2");
+		Application.OpenURL("https://goo.gl/forms/CtmFWpd6Ysl0o6663");
 		Application.Quit();
     }
 

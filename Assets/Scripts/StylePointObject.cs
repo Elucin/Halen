@@ -32,9 +32,12 @@ public class StylePointObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Time.time - startTime > lifetime || transform.localPosition.y < -58f)
+        if (Time.time - startTime > lifetime)
             StartCoroutine(FadeOut());
-	}
+        if (transform.localPosition.y <= -58f)
+            Destroy(gameObject);
+
+    }
 
     void OnDestroy()
     {
@@ -67,11 +70,17 @@ public class StylePointObject : MonoBehaviour {
     IEnumerator Bump()
     {
         targetY -= 12f;
+        StopCoroutine(UpdatePosition());
         yield return StartCoroutine(UpdatePosition());
     }
 
     IEnumerator UpdatePosition()
     {
+        do
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, targetY, 0), Time.deltaTime * 2);
+        } while (!destroyed && transform.localPosition.y >= targetY + 0.005f);
+        /*
         if(destroyed)
             yield return null;
         transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, targetY, 0), Time.deltaTime * 2);
@@ -80,7 +89,7 @@ public class StylePointObject : MonoBehaviour {
             StartCoroutine(UpdatePosition());
             yield return null;
         }
-        else
-            yield return null;
+        else*/
+        yield return null;
     }
 }

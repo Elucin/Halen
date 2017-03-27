@@ -8,6 +8,9 @@ public class CargTalking : MonoBehaviour {
 	AIBase ai;
 	public AudioSource CurrentSound;
 
+	int randomizer;
+	float randomDuration;
+
 	//private float volLowRange;
 	//private float volHighRange;
 
@@ -20,26 +23,37 @@ public class CargTalking : MonoBehaviour {
 	{
 		//CurrentSound = GetComponent<AudioSource> ();
 		ai = GetComponent<AIBase> ();
-		isTalking = false;
 	}
 
 	void Update ()
 	{
-			if (Random.Range (1, 800) == 40 && isTalking == false)
-			{
-				isTalking = true;
-				talk ();
-			}
 
-			if (!CurrentSound.isPlaying) 
-			{
-				isTalking = false;
+		if (randomDuration <= 0) {
+			CurrentSound.volume = 0f;
+			randomizer = Random.Range (0, 4);
+			if (randomizer == 0) {
+				CurrentSound.volume = 1f;
 			}
+			randomDuration = (Random.value*3.5f)+0.5f;
+		} else {
+			randomDuration -= Time.deltaTime;
+		}
+		/*
+		if (Random.Range (1, 800) == 40 && isTalking == false)
+		{
+			isTalking = true;
+			talk ();
+		}
+		if (!CurrentSound.isPlaying) 
+		{
+			isTalking = false;
+		}
+		*/
 	}
 
 	public void talk ()
 	{
 		//CurrentSound.clip.length;
-		CurrentSound.PlayOneShot (talking);
+
 	}
 }

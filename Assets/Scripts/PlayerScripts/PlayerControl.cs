@@ -90,7 +90,8 @@ public class PlayerControl : MonoBehaviour
 	private int wallRunBool;
     private int backFlipTrig;
     private int slashTrig;
-	private Transform cameraTransform;
+    private int doAutoRoll;
+    private Transform cameraTransform;
 	private Vector3 targetDirection;
 	private bool canDoubleJump = true;
 	private int doDoubleJump;
@@ -119,6 +120,8 @@ public class PlayerControl : MonoBehaviour
     private bool walk;
 	private bool shoot;
     private bool cancel;
+    private bool start;
+	private bool melee;
 
 	private bool wallSliding;
 	private bool wallHolding;
@@ -144,7 +147,9 @@ public class PlayerControl : MonoBehaviour
 	private static int dashWindupState;
 	private static int dashState;
 	private static int dashFinishState;
-    private static int slashState;
+    private static int slashState1;
+	private static int slashState2;
+	private static bool slashState;
 	private static int noSlashState;
     private static int backFlipState;
 
@@ -158,8 +163,8 @@ public class PlayerControl : MonoBehaviour
 	public ParticleSystem MuzzleFlash;
 	public ParticleSystem MomentumShield;
 
-    private GameObject pauseMenu;
-    private GameObject optionsMenu;
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
 
     private Texture2D reticleDot;
     private Texture2D reticleCircle;
@@ -177,6 +182,11 @@ public class PlayerControl : MonoBehaviour
     bool clickToRespawn = false;
 
     static bool charged;
+
+    Rigidbody rb;
+    private static Vector3 pos;
+    private static PlayerControl pc;
+    private static GameObject go;
     
     public static bool isDead{get{return health <= 0;}}
     public static bool isAiming { get { return IsAiming(); } }
@@ -187,7 +197,9 @@ public class PlayerControl : MonoBehaviour
     public static float ShotCooldown { get { return (Mathf.Clamp(Time.time - longShootCooldownStart, 0, LONG_SHOT_COOLDOWN)) / LONG_SHOT_COOLDOWN; } }
     public static bool Charged { get { return charged; } set { charged = value; } }
     public static float Speed { get { return speed; } }
-
+    public static Vector3 Position { get { return pos; } }
+    public static PlayerControl playerControl { get { return pc; } }
+    public static GameObject halenGO { get { return go; } }
 	MeleeWeaponTrail SliceTrail;
 
 	//colours for sharp status
@@ -204,7 +216,7 @@ public class PlayerControl : MonoBehaviour
     void Awake()
 	{
 		eyeScript = GameObject.FindObjectOfType<halenEyes_Script> ();
-
+        rb = GetComponent<Rigidbody>();
 		dashManagement = false;
 		dashFlashManagement = 0;
 		colour_DashReady = Color.red;
@@ -216,8 +228,8 @@ public class PlayerControl : MonoBehaviour
         transform.name = "Halen";
         health = 100f;
         damageBuffer = 0f;
-        pauseMenu = GameObject.Find("Pause_Menu");
-        optionsMenu = GameObject.Find("OptionsMenu");
+        //pauseMenu = GameObject.Find("Pause_Menu");
+        //optionsMenu = GameObject.Find("settings_panel");
         //if (System.DateTime.Now.Ticks > expireDate.Ticks)
             //Application.Quit();
 
@@ -267,8 +279,9 @@ public class PlayerControl : MonoBehaviour
 		wallRunBool = Animator.StringToHash ("wallRun");
         backFlipTrig = Animator.StringToHash("Backflip");
         slashTrig = Animator.StringToHash("Slash");
+        doAutoRoll = Animator.StringToHash("DoAutoRoll");
 
-		rollState = Animator.StringToHash ("Base.Rolling");
+        rollState = Animator.StringToHash ("Base.Rolling");
 		jumpState = Animator.StringToHash("Base.GroundJump");
 		doubleJumpState = Animator.StringToHash ("Base.AirJump");
 		fallingState = Animator.StringToHash ("Base.Falling");
@@ -276,7 +289,8 @@ public class PlayerControl : MonoBehaviour
 		movingState = Animator.StringToHash ("Base.Locomotion");
         backFlipState = Animator.StringToHash("Base.Backflip");
 		dashState = Animator.StringToHash ("Dash.Dash");
-        slashState = Animator.StringToHash("SwordSlash.Slash");
+        slashState1 = Animator.StringToHash("SwordSlash.Slash1");
+		slashState2 = Animator.StringToHash("SwordSlash.Slash2");
 		noSlashState = Animator.StringToHash("SwordSlash.NoSlash");
 		//dashState = Animator.StringToHash ("Base.Dash");
 		doDoubleJump = Animator.StringToHash ("doubleJump");
@@ -291,14 +305,25 @@ public class PlayerControl : MonoBehaviour
         shotRecoverTimer = Time.time;
         dashTimer = Time.time - DASH_COOLDOWN;
 
-	
-		reticleCircle = Resources.Load("decal_crosshair") as Texture2D;
+        optionsMenu = GameObject.Find("UI 1").GetComponent<UIScript>().optionsMenu;
+        pauseMenu = GameObject.Find("UI 1").GetComponent<UIScript>().pauseMenu;
+
+        reticleCircle = Resources.Load("decal_crosshair") as Texture2D;
         reticleDot = Resources.Load("wide_reticule") as Texture2D; 
 
         _PlayerSFXManager = GameObject.Find("SoundManager").GetComponent<PlayerSFXManager>();
+
+        pc = GetComponent<PlayerControl>();
+        go = gameObject;
 	}
 
 	public bool IsGrounded() {
+        if(optionsMenu == null || pauseMenu == null)
+        {
+            optionsMenu = GameObject.Find("UI 1").GetComponent<UIScript>().optionsMenu;
+            pauseMenu = GameObject.Find("UI 1").GetComponent<UIScript>().pauseMenu;
+        }
+
 		RaycastHit hit;
 		bool ray =  Physics.SphereCast(transform.position + Vector3.up * 0.87f, 0.2f, -transform.up, out hit , 0.87f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
 		if (hit.transform != null) {
@@ -321,15 +346,19 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.BackQuote))
             godMode = !godMode;
 
+        anim.SetBool(doAutoRoll, Options.autoRoll);
+
         //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
+		slashState = currentSlashState == slashState1 || currentSlashState == slashState2;
+        pos = transform.position;
 
         if (!twoArm)
         {
-            if (currentSlashState != slashState && currentDashState != dashState)
+			if (!slashState && currentDashState != dashState)
             {
                 SliceTrail.Emit = false;
             }
-            else if (currentSlashState == slashState || currentDashState == dashState)
+			else if (slashState || currentDashState == dashState)
             {
                 SliceTrail.Emit = true;
             }
@@ -339,14 +368,14 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("EditorPause"))
             UnityEditor.EditorApplication.isPaused = !UnityEditor.EditorApplication.isPaused; */
 
-        if (!isDead)
+        if (!optionsMenu.activeSelf && !pauseMenu.activeSelf && !isDead)
         {
             position = transform.position;
             wallHold = Input.GetButton("WallHold Xbox");
             aim = Input.GetAxis("Aim Xbox") > 0 || Input.GetButton("Aim Mouse");
             roll = Input.GetButton("Roll Xbox");
             jump = Input.GetButtonDown("Jump Xbox");
-
+			melee = Input.GetButtonDown("Melee");
             dashDown = Input.GetButtonDown("Dash Xbox");
             dashHeld = Input.GetButton("Dash Xbox");
             dashUp = Input.GetButtonUp("Dash Xbox");
@@ -383,76 +412,83 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform == null)
                 {
                     wallRun = false;
-                    GetComponent<Rigidbody>().AddForce(Vector3.up * 500f, ForceMode.Impulse);
-                    GetComponent<Rigidbody>().useGravity = true;
+                    rb.AddForce(Vector3.up * 500f, ForceMode.Impulse);
+                    rb.useGravity = true;
                 }
             }
-            isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
-			anim.SetBool (groundedBool, IsGrounded ());
-			anim.SetBool (wallHeldBool, wallHoldStatus > 0);
-			anim.SetFloat (CamAngleHFloat, getCamPlayerAngle ());
-            //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
-            anim.SetBool (wallRunBool, wallRun);
-			JumpManagement ();
-			RollManagement ();
-	        MovementManagement(h, v, run, sprint);
-            if(!twoArm)
-	            DashManagement ();
-			ShootManagement ();
-	        previousHoldStatus = wallHoldStatus;
-	        wallHoldStatus = WallGrabManagement(wallHoldStatus);
-	        Healing();
-	        Damage();
-            Scoring.UpdateCombo();
+                isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+                anim.SetBool(groundedBool, IsGrounded());
+                anim.SetBool(wallHeldBool, wallHoldStatus > 0);
+                if (melee)
+                    anim.SetTrigger(slashTrig);
+                anim.SetFloat(CamAngleHFloat, getCamPlayerAngle());
+                //anim.SetFloat(CamAngleVFloat, getCamPlayerVAngle());
+                anim.SetBool(wallRunBool, wallRun);
+                JumpManagement();
+                RollManagement();
+                MovementManagement(h, v, run, sprint);
+                if (!twoArm)
+                    DashManagement();
+                ShootManagement();
+                previousHoldStatus = wallHoldStatus;
+                wallHoldStatus = WallGrabManagement(wallHoldStatus);
+                Healing();
+                Damage();
+                Scoring.UpdateCombo();
         }
-        else
+        else if(isDead)
         {
             if (GetComponentInChildren<clsragdollhelper>() != null)
             {
                 GetComponentInChildren<clsragdollhelper>().metgoragdoll();
-				GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
                 wallHoldStatus = 0;
                 StartCoroutine(preSpawn(3f));
             }   
         }
-        cancel = Input.GetButtonDown("Cancel Xbox");
-		UnityEngine.EventSystems.EventSystem e = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem> ();
-        if (pauseMenu.GetComponent<Canvas>().enabled == false && optionsMenu.GetComponent<Canvas>().enabled == false)
+        cancel = Input.GetButtonDown("Cancel");
+        start = Input.GetButtonDown("Start");
+
+        if (start)
         {
-			e.sendNavigationEvents = false;
+            if (pauseMenu.activeSelf)
+                pauseMenu.SetActive(false);
+            else
+                pauseMenu.SetActive(true);
+
+            if (optionsMenu.activeSelf)
+            {
+                optionsMenu.GetComponentInParent<OptionsMenu>().Cancel();
+                optionsMenu.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
+        }
+        else if (cancel)
+        {
+            if (pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(false);
+                anim.SetBool(rollBool, false);
+            }
+        }
+        UnityEngine.EventSystems.EventSystem e = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
+
+        if (!pauseMenu.activeSelf && !optionsMenu.activeSelf)
+        {
+            e.sendNavigationEvents = false;
             Time.timeScale = 1.0f;
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-			e.sendNavigationEvents = true;
+            e.sendNavigationEvents = true;
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
         }
 
-       
-        /*
-        if (joystick1.Contains("Xbox"))
-            cancel = Input.GetButtonDown("Cancel Xbox");
-        else
-            cancel = Input.GetButtonDown("Cancel PS"); */
+        
 
-        if (cancel)
-        {
-            if (pauseMenu.GetComponent<Canvas>().enabled)
-                pauseMenu.GetComponent<Canvas>().enabled = false;
-            else
-                pauseMenu.GetComponent<Canvas>().enabled = true;
-
-            if(optionsMenu.GetComponent<Canvas>().enabled)
-            {
-                optionsMenu.GetComponent<Canvas>().enabled = false;
-                pauseMenu.GetComponent<Canvas>().enabled = true;
-            }
-             
-        }
-
-        Cursor.visible = (pauseMenu.GetComponent<Canvas>().enabled || optionsMenu.GetComponent<Canvas>().enabled);
+        Cursor.visible = (pauseMenu.activeSelf || optionsMenu.activeSelf);
 
         if (Time.time - shotRecoverTimer >= SHOT_RECOVER_TIME && currentShots < MAX_SHOTS)
         {
@@ -484,7 +520,7 @@ public class PlayerControl : MonoBehaviour
 		}
         else if(!wallRun)
         {
-            GetComponent<Rigidbody>().useGravity = true;
+             rb.useGravity = true;
         }
 
         if (previousHoldStatus == 0 && wallHoldStatus == 1)
@@ -509,7 +545,7 @@ public class PlayerControl : MonoBehaviour
 		anim.SetBool (aimBool, IsAiming());
 		anim.SetFloat(hFloat, h);
 		anim.SetFloat(vFloat, v);
-		anim.SetFloat (vSpeedFloat, GetComponent<Rigidbody> ().velocity.y);
+		anim.SetFloat (vSpeedFloat, rb.velocity.y);
 
 		gravityMod = anim.GetFloat ("gravityWeight");
 
@@ -521,7 +557,7 @@ public class PlayerControl : MonoBehaviour
 			aimingWeight = shoot.GetHashCode ();
 		
 		if (anim.IsInTransition (0))
-			characterVel = GetComponent<Rigidbody> ().velocity;
+			characterVel = rb.velocity;
         
         if(currentBaseState == fallingState)
         {
@@ -548,30 +584,30 @@ public class PlayerControl : MonoBehaviour
  			else if (canDoubleJump) {
 				anim.SetBool (doDoubleJump, true);
 				canDoubleJump = false;
-				GetComponent<Rigidbody> ().velocity = new Vector3 (targetDirection.x * speed / 1.5f, 0, targetDirection.z * speed / 1.5f);
-				GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpHeight * 1.5f, ForceMode.Impulse);
+                rb.velocity = new Vector3 (targetDirection.x * speed / 1.5f, 0, targetDirection.z * speed / 1.5f);
+                rb.AddForce (Vector3.up * jumpHeight * 1.5f, ForceMode.Impulse);
 				_PlayerSFXManager.playSoundEffect("jump2");
 			}
 		}
 
 		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
             if(speed > 0.1f)
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             else
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
             anim.SetBool(jumpBool, false);
 		} else if (anim.GetBool (jumpBool) && (wallHoldStatus != 0 || wallRun)) {
             wallHoldStatus = 0;
             wallHold = false;
             wallRun = false;
-			GetComponent<Rigidbody> ().AddForce (-transform.forward.normalized * 400f, ForceMode.Impulse);
+            rb.AddForce (-transform.forward.normalized * 400f, ForceMode.Impulse);
 			anim.SetBool (jumpBool, false);
             anim.SetTrigger(backFlipTrig);
             StartCoroutine(wallRunCooldown(1.5f));
         }
 
         //Resets Double Jump
-		if ((IsGrounded () || wallHoldStatus != 0 || wallRun) && canDoubleJump == false) {
+		if ((IsGrounded () || wallRun) && canDoubleJump == false) {
 			canDoubleJump = true;
 		}
 
@@ -591,6 +627,8 @@ public class PlayerControl : MonoBehaviour
 
         if (currentBaseState == rollState)
         {
+            if(speed == 0)
+                speed = sprintSpeed;
             GetComponent<CapsuleCollider>().height = 0.9f + anim.GetFloat("Height") * 0.9f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.45f + 0.45f * anim.GetFloat("Height"), 0);
 
@@ -633,7 +671,6 @@ public class PlayerControl : MonoBehaviour
 		}
 		//turnSmoothing = 10 - speed;
 		anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
-        //GetComponent<Rigidbody>().AddForce(transform.forward*speed*100);
 
 
         if (IsGrounded() && currentBaseState != rollState && !IsAiming())
@@ -648,26 +685,26 @@ public class PlayerControl : MonoBehaviour
             }
             else
                 inclineMod = 1.0f;
-            GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * speed * inclineMod, GetComponent<Rigidbody>().velocity.y * inclineMod, transform.forward.z * speed);
+            rb.velocity = new Vector3(transform.forward.x * speed * inclineMod, rb.velocity.y * inclineMod, transform.forward.z * speed);
         }
         else if (wallRun)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.up * wallSpeed;
+            rb.velocity = Vector3.up * wallSpeed;
         }
-        else if (currentBaseState == rollState && IsGrounded())
+        else if (currentBaseState == rollState)
         {
             if (IsAiming())
             {
                 Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
-                GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * 10.0f, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * 10.0f);
+                rb.velocity = new Vector3(strafeDirection.x * 10.0f, rb.velocity.y, strafeDirection.z * 10.0f);
             }
             else
-                GetComponent<Rigidbody>().velocity = new Vector3(transform.forward.x * 10.0f, GetComponent<Rigidbody>().velocity.y, transform.forward.z * 10.0f);
+                rb.velocity = new Vector3(transform.forward.x * 10.0f, rb.velocity.y, transform.forward.z * 10.0f);
         }
         else if (IsAiming() && IsGrounded())
         {
             Vector3 strafeDirection = transform.forward * vertical + transform.right * horizontal;
-            GetComponent<Rigidbody>().velocity = new Vector3(strafeDirection.x * speed, GetComponent<Rigidbody>().velocity.y, strafeDirection.z * speed);
+            rb.velocity = new Vector3(strafeDirection.x * speed, rb.velocity.y, strafeDirection.z * speed);
         }
         else if (!IsGrounded())
         {
@@ -681,7 +718,7 @@ public class PlayerControl : MonoBehaviour
             }
             else
                 inclineMod = 1.0f;
-            GetComponent<Rigidbody>().AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod, 0, transform.forward.z * speed * 50), ForceMode.Force);
+            rb.AddForce(new Vector3(transform.forward.x * speed * 50 * inclineMod * Time.deltaTime * 32, 0, transform.forward.z * speed * 50 * inclineMod * Time.deltaTime * 32), ForceMode.Force);
         }
 	}
 
@@ -718,15 +755,19 @@ public class PlayerControl : MonoBehaviour
 			if (dashDown) {
 				if (dashManagement == true) {
 					//set to not ready colour
-					SkinnedMeshRenderer[] arm = GameObject.Find ("sharp_grp").GetComponentsInChildren<SkinnedMeshRenderer> ();
-					foreach (SkinnedMeshRenderer s in arm) {
-						s.material.SetColor ("_OutlineColor", colour_DashNotReady);
-					}
-					GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashNotReady);
-					dashManagement = false;
-					dashFlashManagement = 20;
+
 
 				}
+				SkinnedMeshRenderer[] arm = GameObject.Find ("sharp_grp").GetComponentsInChildren<SkinnedMeshRenderer> ();
+				foreach (SkinnedMeshRenderer s in arm) {
+					s.material.SetColor ("_OutlineColor", colour_DashNotReady);
+					s.material.SetFloat ("_Outline", 0.002f);
+				}
+				GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetColor ("_OutlineColor", colour_DashNotReady);
+				GameObject.Find ("Sword_Model").GetComponent<MeshRenderer> ().material.SetFloat ("_Outline", 0.002f);
+				dashManagement = false;
+				dashFlashManagement = 20;
+
 				anim.SetBool (dashBool, true); //Sets animator transition
 				dashTimer = Time.time;
 				_PlayerSFXManager.playSoundEffect ("dash");
@@ -752,12 +793,13 @@ public class PlayerControl : MonoBehaviour
             if (!Charged)
             {
                 if (dashVelocityCoefficient > 0)
-                    GetComponent<Rigidbody>().velocity = dashDirection * 60.0f * dashVelocityCoefficient;
+                    rb.velocity = dashDirection * 60.0f * dashVelocityCoefficient;
             }
             else
             {
+                dashTimer = Time.time - 2.5f;
                 if (dashVelocityCoefficient > 0)
-                    GetComponent<Rigidbody>().velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
+                    rb.velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
             }
         }
         else if (collateral)
@@ -769,7 +811,7 @@ public class PlayerControl : MonoBehaviour
 	void ShootManagement()
 	{
 		if (shoot) {
-
+			/*
             if (!twoArm)
             {
                 RaycastHit hit;
@@ -786,7 +828,7 @@ public class PlayerControl : MonoBehaviour
 
                     }
                 }
-            }
+            }*/
 			StartCoroutine (eyeScript.EyeExpression (9, 0, false));
 			anim.SetBool (shootBool, true);
 			if (IsAiming () && (Time.time - longShootCooldownStart) >= LONG_SHOT_COOLDOWN && currentShots > 0) {
@@ -841,8 +883,8 @@ public class PlayerControl : MonoBehaviour
 		{
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 
-			Quaternion newRotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
-			GetComponent<Rigidbody>().MoveRotation (newRotation);
+			Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
+            rb.MoveRotation (newRotation);
 			lastDirection = targetDirection;
 		}
 		//idle - fly or grounded
@@ -861,8 +903,8 @@ public class PlayerControl : MonoBehaviour
 		{
 			repositioning.y = 0;
 			Quaternion targetRotation = Quaternion.LookRotation (repositioning, Vector3.up);
-			Quaternion newRotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, targetRotation, turnSmoothing * Time.deltaTime);
-			GetComponent<Rigidbody>().MoveRotation (newRotation);
+			Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSmoothing * Time.deltaTime);
+            rb.MoveRotation (newRotation);
 		}
 	}
 
@@ -948,15 +990,14 @@ public class PlayerControl : MonoBehaviour
 
 	void wallSlide()
 	{
-		Vector3 vel = GetComponent<Rigidbody> ().velocity;
-		GetComponent<Rigidbody> ().velocity = new Vector3 (0, vel.y / 1.1f, 0);
+		Vector3 vel = rb.velocity;
+        rb.velocity = new Vector3 (0, vel.y / 1.1f, 0);
 	}
 
 	void wallHeld()
 	{
-		GetComponent<Rigidbody> ().velocity = Vector3.zero;
-		GetComponent<Rigidbody> ().useGravity = false;
-		//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+        rb.velocity = Vector3.zero;
+        rb.useGravity = false;
 	}
 
 
@@ -968,8 +1009,9 @@ public class PlayerControl : MonoBehaviour
             return 0;
         }
 
-        if (!checkForWall() && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
-        {    
+        bool wall = checkForWall();
+        if (!wall && !(previousHoldStatus == 0 && onWallStatus == 1)) //Slid off the wall
+        {
             return 0;
         }
 
@@ -988,7 +1030,9 @@ public class PlayerControl : MonoBehaviour
         else if (onWallStatus == 2)
         {
             if (Vector3.Angle(wallLook, targetDirection) > 120f && !IsAiming() && isMoving)
+            {
                 return 0;
+            }
             if (wallHold)
                 return 1;
             else
@@ -1013,7 +1057,7 @@ public class PlayerControl : MonoBehaviour
                 Physics.Raycast(g.transform.position, g.transform.forward, out hit, 1f, LayerMasks.ignorePlayer, QueryTriggerInteraction.Ignore);
                 if (hit.collider == null)
                     return false;
-                if (Mathf.Abs(hit.normal.y) > 0.01f)
+                if (Mathf.Abs(hit.normal.y) > 0.05f)
                     return false;
                 normalAvg += hit.normal;
             }
@@ -1079,7 +1123,7 @@ public class PlayerControl : MonoBehaviour
         else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState)
         {
           
-            if (GetComponent<Rigidbody>().velocity.y > -3f && canWallRun)
+            if (rb.velocity.y > -3f && canWallRun)
                 StartCoroutine(wallRunDuration(1f));
             else
                 wallHoldStatus = 2;
@@ -1098,14 +1142,14 @@ public class PlayerControl : MonoBehaviour
 	{
         GetComponent<CapsuleCollider>().center = new Vector3(0, 1.5f, -0.5f);
         wallRun = true;
-		GetComponent<Rigidbody> ().useGravity = false;
+        rb.useGravity = false;
 		wallSpeed = Mathf.Clamp(speed, runSpeed, sprintSpeed);
 		yield return new WaitForSeconds (duration);
         if(wallRun)
-            GetComponent<Rigidbody>().AddForce(-transform.forward * 400f, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * 400f, ForceMode.Impulse);
         anim.SetTrigger(backFlipTrig);
         wallRun = false;
-		GetComponent<Rigidbody> ().useGravity = true;
+        rb.useGravity = true;
         StartCoroutine(wallRunCooldown(1.5f));
     }
 
@@ -1130,7 +1174,7 @@ public class PlayerControl : MonoBehaviour
 
         damageReduction = Mathf.Clamp(damageReduction, 0.0f, 0.5f);
         //Debug.Log((damageReduction / 0.5f) * 100 + ", " + damageReduction);
-
+        /*
         if (currentBaseState == rollState)
         {
             //33% chance to avoid damage
@@ -1140,7 +1184,7 @@ public class PlayerControl : MonoBehaviour
                 damageBuffer = 0f;
                 return;
             }
-        }
+        }*/
         float originalDamage = damageBuffer; //Original damage amount backed up
         damageBuffer -= damageBuffer*damageReduction; // Damage taken modified by shield
         health -= damageBuffer; //Damge subtracted from health
@@ -1158,7 +1202,6 @@ public class PlayerControl : MonoBehaviour
 		
         damageReduction -= damageReduction * (originalDamage / 33); //damage reduction modified based on amount of damage taken
         damageBuffer = 0f;
-
     }
 
 	float getCamPlayerAngle()
@@ -1221,5 +1264,13 @@ public class PlayerControl : MonoBehaviour
         //clickToRespawn = true;
     }
 
-    
+	public void OnChildCollisionEnter(Collider c)
+	{
+		if (slashState) {
+			if (c.transform.CompareTag ("Enemy")) {
+				if (!c.transform.name.Contains ("Charger"))
+					c.transform.GetComponent<AIBase> ().health = 0;
+			}
+		}
+	}
 }

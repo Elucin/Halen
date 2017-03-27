@@ -19,8 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4553642632200012}
-  - component: {fileID: 95252950066225394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallRunWall_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,8 +64,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049142196923196}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -510.18, y: 0, z: -500}
+  m_LocalScale: {x: 0.87288433, y: 1, z: 1}
   m_Children:
   - {fileID: 4035723395366822}
   m_Father: {fileID: 0}
@@ -124,20 +123,3 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c6a74ec9f8d961d4899d6be609042127, type: 3}
---- !u!95 &95252950066225394
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049142196923196}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c6a74ec9f8d961d4899d6be609042127, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1

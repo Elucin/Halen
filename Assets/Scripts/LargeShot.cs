@@ -51,8 +51,16 @@ public class LargeShot : MonoBehaviour {
             {
                 if (c.transform.tag == "Player")
                 {
-                    c.gameObject.GetComponent<PlayerControl>().damageBuffer += bulletDamage;
-                    DestroyBullet();
+                    if (!PlayerControl.IsDashing())
+                    {
+                        c.gameObject.GetComponent<PlayerControl>().damageBuffer += bulletDamage;
+                        DestroyBullet();
+                    }
+                    else
+                    {
+                        emitter = PlayerControl.halenGO.transform;
+                        GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed * 1.5f;
+                    }
                 }
                 else if (c.transform.tag == "Enemy" && !c.transform.name.Contains("Charger"))
                 {

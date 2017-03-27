@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &105166
 GameObject:
   m_ObjectHideFlags: 1
@@ -496,10 +496,10 @@ GameObject:
   - component: {fileID: 19550166}
   - component: {fileID: 13600030}
   - component: {fileID: 11481394}
-  - component: {fileID: 82749798968337264}
   - component: {fileID: 114559816530210236}
   - component: {fileID: 82408402462957462}
   - component: {fileID: 114021551076789156}
+  - component: {fileID: 82749798968337264}
   m_Layer: 9
   m_Name: Sniper_Basic
   m_TagString: Enemy
@@ -1564,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &176186
 GameObject:
   m_ObjectHideFlags: 1
@@ -2636,7 +2636,7 @@ Transform:
   - {fileID: 465456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 50.057198, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 51.046, z: 0}
 --- !u!4 &439856
 Transform:
   m_ObjectHideFlags: 1
@@ -2752,7 +2752,7 @@ Transform:
   m_GameObject: {fileID: 175826}
   m_LocalRotation: {x: 0, y: -0.21642287, z: 0, w: 0.97629976}
   m_LocalPosition: {x: 0, y: 1.54, z: 0}
-  m_LocalScale: {x: 1.512362, y: 1.5123618, z: 1.5123615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439666}
   m_RootOrder: 9
@@ -3146,7 +3146,7 @@ Transform:
   m_GameObject: {fileID: 105030}
   m_LocalRotation: {x: 0, y: -0.21642287, z: 0, w: 0.97629976}
   m_LocalPosition: {x: 0, y: 1.54, z: 0}
-  m_LocalScale: {x: 1.512362, y: 1.5123618, z: 1.5123615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439666}
   m_RootOrder: 10
@@ -3774,7 +3774,6 @@ MonoBehaviour:
   health: 100
   explosion: {fileID: 180316, guid: 7b1cdfcdd409d684882a2aafd839d344, type: 2}
   patrolSet: {fileID: 0}
-  halen: {fileID: 0}
   Idle: 0
   destroyed: 0
   triggerCount: 0
@@ -3795,7 +3794,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 24
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!135 &13546550
 SphereCollider:
@@ -3807,7 +3806,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 89
+  m_Radius: 90
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!136 &13600030
 CapsuleCollider:
@@ -9499,11 +9498,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 828d60fe337bdd542b598bc0797307ea, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9722,9 +9721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 8300000, guid: fe874ca7b6577ac48a108c0e28395b21, type: 3}
-  transform: {fileID: 8300000, guid: 0d2396aea53d4694abea8aaea12a8364, type: 3}
+  sTransform: {fileID: 8300000, guid: 0d2396aea53d4694abea8aaea12a8364, type: 3}
   footstep: {fileID: 8300000, guid: 66e5980c1aa2edd4c9dba6881e2aafac, type: 3}
-  CurrentSound: {fileID: 82408402462957462}
+  CurrentSound: {fileID: 82749798968337264}
 --- !u!114 &114559816530210236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9737,4 +9736,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talking: {fileID: 8300000, guid: 828d60fe337bdd542b598bc0797307ea, type: 3}
-  CurrentSound: {fileID: 82749798968337264}
+  CurrentSound: {fileID: 82408402462957462}

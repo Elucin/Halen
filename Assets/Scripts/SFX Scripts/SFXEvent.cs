@@ -18,6 +18,11 @@ public class SFXEvent : MonoBehaviour {
 	private float pitchLowRange;
 	private float pitchHighRange;
 
+    void Start()
+    {
+        CurrentSound = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+    }
+
 	public void RollSFXEvent()
 	{
 		pitchHighRange = 1.5f;

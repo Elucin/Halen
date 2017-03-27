@@ -7,6 +7,7 @@ public class AISniper : AIBase {
     public LargeShot largeShot;
     public Transform ShotEmitterTrans;
     private float shotDelay = 3.0f;
+    bool retreating = false;
 
     //Sniper States
     private int readyState;
@@ -50,20 +51,42 @@ public class AISniper : AIBase {
 
     // Update is called once per frame
     protected override void Update () {
+        if (count == updateCount)
+        {
+            ActuallyUpdate();
+        }
+        else
+        {
+            ++count;
+        }
+        if (count >= 10)
+            count = 0;
+    }
+
+    void ActuallyUpdate()
+    {
         base.Update();
         //anim.SetFloat(speedFloat, GetComponent<Rigidbody>().velocity.magnitude);
-        if (currentAIState == idleState)
+
+        if (distanceToPlayer < 24)
+            triggerCount = 2;
+        else if (distanceToPlayer < 90)
+            triggerCount = 1;
+        else
+            triggerCount = 0;
+
+        if (currentBaseState == idleState)
         {
             DetectPlayer();
         }
-        else if(currentAIState == readyState)
+        else if (currentBaseState == readyState)
         {
             Shoot();
         }
-        else if(currentAIState == moveState)
+        else if (currentBaseState == moveState)
         {
-            
-            StartCoroutine(Retreat());
+            if (!retreating)
+                StartCoroutine(Retreat());
         }
 
         if (triggerCount > 1)
@@ -80,8 +103,8 @@ public class AISniper : AIBase {
 
     void LateUpdate()
     {
-        if(triggerCount <= 1 && currentAIState != idleState)
-            HeadBone.LookAt(halen.transform.position + new Vector3(0, 1, 0));
+        if(triggerCount <= 1 && currentBaseState != idleState)
+            HeadBone.LookAt(PlayerControl.halenGO.transform.position + new Vector3(0, 1, 0));
     }
 
     void Shoot()
@@ -98,12 +121,12 @@ public class AISniper : AIBase {
         }
     }
 
-
     IEnumerator Retreat()
     {
+        retreating = true;
         bool moving = false;
         float degrees = 10f;
-        Vector3 checkVector = (transform.position - halenPos).normalized;
+        Vector3 checkVector = (transform.position - PlayerControl.Position).normalized;
         int c = 0;
         while (moving == false && c < 36)
         {
@@ -113,27 +136,16 @@ public class AISniper : AIBase {
             }
             else
             {
-                if (transform.worldToLocalMatrix.MultiplyPoint(halenPos).x < 0)
+                if (transform.worldToLocalMatrix.MultiplyPoint(PlayerControl.Position).x < 0)
                     checkVector = Quaternion.Euler(0, degrees, 0) * checkVector;
                 else
                     checkVector = Quaternion.Euler(0, -degrees, 0) * checkVector;
                 c++;
             }
         }
-        meshAgent.SetDestination(transform.position + checkVector);
+        destination = transform.position + checkVector;
 
         yield return new WaitForSeconds(0.3f); ;
-
+        retreating = false;
     }
-    /*
-    protected void Retreat()
-    {
-        if (health > 0)
-        {
-            meshAgent.SetDestination(transform.position - (halen.transform.position - transform.position));
-            //transform.LookAt(halen.transform, Vector3.up);
-        }
-    }*/
-
-
 }

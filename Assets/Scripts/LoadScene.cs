@@ -4,8 +4,12 @@ using System.Collections;
 public class LoadScene : MonoBehaviour {
     public int sceneIndex = 0;
     public bool loadNextScene = false;
-	// Use this for initialization
-	void Start () {
+    public bool loadScoreScreen = false;
+    public bool loadCutscene = false;
+    public int cutsceneID = 0;
+   
+    // Use this for initialization
+    void Start () {
 	    
 	}
 	
@@ -15,13 +19,28 @@ public class LoadScene : MonoBehaviour {
         if(c.tag == "Player")
         {
             StopAllCoroutines();
-            if(!loadNextScene)
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+            if (!loadNextScene)
+            {
+                LoadNextScene.Level = sceneIndex;
+            }
             else
             {
                 int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-                if(thisIndex >= UnityEngine.SceneManagement.SceneManager.sceneCount)
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(thisIndex + 1);
+                LoadNextScene.Level = thisIndex + 1;
+            }
+            Debug.Log("Set To Load Scene: " + LoadNextScene.Level);
+            if (loadScoreScreen)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+            }
+            else if(loadCutscene)
+            {
+                PlayVideo.clipIndex = cutsceneID;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Cutscene");
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
             }
         }
     }
