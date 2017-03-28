@@ -6,6 +6,7 @@ public class AIGunner : AIBase
     const float runSpeed = 3.5f;
     const float walkSpeed = 1.5f;
     const float shootDelay = 0.05f;
+    const float burstDelay = 1.5f;
     public Transform ShotEmitterTrans;
     public SmallShot smallShot;
 
@@ -18,12 +19,15 @@ public class AIGunner : AIBase
     private int shootState;
     private int aimState;
     private int meleeState;
+    private int standingState;
     private float shootCooldownStart;
+    private float burstCooldownStart;
     private int currentAIWeaponState;
     private int currentAIMeleeState;
     private int aimingWeight;
     //Gunner Paramters
     private int rangeCountInt;
+    private int clearShotBool;
     protected static int GunnerCount = 0;
 
 	public ParticleSystem GunnerMuzzleFlash;
@@ -52,14 +56,17 @@ public class AIGunner : AIBase
         diveState = Animator.StringToHash("Base.Dive");
         avoidState = Animator.StringToHash("Base.Avoid");
         idleState = Animator.StringToHash("Base.Idle");
+        standingState = Animator.StringToHash("Base.Standing");
         shootState = Animator.StringToHash("States2.Shoot");
         aimState = Animator.StringToHash("States2.Aim");
         meleeState = Animator.StringToHash("Melee.Melee");
+        
         //meleeRecoverState = Animator.StringToHash("Melee.MeleeRecover");
 
         //Initialise Gunner Parameters
         rangeCountInt = Animator.StringToHash("rangeCount");
-
+        clearShotBool = Animator.StringToHash("ClearShot");
+        burstCooldownStart = Time.time;
         shootCooldownStart = Time.time;
     }
 
@@ -121,12 +128,17 @@ public class AIGunner : AIBase
             meshAgent.speed = 0;
             DetectPlayer();
         }
-        else if (currentBaseState == moveState)
+        else if (currentBaseState == moveState || currentBaseState == standingState)
         {
             if (triggerCount == 0)
             {
                 meshAgent.speed = runSpeed;
                 Move();
+            }
+            else if(triggerCount == 2)
+            {
+                meshAgent.speed = 0;
+                Turn();
             }
             else if (triggerCount == 1)
             {
@@ -145,9 +157,29 @@ public class AIGunner : AIBase
                 aimingWeight = 0;
         }
 
-        if (currentAIWeaponState == shootState && health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
+
+
+        if (health > 0 && currentAIMeleeState != meleeState && triggerCount < 4)
         {
-            Shoot();
+            if (currentAIWeaponState == shootState)
+            {
+                anim.SetBool(clearShotBool, false);
+                burstCooldownStart = Time.time;
+                Shoot();
+            }
+            else if (currentAIWeaponState == aimState)
+            {
+                RaycastHit hit;
+                if (Time.time - burstCooldownStart >= burstDelay)
+                {
+                    Physics.Raycast(ShotEmitterTrans.position, PlayerControl.position - ShotEmitterTrans.position, out hit, 80f, LayerMasks.terrainPlayerEnemies, QueryTriggerInteraction.Ignore);
+                    if (hit.transform != null)
+                    {
+                        if (hit.transform.CompareTag("Player"))
+                            anim.SetBool(clearShotBool, true);
+                    }
+                }
+            }
         }
 
         if(currentAIMeleeState != meleeState)
@@ -167,14 +199,27 @@ public class AIGunner : AIBase
     {
 
 		if (Time.time - shootCooldownStart >= shootDelay) {
-			shootCooldownStart = Time.time;
-			GunnerMuzzleFlash.Play ();
-			SmallShot newShot = Instantiate (smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
-			newShot.GetComponent<SmallShot> ().emitter = ShotEmitterTrans;
-			newShot.GetComponent<SmallShot> ().bulletSpeed = 50f;
-			CurrentSound.pitch = 0.8f;
-			CurrentSound.PlayOneShot (shootSFX, 1.5f);
-		}
+                shootCooldownStart = Time.time;
+                GunnerMuzzleFlash.Play();
+                SmallShot newShot = Instantiate(smallShot, ShotEmitterTrans.position, Quaternion.identity) as SmallShot;
+                newShot.GetComponent<SmallShot>().emitter = ShotEmitterTrans;
+                newShot.GetComponent<SmallShot>().bulletSpeed = 50f;
+                CurrentSound.pitch = 0.8f;
+                CurrentSound.PlayOneShot(shootSFX, 1.5f);
+        }
+    }
+
+    protected void Turn()
+    {
+        if (health > 0)
+        {
+            meshAgent.updateRotation = false;
+            Vector3 halenGroundPos = PlayerControl.position - transform.position;
+            halenGroundPos.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(halenGroundPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
+            //transform.LookAt(PlayerControl.halenGO.transform, Vector3.up);
+        }
     }
 
     protected void Retreat()

@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
 
     float healTimer;
     const float HEAL_START_TIME = 5f; //Length of time Halen has to avoid damage to start healing.
-    const float HEAL_AMOUNT = 0.2f; //
+    const float HEAL_AMOUNT = 15f; //
     private static float health = 100f;
     public float damageBuffer;
     public float damageReduction;
@@ -1165,7 +1165,9 @@ public class PlayerControl : MonoBehaviour
             healTimer = Time.time;
 
         if (Time.time - healTimer > HEAL_START_TIME && health > 0f && health < 100f)
-            health += HEAL_AMOUNT * Time.timeScale;
+        {
+            health += HEAL_AMOUNT * Time.timeScale * Time.deltaTime;
+        }
 
         health = Mathf.Clamp(health, 0, 100);
     }

@@ -11,5 +11,6 @@ public static class LayerMasks {
     public static LayerMask ignorePlayer = ~(1 << player);
     public static LayerMask ignoreCharacters = ~((1 << player) | (1 << enemy));
     public static LayerMask ignoreEnemies = ~(1 << enemy);
+    public static LayerMask terrainPlayerEnemies = (1 << terrain) | (1 << player) | (1 << enemy);
 
 }
