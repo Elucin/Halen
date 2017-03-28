@@ -111,13 +111,21 @@ public class AISniper : AIBase {
     {
         if(Time.time - shootCooldownStart >= shotDelay)
         {
-            shootCooldownStart = Time.time;
-            LargeShot newShot = Instantiate(largeShot, ShotEmitterTrans.position, Quaternion.identity) as LargeShot;
-            newShot.GetComponent<ParticleSystem>().startColor = new Color(184f/255f, 100f/255f, 234f / 255f);
-			newShot.GetComponent<LargeShot>().emitter = ShotEmitterTrans;
-            newShot.GetComponent<LargeShot>().bulletSpeed = 200f;
-			MuzzleFlash.Play ();
-			CurrentSound.PlayOneShot (shot, 1);
+            RaycastHit hit;
+            Physics.Raycast(ShotEmitterTrans.position, PlayerControl.position - ShotEmitterTrans.position, out hit, 90f, LayerMasks.terrainPlayerEnemies, QueryTriggerInteraction.Ignore);
+            if (hit.transform != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    shootCooldownStart = Time.time;
+                    LargeShot newShot = Instantiate(largeShot, ShotEmitterTrans.position, Quaternion.identity) as LargeShot;
+                    newShot.GetComponent<ParticleSystem>().startColor = new Color(184f / 255f, 100f / 255f, 234f / 255f);
+                    newShot.GetComponent<LargeShot>().emitter = ShotEmitterTrans;
+                    newShot.GetComponent<LargeShot>().bulletSpeed = 200f;
+                    MuzzleFlash.Play();
+                    CurrentSound.PlayOneShot(shot, 1);
+                }
+            }
         }
     }
 
