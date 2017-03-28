@@ -501,8 +501,11 @@ public class PlayerControl : MonoBehaviour
         currentShots = Mathf.Clamp(currentShots, 0, MAX_SHOTS);
 
         currentBaseState = anim.GetCurrentAnimatorStateInfo (0).fullPathHash;
-		currentDashState = anim.GetCurrentAnimatorStateInfo (6).fullPathHash;
-		currentSlashState = anim.GetCurrentAnimatorStateInfo (5).fullPathHash;
+        if (!twoArm)
+        {
+            currentDashState = anim.GetCurrentAnimatorStateInfo(6).fullPathHash;
+            currentSlashState = anim.GetCurrentAnimatorStateInfo(5).fullPathHash;
+        }
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
         if (!jump)

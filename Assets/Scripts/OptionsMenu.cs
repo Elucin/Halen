@@ -10,6 +10,9 @@ public class OptionsMenu : MonoBehaviour {
     public UnityEngine.UI.Toggle togDisplayHUD;
     public UnityEngine.UI.Slider sldMusicAudio;
 
+    public delegate void DisplayHud();
+    public static event DisplayHud onToggleHud;
+
     void Start()
     {
         Cancel();
@@ -39,6 +42,7 @@ public class OptionsMenu : MonoBehaviour {
     public void DisplayHUD()
     {
         Options.displayHUD = togDisplayHUD.isOn;
+        onToggleHud();
     }
 
     public void AutoRoll()
