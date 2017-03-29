@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 76a4350eb8d5cd94bbe52dd50a8f7a31
-timeCreated: 1490716612
+timeCreated: 1490821222
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -572,14 +572,22 @@ ModelImporter:
       and has rotation animation that will be discarded.\n\t'jnt_Spine2' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Spine4'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Neck'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_IndexBase'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Index1_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Index2_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Index3_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_MiddleBase'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Middle1_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Middle2_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Middle3_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_RingBase'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ring1_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ring2_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ring3_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_PinkyBase'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Pinky1_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Pinky2_Orient'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Pinky3_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Thumb_Orbit_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Thumb1_Orient'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Thumb2_Orient'
@@ -1318,7 +1326,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_IndexBase
+    - boneName: jnt_R_Index1
       humanName: Right Index Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1326,7 +1334,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Index1
+    - boneName: jnt_R_Index2
       humanName: Right Index Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1334,7 +1342,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Index2
+    - boneName: jnt_R_Index3
       humanName: Right Index Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1342,7 +1350,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_MiddleBase
+    - boneName: jnt_R_Middle1
       humanName: Right Middle Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1350,7 +1358,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Middle1
+    - boneName: jnt_R_Middle2
       humanName: Right Middle Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1358,7 +1366,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Middle2
+    - boneName: jnt_R_Middle3
       humanName: Right Middle Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1366,7 +1374,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_RingBase
+    - boneName: jnt_R_Ring1
       humanName: Right Ring Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1374,7 +1382,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Ring1
+    - boneName: jnt_R_Ring2
       humanName: Right Ring Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1382,7 +1390,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Ring2
+    - boneName: jnt_R_Ring3
       humanName: Right Ring Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1390,7 +1398,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_PinkyBase
+    - boneName: jnt_R_Pinky1
       humanName: Right Little Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1398,7 +1406,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Pinky1
+    - boneName: jnt_R_Pinky2
       humanName: Right Little Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1406,7 +1414,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Pinky2
+    - boneName: jnt_R_Pinky3
       humanName: Right Little Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1463,7 +1471,7 @@ ModelImporter:
     - name: jnt_R_Hip
       parentName: jnt_Pelvis
       position: {x: -0.008912216, y: -0.0023573393, z: -0.0003301193}
-      rotation: {x: 0.037354495, y: 0.0044702594, z: -0.014634694, w: 0.9991849}
+      rotation: {x: 0.037354503, y: 0.0044702594, z: -0.014634696, w: 0.9991849}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Knee
       parentName: jnt_R_Hip
@@ -1533,7 +1541,7 @@ ModelImporter:
     - name: jnt_L_Index2
       parentName: jnt_L_Index_Orient2
       position: {x: 4.440892e-18, y: 3.5527136e-17, z: -5.551115e-19}
-      rotation: {x: 0.00000026822082, y: 0.23957017, z: 0.5259604, w: 0.816071}
+      rotation: {x: 0.09515372, y: 0.10527911, z: 0.555264, w: 0.819478}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Index_Orient3
       parentName: jnt_L_Index2
@@ -1543,7 +1551,7 @@ ModelImporter:
     - name: jnt_L_Index3
       parentName: jnt_L_Index_Orient3
       position: {x: -1.7763568e-17, y: 3.5527136e-17, z: -1.6653345e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.0000015261414, y: 0.0000011686361, z: 0.7096161, w: 0.7045885}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Index_Orient4
       parentName: jnt_L_Index3
@@ -1553,7 +1561,7 @@ ModelImporter:
     - name: jnt_L_Middle1
       parentName: jnt_L_Wrist
       position: {x: -0.0031419909, y: 0.0008216877, z: 0.0011049493}
-      rotation: {x: 0.9903408, y: -0.061950583, z: -0.12342604, w: 0.012373894}
+      rotation: {x: 0.9903409, y: -0.061950587, z: -0.12342605, w: 0.012373895}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Middle_Orient2
       parentName: jnt_L_Middle1
@@ -1563,7 +1571,7 @@ ModelImporter:
     - name: jnt_L_Middle2
       parentName: jnt_L_Middle_Orient2
       position: {x: -8.881784e-18, y: 0, z: 0}
-      rotation: {x: -0.0000004693864, y: 0.23821166, z: 0.520098, w: 0.82021546}
+      rotation: {x: 0.09402871, y: 0.10328036, z: 0.5492561, w: 0.823899}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Middle_Orient3
       parentName: jnt_L_Middle2
@@ -1573,7 +1581,7 @@ ModelImporter:
     - name: jnt_L_Middle3
       parentName: jnt_L_Middle_Orient3
       position: {x: 5.3290704e-17, y: -1.7763568e-17, z: 1.3877787e-19}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.00000037536324, y: 0.00000020752391, z: 0.7183473, w: 0.69568473}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Middle_Orient4
       parentName: jnt_L_Middle3
@@ -1593,7 +1601,7 @@ ModelImporter:
     - name: jnt_L_Pinky2
       parentName: jnt_L_Pinky_Orient2
       position: {x: -0, y: 0, z: -5.551115e-19}
-      rotation: {x: 0.0000007823105, y: 0.23766795, z: 0.517724, w: 0.8218735}
+      rotation: {x: 0.09357418, y: 0.10248216, z: 0.54682505, w: 0.8256656}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Pinky_Orient3
       parentName: jnt_L_Pinky2
@@ -1603,7 +1611,7 @@ ModelImporter:
     - name: jnt_L_Pinky3
       parentName: jnt_L_Pinky_Orient3
       position: {x: -8.881784e-18, y: -1.7763568e-17, z: -5.551115e-19}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.000002954398, y: 0.00000047466528, z: 0.723767, w: 0.6900444}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Pinky_Orient4
       parentName: jnt_L_Pinky3
@@ -1623,7 +1631,7 @@ ModelImporter:
     - name: jnt_L_Ring2
       parentName: jnt_L_Ring_Orient2
       position: {x: 4.440892e-18, y: 0, z: 1.3877787e-19}
-      rotation: {x: 0.000001333653, y: 0.23833075, z: 0.5206241, w: 0.819847}
+      rotation: {x: 0.0941296, y: 0.103457145, z: 0.549794, w: 0.82350636}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Ring_Orient3
       parentName: jnt_L_Ring2
@@ -1633,7 +1641,7 @@ ModelImporter:
     - name: jnt_L_Ring3
       parentName: jnt_L_Ring_Orient3
       position: {x: -8.881784e-18, y: -3.5527136e-17, z: 2.7755575e-19}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.00000059569214, y: 0.00000016197083, z: 0.70570284, w: 0.70850784}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Ring_Orient4
       parentName: jnt_L_Ring3
@@ -1643,7 +1651,7 @@ ModelImporter:
     - name: jnt_L_Thumb1
       parentName: jnt_L_Wrist
       position: {x: -0.0011071482, y: -0.0014469115, z: 0.0040285736}
-      rotation: {x: 0.8119736, y: 0.15300219, z: -0.49037948, w: 0.27715895}
+      rotation: {x: 0.81197363, y: 0.1530022, z: -0.4903795, w: 0.27715898}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Thumb_Orient2
       parentName: jnt_L_Thumb1
@@ -1653,7 +1661,7 @@ ModelImporter:
     - name: jnt_L_Thumb2
       parentName: jnt_L_Thumb_Orient2
       position: {x: 6.661338e-18, y: 0, z: 1.110223e-18}
-      rotation: {x: -0.0000002682208, y: 0.1400361, z: -0.23324375, w: 0.96228236}
+      rotation: {x: -0.048816193, y: 0.04160013, z: -0.40473238, w: 0.9121833}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Thumb_Orient3
       parentName: jnt_L_Thumb2
@@ -1663,7 +1671,7 @@ ModelImporter:
     - name: jnt_L_Thumb3
       parentName: jnt_L_Thumb_Orient3
       position: {x: 1.7763568e-17, y: 0, z: -5.551115e-19}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.00000048262626, y: 0.0000012637717, z: -0.6721619, w: 0.74040425}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Thumb_Orient4
       parentName: jnt_L_Thumb3
@@ -1673,7 +1681,7 @@ ModelImporter:
     - name: jnt_R_ShoulderTop
       parentName: jnt_Spine3
       position: {x: -0.0122204395, y: 0.01690057, z: 0.004146611}
-      rotation: {x: 0.08419152, y: 0.9962926, z: -0.016685456, w: 0.0058670207}
+      rotation: {x: 0.08419154, y: 0.9962926, z: -0.01668546, w: 0.0058670207}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Shoulder
       parentName: jnt_R_ShoulderTop
@@ -1713,7 +1721,7 @@ ModelImporter:
     - name: jnt_R_Index2
       parentName: jnt_R_Index2_Orient
       position: {x: 2.220446e-18, y: 0, z: 2.220446e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.000000083967336, y: -0.000000056522115, z: -0.17442808, w: 0.9846699}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Index3_Orient
       parentName: jnt_R_Index2
@@ -1723,7 +1731,7 @@ ModelImporter:
     - name: jnt_R_Index3
       parentName: jnt_R_Index3_Orient
       position: {x: 2.220446e-18, y: 7.105427e-17, z: -6.661338e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.00000014383299, y: -0.00000046710903, z: -0.11549861, w: 0.9933077}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Index4_Orient
       parentName: jnt_R_Index3
@@ -1743,7 +1751,7 @@ ModelImporter:
     - name: jnt_R_Middle1
       parentName: jnt_R_Middle1_Orient
       position: {x: -1.7763568e-17, y: -1.7763568e-17, z: -3.330669e-18}
-      rotation: {x: 0.0021469863, y: -0.0060370117, z: -0.31806415, w: 0.9480475}
+      rotation: {x: 0.0021469863, y: -0.006037012, z: -0.31806415, w: 0.9480476}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Middle2_Orient
       parentName: jnt_R_Middle1
@@ -1753,7 +1761,7 @@ ModelImporter:
     - name: jnt_R_Middle2
       parentName: jnt_R_Middle2_Orient
       position: {x: -8.881784e-18, y: 0, z: 1.6653345e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.00000031416968, y: 0.00000093011744, z: -0.16724299, w: 0.9859158}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Middle3_Orient
       parentName: jnt_R_Middle2
@@ -1763,7 +1771,7 @@ ModelImporter:
     - name: jnt_R_Middle3
       parentName: jnt_R_Middle3_Orient
       position: {x: -6.661338e-18, y: -3.5527136e-17, z: -1.6653345e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.0000002600433, y: 0.0000006494338, z: -0.16542713, w: 0.9862221}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Middle4_Orient
       parentName: jnt_R_Middle3
@@ -1773,7 +1781,7 @@ ModelImporter:
     - name: jnt_R_PinkyBase
       parentName: jnt_R_Wrist
       position: {x: -0.0046749217, y: -0.00038537267, z: 0.0024433124}
-      rotation: {x: 0.04746311, y: 0.073210746, z: -0.0593851, w: 0.9944148}
+      rotation: {x: 0.047463115, y: 0.07321075, z: -0.059385102, w: 0.99441487}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Pinky1_Orient
       parentName: jnt_R_PinkyBase
@@ -1793,7 +1801,7 @@ ModelImporter:
     - name: jnt_R_Pinky2
       parentName: jnt_R_Pinky2_Orient
       position: {x: -1.3322676e-17, y: 0, z: -4.440892e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.0000011567581, y: -0.000001439614, z: -0.24028917, w: 0.97070134}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Pinky3_Orient
       parentName: jnt_R_Pinky2
@@ -1803,7 +1811,7 @@ ModelImporter:
     - name: jnt_R_Pinky3
       parentName: jnt_R_Pinky3_Orient
       position: {x: -4.440892e-18, y: 3.5527136e-17, z: -4.440892e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.00000013977, y: 0.0000009367395, z: -0.2531378, w: 0.96743023}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Pinky4_Orient
       parentName: jnt_R_Pinky3
@@ -1813,7 +1821,7 @@ ModelImporter:
     - name: jnt_R_RingBase
       parentName: jnt_R_Wrist
       position: {x: -0.00489513, y: -0.000277407, z: 0.001132346}
-      rotation: {x: 0.036759146, y: 0.055299733, z: -0.07539932, w: 0.9949401}
+      rotation: {x: 0.03675915, y: 0.05529973, z: -0.075399324, w: 0.99494004}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Ring1_Orient
       parentName: jnt_R_RingBase
@@ -1833,7 +1841,7 @@ ModelImporter:
     - name: jnt_R_Ring2
       parentName: jnt_R_Ring2_Orient
       position: {x: -1.7763568e-17, y: 0, z: -2.220446e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.00000026279392, y: -0.0000017357955, z: -0.21692626, w: 0.97618794}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Ring3_Orient
       parentName: jnt_R_Ring2
@@ -1843,7 +1851,7 @@ ModelImporter:
     - name: jnt_R_Ring3
       parentName: jnt_R_Ring3_Orient
       position: {x: 4.440892e-18, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.0000004604228, y: 0.000001514168, z: -0.20225072, w: 0.97933376}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Ring4_Orient
       parentName: jnt_R_Ring3
@@ -1873,7 +1881,7 @@ ModelImporter:
     - name: jnt_R_Thumb1
       parentName: jnt_R_Thumb1_Orient
       position: {x: 2.2204459e-17, y: 8.881784e-18, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 0.0017581298, y: 0.02774038, z: -0.25320056, w: 0.96701443}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Thumb2_Orient
       parentName: jnt_R_Thumb1
@@ -1883,7 +1891,7 @@ ModelImporter:
     - name: jnt_R_Thumb2
       parentName: jnt_R_Thumb2_Orient
       position: {x: 2.2204459e-17, y: 2.220446e-18, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -0.040066227, y: -0.011998174, z: -0.10278036, w: 0.99382436}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Thumb3_Orient
       parentName: jnt_R_Thumb2
