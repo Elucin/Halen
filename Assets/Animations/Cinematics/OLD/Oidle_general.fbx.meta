@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7dc54c5aac2b11148b9a3c627e4aff61
-timeCreated: 1490705813
+guid: 300a123008f18f24ebf33d87c75dcb29
+timeCreated: 1489169986
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -121,13 +121,13 @@ ModelImporter:
     100226: Halen:Spine
     100228: Halen:Sternum
     100230: Halen:TopSpine
-    100232: MX40_3779
-    100234: MX40_4315
-    100236: MX40_4521
-    100238: MX40_4537
-    100240: MX40_4540
-    100242: MX40_4541
-    100244: //RootNode
+    100232: //RootNode
+    100234: MX40_3779
+    100236: MX40_4315
+    100238: MX40_4521
+    100240: MX40_4537
+    100242: MX40_4540
+    100244: MX40_4541
     100246: System
     100248: T20_S_22861
     100250: T20_S_22971
@@ -250,20 +250,20 @@ ModelImporter:
     400226: Halen:Spine
     400228: Halen:Sternum
     400230: Halen:TopSpine
-    400232: MX40_3779
-    400234: MX40_4315
-    400236: MX40_4521
-    400238: MX40_4537
-    400240: MX40_4540
-    400242: MX40_4541
-    400244: //RootNode
+    400232: //RootNode
+    400234: MX40_3779
+    400236: MX40_4315
+    400238: MX40_4521
+    400240: MX40_4537
+    400242: MX40_4540
+    400244: MX40_4541
     400246: System
     400248: T20_S_22861
     400250: T20_S_22971
     400252: T20_S_22979
     400254: T20_S_23074
     400256: Unlabeled_Markers
-    7400000: Idle02_x2d
+    7400000: Idlegeneral_x2d
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -276,16 +276,305 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Idle02_x2d' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Halen:Spine' has translation animation that
+      will be discarded.\n\t'Halen:Head' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idlegeneral_x2d
+      takeName: Idle02_x2d
+      firstFrame: 0
+      lastFrame: 1188
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Halen:Halen
+        weight: 1
+      - path: Halen:Halen/Halen:Chest
+        weight: 0
+      - path: Halen:Halen/Halen:Hips
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:LeftUpLeg
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:LeftUpLeg/Halen:LeftLeg
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:LeftUpLeg/Halen:LeftLeg/Halen:LeftFoot
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:LeftUpLeg/Halen:LeftLeg/Halen:LeftFoot/Halen:LeftToeBase
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:RightUpLeg
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:RightUpLeg/Halen:RightLeg
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:RightUpLeg/Halen:RightLeg/Halen:RightFoot
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:RightUpLeg/Halen:RightLeg/Halen:RightFoot/Halen:RightToeBase
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:Head
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:LeftShoulder
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:LeftShoulder/Halen:LeftArm
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:LeftShoulder/Halen:LeftArm/Halen:LeftForeArm
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:LeftShoulder/Halen:LeftArm/Halen:LeftForeArm/Halen:LeftHand
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:RightShoulder
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:RightShoulder/Halen:RightArm
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:RightShoulder/Halen:RightArm/Halen:RightForeArm
+        weight: 1
+      - path: Halen:Halen/Halen:Hips/Halen:Spine/Halen:RightShoulder/Halen:RightArm/Halen:RightForeArm/Halen:RightHand
+        weight: 1
+      - path: Halen:Halen/Halen:LAnkle
+        weight: 0
+      - path: Halen:Halen/Halen:LBack
+        weight: 0
+      - path: Halen:Halen/Halen:LBackHead
+        weight: 0
+      - path: Halen:Halen/Halen:LBackWaist
+        weight: 0
+      - path: Halen:Halen/Halen:LElbow
+        weight: 0
+      - path: Halen:Halen/Halen:LForeArm
+        weight: 0
+      - path: Halen:Halen/Halen:LFrontHead
+        weight: 0
+      - path: Halen:Halen/Halen:LFrontWaist
+        weight: 0
+      - path: Halen:Halen/Halen:LHand_A
+        weight: 0
+      - path: Halen:Halen/Halen:LHand_B
+        weight: 0
+      - path: Halen:Halen/Halen:LHeel
+        weight: 0
+      - path: Halen:Halen/Halen:LKnee
+        weight: 0
+      - path: Halen:Halen/Halen:LMidFoot
+        weight: 0
+      - path: Halen:Halen/Halen:LowerBack
+        weight: 0
+      - path: Halen:Halen/Halen:LShin
+        weight: 0
+      - path: Halen:Halen/Halen:LShoulder
+        weight: 0
+      - path: Halen:Halen/Halen:LThigh
+        weight: 0
+      - path: Halen:Halen/Halen:LToe
+        weight: 0
+      - path: Halen:Halen/Halen:LUpperArm
+        weight: 0
+      - path: Halen:Halen/Halen:LWrist
+        weight: 0
+      - path: Halen:Halen/Halen:MidBack
+        weight: 0
+      - path: Halen:Halen/Halen:Rankle
+        weight: 0
+      - path: Halen:Halen/Halen:RBack
+        weight: 0
+      - path: Halen:Halen/Halen:RBackHead
+        weight: 0
+      - path: Halen:Halen/Halen:RBackWaist
+        weight: 0
+      - path: Halen:Halen/Halen:RElbow
+        weight: 0
+      - path: Halen:Halen/Halen:RForeArm
+        weight: 0
+      - path: Halen:Halen/Halen:RFrontHeaf
+        weight: 0
+      - path: Halen:Halen/Halen:RFrontWaist
+        weight: 0
+      - path: Halen:Halen/Halen:RHand_A
+        weight: 0
+      - path: Halen:Halen/Halen:RHand_B
+        weight: 0
+      - path: Halen:Halen/Halen:RHeel
+        weight: 0
+      - path: Halen:Halen/Halen:RKnee
+        weight: 0
+      - path: Halen:Halen/Halen:RMidFoot
+        weight: 0
+      - path: Halen:Halen/Halen:Root
+        weight: 0
+      - path: Halen:Halen/Halen:RPelvis
+        weight: 0
+      - path: Halen:Halen/Halen:RShin
+        weight: 0
+      - path: Halen:Halen/Halen:RShoulder
+        weight: 0
+      - path: Halen:Halen/Halen:RThigh
+        weight: 0
+      - path: Halen:Halen/Halen:RToe
+        weight: 0
+      - path: Halen:Halen/Halen:RUpperArm
+        weight: 0
+      - path: Halen:Halen/Halen:RWrist
+        weight: 0
+      - path: Halen:Halen/Halen:Sternum
+        weight: 0
+      - path: Halen:Halen/Halen:TopSpine
+        weight: 0
+      - path: System
+        weight: 0
+      - path: System/MX40_3779
+        weight: 0
+      - path: System/MX40_4315
+        weight: 0
+      - path: System/MX40_4521
+        weight: 0
+      - path: System/MX40_4537
+        weight: 0
+      - path: System/MX40_4540
+        weight: 0
+      - path: System/MX40_4541
+        weight: 0
+      - path: System/T20_S_22861
+        weight: 0
+      - path: System/T20_S_22971
+        weight: 0
+      - path: System/T20_S_22979
+        weight: 0
+      - path: System/T20_S_23074
+        weight: 0
+      - path: Unlabeled_Markers
+        weight: 0
+      - path: Unlabeled_Markers/_48
+        weight: 0
+      - path: Unlabeled_Markers/_85
+        weight: 0
+      - path: Unlabeled_Markers/_92
+        weight: 0
+      - path: Unlabeled_Markers/_94
+        weight: 0
+      - path: Unlabeled_Markers/_124
+        weight: 0
+      - path: Unlabeled_Markers/_140
+        weight: 0
+      - path: Unlabeled_Markers/_170
+        weight: 0
+      - path: Unlabeled_Markers/_171
+        weight: 0
+      - path: Unlabeled_Markers/_172
+        weight: 0
+      - path: Unlabeled_Markers/_173
+        weight: 0
+      - path: Unlabeled_Markers/_174
+        weight: 0
+      - path: Unlabeled_Markers/_175
+        weight: 0
+      - path: Unlabeled_Markers/_176
+        weight: 0
+      - path: Unlabeled_Markers/_177
+        weight: 0
+      - path: Unlabeled_Markers/_178
+        weight: 0
+      - path: Unlabeled_Markers/_179
+        weight: 0
+      - path: Unlabeled_Markers/_180
+        weight: 0
+      - path: Unlabeled_Markers/_181
+        weight: 0
+      - path: Unlabeled_Markers/_182
+        weight: 0
+      - path: Unlabeled_Markers/_183
+        weight: 0
+      - path: Unlabeled_Markers/_184
+        weight: 0
+      - path: Unlabeled_Markers/_185
+        weight: 0
+      - path: Unlabeled_Markers/_186
+        weight: 0
+      - path: Unlabeled_Markers/_187
+        weight: 0
+      - path: Unlabeled_Markers/_188
+        weight: 0
+      - path: Unlabeled_Markers/_189
+        weight: 0
+      - path: Unlabeled_Markers/_190
+        weight: 0
+      - path: Unlabeled_Markers/_191
+        weight: 0
+      - path: Unlabeled_Markers/_192
+        weight: 0
+      - path: Unlabeled_Markers/_193
+        weight: 0
+      - path: Unlabeled_Markers/_194
+        weight: 0
+      - path: Unlabeled_Markers/_195
+        weight: 0
+      - path: Unlabeled_Markers/_196
+        weight: 0
+      - path: Unlabeled_Markers/_197
+        weight: 0
+      - path: Unlabeled_Markers/_198
+        weight: 0
+      - path: Unlabeled_Markers/_199
+        weight: 0
+      - path: Unlabeled_Markers/_200
+        weight: 0
+      - path: Unlabeled_Markers/_201
+        weight: 0
+      - path: Unlabeled_Markers/_202
+        weight: 0
+      - path: Unlabeled_Markers/_203
+        weight: 0
+      - path: Unlabeled_Markers/_204
+        weight: 0
+      - path: Unlabeled_Markers/_205
+        weight: 0
+      - path: Unlabeled_Markers/_206
+        weight: 0
+      - path: Unlabeled_Markers/_207
+        weight: 0
+      - path: Unlabeled_Markers/_208
+        weight: 0
+      - path: Unlabeled_Markers/_209
+        weight: 0
+      - path: Unlabeled_Markers/_210
+        weight: 0
+      - path: Unlabeled_Markers/_211
+        weight: 0
+      - path: Unlabeled_Markers/_212
+        weight: 0
+      - path: Unlabeled_Markers/_213
+        weight: 0
+      - path: Unlabeled_Markers/_214
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -312,8 +601,805 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: Halen:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Halen:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: idle_general(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Halen
+      parentName: idle_general(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Chest
+      parentName: Halen:Halen
+      position: {x: 0.020068182, y: 1.3511528, z: 0.109147005}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Hips
+      parentName: Halen:Halen
+      position: {x: 0.0000000018626451, y: 0.90025496, z: -0.004710606}
+      rotation: {x: -0.4430436, y: 0.47775942, z: 0.53431475, w: 0.53848505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftUpLeg
+      parentName: Halen:Hips
+      position: {x: -0, y: 0.057631895, z: 0}
+      rotation: {x: 0.04079275, y: 0.064009264, z: -0.13862944, w: 0.98743135}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftLeg
+      parentName: Halen:LeftUpLeg
+      position: {x: -0, y: 0, z: -0.44039798}
+      rotation: {x: -2.2637453e-17, y: -0.10195003, z: -2.8296816e-17, w: 0.99478954}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftFoot
+      parentName: Halen:LeftLeg
+      position: {x: -0, y: 0, z: -0.39067402}
+      rotation: {x: -0.010943729, y: -0.113157615, z: 0.09563903, w: 0.9889028}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftToeBase
+      parentName: Halen:LeftFoot
+      position: {x: -0.123054996, y: 0, z: 0}
+      rotation: {x: 6.7459616e-17, y: 0.30381113, z: 8.432452e-17, w: 0.9527323}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightUpLeg
+      parentName: Halen:Hips
+      position: {x: -0, y: -0.057631895, z: 0}
+      rotation: {x: -0.05917985, y: 0.06066605, z: 0.13317521, w: 0.9874623}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightLeg
+      parentName: Halen:RightUpLeg
+      position: {x: -0, y: 0, z: -0.44039798}
+      rotation: {x: -2.5643712e-17, y: -0.115489006, z: -3.205464e-17, w: 0.9933088}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightFoot
+      parentName: Halen:RightLeg
+      position: {x: -0, y: 0, z: -0.39067402}
+      rotation: {x: 0.012585463, y: -0.076744586, z: -0.1613398, w: 0.98383}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightToeBase
+      parentName: Halen:RightFoot
+      position: {x: -0.123054996, y: 0, z: 0}
+      rotation: {x: 5.5233017e-17, y: 0.24874736, z: 6.9041265e-17, w: 0.96856844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Spine
+      parentName: Halen:Hips
+      position: {x: 0.047865782, y: 0.0077104135, z: 0.17802773}
+      rotation: {x: 0.046808343, y: 0.07752167, z: 0.023505285, w: 0.9956138}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Head
+      parentName: Halen:Spine
+      position: {x: 0.034085017, y: 0.04957594, z: 0.42682856}
+      rotation: {x: -0.05465202, y: -0.016433964, z: -0.044608682, w: 0.9973731}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftShoulder
+      parentName: Halen:Spine
+      position: {x: -0, y: 0, z: 0.288053}
+      rotation: {x: -0.22267373, y: -0.0022163647, z: -0.009703014, w: 0.9748422}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftArm
+      parentName: Halen:LeftShoulder
+      position: {x: -0, y: 0.15887499, z: 0.0468304}
+      rotation: {x: 0.7602701, y: 0.24774456, z: -0.1933691, w: 0.5685247}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftForeArm
+      parentName: Halen:LeftArm
+      position: {x: -0, y: 0, z: -0.256411}
+      rotation: {x: 0.0027145264, y: 0.009870966, z: 0.26514357, w: 0.9641546}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LeftHand
+      parentName: Halen:LeftForeArm
+      position: {x: -0, y: 0, z: -0.250377}
+      rotation: {x: 0.00055871415, y: 0.010056027, z: 0.00000561873, w: 0.9999493}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightShoulder
+      parentName: Halen:Spine
+      position: {x: -0, y: 0, z: 0.288053}
+      rotation: {x: 0.084393635, y: 0.005529867, z: -0.06515021, w: 0.994285}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightArm
+      parentName: Halen:RightShoulder
+      position: {x: -0, y: -0.15887499, z: 0.0468304}
+      rotation: {x: -0.6444303, y: 0.46459043, z: 0.3494619, w: 0.49673104}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightForeArm
+      parentName: Halen:RightArm
+      position: {x: -0, y: 0, z: -0.256411}
+      rotation: {x: -0.0035429287, y: -0.027273258, z: -0.23233217, w: 0.9722476}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RightHand
+      parentName: Halen:RightForeArm
+      position: {x: -0, y: 0, z: -0.250377}
+      rotation: {x: 0.17999843, y: 0.33365238, z: 0.0650627, w: 0.923062}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LAnkle
+      parentName: Halen:Halen
+      position: {x: -0.17365514, y: 0.09934916, z: -0.12028729}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LBack
+      parentName: Halen:Halen
+      position: {x: -0.060910728, y: 1.3457779, z: -0.12764476}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LBackHead
+      parentName: Halen:Halen
+      position: {x: -0.0496043, y: 1.5711453, z: -0.059262756}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LBackWaist
+      parentName: Halen:Halen
+      position: {x: -0.11860345, y: 1.0523864, z: -0.06082954}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LElbow
+      parentName: Halen:Halen
+      position: {x: -0.40016973, y: 1.3895692, z: -0.029095748}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LForeArm
+      parentName: Halen:Halen
+      position: {x: -0.5235259, y: 1.3789533, z: 0.0058383057}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LFrontHead
+      parentName: Halen:Halen
+      position: {x: -0.056084294, y: 1.64712, z: 0.043572873}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LFrontWaist
+      parentName: Halen:Halen
+      position: {x: -0.10701739, y: 1.0489733, z: 0.09093966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LHand_A
+      parentName: Halen:Halen
+      position: {x: -0.724181, y: 1.3595006, z: 0.07082536}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LHand_B
+      parentName: Halen:Halen
+      position: {x: -0.72934896, y: 1.3652737, z: 0.009683648}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LHeel
+      parentName: Halen:Halen
+      position: {x: -0.120101534, y: 0.029596552, z: -0.1583406}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LKnee
+      parentName: Halen:Halen
+      position: {x: -0.17477219, y: 0.5085724, z: -0.04442262}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LMidFoot
+      parentName: Halen:Halen
+      position: {x: -0.18410996, y: 0.038521927, z: 0.002526228}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LowerBack
+      parentName: Halen:Halen
+      position: {x: 0.014569218, y: 1.1926947, z: -0.12015688}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LShin
+      parentName: Halen:Halen
+      position: {x: -0.13606796, y: 0.29238364, z: -0.014265142}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LShoulder
+      parentName: Halen:Halen
+      position: {x: -0.120024405, y: 1.4360125, z: -0.0088423425}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LThigh
+      parentName: Halen:Halen
+      position: {x: -0.17810379, y: 0.62344795, z: -0.024474211}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LToe
+      parentName: Halen:Halen
+      position: {x: -0.13832928, y: 0.046295192, z: 0.076025024}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LUpperArm
+      parentName: Halen:Halen
+      position: {x: -0.26507738, y: 1.4101402, z: -0.040128265}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:LWrist
+      parentName: Halen:Halen
+      position: {x: -0.6329185, y: 1.3775512, z: 0.011813586}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:MidBack
+      parentName: Halen:Halen
+      position: {x: 0.017182738, y: 1.2561103, z: -0.1279463}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Rankle
+      parentName: Halen:Halen
+      position: {x: 0.18860671, y: 0.090351805, z: -0.1262506}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RBack
+      parentName: Halen:Halen
+      position: {x: 0.114044495, y: 1.3423615, z: -0.13077036}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RBackHead
+      parentName: Halen:Halen
+      position: {x: 0.10281857, y: 1.5764847, z: -0.05360294}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RBackWaist
+      parentName: Halen:Halen
+      position: {x: 0.15839203, y: 1.0447567, z: -0.07200137}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RElbow
+      parentName: Halen:Halen
+      position: {x: 0.59275174, y: 1.3677462, z: -0.036922008}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RForeArm
+      parentName: Halen:Halen
+      position: {x: 0.710167, y: 1.3619505, z: -0.025361676}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RFrontHeaf
+      parentName: Halen:Halen
+      position: {x: 0.104477845, y: 1.6536336, z: 0.0485056}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RFrontWaist
+      parentName: Halen:Halen
+      position: {x: 0.16401578, y: 1.0279187, z: 0.080480896}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RHand_A
+      parentName: Halen:Halen
+      position: {x: 0.019211398, y: 0.55679315, z: 0.75634634}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RHand_B
+      parentName: Halen:Halen
+      position: {x: 0.810057, y: 1.3009281, z: 0.09584941}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RHeel
+      parentName: Halen:Halen
+      position: {x: 0.12200819, y: 0.024309553, z: -0.17764583}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RKnee
+      parentName: Halen:Halen
+      position: {x: 0.19904806, y: 0.49639723, z: -0.053129353}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RMidFoot
+      parentName: Halen:Halen
+      position: {x: 0.18628712, y: 0.03447325, z: -0.021693248}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Root
+      parentName: Halen:Halen
+      position: {x: 0.024506215, y: 1.072926, z: -0.104204126}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RPelvis
+      parentName: Halen:Halen
+      position: {x: 0.0711595, y: 1.1280084, z: -0.11117609}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RShin
+      parentName: Halen:Halen
+      position: {x: 0.14832102, y: 0.28754056, z: -0.03202778}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RShoulder
+      parentName: Halen:Halen
+      position: {x: 0.17564061, y: 1.4408146, z: -0.026064478}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RThigh
+      parentName: Halen:Halen
+      position: {x: 0.21078187, y: 0.6229529, z: -0.0464482}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RToe
+      parentName: Halen:Halen
+      position: {x: 0.13238904, y: 0.039926197, z: 0.052052688}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RUpperArm
+      parentName: Halen:Halen
+      position: {x: 0.44559428, y: 1.3818008, z: -0.060470097}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:RWrist
+      parentName: Halen:Halen
+      position: {x: 0.78488225, y: 1.3461243, z: 0.022596898}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:Sternum
+      parentName: Halen:Halen
+      position: {x: 0.023850655, y: 1.2603843, z: 0.1470175}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Halen:TopSpine
+      parentName: Halen:Halen
+      position: {x: 0.028195333, y: 1.4308746, z: -0.10214394}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: System
+      parentName: idle_general(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_3779
+      parentName: System
+      position: {x: -3.5076156, y: 2.4870043, z: 5.9329834}
+      rotation: {x: 0.4742977, y: 0.11382864, z: 0.8602662, w: 0.14841421}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_4315
+      parentName: System
+      position: {x: -3.8048928, y: 2.6150103, z: -5.7975364}
+      rotation: {x: -0.43099266, y: -0.058161464, z: 0.88085085, w: 0.1869875}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_4521
+      parentName: System
+      position: {x: 4.4325438, y: 2.5558605, z: -6.080741}
+      rotation: {x: 0.91180885, y: 0.19868109, z: -0.3502719, w: -0.08024994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_4537
+      parentName: System
+      position: {x: 0.5035315, y: 2.164428, z: 5.993293}
+      rotation: {x: 0.7194155, y: 0.10798438, z: 0.66790426, w: 0.15711345}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_4540
+      parentName: System
+      position: {x: 4.025103, y: 2.380594, z: 5.8673315}
+      rotation: {x: 0.9022338, y: 0.14452949, z: 0.389481, w: 0.11571491}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MX40_4541
+      parentName: System
+      position: {x: 0.09880882, y: 2.1933975, z: -5.998631}
+      rotation: {x: -0.6917311, y: -0.10696271, z: 0.69819856, w: 0.15028599}
+      scale: {x: 1, y: 1, z: 1}
+    - name: T20_S_22861
+      parentName: System
+      position: {x: -4.3944154, y: 2.6244757, z: 1.929537}
+      rotation: {x: 0.222343, y: 0.02467459, z: 0.9505525, w: 0.2154175}
+      scale: {x: 1, y: 1, z: 1}
+    - name: T20_S_22971
+      parentName: System
+      position: {x: -4.408888, y: 2.6421478, z: -1.4647595}
+      rotation: {x: -0.1984826, y: -0.10085402, z: 0.9469918, w: 0.23160239}
+      scale: {x: 1, y: 1, z: 1}
+    - name: T20_S_22979
+      parentName: System
+      position: {x: 4.1905622, y: 2.193588, z: 2.2517972}
+      rotation: {x: 0.94658065, y: 0.16791493, z: 0.2742665, w: -0.023822265}
+      scale: {x: 1, y: 1, z: 1}
+    - name: T20_S_23074
+      parentName: System
+      position: {x: 4.60933, y: 2.2705455, z: -1.8914922}
+      rotation: {x: 0.96206576, y: 0.20008753, z: -0.18207636, w: -0.03525218}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Unlabeled_Markers
+      parentName: idle_general(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _48
+      parentName: Unlabeled_Markers
+      position: {x: 0.32791537, y: 1.4043026, z: -0.058106348}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _85
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _92
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _94
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _124
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _140
+      parentName: Unlabeled_Markers
+      position: {x: 0.7696866, y: 1.3357522, z: -0.039960835}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _170
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _171
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _172
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _173
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _174
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _175
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _176
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _177
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _178
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _179
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _180
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _181
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _182
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _183
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _184
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _185
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _186
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _187
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _188
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _189
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _190
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _191
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _192
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _193
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _194
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _195
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _196
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _197
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _198
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _199
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _200
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _201
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _202
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _203
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _204
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _205
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _206
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _207
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _208
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _209
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _210
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _211
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _212
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _213
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _214
+      parentName: Unlabeled_Markers
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -324,10 +1410,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
