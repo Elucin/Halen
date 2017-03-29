@@ -3,28 +3,26 @@ using System.Collections;
 
 public class platform_CameraShake : MonoBehaviour {
 
-	private float duration;
-	private float magnitude;
+	public float duration;
+	public float magnitude;
+	public Camera camera;
 
-	//public bool test = false;
+	//private Transform OriginTrans;
+
+	void Awake() {
+		PlayShake ();
+
+		//OriginTrans.position = camera.transform.position;
+	}
 
 	// -------------------------------------------------------------------------
 	public void PlayShake() {
 
-		StopAllCoroutines();
 		StartCoroutine("Shake");
 	}
 
-	public void StopShake()
-	{
-		StopAllCoroutines ();
-	}
-
 	// -------------------------------------------------------------------------
-	void Start() {
-		duration = 20.0f;
-		magnitude = 0.15f;
-	}
+
 
 	// -------------------------------------------------------------------------
 	IEnumerator Shake() {
@@ -44,13 +42,11 @@ public class platform_CameraShake : MonoBehaviour {
 			x *= magnitude * damper;
 			y *= magnitude * damper;
 
-			Camera.main.transform.position = new Vector3(x + Camera.main.transform.position.x, y + Camera.main.transform.position.y, Camera.main.transform.position.z);
+			camera.transform.position = new Vector3(camera.transform.position.x, y + camera.transform.position.y, x + camera.transform.position.z);
+
 
 			yield return null;
+
 		}
 	}
 }
-
-
-
-

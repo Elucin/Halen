@@ -34,7 +34,7 @@ public class FallingPlatRB : MonoBehaviour {
 	{
 		if (other.transform.tag == "Player")
 		{
-			_platCamShake.StopShake ();
+			//_platCamShake.StopShake ();
 		}
 	}
 

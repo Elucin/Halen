@@ -5,6 +5,6 @@ public class FaceToPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.LookAt(PlayerControl.halenGO.transform);
+		//transform.LookAt(PlayerControl.halenGO.transform);
 	}
 }
