@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c8058b68a8451245af04b78e44f02aa
+guid: dc1569a15f73f2940a14df0fd313fbcd
 timeCreated: 1487966636
 licenseType: Free
 ModelImporter:
@@ -951,37 +951,10 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'jnt_Pelvis' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'jnt_Spine2' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Spine4'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Neck'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_ShoulderTop'
-      has translation animation that will be discarded.\n\t'jnt_L_ShoulderTop' has
-      translation animation that will be discarded.\n\t'jnt_L_LingBase' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_L_PinkyBase'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_L_Ball'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Ball'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
-    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
-      average position error 1.1 mm and maximum position error 4.2 mm at time 36:18
-      (88.3%) Frame 882\n\tLeftFoot average position error 1.0 mm and maximum position
-      error 4.2 mm at time 36:18 (88.3%) Frame 882\n\tRightLowerLeg average position
-      error 1.8 mm and maximum position error 17.1 mm at time 38: 1 (91.4%) Frame
-      913\n\tRightFoot average position error 1.1 mm and maximum position error 4.2
-      mm at time 36:18 (88.3%) Frame 882\n\tLeftUpperArm average position error 8.5
-      mm and maximum position error 19.1 mm at time 12:19 (31.4%) Frame 307\n\tLeftLowerArm
-      average position error 9.0 mm and maximum position error 24.8 mm at time 38:19
-      (93.2%) Frame 931\n\tLeftHand average position error 6.2 mm and maximum position
-      error 21.0 mm at time 12:19 (31.4%) Frame 307\n\tRightUpperArm average position
-      error 7.7 mm and maximum position error 24.7 mm at time 12:18 (31.3%) Frame
-      306\n\tRightLowerArm average position error 9.4 mm and maximum position error
-      20.5 mm at time 12:18 (31.3%) Frame 306\n\tRightHand average position error
-      5.0 mm and maximum position error 20.2 mm at time 12:18 (31.3%) Frame 306\n\tHead
-      average position error 22.8 mm and maximum position error 59.1 mm at time 29:16
-      (71.5%) Frame 712\n"
+    animationImportErrors: "Avatar creation failed:\n\tTransform 'jnt_Root' for human
+      bone 'Hips' not found\n"
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
