@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9991b6265f7f87d43b7e3c676739f203, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a4c19ceeb373e0f44ab88fc9c822e16b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 58210584}
   - component: {fileID: 58210583}
   - component: {fileID: 58210582}
+  - component: {fileID: 58210587}
   m_Layer: 0
   m_Name: shot8
   m_TagString: MainCamera
@@ -434,6 +435,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &58210587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58210581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &58910526
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +754,7 @@ GameObject:
   - component: {fileID: 120568225}
   - component: {fileID: 120568224}
   - component: {fileID: 120568223}
+  - component: {fileID: 120568228}
   m_Layer: 0
   m_Name: shot11
   m_TagString: MainCamera
@@ -808,6 +830,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: -271.232, z: 0}
+--- !u!114 &120568228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120568222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &125270175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1362,8 @@ MonoBehaviour:
   dashStorage: 0
   sprintStorage: 0
   landingStorage: 0
+  landing: {fileID: 0}
+  CurrentSound: {fileID: 0}
 --- !u!1 &260541852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2447,7 @@ GameObject:
   - component: {fileID: 415589276}
   - component: {fileID: 415589275}
   - component: {fileID: 415589274}
+  - component: {fileID: 415589279}
   m_Layer: 0
   m_Name: shot13
   m_TagString: MainCamera
@@ -2478,6 +2523,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 7.0330005, z: 0}
+--- !u!114 &415589279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415589273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &415663294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,6 +3292,7 @@ GameObject:
   - component: {fileID: 561724332}
   - component: {fileID: 561724331}
   - component: {fileID: 561724336}
+  - component: {fileID: 561724337}
   m_Layer: 0
   m_Name: shot5
   m_TagString: MainCamera
@@ -3316,6 +3382,26 @@ MonoBehaviour:
   startPoint: {fileID: 516947749}
   endPoint: {fileID: 1906187984}
   duration: 7
+--- !u!114 &561724337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561724330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &561954709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3661,6 +3747,7 @@ GameObject:
   - component: {fileID: 598858161}
   - component: {fileID: 598858160}
   - component: {fileID: 598858159}
+  - component: {fileID: 598858164}
   m_Layer: 0
   m_Name: shot4
   m_TagString: MainCamera
@@ -3736,6 +3823,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -0.030000001, y: 91.55501, z: 1.0990001}
+--- !u!114 &598858164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598858158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1001 &600883477
 Prefab:
   m_ObjectHideFlags: 0
@@ -4865,6 +4972,7 @@ GameObject:
   - component: {fileID: 765768438}
   - component: {fileID: 765768437}
   - component: {fileID: 765768436}
+  - component: {fileID: 765768441}
   m_Layer: 0
   m_Name: shot10
   m_TagString: MainCamera
@@ -4940,6 +5048,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: -81.411, y: 0, z: 0}
+--- !u!114 &765768441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765768435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &771072394
 GameObject:
   m_ObjectHideFlags: 0
@@ -12493,6 +12621,7 @@ GameObject:
   - component: {fileID: 1238643235}
   - component: {fileID: 1238643234}
   - component: {fileID: 1238643233}
+  - component: {fileID: 1238643238}
   m_Layer: 0
   m_Name: shot1
   m_TagString: MainCamera
@@ -12568,6 +12697,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 34.453003, y: 180.00002, z: 0}
+--- !u!114 &1238643238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1238643232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1239716216
 GameObject:
   m_ObjectHideFlags: 0
@@ -12930,13 +13079,14 @@ GameObject:
   - component: {fileID: 1366422264}
   - component: {fileID: 1366422263}
   - component: {fileID: 1366422262}
+  - component: {fileID: 1366422267}
   m_Layer: 0
   m_Name: shot15
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1366422262
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13005,6 +13155,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: -31.701002, y: 122.73601, z: 0}
+--- !u!114 &1366422267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366422261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.478
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1372869583
 GameObject:
   m_ObjectHideFlags: 0
@@ -18592,6 +18762,7 @@ GameObject:
   - component: {fileID: 1412105140}
   - component: {fileID: 1412105139}
   - component: {fileID: 1412105138}
+  - component: {fileID: 1412105143}
   m_Layer: 0
   m_Name: shot3
   m_TagString: MainCamera
@@ -18667,6 +18838,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -17.511002, y: 157.128, z: 0}
+--- !u!114 &1412105143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1412105137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1424236176
 GameObject:
   m_ObjectHideFlags: 0
@@ -23386,6 +23577,7 @@ GameObject:
   - component: {fileID: 1543940464}
   - component: {fileID: 1543940463}
   - component: {fileID: 1543940462}
+  - component: {fileID: 1543940467}
   m_Layer: 0
   m_Name: shot12
   m_TagString: MainCamera
@@ -23461,6 +23653,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: -26.309002, y: 163.106, z: 0}
+--- !u!114 &1543940467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543940461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1544091831
 GameObject:
   m_ObjectHideFlags: 0
@@ -24495,6 +24707,7 @@ GameObject:
   - component: {fileID: 1691693430}
   - component: {fileID: 1691693429}
   - component: {fileID: 1691693428}
+  - component: {fileID: 1691693433}
   m_Layer: 0
   m_Name: shot7
   m_TagString: MainCamera
@@ -24570,6 +24783,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -25.263, y: 14.411, z: 0}
+--- !u!114 &1691693433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691693427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1713601002
 GameObject:
   m_ObjectHideFlags: 0
@@ -24749,6 +24982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeScript: {fileID: 0}
+  aClip: {fileID: 0}
   EyeStep:
   - index: 1
     duration: 3
@@ -24790,6 +25024,8 @@ MonoBehaviour:
     duration: 3
     eyeDirectionY: 0
     eyeDirectionX: 0
+  interrupt: 1
+  delay: 0
   triggered: 1
 --- !u!1 &1758120827
 GameObject:
@@ -24835,6 +25071,7 @@ GameObject:
   - component: {fileID: 1767656583}
   - component: {fileID: 1767656582}
   - component: {fileID: 1767656581}
+  - component: {fileID: 1767656586}
   m_Layer: 0
   m_Name: shot6
   m_TagString: MainCamera
@@ -24910,6 +25147,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: -29.800001, y: 180.00002, z: 0}
+--- !u!114 &1767656586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1767656580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1768419592
 GameObject:
   m_ObjectHideFlags: 0
@@ -25068,6 +25325,7 @@ GameObject:
   - component: {fileID: 1786642315}
   - component: {fileID: 1786642314}
   - component: {fileID: 1786642319}
+  - component: {fileID: 1786642320}
   m_Layer: 0
   m_Name: shot2
   m_TagString: MainCamera
@@ -25157,6 +25415,26 @@ MonoBehaviour:
   startPoint: {fileID: 73425729}
   endPoint: {fileID: 313161666}
   duration: 10
+--- !u!114 &1786642320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786642313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1794037398
 GameObject:
   m_ObjectHideFlags: 0
@@ -26796,6 +27074,7 @@ GameObject:
   - component: {fileID: 2042326989}
   - component: {fileID: 2042326988}
   - component: {fileID: 2042326987}
+  - component: {fileID: 2042326992}
   m_Layer: 0
   m_Name: shot14
   m_TagString: MainCamera
@@ -26871,6 +27150,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 122.73601, z: 0}
+--- !u!114 &2042326992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042326986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &2058040621
 GameObject:
   m_ObjectHideFlags: 0
@@ -27384,6 +27683,7 @@ GameObject:
   - component: {fileID: 2134179436}
   - component: {fileID: 2134179435}
   - component: {fileID: 2134179434}
+  - component: {fileID: 2134179439}
   m_Layer: 0
   m_Name: shot9
   m_TagString: MainCamera
@@ -27459,6 +27759,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 221.08899, z: 0}
+--- !u!114 &2134179439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2134179433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.056
+  m_SampleCount: 2
+  m_OcclusionIntensity: 2.11
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.659
+  m_MinZ: 0.131
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &2139156854
 GameObject:
   m_ObjectHideFlags: 0
