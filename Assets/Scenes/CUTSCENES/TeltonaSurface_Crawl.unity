@@ -6374,6 +6374,7 @@ GameObject:
   - component: {fileID: 63759927}
   - component: {fileID: 63759926}
   - component: {fileID: 63759925}
+  - component: {fileID: 63759930}
   m_Layer: 0
   m_Name: shot3
   m_TagString: Untagged
@@ -6449,6 +6450,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -8.975, y: 89.842, z: 0}
+--- !u!114 &63759930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63759924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &74414458
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,6 +7509,7 @@ GameObject:
   - component: {fileID: 197991650}
   - component: {fileID: 197991649}
   - component: {fileID: 197991648}
+  - component: {fileID: 197991653}
   m_Layer: 0
   m_Name: shot5
   m_TagString: Untagged
@@ -7563,6 +7585,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: -20.415, y: 154.96901, z: 0}
+--- !u!114 &197991653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197991647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 3
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &199708788
 GameObject:
   m_ObjectHideFlags: 0
@@ -14049,6 +14091,7 @@ GameObject:
   - component: {fileID: 517497487}
   - component: {fileID: 517497486}
   - component: {fileID: 517497485}
+  - component: {fileID: 517497490}
   m_Layer: 0
   m_Name: shot11
   m_TagString: Untagged
@@ -14124,6 +14167,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 374.249, z: 0}
+--- !u!114 &517497490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517497484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &517829429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14622,6 +14685,7 @@ GameObject:
   - component: {fileID: 561101068}
   - component: {fileID: 561101067}
   - component: {fileID: 561101066}
+  - component: {fileID: 561101071}
   m_Layer: 0
   m_Name: shot9
   m_TagString: Untagged
@@ -14697,6 +14761,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 7.0740004, y: -24.287, z: 0}
+--- !u!114 &561101071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561101065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &566036235
 GameObject:
   m_ObjectHideFlags: 0
@@ -28824,6 +28908,7 @@ GameObject:
   - component: {fileID: 1034011694}
   - component: {fileID: 1034011693}
   - component: {fileID: 1034011692}
+  - component: {fileID: 1034011697}
   m_Layer: 0
   m_Name: shot12
   m_TagString: Untagged
@@ -28899,6 +28984,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 347.558, z: 0}
+--- !u!114 &1034011697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034011691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1037659072
 GameObject:
   m_ObjectHideFlags: 0
@@ -32013,6 +32118,7 @@ GameObject:
   - component: {fileID: 1298269894}
   - component: {fileID: 1298269893}
   - component: {fileID: 1298269892}
+  - component: {fileID: 1298269897}
   m_Layer: 0
   m_Name: shot4
   m_TagString: Untagged
@@ -32088,6 +32194,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -32.269, y: 46.617, z: 0}
+--- !u!114 &1298269897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298269891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 3
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1321149902
 GameObject:
   m_ObjectHideFlags: 0
@@ -32510,6 +32636,7 @@ GameObject:
   - component: {fileID: 1338067492}
   - component: {fileID: 1338067491}
   - component: {fileID: 1338067490}
+  - component: {fileID: 1338067495}
   m_Layer: 0
   m_Name: shot7
   m_TagString: Untagged
@@ -32585,6 +32712,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: -11.47, z: 0}
+--- !u!114 &1338067495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338067489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1347538390
 GameObject:
   m_ObjectHideFlags: 0
@@ -34496,8 +34643,8 @@ MonoBehaviour:
   m_SampleCount: 2
   m_OcclusionIntensity: 1.03
   m_Blur: 2
-  m_Downsampling: 2
-  m_OcclusionAttenuation: 1.08
+  m_Downsampling: 3
+  m_OcclusionAttenuation: 1.279
   m_MinZ: 0.01
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
@@ -35761,6 +35908,7 @@ GameObject:
   - component: {fileID: 1472030331}
   - component: {fileID: 1472030330}
   - component: {fileID: 1472030329}
+  - component: {fileID: 1472030334}
   m_Layer: 0
   m_Name: shot8
   m_TagString: Untagged
@@ -35836,6 +35984,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 7.0740004, y: -24.287, z: 0}
+--- !u!114 &1472030334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472030328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1483787828
 GameObject:
   m_ObjectHideFlags: 0
@@ -36850,6 +37018,7 @@ GameObject:
   - component: {fileID: 1539829284}
   - component: {fileID: 1539829283}
   - component: {fileID: 1539829282}
+  - component: {fileID: 1539829287}
   m_Layer: 0
   m_Name: shot10
   m_TagString: Untagged
@@ -36925,6 +37094,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 182.72699, z: 0}
+--- !u!114 &1539829287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539829281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1546381237
 GameObject:
   m_ObjectHideFlags: 0
@@ -38694,6 +38883,7 @@ GameObject:
   - component: {fileID: 1677145441}
   - component: {fileID: 1677145440}
   - component: {fileID: 1677145439}
+  - component: {fileID: 1677145444}
   m_Layer: 0
   m_Name: shot6
   m_TagString: Untagged
@@ -38769,6 +38959,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 43.026, z: 0}
+--- !u!114 &1677145444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677145438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.59
+  m_SampleCount: 2
+  m_OcclusionIntensity: 1.03
+  m_Blur: 2
+  m_Downsampling: 2
+  m_OcclusionAttenuation: 1.08
+  m_MinZ: 0.01
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1678020048
 GameObject:
   m_ObjectHideFlags: 0
