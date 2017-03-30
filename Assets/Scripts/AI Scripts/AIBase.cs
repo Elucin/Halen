@@ -240,6 +240,7 @@ public class AIBase : MonoBehaviour {
 		}
         else if(Name[0] == "Charger")
         {
+			Instantiate (Resources.Load("Prefabs/Characters/ChargerChunks"), transform.position, Quaternion.identity);
             Scoring.chargersKilled++;
         }
         yield return StartCoroutine(StylePoints());
