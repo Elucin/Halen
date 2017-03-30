@@ -41,6 +41,16 @@ public class UIScript : MonoBehaviour {
 	public Image ReticleSharpFlash;
 	public Image ReticleSharpReady;
 
+    void OnEnable()
+    {
+        OptionsMenu.onToggleHud += displayHud;
+    }
+
+    void OnDisable()
+    {
+        OptionsMenu.onToggleHud -= displayHud;
+    }
+
     // Use this for initialization
     void Start () {
         Halen = GameObject.FindObjectOfType<PlayerControl>();
@@ -62,8 +72,8 @@ public class UIScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        dashBar.gameObject.SetActive(!Halen.twoArm);
+        if(Options.displayHUD)
+            dashBar.gameObject.SetActive(!Halen.twoArm);
         
 		if (shotCooldownBarWrist == null && PlayerControl.Health>0) {
 			shotCooldownBarWrist = GameObject.Find ("wrist_RechargeFill").GetComponent<Image>();
@@ -180,5 +190,10 @@ public class UIScript : MonoBehaviour {
         GameObject stylePoint = (GameObject)Instantiate(stylePointObject, Vector3.zero, Quaternion.identity) as GameObject;
         stylePoint.GetComponent<Text>().text = " +" + points.ToString() + " " + source;
         return stylePoint;
+    }
+
+    void displayHud()
+    {
+        GetComponent<Canvas>().enabled = Options.displayHUD;
     }
 }

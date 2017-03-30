@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33736483694238620}
   - component: {fileID: 23095328058107684}
   - component: {fileID: 64005646581953712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: brokenSupport3
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1276196516010408
 GameObject:
@@ -39,12 +39,12 @@ GameObject:
   - component: {fileID: 4833158703223714}
   - component: {fileID: 33546251543624194}
   - component: {fileID: 23326696834786420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: center_landingBigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1307342002085028
 GameObject:
@@ -56,12 +56,12 @@ GameObject:
   - component: {fileID: 4095256552059256}
   - component: {fileID: 33128348103589572}
   - component: {fileID: 23782918530638272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: brokenSupport1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1338653917938420
 GameObject:
@@ -73,12 +73,12 @@ GameObject:
   - component: {fileID: 4877164679681176}
   - component: {fileID: 33819732862850512}
   - component: {fileID: 23605103240545842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: brokenSupport1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1492645472014234
 GameObject:
@@ -88,12 +88,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4131715537338952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterLandingBroken_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1646913019233660
 GameObject:
@@ -103,13 +103,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4200590142140790}
-  - component: {fileID: 95004833675681178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: brokenSupport1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1733225182835486
 GameObject:
@@ -120,12 +119,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4231510799677604}
   - component: {fileID: 95679932838871398}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: centerLandingBroken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1773099487197518
 GameObject:
@@ -136,12 +135,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4095125150159630}
   - component: {fileID: 95632896675656686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: centerLanding_collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1947631096951056
 GameObject:
@@ -151,13 +150,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4892280679198780}
-  - component: {fileID: 95104676806166070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: brokenSupport1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4095125150159630
 Transform:
@@ -194,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 1492645472014234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -465.45663, y: 104.97348, z: -472.9752}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0619204, y: 1.0619203, z: 1.0619203}
   m_Children:
   - {fileID: 4200590142140790}
   - {fileID: 4231510799677604}
@@ -328,7 +326,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 675a4de61592f0149beee703f75a0ef1, type: 2}
+  - {fileID: 2100000, guid: 5bcaf2ca5eababd4a915e13f44d74628, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,40 +448,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bfd6cedbda5bdf744bc6a872fe3a8abd, type: 3}
---- !u!95 &95004833675681178
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1646913019233660}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 17b441dac3b8a2642a12e665c98df6e2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95104676806166070
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1947631096951056}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 17b441dac3b8a2642a12e665c98df6e2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95632896675656686
 Animator:
   serializedVersion: 3

@@ -199,14 +199,14 @@ public class AICharger : AIBase {
     {
         if (currentBaseState == smashExecuteState)
         {
-            if (c.transform.CompareTag("Player") && dealSmashDamage)
-            {
-                dealSmashDamage = false;
-                PlayerControl.playerControl.damageBuffer += 80;
-                c.rigidbody.AddForce(transform.TransformDirection(new Vector3(0, 500, 1000)), ForceMode.Impulse);
-            }
-            else if (c.transform.CompareTag("Enemy"))
-                c.gameObject.GetComponent<AIBase>().health = 0;
+			if (c.transform.CompareTag ("Player") && dealSmashDamage) {
+				dealSmashDamage = false;
+				PlayerControl.playerControl.damageBuffer += 80;
+				c.rigidbody.AddForce (transform.TransformDirection (new Vector3 (0, 500, 1000)), ForceMode.Impulse);
+			} else if (c.transform.CompareTag ("Enemy")) {
+				c.gameObject.GetComponent<AIBase> ().health = 0;
+
+			}
             
         }
     }
