@@ -224,6 +224,8 @@ public class AIBase : MonoBehaviour {
             Scoring.floatersKilled++;
 		}
 		else if (Name[0] == "Brawler") {
+			
+			Instantiate (Resources.Load("Prefabs/Characters/BrawlerChunks2"), transform.position, Quaternion.identity);
 			explode.transform.localScale = Vector3.one * 0.7f;
 			explode.transform.GetChild (0).localScale = Vector3.one * 0.8f;
             Scoring.brawlersKilled++;
