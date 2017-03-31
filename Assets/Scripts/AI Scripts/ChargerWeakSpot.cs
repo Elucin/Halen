@@ -6,9 +6,12 @@ public class ChargerWeakSpot : MonoBehaviour {
     public bool exposed = false;
     public GameObject[] backpanels;
     private AIBase chargerScript;
+    static GameObject chargerChunks;
+	public GameObject BackPanelChunks;
 
     void Start()
     {
+        
         chargerScript = GetComponentInParent<AIBase>();
     }
 
@@ -19,8 +22,17 @@ public class ChargerWeakSpot : MonoBehaviour {
             //PlayerControl halen = c.transform.GetComponent<PlayerControl>();
             if (PlayerControl.IsDashing() && exposed)
             {
-                chargerScript.health = 0;
-                PlayerControl.dashTimer = Time.time - PlayerControl.DASH_COOLDOWN;
+                if (!transform.root.name.Contains("Broken"))
+                {
+                    chargerScript.health = 0;
+                    PlayerControl.dashTimer = Time.time - PlayerControl.DASH_COOLDOWN;
+                }
+                else
+                {
+                    Instantiate(AIBase.explosion, transform.position + Vector3.up, Quaternion.identity);
+                    Instantiate(AIBase.chargerChunks, transform.position + Vector3.up, Quaternion.identity);
+                    Destroy(transform.root.gameObject);
+                }
             }
         }
         else if (c.transform.name.Contains("LargeShot"))
@@ -31,6 +43,8 @@ public class ChargerWeakSpot : MonoBehaviour {
                 exposed = true;
                 Destroy(backpanels[0]);
                 Destroy(backpanels[1]);
+				Instantiate (BackPanelChunks, transform.InverseTransformPoint(transform.position), Quaternion.identity);
+				Instantiate(AIBase.explosion, transform.position + Vector3.up, Quaternion.identity);
                 //sparks.Play();
                 GetComponent<Light>().color = Color.red;
             }

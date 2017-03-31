@@ -11,6 +11,12 @@ public class AIBase : MonoBehaviour {
         public bool bankshot;
     };
 
+    static GameObject floaterChunks;
+    public static GameObject chargerChunks;
+    static GameObject gunnerChunks;
+    static GameObject brawlerChunks;
+    static GameObject sniperChunks;
+
     protected Vector3 destination;
     protected bool doDest = true;
     protected int updateCount;
@@ -18,7 +24,7 @@ public class AIBase : MonoBehaviour {
 
     public float health;
     protected UnityEngine.AI.NavMeshAgent meshAgent;
-    public Object explosion;
+    public static Object explosion;
     public GameObject patrolSet;
     protected UIScript ui;
     //Patrol Points
@@ -65,6 +71,15 @@ public class AIBase : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
+        if(brawlerChunks == null)
+        {
+            //floaterChunks;
+            explosion = Resources.Load("Prefabs/Particles/Explosion") as GameObject;
+            chargerChunks = Resources.Load("Prefabs/Characters/ChargerChunks") as GameObject;
+            gunnerChunks = Resources.Load("Prefabs/Characters/GunnerChunks") as GameObject; 
+            brawlerChunks = Resources.Load("Prefabs/Characters/BrawlerChunks") as GameObject;
+            //sniperChunks;
+        }
         Name = transform.name.Split('-');
         ui = GameObject.Find("UI 1").GetComponent<UIScript>();
         stylePoints = new StylePointsData();
@@ -225,13 +240,13 @@ public class AIBase : MonoBehaviour {
 		}
 		else if (Name[0] == "Brawler") {
 			
-			Instantiate (Resources.Load("Prefabs/Characters/BrawlerChunks"), transform.position, Quaternion.identity);
+			Instantiate (brawlerChunks, transform.position, Quaternion.identity);
 			explode.transform.localScale = Vector3.one * 0.7f;
 			explode.transform.GetChild (0).localScale = Vector3.one * 0.8f;
             Scoring.brawlersKilled++;
 		}
 		else if (Name[0] == "Gunner") {
-			Instantiate (Resources.Load("Prefabs/Characters/GunnerChunks"), transform.position, Quaternion.identity);
+			Instantiate (gunnerChunks, transform.position, Quaternion.identity);
 			explode.transform.localScale = Vector3.one * 0.7f;
 			explode.transform.GetChild (0).localScale = Vector3.one * 0.8f;
             Scoring.gunnersKilled++;
@@ -243,7 +258,7 @@ public class AIBase : MonoBehaviour {
 		}
         else if(Name[0] == "Charger")
         {
-			Instantiate (Resources.Load("Prefabs/Characters/ChargerChunks"), transform.position, Quaternion.identity);
+			Instantiate (chargerChunks, transform.position, Quaternion.identity);
             Scoring.chargersKilled++;
         }
         yield return StartCoroutine(StylePoints());
