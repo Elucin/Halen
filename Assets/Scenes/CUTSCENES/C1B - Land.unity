@@ -2119,6 +2119,7 @@ GameObject:
   - component: {fileID: 351067400}
   - component: {fileID: 351067399}
   - component: {fileID: 351067398}
+  - component: {fileID: 351067404}
   m_Layer: 0
   m_Name: Shot2
   m_TagString: MainCamera
@@ -2194,6 +2195,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 19.733002, y: -74.421005, z: 0}
+--- !u!114 &351067404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351067397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.186
+  intensity: 0.21
+  blurSize: 0.78
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &361098228
 GameObject:
   m_ObjectHideFlags: 0
@@ -15285,6 +15303,7 @@ GameObject:
   - component: {fileID: 1844423458}
   - component: {fileID: 1844423464}
   - component: {fileID: 1844423463}
+  - component: {fileID: 1844423466}
   m_Layer: 0
   m_Name: Shot3
   m_TagString: MainCamera
@@ -15390,6 +15409,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fc4e811c1c35c469be5a46ebb42a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1844423466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1844423457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.186
+  intensity: 0.21
+  blurSize: 0.78
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!4 &1849519647 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4335235472208650, guid: 27751aad977deb345b0e2864049cfb02,
@@ -16438,6 +16474,8 @@ GameObject:
   - component: {fileID: 2063298453}
   - component: {fileID: 2063298452}
   - component: {fileID: 2063298451}
+  - component: {fileID: 2063298450}
+  - component: {fileID: 2063298449}
   m_Layer: 0
   m_Name: Shot4
   m_TagString: MainCamera
@@ -16445,6 +16483,43 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &2063298449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063298448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Radius: 0.4
+  m_SampleCount: 2
+  m_OcclusionIntensity: 0.5
+  m_Blur: 2
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 1
+  m_MinZ: 0.101
+  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
+  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &2063298450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063298448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.186
+  intensity: 0.21
+  blurSize: 0.78
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!81 &2063298451
 AudioListener:
   m_ObjectHideFlags: 0
