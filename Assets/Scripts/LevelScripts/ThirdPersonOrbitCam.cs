@@ -120,7 +120,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
             angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
             //playerAnim.SetFloat(CamAngleH, angleH);
 
-            playerAnim.SetFloat(CamAngleV, angleV);
+            //playerAnim.SetFloat(CamAngleV, angleV);
             
         }
             Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);

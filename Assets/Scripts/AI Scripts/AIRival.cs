@@ -53,7 +53,7 @@ public class AIRival : AIBase {
     public SmallShot RivalShot;
     private float shootCooldownStart;
     private bool currentGun;
-
+    Image healthBar;
 	public ParticleSystem RivalMuzzleFlash;
 
 	public AudioClip [] hit;
@@ -93,7 +93,7 @@ public class AIRival : AIBase {
         attackState = Animator.StringToHash("Attack.Attack");
         currentGun = false;
 		GameObject.Find ("UI 1").GetComponent<UIScript> ().Theravall = true;
-        
+        healthBar = GameObject.Find("Theravall_health").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -101,7 +101,7 @@ public class AIRival : AIBase {
 		if (TakenDamage()) {
 			int randSound = Random.Range (0, hit.GetLength (0) - 1);
 			CurrentSound.PlayOneShot (hit [randSound], 1f);
-			anim.SetBool(playerInRangeBool, true);
+			//anim.SetBool(playerInRangeBool, true);
 			anim.SetTrigger(playerCloseTrig);
 			startTeleport = true;
 
@@ -117,7 +117,7 @@ public class AIRival : AIBase {
 
 		currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
-		GameObject.Find ("Theravall_health").GetComponent<Image> ().fillAmount = health / 100f;
+        healthBar.fillAmount = health / 100f;
         anim.SetFloat(xMove, transform.InverseTransformDirection(meshAgent.velocity).normalized.x);
         anim.SetFloat(zMove, transform.InverseTransformDirection(meshAgent.velocity).normalized.z);
 
@@ -225,10 +225,10 @@ public class AIRival : AIBase {
             }
         }
 
-        anim.SetBool(playerInRangeBool, triggerCount > 0);
+        //anim.SetBool(playerInRangeBool, triggerCount > 0);
 
         //If the Rival is close to PlayerControl.halenGO (T > 1) and he isn't already teleporting (for the sake of melee teleporting that requires proximity)
-		if (triggerCount > 1 && !anim.GetBool(doMeleeTeleportBool) && !startTeleport && currentBaseState != teleportingState)
+		if (triggerCount > 0 && !anim.GetBool(doMeleeTeleportBool) && !startTeleport && currentBaseState != teleportingState)
         {
             anim.SetTrigger(playerCloseTrig);
             startTeleport = true;
@@ -309,7 +309,7 @@ public class AIRival : AIBase {
         GameObject TeleportEnter = Instantiate(teleportInParticles, location.position + Vector3.up, Quaternion.identity) as GameObject;
         yield return new WaitForSeconds(TELEPORT_DELAY);
         meshAgent.Warp(location.position);
-        anim.SetTrigger(finishTeleportTrig);
+        //anim.SetTrigger(finishTeleportTrig);
         startTeleport = false;
         teleporting = false;
     }

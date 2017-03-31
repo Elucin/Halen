@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
 
     float healTimer;
     const float HEAL_START_TIME = 5f; //Length of time Halen has to avoid damage to start healing.
-    const float HEAL_AMOUNT = 0.2f; //
+    const float HEAL_AMOUNT = 15f; //
     private static float health = 100f;
     public float damageBuffer;
     public float damageReduction;
@@ -501,8 +501,11 @@ public class PlayerControl : MonoBehaviour
         currentShots = Mathf.Clamp(currentShots, 0, MAX_SHOTS);
 
         currentBaseState = anim.GetCurrentAnimatorStateInfo (0).fullPathHash;
-		currentDashState = anim.GetCurrentAnimatorStateInfo (6).fullPathHash;
-		currentSlashState = anim.GetCurrentAnimatorStateInfo (5).fullPathHash;
+        if (!twoArm)
+        {
+            currentDashState = anim.GetCurrentAnimatorStateInfo(6).fullPathHash;
+            currentSlashState = anim.GetCurrentAnimatorStateInfo(5).fullPathHash;
+        }
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
         if (!jump)
@@ -592,9 +595,9 @@ public class PlayerControl : MonoBehaviour
 
 		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
             if(speed > 0.1f)
-                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             else
-                rb.AddForce(Vector3.up * jumpHeight * 1.25f, ForceMode.Impulse);
+                rb.AddForce(transform.up * jumpHeight * 1.25f, ForceMode.Impulse);
             anim.SetBool(jumpBool, false);
 		} else if (anim.GetBool (jumpBool) && (wallHoldStatus != 0 || wallRun)) {
             wallHoldStatus = 0;
@@ -802,8 +805,11 @@ public class PlayerControl : MonoBehaviour
                     rb.velocity = dashDirection * (GameObject.FindObjectOfType<Jumo>().CheckpointY * 3.25f) * dashVelocityCoefficient;
             }
         }
-        else if (collateral)
-            collateral = false;
+        else
+        {
+            if (collateral)
+                collateral = false;
+        }
 
 
 	}
@@ -1120,14 +1126,14 @@ public class PlayerControl : MonoBehaviour
                 dashTimer = Time.time - DASH_COOLDOWN;
             }
         }
-        else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState)
+        else if (c.contacts[0].normal.y > -0.2f && c.contacts[0].normal.y < 0.3f && !wallRun && Vector3.Angle(transform.forward, c.contacts[0].normal) > 150f && !IsGrounded() && c.transform.tag == "Terrain" && currentBaseState != rollState && !IsDashing())
         {
           
             if (rb.velocity.y > -3f && canWallRun)
                 StartCoroutine(wallRunDuration(1f));
             else
                 wallHoldStatus = 2;
-
+ 
         }
 
 	}
@@ -1142,7 +1148,7 @@ public class PlayerControl : MonoBehaviour
 	{
         GetComponent<CapsuleCollider>().center = new Vector3(0, 1.5f, -0.5f);
         wallRun = true;
-        rb.useGravity = false;
+        //rb.useGravity = false;
 		wallSpeed = Mathf.Clamp(speed, runSpeed, sprintSpeed);
 		yield return new WaitForSeconds (duration);
         if(wallRun)
@@ -1159,7 +1165,9 @@ public class PlayerControl : MonoBehaviour
             healTimer = Time.time;
 
         if (Time.time - healTimer > HEAL_START_TIME && health > 0f && health < 100f)
-            health += HEAL_AMOUNT * Time.timeScale;
+        {
+            health += HEAL_AMOUNT * Time.timeScale * Time.deltaTime;
+        }
 
         health = Mathf.Clamp(health, 0, 100);
     }
