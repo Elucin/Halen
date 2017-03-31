@@ -1516,10 +1516,8 @@ Prefab:
       propertyPath: optionsMenu
       value: 
       objectReference: {fileID: 619781044}
-
     - target: {fileID: 1927501877310792, guid: e0ffdcbf5c36a0045ac938b0f66a5bef, type: 2}
       propertyPath: m_IsActive
-
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2143,10 +2141,8 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-
     - target: {fileID: 139512, guid: 8caa204d7b38ef84089196cf06f1c613, type: 2}
       propertyPath: m_IsActive
-
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2547,6 +2543,27 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &795519861 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 145850, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
+  m_PrefabInternal: {fileID: 795519860}
+--- !u!114 &795519862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 795519861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.1
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1001 &803344583
 Prefab:
   m_ObjectHideFlags: 0
