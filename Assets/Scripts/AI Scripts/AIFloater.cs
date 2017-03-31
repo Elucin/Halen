@@ -23,7 +23,7 @@ public class AIFloater : AIBase {
     protected override void Start () {
         basePoints = 200;
         transform.name = "Floater-" + FloaterCount++.ToString();
-        patrolState = Animator.StringToHash("Base.Patrol");
+        miningState = Animator.StringToHash("Base.Mining");
         base.Start();
         Name = transform.name.Split('-');
         point = transform.position;
@@ -75,6 +75,7 @@ public class AIFloater : AIBase {
             }
             mineTimer = Time.time;
             anim.SetTrigger(mineTrigger);
+            StartCoroutine(DropMine(0.5f));
         }
     }
 
@@ -91,8 +92,9 @@ public class AIFloater : AIBase {
         }
     }
 
-    void DropMine()
+    IEnumerator DropMine(float seconds)
     {
+        yield return new WaitForSeconds(seconds);
         Instantiate(mine, transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 
