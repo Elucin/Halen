@@ -7,7 +7,7 @@ public class ChargerWeakSpot : MonoBehaviour {
     public GameObject[] backpanels;
     private AIBase chargerScript;
     static GameObject chargerChunks;
-    
+	public GameObject BackPanelChunks;
 
     void Start()
     {
@@ -43,6 +43,8 @@ public class ChargerWeakSpot : MonoBehaviour {
                 exposed = true;
                 Destroy(backpanels[0]);
                 Destroy(backpanels[1]);
+				Instantiate (BackPanelChunks, transform.InverseTransformPoint(transform.position), Quaternion.identity);
+				Instantiate(AIBase.explosion, transform.position + Vector3.up, Quaternion.identity);
                 //sparks.Play();
                 GetComponent<Light>().color = Color.red;
             }
