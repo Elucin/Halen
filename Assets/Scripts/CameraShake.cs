@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class platform_CameraShake : MonoBehaviour {
+public class CameraShake : MonoBehaviour {
 
 	private float duration;
 	private float magnitude;
@@ -22,8 +22,9 @@ public class platform_CameraShake : MonoBehaviour {
 
 	// -------------------------------------------------------------------------
 	void Start() {
-		duration = 20.0f;
-		magnitude = 0.15f;
+		duration = 3000.0f;
+		magnitude = 0.05f;
+		PlayShake ();
 	}
 
 	// -------------------------------------------------------------------------
@@ -41,10 +42,11 @@ public class platform_CameraShake : MonoBehaviour {
 			// map noise to [-1, 1]
 			float x = Random.value * 2.0f - 1.0f;
 			float y = Random.value * 2.0f - 1.0f;
-			x *= magnitude * damper;
-			y *= magnitude * damper;
+			x *= magnitude;
+			y *= magnitude;
 
-			Debug.Log ("Big Shake");
+
+			Debug.Log ("Small Shake");
 			Camera.main.transform.position = new Vector3(x + Camera.main.transform.position.x, y + Camera.main.transform.position.y, Camera.main.transform.position.z);
 
 			yield return null;
