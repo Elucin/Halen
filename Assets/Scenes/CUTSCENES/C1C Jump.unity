@@ -5220,6 +5220,7 @@ GameObject:
   - component: {fileID: 346437575}
   - component: {fileID: 346437574}
   - component: {fileID: 346437579}
+  - component: {fileID: 346437580}
   m_Layer: 0
   m_Name: Shot3
   m_TagString: Untagged
@@ -5315,6 +5316,23 @@ MonoBehaviour:
   m_MinZ: 0.237
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &346437580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346437573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.39
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &351573140
 GameObject:
   m_ObjectHideFlags: 0
@@ -10469,6 +10487,7 @@ GameObject:
   - component: {fileID: 529609944}
   - component: {fileID: 529609943}
   - component: {fileID: 529609948}
+  - component: {fileID: 529609949}
   m_Layer: 0
   m_Name: Shot1
   m_TagString: Untagged
@@ -10555,15 +10574,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Radius: 0.59
+  m_Radius: 0.081
   m_SampleCount: 2
-  m_OcclusionIntensity: 1.03
-  m_Blur: 2
-  m_Downsampling: 3
-  m_OcclusionAttenuation: 1.08
-  m_MinZ: 0.01
+  m_OcclusionIntensity: 0.5
+  m_Blur: 1
+  m_Downsampling: 1
+  m_OcclusionAttenuation: 0.2
+  m_MinZ: 0.047
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &529609949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529609942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.39
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &534307912
 GameObject:
   m_ObjectHideFlags: 0
@@ -38463,8 +38499,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
-  far clip plane: 1000
+  near clip plane: 1
+  far clip plane: 2000
   field of view: 38
   orthographic: 0
   orthographic size: 5
@@ -58420,7 +58456,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1487971828
+  randomSeed: -2131872522
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -61009,7 +61045,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653405621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 2.35, z: 0}
   m_LocalScale: {x: 3.5891907, y: 3.5891895, z: 3.5891895}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61230,6 +61266,7 @@ GameObject:
   - component: {fileID: 1669715518}
   - component: {fileID: 1669715517}
   - component: {fileID: 1669715522}
+  - component: {fileID: 1669715523}
   m_Layer: 0
   m_Name: Shot2
   m_TagString: Untagged
@@ -61325,6 +61362,23 @@ MonoBehaviour:
   m_MinZ: 0.102
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &1669715523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669715516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.39
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &1671061411
 GameObject:
   m_ObjectHideFlags: 0
@@ -73066,6 +73120,7 @@ GameObject:
   - component: {fileID: 1987147476}
   - component: {fileID: 1987147475}
   - component: {fileID: 1987147480}
+  - component: {fileID: 1987147481}
   m_Layer: 0
   m_Name: Shot4
   m_TagString: Untagged
@@ -73161,6 +73216,23 @@ MonoBehaviour:
   m_MinZ: 0.01
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &1987147481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987147474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.39
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &1991135661
 GameObject:
   m_ObjectHideFlags: 0
