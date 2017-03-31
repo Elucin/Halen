@@ -1949,7 +1949,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1656723615
+  randomSeed: -957680685
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1993,7 +1993,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.94
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2125,7 +2125,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 1.5
+      scalar: 0.55
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2363,7 +2363,7 @@ ParticleSystem:
     size3D: 0
     rotation3D: 0
     gravityModifier:
-      scalar: -0.03
+      scalar: -0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2428,7 +2428,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 20
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2527,22 +2527,16 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 0.5027627
           value: 1
-          inSlope: -0.0579332
-          outSlope: -0.0579332
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -3398,7 +3392,7 @@ ParticleSystem:
   NoiseModule:
     enabled: 1
     strength:
-      scalar: 1
+      scalar: 0.42
       maxCurve:
         serializedVersion: 2
         m_Curve:
