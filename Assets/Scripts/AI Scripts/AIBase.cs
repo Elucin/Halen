@@ -351,7 +351,7 @@ public class AIBase : MonoBehaviour {
         yield return null;
     }
 
-    IEnumerator AgentDestination()
+    protected IEnumerator AgentDestination()
     {
         doDest = false;
         yield return new WaitForSeconds(0.5f);

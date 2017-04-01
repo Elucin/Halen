@@ -9,8 +9,9 @@ public class LoadScene : MonoBehaviour {
     public int cutsceneID = 0;
    
     // Use this for initialization
-    void Start () {
-	    
+    void Update () {
+		if (Input.GetKey (KeyCode.LeftControl) && Input.GetKey (KeyCode.F))
+			LoadTheNextScene ();
 	}
 	
 	// Update is called once per frame
@@ -18,30 +19,35 @@ public class LoadScene : MonoBehaviour {
     {
         if(c.tag == "Player")
         {
-            StopAllCoroutines();
-            if (!loadNextScene)
-            {
-                LoadNextScene.Level = sceneIndex;
-            }
-            else
-            {
-                int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-                LoadNextScene.Level = thisIndex + 1;
-            }
-            Debug.Log("Set To Load Scene: " + LoadNextScene.Level);
-            if (loadScoreScreen)
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
-            }
-            else if(loadCutscene)
-            {
-                PlayVideo.clipIndex = cutsceneID;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Cutscene");
-            }
-            else
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
-            }
+			LoadTheNextScene ();
         }
     }
+
+	void LoadTheNextScene()
+	{
+		StopAllCoroutines();
+		if (!loadNextScene)
+		{
+			LoadNextScene.Level = sceneIndex;
+		}
+		else
+		{
+			int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+			LoadNextScene.Level = thisIndex + 1;
+		}
+
+		if (loadScoreScreen)
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+		}
+		else if(loadCutscene)
+		{
+			PlayVideo.clipIndex = cutsceneID;
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Cutscene");
+		}
+		else
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+		}
+	}
 }

@@ -19,7 +19,7 @@ public class SmallShot : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
         ricochet = false;
-        bulletDamage = 5.0f;
+        //bulletDamage = 5.0f;
 		scaleLimit = 0.5f;
 		z = 17.0f;
 		bulletSpeed = 200f;

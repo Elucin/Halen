@@ -98,13 +98,17 @@ public class AIRival : AIBase {
 
     // Update is called once per frame
     protected override void Update () {
-		if (TakenDamage()) {
+		if (Vector3.Distance (transform.position, PlayerControl.Position) < 15f)
+			triggerCount = 1;
+		else
+			triggerCount = 0;
+
+		if (TakenDamage() && currentBaseState != teleportEndState) {
 			int randSound = Random.Range (0, hit.GetLength (0) - 1);
 			CurrentSound.PlayOneShot (hit [randSound], 1f);
 			//anim.SetBool(playerInRangeBool, true);
 			anim.SetTrigger(playerCloseTrig);
 			startTeleport = true;
-
 		}
 
 
@@ -114,6 +118,8 @@ public class AIRival : AIBase {
 			CurrentSound.PlayOneShot (taunt [randSound], 1f);
 		}
 
+		if (doDest)
+			StartCoroutine(AgentDestination());
 
 		currentBaseState = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         currentAttackState = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
@@ -125,7 +131,7 @@ public class AIRival : AIBase {
             anim.SetInteger(bossStageInt, 2);
         else if (health <= 40f && health > 0f)
             anim.SetInteger(bossStageInt, 3);
-        else if (health <= 0f)
+		else if (health <= 0f || (Input.GetKey (KeyCode.LeftControl) && Input.GetKey (KeyCode.F)))
         {
             int thisIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
             LoadNextScene.Level = thisIndex + 1;
@@ -150,7 +156,7 @@ public class AIRival : AIBase {
         if (currentBaseState == moveState)
         {
             meshAgent.updateRotation = true;
-            if (Vector3.Distance(transform.position, PlayerControl.Position) < 10)
+            if (Vector3.Distance(transform.position, PlayerControl.Position) < 25)
             {
                 StartCoroutine(Retreat());
             }
@@ -228,7 +234,7 @@ public class AIRival : AIBase {
         //anim.SetBool(playerInRangeBool, triggerCount > 0);
 
         //If the Rival is close to PlayerControl.halenGO (T > 1) and he isn't already teleporting (for the sake of melee teleporting that requires proximity)
-		if (triggerCount > 0 && !anim.GetBool(doMeleeTeleportBool) && !startTeleport && currentBaseState != teleportingState)
+		if (triggerCount > 0 && !anim.GetBool(doMeleeTeleportBool) && currentBaseState != teleportingState)
         {
             anim.SetTrigger(playerCloseTrig);
             startTeleport = true;
