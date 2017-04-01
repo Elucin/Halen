@@ -8,7 +8,7 @@ public class RecordFrames : MonoBehaviour
     // a movie using image utility software (eg, QuickTime Pro).
     // The folder to contain our screenshots.
     // If the folder exists we will append numbers to create an empty folder.
-    string folder = "C1C";
+    public string folder = "C1C";
     int frameRate = 30;
 
     void Start()
