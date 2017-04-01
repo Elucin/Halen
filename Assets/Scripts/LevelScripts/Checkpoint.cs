@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour {
     Jumo jumper;
 
 	public AudioClip node;
-	public AudioClip [] nodeVO;
+	//public AudioClip [] nodeVO;
 	public AudioSource CurrentSound;
 
     // Use this for initialization
@@ -46,8 +46,8 @@ public class Checkpoint : MonoBehaviour {
 			Inactive.Stop ();
 			CheckLight.SetActive (true);
 
-			int randSound = Random.Range (0, nodeVO.GetLength (0) - 1);
-			CurrentSound.PlayOneShot (nodeVO [randSound], 1);
+			//int randSound = Random.Range (0, nodeVO.GetLength (0) - 1);
+			//CurrentSound.PlayOneShot (nodeVO [randSound], 1);
 			CurrentSound.PlayOneShot (node, 1);
         }
     }
