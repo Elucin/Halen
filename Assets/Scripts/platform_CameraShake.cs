@@ -43,8 +43,7 @@ public class platform_CameraShake : MonoBehaviour {
 			float y = Random.value * 2.0f - 1.0f;
 			x *= magnitude * damper;
 			y *= magnitude * damper;
-
-			Debug.Log ("Big Shake");
+		
 			Camera.main.transform.position = new Vector3(x + Camera.main.transform.position.x, y + Camera.main.transform.position.y, Camera.main.transform.position.z);
 
 			yield return null;

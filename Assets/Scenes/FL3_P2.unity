@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 28b8818b9205a8c4fba1f8fb074e3eec, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -4708,6 +4709,15 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.8951148
       objectReference: {fileID: 0}
+    - target: {fileID: 23466890060498574, guid: 7dab29d5184751c43a5c731a58aad564,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207431155073354, guid: 7dab29d5184751c43a5c731a58aad564, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dab29d5184751c43a5c731a58aad564, type: 2}
   m_IsPrefabParent: 0
@@ -5921,6 +5931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: ed2e6172b491d8b48b3c854f25c2957c, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -6338,6 +6349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: ec52d89d092056c478edec3c8b3f2a66, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -6511,6 +6523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: f954259b342fba542bcc8c3450c69a00, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -6626,6 +6639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 1a2e7a84f78517742a26d47e43753e54, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -7254,6 +7268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 3770dfe837f7c4347a733e4d3761c7d0, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -15703,6 +15718,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 852946d5d291ad84b9d4055d377f0f8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852946d5d291ad84b9d4055d377f0f8f, type: 3}
   m_IsPrefabParent: 0
@@ -16410,7 +16429,8 @@ AudioSource:
   m_GameObject: {fileID: 1392410002}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243337704541595538, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 613339d3f8fee014e83d49e9f4e3d498, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.612
@@ -16830,6 +16850,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f725cac697aad546a1de376ef470fd6, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &1441808340 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82786453869296852, guid: 1015fcd549105cf43a9eab1ec8b1e552,
+    type: 2}
+  m_PrefabInternal: {fileID: 829475306}
 --- !u!1001 &1470622972
 Prefab:
   m_ObjectHideFlags: 0
@@ -17134,7 +17159,8 @@ AudioSource:
   m_GameObject: {fileID: 1537784386}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243337704541595538, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: badad6b240138bb498dffe7ea5c4f9ee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.408
@@ -17193,7 +17219,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -17621,6 +17647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 77444d039e682d34ba575d2c7a08ceef, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -24466,6 +24493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: efea71a0f4896af4994685831e2ed1c9, type: 3}
+  CurrentSound: {fileID: 1441808340}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -33854,7 +33882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4220491072640022, guid: ca91c624d0a52cb45804bf542e94df81, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 158.6865
+      value: 158.794
       objectReference: {fileID: 0}
     - target: {fileID: 4220491072640022, guid: ca91c624d0a52cb45804bf542e94df81, type: 2}
       propertyPath: m_LocalPosition.z

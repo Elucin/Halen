@@ -45,8 +45,6 @@ public class CameraShake : MonoBehaviour {
 			x *= magnitude;
 			y *= magnitude;
 
-
-			Debug.Log ("Small Shake");
 			Camera.main.transform.position = new Vector3(x + Camera.main.transform.position.x, y + Camera.main.transform.position.y, Camera.main.transform.position.z);
 
 			yield return null;

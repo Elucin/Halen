@@ -29,22 +29,27 @@ public class Electricity : MonoBehaviour {
         ParticleSystem.ShapeModule s = p.shape;
         Vector3[] pos = new Vector3[p.particleCount];
         p.GetParticles(particlePos);
-        if (Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.root.position)) < Threshold && Target != null && (!HalenZap || !PlayerControl.isDead))
-        {
-            s.length = 2 * Vector3.Distance(transform.TransformPoint(Source.position), transform.TransformPoint(Target.position));
-            transform.LookAt(Target.position);
-            s.angle = 0;
-            line.numPositions = p.particleCount + 2;
-            line.SetPosition(line.numPositions - 1, transform.InverseTransformPoint(Target.transform.position));
-        }
-        else
-        {
-            s.length = 20f;
-            transform.LookAt(transform.position + Vector3.up);
-            s.angle = 20;
-            line.numPositions = p.particleCount + 1;
-        }
-
+		if (Target != null) {
+			if (Vector3.Distance (transform.TransformPoint (Source.position), transform.TransformPoint (Target.root.position)) < Threshold && (!HalenZap || !PlayerControl.isDead)) {
+				s.length = 2 * Vector3.Distance (transform.TransformPoint (Source.position), transform.TransformPoint (Target.position));
+				transform.LookAt (Target.position);
+				s.angle = 0;
+				line.numPositions = p.particleCount + 2;
+				line.SetPosition (line.numPositions - 1, transform.InverseTransformPoint (Target.transform.position));
+			}
+			else {
+				s.length = 20f;
+				transform.LookAt (transform.position + Vector3.up);
+				s.angle = 20;
+				line.numPositions = p.particleCount + 1;
+			}
+		}
+		else {
+			s.length = 20f;
+			transform.LookAt (transform.position + Vector3.up);
+			s.angle = 20;
+			line.numPositions = p.particleCount + 1;
+		}
             
         for (int i = 0; i < p.particleCount; i++)
         {
