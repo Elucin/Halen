@@ -595,7 +595,7 @@ public class PlayerControl : MonoBehaviour
 
 		if (currentBaseState == jumpState && anim.GetBool (jumpBool) && wallHoldStatus == 0) {
             if(speed > 0.1f)
-                rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+				rb.AddForce(transform.up * jumpHeight * 1.25f, ForceMode.Impulse);
             else
                 rb.AddForce(transform.up * jumpHeight * 1.25f, ForceMode.Impulse);
             anim.SetBool(jumpBool, false);
