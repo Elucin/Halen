@@ -13,7 +13,7 @@ public class VOActivate : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c)
 	{
-		if (c.CompareTag("Player"))
+		if (c.CompareTag("Player") && KickerVO)
 		{
 			KickerVO.SetActive (true);
 		}

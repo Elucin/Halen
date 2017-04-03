@@ -5,6 +5,7 @@ using UnityEngine;
 public class EyeSequence : MonoBehaviour {
 
     public AudioClip aClip;
+	public AudioSource CurrentSound;
 	halenEyes_Script eyeScript;
 	public halenEyes_Script.EyeStruct[] EyeStep;
     public bool interrupt = true;
@@ -27,7 +28,7 @@ public class EyeSequence : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         if (aClip != null)
         {
-            AudioSource a = c.GetComponent<AudioSource>();
+			AudioSource a = CurrentSound;
             if (interrupt || !a.isPlaying)
             {
                 a.clip = aClip;
