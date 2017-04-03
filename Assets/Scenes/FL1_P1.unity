@@ -2695,6 +2695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 7b2b894fddd7cfa4ba63671e86af72c7, type: 3}
+  CurrentSound: {fileID: 1772658015}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -4610,27 +4611,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4174857742719264, guid: 3131e6425536518459ef2fbdc1624935,
     type: 2}
   m_PrefabInternal: {fileID: 1394561641}
---- !u!1 &357759361 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 145850, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-  m_PrefabInternal: {fileID: 1563797786}
---- !u!114 &357759362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 357759361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0.25
-  intensity: 0.1
-  blurSize: 1
-  blurIterations: 1
-  blurType: 0
-  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &371660869 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 5167474b4ff4e944c9035adc701eafc8, type: 3}
@@ -5461,11 +5441,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 114248262683823236, guid: ef6c91a78beaa5044bcbad488a8d5fb9,
-        type: 2}
-      propertyPath: CurrentSound
-      value: 
-      objectReference: {fileID: 1318422973}
     - target: {fileID: 114178222822322464, guid: ef6c91a78beaa5044bcbad488a8d5fb9,
         type: 2}
       propertyPath: pauseMenu
@@ -5481,6 +5456,11 @@ Prefab:
       propertyPath: _PlayerSFXManager
       value: 
       objectReference: {fileID: 1318422975}
+    - target: {fileID: 114248262683823236, guid: ef6c91a78beaa5044bcbad488a8d5fb9,
+        type: 2}
+      propertyPath: CurrentSound
+      value: 
+      objectReference: {fileID: 1318422973}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef6c91a78beaa5044bcbad488a8d5fb9, type: 2}
   m_IsPrefabParent: 0
@@ -8561,7 +8541,8 @@ AudioSource:
   m_GameObject: {fileID: 721034081}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243337704541595538, guid: ce2dcd8791a64d145b800b8c6c4b8f5a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4ae26a22c52800c42a34f80b6540fe7e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.836
@@ -11082,6 +11063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: b793bae41df40174c9e0746f624e2fbc, type: 3}
+  CurrentSound: {fileID: 1772658015}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -13107,23 +13089,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 452160, guid: db1865722e088a94aa361252885a3acc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.5620003
-      objectReference: {fileID: 0}
-    - target: {fileID: 452160, guid: db1865722e088a94aa361252885a3acc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.14500001
-      objectReference: {fileID: 0}
-    - target: {fileID: 452160, guid: db1865722e088a94aa361252885a3acc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.1330001
-      objectReference: {fileID: 0}
-    - target: {fileID: 82987507147677120, guid: db1865722e088a94aa361252885a3acc,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db1865722e088a94aa361252885a3acc, type: 2}
   m_IsPrefabParent: 0
@@ -14940,6 +14905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: ecd3092cf7c2c2348bce9b00b37c52ad, type: 3}
+  CurrentSound: {fileID: 1772658015}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -20264,6 +20230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: 265a63d77888ce144aa54499513cca7b, type: 3}
+  CurrentSound: {fileID: 1772658015}
   EyeStep: []
   interrupt: 1
   delay: 0
@@ -22318,10 +22285,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 870090550}
-    - target: {fileID: 11485584, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1015fcd549105cf43a9eab1ec8b1e552, type: 2}
   m_IsPrefabParent: 0
@@ -25535,6 +25498,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1770775617}
   m_Mesh: {fileID: 4300000, guid: e4641ef64ab68f041ae5d6615027e530, type: 3}
+--- !u!82 &1772658015 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82786453869296852, guid: 1015fcd549105cf43a9eab1ec8b1e552,
+    type: 2}
+  m_PrefabInternal: {fileID: 1563797786}
 --- !u!1 &1772752111 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f6623f3d8ebbfe643a3e7acaaa28d719, type: 3}
@@ -28230,6 +28198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aClip: {fileID: 8300000, guid: dd9ce7084318be04d82e81bdd9d0783e, type: 3}
+  CurrentSound: {fileID: 1772658015}
   EyeStep: []
   interrupt: 1
   delay: 0

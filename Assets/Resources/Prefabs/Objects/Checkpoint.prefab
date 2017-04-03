@@ -27,8 +27,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -426.2351, y: -5.649469, z: -406.87238}
+  m_LocalRotation: {x: 0.031034058, y: 0.0021159442, z: -0.027364323, w: 0.99914145}
+  m_LocalPosition: {x: -592.13, y: 21.89, z: -453.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4817497774874692}
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 4261216124993182}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.5620003, y: 0.14500001, z: -3.1330001}
 --- !u!23 &2306294
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -109,11 +109,6 @@ MonoBehaviour:
   Inactive: {fileID: 198245346927861114}
   Active: {fileID: 198460695190817482}
   node: {fileID: 8300000, guid: 19e013ff4b774494bad6aacf4e8746e3, type: 3}
-  nodeVO:
-  - {fileID: 8300000, guid: 92393aa17bb49ed49add60b2007501f1, type: 3}
-  - {fileID: 8300000, guid: 7bf03e7d1bd999142aae25c2db552281, type: 3}
-  - {fileID: 8300000, guid: ffa7bb90547edb94a9da890347fcd796, type: 3}
-  - {fileID: 8300000, guid: 7a41458bf7acbed499309327570c0f00, type: 3}
   CurrentSound: {fileID: 82987507147677120}
 --- !u!135 &13598966
 SphereCollider:
@@ -388,7 +383,8 @@ AudioSource:
   m_GameObject: {fileID: 156116}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243726609032331688, guid: aa501d9b239e041428bc309e121c280b,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
