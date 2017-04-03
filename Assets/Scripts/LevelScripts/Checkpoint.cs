@@ -10,6 +10,8 @@ public class Checkpoint : MonoBehaviour {
 	public GameObject CheckLight;
 	public ParticleSystem Inactive;
 	public ParticleSystem Active;
+	public GameObject Orb;
+
     Jumo jumper;
 
 	public AudioClip node;
@@ -45,6 +47,7 @@ public class Checkpoint : MonoBehaviour {
 			Active.Play ();
 			Inactive.Stop ();
 			CheckLight.SetActive (true);
+			Orb.SetActive (false);
 
 			//int randSound = Random.Range (0, nodeVO.GetLength (0) - 1);
 			//CurrentSound.PlayOneShot (nodeVO [randSound], 1);

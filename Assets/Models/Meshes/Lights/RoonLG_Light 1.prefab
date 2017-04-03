@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33214139163567480}
   - component: {fileID: 64420170293417774}
   - component: {fileID: 23313602606228108}
+  - component: {fileID: 114255215092122806}
   m_Layer: 0
   m_Name: RoonLG_Light 1
   m_TagString: Untagged
@@ -52,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1307813657323598}
   m_LocalRotation: {x: 0.100579344, y: 0.699917, z: -0.699917, w: 0.100579344}
-  m_LocalPosition: {x: -540.17, y: 17.92, z: -401.95}
-  m_LocalScale: {x: 0.13687083, y: 0.28730655, z: 0.28730655}
+  m_LocalPosition: {x: 21.28, y: 2.259, z: 12.19}
+  m_LocalScale: {x: 0.13687083, y: 0.28730655, z: 0.3171707}
   m_Children:
   - {fileID: 4868258701136402}
   m_Father: {fileID: 0}
@@ -85,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 40795f475a6ec1c4ab6391dcfcf2858e, type: 2}
+  - {fileID: 2100000, guid: 38507e0973e3c6443ac84869cd94ee4c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,3 +159,35 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114255215092122806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307813657323598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a594859f263ac41986978d7c700f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RuneImage:
+  - {fileID: 2100000, guid: 40795f475a6ec1c4ab6391dcfcf2858e, type: 2}
+  - {fileID: 2100000, guid: 6b0ae13322e5dc640935c2d37436e326, type: 2}
+  - {fileID: 2100000, guid: d6a618412e0f5b94b98815929ed3821b, type: 2}
+  - {fileID: 2100000, guid: 2adbf27d64d1529489a42125e7b132f7, type: 2}
+  - {fileID: 2100000, guid: 88fc95f16644bb1418f02ea6b0027cce, type: 2}
+  - {fileID: 2100000, guid: 06b4e50d456156743a6006cd6dc9720a, type: 2}
+  - {fileID: 2100000, guid: 1412d2c56b475e242a4977b6b95ce5b6, type: 2}
+  - {fileID: 2100000, guid: 38507e0973e3c6443ac84869cd94ee4c, type: 2}
+  - {fileID: 2100000, guid: bd0883883ca3313438de2996ac46d32d, type: 2}
+  - {fileID: 2100000, guid: abb9f0cd636d49449ae7c082f9fc565d, type: 2}
+  - {fileID: 2100000, guid: 44f36c04766be6246a9e2b782e345976, type: 2}
+  - {fileID: 2100000, guid: 94294dae349c3e7428a9fc5d22250e83, type: 2}
+  - {fileID: 2100000, guid: f7385b1bcf83d2649985dfe5c726a631, type: 2}
+  - {fileID: 2100000, guid: 7e7b0e50b1f43a24fb1acd6ef00a8462, type: 2}
+  - {fileID: 2100000, guid: f5819fed43796a04081be029d96baef0, type: 2}
+  - {fileID: 2100000, guid: 651b693fbb1144941b71a314c15644b6, type: 2}
+  - {fileID: 2100000, guid: ff7bab000dd96714c9227d169f25a299, type: 2}
+  - {fileID: 2100000, guid: 81cd74fc6595bbc4aa564a48e329be29, type: 2}
+  - {fileID: 2100000, guid: e2005044b8b43d1409ea563cce01b150, type: 2}
+  - {fileID: 2100000, guid: 3101e152e549788469916fb3e676c4b3, type: 2}
