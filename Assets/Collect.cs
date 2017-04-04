@@ -27,7 +27,7 @@ public class Collect : MonoBehaviour {
 	void Collected()
 	{
 		//[Add points]
-		Scoring.AddScore(this.transform,0,100,0);
+		Scoring.AddScore(this.transform,0,500,0);
 		ParticleSystem CollectParticle = Instantiate (CollectedParticle, CollectTrans.position, Quaternion.identity) as ParticleSystem;
 
 		Destroy (gameObject);
