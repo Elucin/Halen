@@ -73,21 +73,25 @@ public static class Scoring{
             scoreObject.GetComponent<ScoreObject>().color = Color.red;
             scoreObject.GetComponent<TextMesh>().text = "-" + Mathf.Abs(points).ToString();
         }
-
-        
-        
     }
 
     public static void ResetScore()
     {
-        PlayerScore = 0;
-        gunnersKilled = 0;
-        floatersKilled = 0;
-        brawlersKilled = 0;
-        chargersKilled = 0;
-        biggestCombo = 0;
-        snipersKilled = 0;
-    }
+        PlayerScore = PlayerPrefs.GetInt("ScoreL", 0);
+        gunnersKilled = PlayerPrefs.GetInt("GunnersL", 0);
+        floatersKilled = PlayerPrefs.GetInt("FloatersL", 0);
+        brawlersKilled = PlayerPrefs.GetInt("BrawlersL", 0);
+        chargersKilled = PlayerPrefs.GetInt("ChargersL", 0);
+        biggestCombo = PlayerPrefs.GetInt("ComboL", 0);
+        snipersKilled = PlayerPrefs.GetInt("SnipersL", 0);
+        PlayerPrefs.SetInt("Brawlers", PlayerPrefs.GetInt("BrawlersL", 0));
+        PlayerPrefs.SetInt("Chargers", PlayerPrefs.GetInt("ChargersL", 0));
+        PlayerPrefs.SetInt("Gunners", PlayerPrefs.GetInt("GunnersL", 0));
+        PlayerPrefs.SetInt("Snipers", PlayerPrefs.GetInt("SnipersL", 0));
+        PlayerPrefs.SetInt("Floaters", PlayerPrefs.GetInt("FloatersL", 0));
+        PlayerPrefs.SetInt("Combo", PlayerPrefs.GetInt("ComboL", 0));
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("ScoreL", 0));
+}
     /*
     public static IEnumerator Bump(float targetY, Transform t)
     {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Saving : MonoBehaviour
 {
@@ -7,10 +8,19 @@ public class Saving : MonoBehaviour
     //public static int CheckpointID = -1;
     public static bool doLoad = false;
     public static bool twoArm = false;
-    public static int Checkpoint = 0;
+    public static int CP = 0;
     public static GameObject halen;
     public static GameObject halen2Arm;
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     void Start()
     {
 
@@ -20,6 +30,22 @@ public class Saving : MonoBehaviour
         if(doLoad)
         {
             Load();
+        }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Checkpoint.numCheckpoints = 0;
+        MineScript.mineList = new System.Collections.Generic.List<Transform>();
+        if (scene.name != "ScoreScreen" && scene.name != "Cutscene")
+        {
+            PlayerPrefs.SetInt("BrawlersL", Scoring.brawlersKilled);
+            PlayerPrefs.SetInt("ChargersL", Scoring.chargersKilled);
+            PlayerPrefs.SetInt("GunnersL", Scoring.gunnersKilled);
+            PlayerPrefs.SetInt("SnipersL", Scoring.snipersKilled);
+            PlayerPrefs.SetInt("FloatersL", Scoring.floatersKilled);
+            PlayerPrefs.SetInt("ComboL", Scoring.biggestCombo);
+            PlayerPrefs.SetInt("ScoreL", Scoring.PlayerScore);
         }
     }
 
@@ -65,27 +91,13 @@ public class Saving : MonoBehaviour
     public static void Load()
     {
         doLoad = false;
-        PlayerPrefs.GetInt("Brawlers", 0);
-        PlayerPrefs.GetInt("Gunners", 0);
-        PlayerPrefs.GetInt("Snipers", 0);
-        PlayerPrefs.GetInt("Chargers", 0);
-        PlayerPrefs.GetInt("Floaters", 0);
-        PlayerPrefs.GetInt("Combo", 0);
-        Scoring.PlayerScore = PlayerPrefs.GetInt("Score", 0);
-        Vector3 checkpoint = GameObject.Find("Checkpoint" + Checkpoint).transform.position;
+        Vector3 checkpoint = GameObject.Find("Checkpoint" + CP).transform.position;
         GameObject.FindGameObjectWithTag("Player").transform.position = checkpoint;
     }
 
     public static void Reload()
     {
         doLoad = false;
-        PlayerPrefs.GetInt("Brawlers", 0);
-        PlayerPrefs.GetInt("Gunners", 0);
-        PlayerPrefs.GetInt("Snipers", 0);
-        PlayerPrefs.GetInt("Chargers", 0);
-        PlayerPrefs.GetInt("Floaters", 0);
-        PlayerPrefs.GetInt("Combo", 0);
-        Scoring.PlayerScore = PlayerPrefs.GetInt("Score", 0);
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }

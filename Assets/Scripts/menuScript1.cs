@@ -32,6 +32,20 @@ public class menuScript1 : MonoBehaviour {
         Scoring.snipersKilled = 0;
         Scoring.biggestCombo = 0;
         Scoring.PlayerScore = 0;
+        PlayerPrefs.SetInt("Brawlers", 0);
+        PlayerPrefs.SetInt("Chargers", 0);
+        PlayerPrefs.SetInt("Gunners", 0);
+        PlayerPrefs.SetInt("Snipers", 0);
+        PlayerPrefs.SetInt("Floaters", 0);
+        PlayerPrefs.SetInt("Combo", 0);
+        PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("BrawlersL", 0);
+        PlayerPrefs.SetInt("ChargersL", 0);
+        PlayerPrefs.SetInt("GunnersL", 0);
+        PlayerPrefs.SetInt("SnipersL", 0);
+        PlayerPrefs.SetInt("FloatersL", 0);
+        PlayerPrefs.SetInt("ComboL", 0);
+        PlayerPrefs.SetInt("ScoreL", 0);
         LoadNextScene.Level = SceneManager.GetActiveScene().buildIndex + 1;
         PlayVideo.clipIndex = 0;
         SceneManager.LoadScene("Cutscene");
@@ -44,9 +58,16 @@ public class menuScript1 : MonoBehaviour {
 
     public void ContinueGame()
     {
+        Scoring.brawlersKilled = PlayerPrefs.GetInt("Brawlers", 0);
+        Scoring.chargersKilled = PlayerPrefs.GetInt("Chargers", 0);
+        Scoring.gunnersKilled = PlayerPrefs.GetInt("Gunners", 0);
+        Scoring.snipersKilled = PlayerPrefs.GetInt("Snipers", 0);
+        Scoring.floatersKilled = PlayerPrefs.GetInt("Floaters", 0);
+        Scoring.biggestCombo = PlayerPrefs.GetInt("Combo", 0);
+        Scoring.PlayerScore = PlayerPrefs.GetInt("Score", 0);
         LoadNextScene.Level = PlayerPrefs.GetInt("Level", 1);
         Saving.doLoad = true;
-        Saving.Checkpoint = PlayerPrefs.GetInt("Checkpoint", -1);
+        Saving.CP = PlayerPrefs.GetInt("Checkpoint", -1);
         SceneManager.LoadScene("Loading");
     }
 }

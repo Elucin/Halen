@@ -10,7 +10,10 @@ public class ScoreScreen : MonoBehaviour {
     public Text Chargers;
     public Text Combo;
     public Text Total;
+    public Text FinalScore;
+    public Text Name;
     HSController hsControl;
+    public GameObject scoreUploadCanvas;
     // Use this for initialization
     void Start () {
 		Cursor.visible = true;
@@ -23,6 +26,7 @@ public class ScoreScreen : MonoBehaviour {
         Floaters.text = Scoring.floatersKilled.ToString();
         Combo.text = Scoring.biggestCombo.ToString();
         Total.text = Scoring.PlayerScore.ToString();
+        FinalScore.text = Scoring.PlayerScore.ToString();
     }
 
     public void Restart()
@@ -42,7 +46,20 @@ public class ScoreScreen : MonoBehaviour {
     {
         //StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
         if (LoadNextScene.Level == 7)
-            LoadNextScene.Level = 8;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+            scoreUploadCanvas.SetActive(true);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+    }
+
+    public void SubmitHighscore()
+    {
+        if(Name.text != "")
+            StartCoroutine(hsControl.PostScores(Scoring.PlayerScore, Name.text));
+        else
+            StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+    public void Cancel()
+    {
+
     }
 }
