@@ -12,6 +12,7 @@ public class ScoreScreen : MonoBehaviour {
     public Text Total;
     public Text FinalScore;
     public Text Name;
+    public Text Position;
     HSController hsControl;
     public GameObject scoreUploadCanvas;
     // Use this for initialization
@@ -19,6 +20,7 @@ public class ScoreScreen : MonoBehaviour {
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
         hsControl = FindObjectOfType<HSController>();
+       
         Brawlers.text = Scoring.brawlersKilled.ToString();
         Gunners.text = Scoring.gunnersKilled.ToString();
         Snipers.text = Scoring.snipersKilled.ToString();
@@ -46,7 +48,10 @@ public class ScoreScreen : MonoBehaviour {
     {
         //StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
         if (LoadNextScene.Level == 7)
+        {
+            Position.text = hsControl.position.ToString();
             scoreUploadCanvas.SetActive(true);
+        }
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
     }
 

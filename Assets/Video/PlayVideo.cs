@@ -34,7 +34,6 @@ public class PlayVideo : MonoBehaviour {
 
     void Update()
     {
- 
         if(!movie.isPlaying || Input.GetButtonDown("Cancel"))
         {
             if(!CutsceneList[clipIndex].loadScoreScreen)
