@@ -3196,27 +3196,27 @@ Prefab:
     - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
         type: 2}
       propertyPath: m_AABB.m_Center.y
-      value: 0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
         type: 2}
       propertyPath: m_AABB.m_Center.z
-      value: 0.035949707
+      value: 0.03591919
       objectReference: {fileID: 0}
     - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
         type: 2}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.04834993
+      value: 0.055908576
       objectReference: {fileID: 0}
     - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
         type: 2}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.2890744
+      value: 0.29924884
       objectReference: {fileID: 0}
     - target: {fileID: 137623040193970968, guid: ecb9a1876cb5f434fadc5954d57c69cf,
         type: 2}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.043073792
+      value: 0.12752199
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb9a1876cb5f434fadc5954d57c69cf, type: 2}
@@ -5345,8 +5345,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Holding the Dash button will make you go farther! Use this with Double Jump
-    to cross large gaps.
+  m_Text: Holding the Dash button will make you go farther! Double Jump then Dash
+    to cross large gaps!
 --- !u!222 &382918347
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18920,6 +18920,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 29
       objectReference: {fileID: 0}
+    - target: {fileID: 23937595974445090, guid: ebfd1b295d01e2c4790eca7bcc0da6fa,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e08b0df1f7a7d934b9e623b9e1bc60fb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebfd1b295d01e2c4790eca7bcc0da6fa, type: 2}
   m_IsPrefabParent: 0
