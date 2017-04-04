@@ -1681,7 +1681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1564733210480720
 GameObject:
   m_ObjectHideFlags: 1
@@ -4767,8 +4767,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563900850683610}
-  m_LocalRotation: {x: -0, y: -0.6994029, z: -0, w: 0.7147277}
-  m_LocalPosition: {x: -421.145, y: -35.218887, z: -536.293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.85, y: 0.23, z: -37.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4050735469963902}
@@ -5826,14 +5826,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.13047664, b: 0.6102941, a: 1}
+  m_Color: {r: 0, g: 0.854902, b: 1, a: 0.42745098}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5b85fc6d0d5bed34694777a82d8613f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1edd30980e7f7094081b9daa391dedaf, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6489,7 +6489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.854902, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6593,14 +6593,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.42068958, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.854902, b: 0.9960785, a: 0.42745098}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 56b21c130978bc148a37c6d293390179, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf08743ee210709408971b21d30d1d85, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6686,7 +6686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.854902, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7693,8 +7693,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.000091552734, y: -0.0000023841858, z: 0.035949707}
-    m_Extent: {x: 0.049761806, y: 0.2891211, z: 0.04469193}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0.035938263}
+    m_Extent: {x: 0.04835404, y: 0.2890746, z: 0.043065436}
   m_DirtyAABB: 0
 --- !u!137 &137656189869126288
 SkinnedMeshRenderer:
@@ -28487,7 +28487,7 @@ RectTransform:
   m_LocalScale: {x: 0.3, y: -0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 224438819179865744}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28505,7 +28505,7 @@ RectTransform:
   m_LocalScale: {x: 0.3, y: -0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 224438819179865744}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28616,7 +28616,7 @@ RectTransform:
   m_Children:
   - {fileID: 224601005195897896}
   m_Father: {fileID: 224438819179865744}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28669,10 +28669,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0.029583758}
   m_LocalScale: {x: -0.000775704, y: -0.0007757017, z: -0.0007757046}
   m_Children:
+  - {fileID: 224055386009798288}
+  - {fileID: 224031260205942672}
   - {fileID: 224378702925522504}
   - {fileID: 224835713113085700}
-  - {fileID: 224031260205942672}
-  - {fileID: 224055386009798288}
   - {fileID: 224234874801508576}
   - {fileID: 224614157772274288}
   - {fileID: 224901106894733772}
@@ -28829,7 +28829,7 @@ RectTransform:
   m_Children:
   - {fileID: 224226726794563698}
   m_Father: {fileID: 224438819179865744}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
