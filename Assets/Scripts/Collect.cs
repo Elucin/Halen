@@ -7,16 +7,6 @@ public class Collect : MonoBehaviour {
 	public ParticleSystem CollectedParticle;
 	public Transform CollectTrans;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnTriggerEnter (Collider c)
 	{
 		if (c.CompareTag("Player")) {
@@ -27,11 +17,9 @@ public class Collect : MonoBehaviour {
 	void Collected()
 	{
 		//[Add points]
-		Scoring.AddScore(this.transform,0,500,0);
+		Scoring.AddScore(this.transform,0,1000,0);
 		Scoring.TrinketsCollected++;
 		ParticleSystem CollectParticle = Instantiate (CollectedParticle, CollectTrans.position, Quaternion.identity) as ParticleSystem;
-
 		Destroy (gameObject);
-
 	}
 }

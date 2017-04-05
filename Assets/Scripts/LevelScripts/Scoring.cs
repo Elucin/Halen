@@ -87,6 +87,8 @@ public static class Scoring{
         chargersKilled = PlayerPrefs.GetInt("ChargersL", 0);
         biggestCombo = PlayerPrefs.GetInt("ComboL", 0);
         snipersKilled = PlayerPrefs.GetInt("SnipersL", 0);
+		TrinketsCollected = PlayerPrefs.GetInt ("TrinketsL", 0);
+		PlayerPrefs.SetInt ("Trinkets", PlayerPrefs.GetInt ("TrinketsL", 0));
         PlayerPrefs.SetInt("Brawlers", PlayerPrefs.GetInt("BrawlersL", 0));
         PlayerPrefs.SetInt("Chargers", PlayerPrefs.GetInt("ChargersL", 0));
         PlayerPrefs.SetInt("Gunners", PlayerPrefs.GetInt("GunnersL", 0));

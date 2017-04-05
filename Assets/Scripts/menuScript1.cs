@@ -46,6 +46,7 @@ public class menuScript1 : MonoBehaviour {
         PlayerPrefs.SetInt("FloatersL", 0);
         PlayerPrefs.SetInt("ComboL", 0);
         PlayerPrefs.SetInt("ScoreL", 0);
+		PlayerPrefs.SetInt ("TrinketsL", 0);
         LoadNextScene.Level = SceneManager.GetActiveScene().buildIndex + 1;
         PlayVideo.clipIndex = 0;
         SceneManager.LoadScene("Cutscene");
@@ -65,6 +66,7 @@ public class menuScript1 : MonoBehaviour {
         Scoring.floatersKilled = PlayerPrefs.GetInt("Floaters", 0);
         Scoring.biggestCombo = PlayerPrefs.GetInt("Combo", 0);
         Scoring.PlayerScore = PlayerPrefs.GetInt("Score", 0);
+		Scoring.TrinketsCollected = PlayerPrefs.GetInt ("Trinkets", 0);
         LoadNextScene.Level = PlayerPrefs.GetInt("Level", 1);
         Saving.doLoad = true;
         Saving.CP = PlayerPrefs.GetInt("Checkpoint", -1);
