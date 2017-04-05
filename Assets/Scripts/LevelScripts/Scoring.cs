@@ -18,6 +18,9 @@ public static class Scoring{
     public static int floatersKilled = PlayerPrefs.GetInt("Floaters", 0);
     public static int biggestCombo = PlayerPrefs.GetInt("Combo", 0);
 
+	public static int TrinketsCollected = PlayerPrefs.GetInt("Trinkets", 0);
+
+
     public static int PlayerScore
     {
         get { return playerScore; }
