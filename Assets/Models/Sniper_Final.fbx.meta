@@ -1,708 +1,278 @@
 fileFormatVersion: 2
-guid: 2a9254b06076d8747a11dea24db58042
-timeCreated: 1490988438
+guid: 3e60f20004e9cea4f81b8e34e4c28c35
+timeCreated: 1491417980
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Back_Foot
-    100002: BackLeg
-    100004: Case
-    100006: grp_Geo
-    100008: Head
-    100010: jnt_B_Ankle
-    100012: jnt_B_Ankle 1
-    100014: jnt_B_Ankle1
-    100016: jnt_B_Ball
-    100018: jnt_B_Ball 1
-    100020: jnt_B_Ball1
-    100022: jnt_B_Foot
-    100024: jnt_B_Hip
-    100026: jnt_B_Knee
-    100028: jnt_B_Toe
-    100030: jnt_B_Toe 1
-    100032: jnt_B_Toe1
-    100034: jnt_Head
-    100036: jnt_HeadTop
-    100038: jnt_Hips
-    100040: jnt_L_Ankle
-    100042: jnt_L_Ankle 1
-    100044: jnt_L_Ankle1
-    100046: jnt_L_Ball
-    100048: jnt_L_Ball 1
-    100050: jnt_L_Ball1
-    100052: jnt_L_Foot
-    100054: jnt_L_Hip
-    100056: jnt_L_Knee
-    100058: jnt_L_Target
-    100060: jnt_L_Toe
-    100062: jnt_L_Toe 1
-    100064: jnt_L_Toe1
-    100066: jnt_R_Ankle
-    100068: jnt_R_Ankle 1
-    100070: jnt_R_Ankle1
-    100072: jnt_R_Ball
-    100074: jnt_R_Ball 1
-    100076: jnt_R_Ball1
-    100078: jnt_R_Foot
-    100080: jnt_R_Hip
-    100082: jnt_R_Knee
-    100084: jnt_R_Target
-    100086: jnt_R_Toe
-    100088: jnt_R_Toe 1
-    100090: jnt_R_Toe1
-    100092: jnt_Root
-    100094: joint1
-    100096: joint2
-    100098: joint3
-    100100: Left_Targeting
-    100102: LeftLeg
-    100104: pCube1
-    100106: pCube2
-    100108: pCube3
-    100110: pCube6
-    100112: pCylinder1
-    100114: pCylinder10
-    100116: pCylinder10 1
-    100118: pCylinder16
-    100120: pCylinder16 1
-    100122: pCylinder18
-    100124: pCylinder19
-    100126: pCylinder19 1
-    100128: pCylinder2
-    100130: pCylinder21
-    100132: pCylinder21 1
-    100134: pCylinder22
-    100136: pCylinder22 1
-    100138: pCylinder23
-    100140: pCylinder23 1
-    100142: pCylinder24
-    100144: pCylinder24 1
-    100146: pCylinder25
-    100148: pCylinder25 1
-    100150: pCylinder26
-    100152: pCylinder27
-    100154: pCylinder29
-    100156: pCylinder3
-    100158: pCylinder30
-    100160: pCylinder31
-    100162: pCylinder32
-    100164: pCylinder33
-    100166: pCylinder34
-    100168: pCylinder35
-    100170: pCylinder36
-    100172: pCylinder37
-    100174: pCylinder5
-    100176: pCylinder6
-    100178: pCylinder7
-    100180: pCylinder8
-    100182: pCylinder9
-    100184: polySurface2
-    100186: polySurface3
-    100188: polySurface4
-    100190: pSphere1
-    100192: pSphere1 1
-    100194: pSphere10
-    100196: pSphere11
-    100198: pSphere12
-    100200: pSphere13
-    100202: pSphere14
-    100204: pSphere15
-    100206: pSphere15 1
-    100208: pSphere16
-    100210: pSphere2
-    100212: pSphere2 1
-    100214: pSphere3
-    100216: pSphere3 1
-    100218: pSphere4
-    100220: pSphere4 1
-    100222: pSphere5
-    100224: pSphere5 1
-    100226: pSphere6
-    100228: pSphere6 1
-    100230: pSphere7
-    100232: pSphere8
-    100234: pSphere9
-    100236: Right_Targeting
-    100238: RightLeg
-    100240: //RootNode
-    100242: Torso
-    100244: Sniper2_Untextured:grp_mesh
-    100246: polySurface5
-    100248: polySurface6
-    100250: polySurface7
-    100252: polySurface7 1
-    100254: polySurface8
-    100256: polySurface8 1
-    100258: polySurface9
-    100260: Sniper2_Untextured:BackFoot
-    100262: Sniper2_Untextured:backShin_geo
-    100264: Sniper2_Untextured:backThigh_geo
-    100266: Sniper2_Untextured:eyeStock_L_geo
-    100268: Sniper2_Untextured:eyeStock_R_geo
-    100270: Sniper2_Untextured:gunBarrel_geo
-    100272: Sniper2_Untextured:gunButt_geo
-    100274: Sniper2_Untextured:head_geo
-    100276: Sniper2_Untextured:LeftFoot
-    100278: Sniper2_Untextured:pelvis_geo
-    100280: Sniper2_Untextured:RightFoot
-    100282: Sniper2_Untextured:shin_L_geo
-    100284: Sniper2_Untextured:shin_R_geo
-    100286: Sniper2_Untextured:thigh_L_geo
-    100288: Sniper2_Untextured:thigh_R_geo
-    100290: Sniper2_Untextured:Toe1
-    100292: Sniper2_Untextured:Toe1 1
-    100294: Sniper2_Untextured:Toe1 2
-    100296: Sniper2_Untextured:toe1_knuckle_geo
-    100298: Sniper2_Untextured:toe1_knuckle_geo 1
-    100300: Sniper2_Untextured:toe1_knuckle_geo 2
-    100302: Sniper2_Untextured:toe1_main_geo
-    100304: Sniper2_Untextured:toe1_main_geo 1
-    100306: Sniper2_Untextured:toe1_main_geo 2
-    100308: Sniper2_Untextured:toe1_tip_geo
-    100310: Sniper2_Untextured:toe1_tip_geo 1
-    100312: Sniper2_Untextured:toe1_tip_geo 2
-    100314: Sniper2_Untextured:Toe2
-    100316: Sniper2_Untextured:Toe2 1
-    100318: Sniper2_Untextured:Toe2 2
-    100320: Sniper2_Untextured:toe2_knuckle_geo
-    100322: Sniper2_Untextured:toe2_knuckle_geo 1
-    100324: Sniper2_Untextured:toe2_knuckle_geo 2
-    100326: Sniper2_Untextured:toe2_main_geo
-    100328: Sniper2_Untextured:toe2_main_geo 1
-    100330: Sniper2_Untextured:toe2_main_geo 2
-    100332: Sniper2_Untextured:toe2_tip_geo
-    100334: Sniper2_Untextured:toe2_tip_geo 1
-    100336: Sniper2_Untextured:toe2_tip_geo 2
-    100338: Sniper2_Untextured:Toe3
-    100340: Sniper2_Untextured:Toe3 1
-    100342: Sniper2_Untextured:Toe3 2
-    100344: Sniper2_Untextured:toe3_knuckle_geo
-    100346: Sniper2_Untextured:toe3_knuckle_geo 1
-    100348: Sniper2_Untextured:toe3_knuckle_geo 2
-    100350: Sniper2_Untextured:toe3_main_geo
-    100352: Sniper2_Untextured:toe3_main_geo 1
-    100354: Sniper2_Untextured:toe3_main_geo 2
-    100356: Sniper2_Untextured:toe3_tip_geo
-    100358: Sniper2_Untextured:toe3_tip_geo 1
-    100360: Sniper2_Untextured:toe3_tip_geo 2
-    100362: transform1
-    100364: transform2
-    100366: transform3
-    100368: transform4
-    100370: transform5
-    400000: Back_Foot
-    400002: BackLeg
-    400004: Case
-    400006: grp_Geo
-    400008: Head
-    400010: jnt_B_Ankle
-    400012: jnt_B_Ankle 1
-    400014: jnt_B_Ankle1
-    400016: jnt_B_Ball
-    400018: jnt_B_Ball 1
-    400020: jnt_B_Ball1
-    400022: jnt_B_Foot
-    400024: jnt_B_Hip
-    400026: jnt_B_Knee
-    400028: jnt_B_Toe
-    400030: jnt_B_Toe 1
-    400032: jnt_B_Toe1
-    400034: jnt_Head
-    400036: jnt_HeadTop
-    400038: jnt_Hips
-    400040: jnt_L_Ankle
-    400042: jnt_L_Ankle 1
-    400044: jnt_L_Ankle1
-    400046: jnt_L_Ball
-    400048: jnt_L_Ball 1
-    400050: jnt_L_Ball1
-    400052: jnt_L_Foot
-    400054: jnt_L_Hip
-    400056: jnt_L_Knee
-    400058: jnt_L_Target
-    400060: jnt_L_Toe
-    400062: jnt_L_Toe 1
-    400064: jnt_L_Toe1
-    400066: jnt_R_Ankle
-    400068: jnt_R_Ankle 1
-    400070: jnt_R_Ankle1
-    400072: jnt_R_Ball
-    400074: jnt_R_Ball 1
-    400076: jnt_R_Ball1
-    400078: jnt_R_Foot
-    400080: jnt_R_Hip
-    400082: jnt_R_Knee
-    400084: jnt_R_Target
-    400086: jnt_R_Toe
-    400088: jnt_R_Toe 1
-    400090: jnt_R_Toe1
-    400092: jnt_Root
-    400094: joint1
-    400096: joint2
-    400098: joint3
-    400100: Left_Targeting
-    400102: LeftLeg
-    400104: pCube1
-    400106: pCube2
-    400108: pCube3
-    400110: pCube6
-    400112: pCylinder1
-    400114: pCylinder10
-    400116: pCylinder10 1
-    400118: pCylinder16
-    400120: pCylinder16 1
-    400122: pCylinder18
-    400124: pCylinder19
-    400126: pCylinder19 1
-    400128: pCylinder2
-    400130: pCylinder21
-    400132: pCylinder21 1
-    400134: pCylinder22
-    400136: pCylinder22 1
-    400138: pCylinder23
-    400140: pCylinder23 1
-    400142: pCylinder24
-    400144: pCylinder24 1
-    400146: pCylinder25
-    400148: pCylinder25 1
-    400150: pCylinder26
-    400152: pCylinder27
-    400154: pCylinder29
-    400156: pCylinder3
-    400158: pCylinder30
-    400160: pCylinder31
-    400162: pCylinder32
-    400164: pCylinder33
-    400166: pCylinder34
-    400168: pCylinder35
-    400170: pCylinder36
-    400172: pCylinder37
-    400174: pCylinder5
-    400176: pCylinder6
-    400178: pCylinder7
-    400180: pCylinder8
-    400182: pCylinder9
-    400184: polySurface2
-    400186: polySurface3
-    400188: polySurface4
-    400190: pSphere1
-    400192: pSphere1 1
-    400194: pSphere10
-    400196: pSphere11
-    400198: pSphere12
-    400200: pSphere13
-    400202: pSphere14
-    400204: pSphere15
-    400206: pSphere15 1
-    400208: pSphere16
-    400210: pSphere2
-    400212: pSphere2 1
-    400214: pSphere3
-    400216: pSphere3 1
-    400218: pSphere4
-    400220: pSphere4 1
-    400222: pSphere5
-    400224: pSphere5 1
-    400226: pSphere6
-    400228: pSphere6 1
-    400230: pSphere7
-    400232: pSphere8
-    400234: pSphere9
-    400236: Right_Targeting
-    400238: RightLeg
-    400240: //RootNode
-    400242: Torso
-    400244: Sniper2_Untextured:grp_mesh
-    400246: polySurface5
-    400248: polySurface6
-    400250: polySurface7
-    400252: polySurface7 1
-    400254: polySurface8
-    400256: polySurface8 1
-    400258: polySurface9
-    400260: Sniper2_Untextured:BackFoot
-    400262: Sniper2_Untextured:backShin_geo
-    400264: Sniper2_Untextured:backThigh_geo
-    400266: Sniper2_Untextured:eyeStock_L_geo
-    400268: Sniper2_Untextured:eyeStock_R_geo
-    400270: Sniper2_Untextured:gunBarrel_geo
-    400272: Sniper2_Untextured:gunButt_geo
-    400274: Sniper2_Untextured:head_geo
-    400276: Sniper2_Untextured:LeftFoot
-    400278: Sniper2_Untextured:pelvis_geo
-    400280: Sniper2_Untextured:RightFoot
-    400282: Sniper2_Untextured:shin_L_geo
-    400284: Sniper2_Untextured:shin_R_geo
-    400286: Sniper2_Untextured:thigh_L_geo
-    400288: Sniper2_Untextured:thigh_R_geo
-    400290: Sniper2_Untextured:Toe1
-    400292: Sniper2_Untextured:Toe1 1
-    400294: Sniper2_Untextured:Toe1 2
-    400296: Sniper2_Untextured:toe1_knuckle_geo
-    400298: Sniper2_Untextured:toe1_knuckle_geo 1
-    400300: Sniper2_Untextured:toe1_knuckle_geo 2
-    400302: Sniper2_Untextured:toe1_main_geo
-    400304: Sniper2_Untextured:toe1_main_geo 1
-    400306: Sniper2_Untextured:toe1_main_geo 2
-    400308: Sniper2_Untextured:toe1_tip_geo
-    400310: Sniper2_Untextured:toe1_tip_geo 1
-    400312: Sniper2_Untextured:toe1_tip_geo 2
-    400314: Sniper2_Untextured:Toe2
-    400316: Sniper2_Untextured:Toe2 1
-    400318: Sniper2_Untextured:Toe2 2
-    400320: Sniper2_Untextured:toe2_knuckle_geo
-    400322: Sniper2_Untextured:toe2_knuckle_geo 1
-    400324: Sniper2_Untextured:toe2_knuckle_geo 2
-    400326: Sniper2_Untextured:toe2_main_geo
-    400328: Sniper2_Untextured:toe2_main_geo 1
-    400330: Sniper2_Untextured:toe2_main_geo 2
-    400332: Sniper2_Untextured:toe2_tip_geo
-    400334: Sniper2_Untextured:toe2_tip_geo 1
-    400336: Sniper2_Untextured:toe2_tip_geo 2
-    400338: Sniper2_Untextured:Toe3
-    400340: Sniper2_Untextured:Toe3 1
-    400342: Sniper2_Untextured:Toe3 2
-    400344: Sniper2_Untextured:toe3_knuckle_geo
-    400346: Sniper2_Untextured:toe3_knuckle_geo 1
-    400348: Sniper2_Untextured:toe3_knuckle_geo 2
-    400350: Sniper2_Untextured:toe3_main_geo
-    400352: Sniper2_Untextured:toe3_main_geo 1
-    400354: Sniper2_Untextured:toe3_main_geo 2
-    400356: Sniper2_Untextured:toe3_tip_geo
-    400358: Sniper2_Untextured:toe3_tip_geo 1
-    400360: Sniper2_Untextured:toe3_tip_geo 2
-    400362: transform1
-    400364: transform2
-    400366: transform3
-    400368: transform4
-    400370: transform5
-    2300000: Case
-    2300002: pCube1
-    2300004: pCube2
-    2300006: pCube3
-    2300008: pCube6
-    2300010: pCylinder1
-    2300012: pCylinder10
-    2300014: pCylinder10 1
-    2300016: pCylinder16
-    2300018: pCylinder16 1
-    2300020: pCylinder18
-    2300022: pCylinder19
-    2300024: pCylinder19 1
-    2300026: pCylinder2
-    2300028: pCylinder21
-    2300030: pCylinder21 1
-    2300032: pCylinder22
-    2300034: pCylinder22 1
-    2300036: pCylinder23
-    2300038: pCylinder23 1
-    2300040: pCylinder24
-    2300042: pCylinder24 1
-    2300044: pCylinder25
-    2300046: pCylinder25 1
-    2300048: pCylinder26
-    2300050: pCylinder27
-    2300052: pCylinder29
-    2300054: pCylinder3
-    2300056: pCylinder30
-    2300058: pCylinder31
-    2300060: pCylinder32
-    2300062: pCylinder33
-    2300064: pCylinder34
-    2300066: pCylinder35
-    2300068: pCylinder36
-    2300070: pCylinder37
-    2300072: pCylinder5
-    2300074: pCylinder6
-    2300076: pCylinder7
-    2300078: pCylinder8
-    2300080: pCylinder9
-    2300082: polySurface2
-    2300084: polySurface3
-    2300086: polySurface4
-    2300088: pSphere1
-    2300090: pSphere1 1
-    2300092: pSphere10
-    2300094: pSphere11
-    2300096: pSphere12
-    2300098: pSphere13
-    2300100: pSphere14
-    2300102: pSphere15
-    2300104: pSphere15 1
-    2300106: pSphere16
-    2300108: pSphere2
-    2300110: pSphere2 1
-    2300112: pSphere3
-    2300114: pSphere3 1
-    2300116: pSphere4
-    2300118: pSphere4 1
-    2300120: pSphere5
-    2300122: pSphere5 1
-    2300124: pSphere6
-    2300126: pSphere6 1
-    2300128: pSphere7
-    2300130: pSphere8
-    2300132: pSphere9
-    2300134: polySurface5
-    2300136: polySurface6
-    2300138: polySurface7
-    2300140: polySurface8
-    2300142: polySurface9
-    2300144: Sniper2_Untextured:backShin_geo
-    2300146: Sniper2_Untextured:backThigh_geo
-    2300148: Sniper2_Untextured:gunBarrel_geo
-    2300150: Sniper2_Untextured:gunButt_geo
-    2300152: Sniper2_Untextured:pelvis_geo
-    2300154: Sniper2_Untextured:shin_L_geo
-    2300156: Sniper2_Untextured:shin_R_geo
-    2300158: Sniper2_Untextured:thigh_L_geo
-    2300160: Sniper2_Untextured:thigh_R_geo
-    2300162: Sniper2_Untextured:toe1_knuckle_geo
-    2300164: Sniper2_Untextured:toe1_knuckle_geo 1
-    2300166: Sniper2_Untextured:toe1_knuckle_geo 2
-    2300168: Sniper2_Untextured:toe1_main_geo
-    2300170: Sniper2_Untextured:toe1_main_geo 1
-    2300172: Sniper2_Untextured:toe1_main_geo 2
-    2300174: Sniper2_Untextured:toe1_tip_geo
-    2300176: Sniper2_Untextured:toe1_tip_geo 1
-    2300178: Sniper2_Untextured:toe1_tip_geo 2
-    2300180: Sniper2_Untextured:toe2_knuckle_geo
-    2300182: Sniper2_Untextured:toe2_knuckle_geo 1
-    2300184: Sniper2_Untextured:toe2_knuckle_geo 2
-    2300186: Sniper2_Untextured:toe2_main_geo
-    2300188: Sniper2_Untextured:toe2_main_geo 1
-    2300190: Sniper2_Untextured:toe2_main_geo 2
-    2300192: Sniper2_Untextured:toe2_tip_geo
-    2300194: Sniper2_Untextured:toe2_tip_geo 1
-    2300196: Sniper2_Untextured:toe2_tip_geo 2
-    2300198: Sniper2_Untextured:toe3_knuckle_geo
-    2300200: Sniper2_Untextured:toe3_knuckle_geo 1
-    2300202: Sniper2_Untextured:toe3_knuckle_geo 2
-    2300204: Sniper2_Untextured:toe3_main_geo
-    2300206: Sniper2_Untextured:toe3_main_geo 1
-    2300208: Sniper2_Untextured:toe3_main_geo 2
-    2300210: Sniper2_Untextured:toe3_tip_geo
-    2300212: Sniper2_Untextured:toe3_tip_geo 1
-    2300214: Sniper2_Untextured:toe3_tip_geo 2
-    3300000: Case
-    3300002: pCube1
-    3300004: pCube2
-    3300006: pCube3
-    3300008: pCube6
-    3300010: pCylinder1
-    3300012: pCylinder10
-    3300014: pCylinder10 1
-    3300016: pCylinder16
-    3300018: pCylinder16 1
-    3300020: pCylinder18
-    3300022: pCylinder19
-    3300024: pCylinder19 1
-    3300026: pCylinder2
-    3300028: pCylinder21
-    3300030: pCylinder21 1
-    3300032: pCylinder22
-    3300034: pCylinder22 1
-    3300036: pCylinder23
-    3300038: pCylinder23 1
-    3300040: pCylinder24
-    3300042: pCylinder24 1
-    3300044: pCylinder25
-    3300046: pCylinder25 1
-    3300048: pCylinder26
-    3300050: pCylinder27
-    3300052: pCylinder29
-    3300054: pCylinder3
-    3300056: pCylinder30
-    3300058: pCylinder31
-    3300060: pCylinder32
-    3300062: pCylinder33
-    3300064: pCylinder34
-    3300066: pCylinder35
-    3300068: pCylinder36
-    3300070: pCylinder37
-    3300072: pCylinder5
-    3300074: pCylinder6
-    3300076: pCylinder7
-    3300078: pCylinder8
-    3300080: pCylinder9
-    3300082: polySurface2
-    3300084: polySurface3
-    3300086: polySurface4
-    3300088: pSphere1
-    3300090: pSphere1 1
-    3300092: pSphere10
-    3300094: pSphere11
-    3300096: pSphere12
-    3300098: pSphere13
-    3300100: pSphere14
-    3300102: pSphere15
-    3300104: pSphere15 1
-    3300106: pSphere16
-    3300108: pSphere2
-    3300110: pSphere2 1
-    3300112: pSphere3
-    3300114: pSphere3 1
-    3300116: pSphere4
-    3300118: pSphere4 1
-    3300120: pSphere5
-    3300122: pSphere5 1
-    3300124: pSphere6
-    3300126: pSphere6 1
-    3300128: pSphere7
-    3300130: pSphere8
-    3300132: pSphere9
-    3300134: polySurface5
-    3300136: polySurface6
-    3300138: polySurface7
-    3300140: polySurface8
-    3300142: polySurface9
-    3300144: Sniper2_Untextured:backShin_geo
-    3300146: Sniper2_Untextured:backThigh_geo
-    3300148: Sniper2_Untextured:gunBarrel_geo
-    3300150: Sniper2_Untextured:gunButt_geo
-    3300152: Sniper2_Untextured:pelvis_geo
-    3300154: Sniper2_Untextured:shin_L_geo
-    3300156: Sniper2_Untextured:shin_R_geo
-    3300158: Sniper2_Untextured:thigh_L_geo
-    3300160: Sniper2_Untextured:thigh_R_geo
-    3300162: Sniper2_Untextured:toe1_knuckle_geo
-    3300164: Sniper2_Untextured:toe1_knuckle_geo 1
-    3300166: Sniper2_Untextured:toe1_knuckle_geo 2
-    3300168: Sniper2_Untextured:toe1_main_geo
-    3300170: Sniper2_Untextured:toe1_main_geo 1
-    3300172: Sniper2_Untextured:toe1_main_geo 2
-    3300174: Sniper2_Untextured:toe1_tip_geo
-    3300176: Sniper2_Untextured:toe1_tip_geo 1
-    3300178: Sniper2_Untextured:toe1_tip_geo 2
-    3300180: Sniper2_Untextured:toe2_knuckle_geo
-    3300182: Sniper2_Untextured:toe2_knuckle_geo 1
-    3300184: Sniper2_Untextured:toe2_knuckle_geo 2
-    3300186: Sniper2_Untextured:toe2_main_geo
-    3300188: Sniper2_Untextured:toe2_main_geo 1
-    3300190: Sniper2_Untextured:toe2_main_geo 2
-    3300192: Sniper2_Untextured:toe2_tip_geo
-    3300194: Sniper2_Untextured:toe2_tip_geo 1
-    3300196: Sniper2_Untextured:toe2_tip_geo 2
-    3300198: Sniper2_Untextured:toe3_knuckle_geo
-    3300200: Sniper2_Untextured:toe3_knuckle_geo 1
-    3300202: Sniper2_Untextured:toe3_knuckle_geo 2
-    3300204: Sniper2_Untextured:toe3_main_geo
-    3300206: Sniper2_Untextured:toe3_main_geo 1
-    3300208: Sniper2_Untextured:toe3_main_geo 2
-    3300210: Sniper2_Untextured:toe3_tip_geo
-    3300212: Sniper2_Untextured:toe3_tip_geo 1
-    3300214: Sniper2_Untextured:toe3_tip_geo 2
-    4300000: pCylinder10
-    4300002: pSphere2
-    4300004: pCylinder16
-    4300006: pSphere3
-    4300008: pSphere1
-    4300010: pCylinder19
-    4300012: pCylinder22
-    4300014: pCylinder21
-    4300016: pSphere4
-    4300018: pCylinder23
-    4300020: pCylinder24
-    4300022: pSphere5
-    4300024: pSphere6
-    4300026: pCylinder25
-    4300028: pCylinder18
-    4300030: pCylinder10
-    4300032: pSphere2
-    4300034: pCylinder16
-    4300036: pSphere3
-    4300038: pSphere1
-    4300040: pCylinder19
-    4300042: pCylinder22
-    4300044: pCylinder21
-    4300046: pSphere4
-    4300048: pCylinder23
-    4300050: pCylinder24
-    4300052: pSphere5
-    4300054: pSphere6
-    4300056: pCylinder25
-    4300058: pSphere15
-    4300060: pSphere16
-    4300062: pCylinder37
-    4300064: pCylinder29
-    4300066: pCylinder30
-    4300068: pSphere8
-    4300070: pCylinder31
-    4300072: pCylinder32
-    4300074: pSphere9
-    4300076: pSphere10
-    4300078: pCylinder33
-    4300080: pCylinder34
-    4300082: pSphere11
-    4300084: pCylinder27
-    4300086: pCylinder35
-    4300088: pCylinder36
-    4300090: polySurface4
-    4300092: pSphere7
-    4300094: pSphere12
-    4300096: pSphere13
-    4300098: pCylinder26
-    4300100: polySurface3
-    4300102: pCylinder7
-    4300104: pCylinder9
-    4300106: pCylinder8
-    4300108: pCube6
-    4300110: pCylinder6
-    4300112: pCube2
-    4300114: pCube1
-    4300116: polySurface2
-    4300118: pCylinder5
-    4300120: pCylinder1
-    4300122: pCube3
-    4300124: pCylinder2
-    4300126: pCylinder3
-    4300128: Case
-    4300130: pSphere14
-    4300132: pSphere15
-    4300134: Sniper2_Untextured:toe3_knuckle_geo
-    4300136: Sniper2_Untextured:toe3_main_geo
-    4300138: Sniper2_Untextured:toe3_tip_geo
-    4300140: Sniper2_Untextured:toe2_knuckle_geo
-    4300142: Sniper2_Untextured:toe2_main_geo
-    4300144: Sniper2_Untextured:toe2_tip_geo
-    4300146: Sniper2_Untextured:toe1_knuckle_geo
-    4300148: Sniper2_Untextured:toe1_main_geo
-    4300150: Sniper2_Untextured:toe1_tip_geo
-    4300152: Sniper2_Untextured:toe3_knuckle_geo
-    4300154: Sniper2_Untextured:toe3_main_geo
-    4300156: Sniper2_Untextured:toe3_tip_geo
-    4300158: Sniper2_Untextured:toe2_knuckle_geo
-    4300160: Sniper2_Untextured:toe2_main_geo
-    4300162: Sniper2_Untextured:toe2_tip_geo
-    4300164: Sniper2_Untextured:toe1_knuckle_geo
-    4300166: Sniper2_Untextured:toe1_main_geo
-    4300168: Sniper2_Untextured:toe1_tip_geo
-    4300170: Sniper2_Untextured:toe3_knuckle_geo
-    4300172: Sniper2_Untextured:toe3_main_geo
-    4300174: Sniper2_Untextured:toe3_tip_geo
-    4300176: Sniper2_Untextured:toe2_knuckle_geo
-    4300178: Sniper2_Untextured:toe2_main_geo
-    4300180: Sniper2_Untextured:toe2_tip_geo
-    4300182: Sniper2_Untextured:toe1_knuckle_geo
-    4300184: Sniper2_Untextured:toe1_main_geo
-    4300186: Sniper2_Untextured:toe1_tip_geo
-    4300188: Sniper2_Untextured:backThigh_geo
-    4300190: Sniper2_Untextured:backShin_geo
-    4300192: polySurface5
-    4300194: polySurface6
-    4300196: polySurface9
-    4300198: Sniper2_Untextured:gunButt_geo
-    4300200: Sniper2_Untextured:gunBarrel_geo
-    4300202: Sniper2_Untextured:shin_R_geo
-    4300204: Sniper2_Untextured:shin_L_geo
-    4300206: Sniper2_Untextured:thigh_L_geo
-    4300208: Sniper2_Untextured:thigh_R_geo
-    4300210: Sniper2_Untextured:pelvis_geo
-    4300212: polySurface7
-    4300214: polySurface8
+    100000: jnt_B_Ankle
+    100002: jnt_B_Ankle 1
+    100004: jnt_B_Ankle1
+    100006: jnt_B_Ball
+    100008: jnt_B_Ball 1
+    100010: jnt_B_Ball1
+    100012: jnt_B_Foot
+    100014: jnt_B_Hip
+    100016: jnt_B_Knee
+    100018: jnt_B_Toe
+    100020: jnt_B_Toe 1
+    100022: jnt_B_Toe1
+    100024: jnt_Head
+    100026: jnt_HeadTop
+    100028: jnt_Hips
+    100030: jnt_L_Ankle
+    100032: jnt_L_Ankle 1
+    100034: jnt_L_Ankle1
+    100036: jnt_L_Ball
+    100038: jnt_L_Ball 1
+    100040: jnt_L_Ball1
+    100042: jnt_L_Foot
+    100044: jnt_L_Hip
+    100046: jnt_L_Knee
+    100048: jnt_L_Target
+    100050: jnt_L_Toe
+    100052: jnt_L_Toe 1
+    100054: jnt_L_Toe1
+    100056: jnt_R_Ankle
+    100058: jnt_R_Ankle 1
+    100060: jnt_R_Ankle1
+    100062: jnt_R_Ball
+    100064: jnt_R_Ball 1
+    100066: jnt_R_Ball1
+    100068: jnt_R_Foot
+    100070: jnt_R_Hip
+    100072: jnt_R_Knee
+    100074: jnt_R_Target
+    100076: jnt_R_Toe
+    100078: jnt_R_Toe 1
+    100080: jnt_R_Toe1
+    100082: jnt_Root
+    100084: joint1
+    100086: joint2
+    100088: joint3
+    100090: polySurface5
+    100092: polySurface6
+    100094: polySurface7
+    100096: polySurface7 1
+    100098: polySurface8
+    100100: polySurface8 1
+    100102: polySurface9
+    100104: Sniper2_Untextured:BackFoot
+    100106: Sniper2_Untextured:backShin_geo
+    100108: Sniper2_Untextured:backThigh_geo
+    100110: Sniper2_Untextured:eyeStock_L_geo
+    100112: Sniper2_Untextured:eyeStock_R_geo
+    100114: Sniper2_Untextured:grp_mesh
+    100116: Sniper2_Untextured:gunBarrel_geo
+    100118: Sniper2_Untextured:gunButt_geo
+    100120: Sniper2_Untextured:head_geo
+    100122: Sniper2_Untextured:LeftFoot
+    100124: Sniper2_Untextured:pelvis_geo
+    100126: Sniper2_Untextured:RightFoot
+    100128: Sniper2_Untextured:shin_L_geo
+    100130: Sniper2_Untextured:shin_R_geo
+    100132: Sniper2_Untextured:thigh_L_geo
+    100134: Sniper2_Untextured:thigh_R_geo
+    100136: Sniper2_Untextured:Toe1
+    100138: Sniper2_Untextured:Toe1 1
+    100140: Sniper2_Untextured:Toe1 2
+    100142: Sniper2_Untextured:toe1_knuckle_geo
+    100144: Sniper2_Untextured:toe1_knuckle_geo 1
+    100146: Sniper2_Untextured:toe1_knuckle_geo 2
+    100148: Sniper2_Untextured:toe1_main_geo
+    100150: Sniper2_Untextured:toe1_main_geo 1
+    100152: Sniper2_Untextured:toe1_main_geo 2
+    100154: Sniper2_Untextured:Toe2
+    100156: Sniper2_Untextured:Toe2 1
+    100158: Sniper2_Untextured:Toe2 2
+    100160: Sniper2_Untextured:toe2_main_geo
+    100162: Sniper2_Untextured:toe2_main_geo 1
+    100164: Sniper2_Untextured:toe2_main_geo 2
+    100166: Sniper2_Untextured:toe2_tip_geo
+    100168: Sniper2_Untextured:toe2_tip_geo 1
+    100170: Sniper2_Untextured:toe2_tip_geo 2
+    100172: Sniper2_Untextured:Toe3
+    100174: Sniper2_Untextured:Toe3 1
+    100176: Sniper2_Untextured:Toe3 2
+    100178: Sniper2_Untextured:toe3_main_geo
+    100180: Sniper2_Untextured:toe3_main_geo 1
+    100182: Sniper2_Untextured:toe3_main_geo 2
+    100184: Sniper2_Untextured:toe3_tip_geo
+    100186: Sniper2_Untextured:toe3_tip_geo 1
+    100188: Sniper2_Untextured:toe3_tip_geo 2
+    100190: //RootNode
+    100192: transform1
+    100194: transform2
+    100196: transform3
+    100198: transform4
+    100200: transform5
+    400000: jnt_B_Ankle
+    400002: jnt_B_Ankle 1
+    400004: jnt_B_Ankle1
+    400006: jnt_B_Ball
+    400008: jnt_B_Ball 1
+    400010: jnt_B_Ball1
+    400012: jnt_B_Foot
+    400014: jnt_B_Hip
+    400016: jnt_B_Knee
+    400018: jnt_B_Toe
+    400020: jnt_B_Toe 1
+    400022: jnt_B_Toe1
+    400024: jnt_Head
+    400026: jnt_HeadTop
+    400028: jnt_Hips
+    400030: jnt_L_Ankle
+    400032: jnt_L_Ankle 1
+    400034: jnt_L_Ankle1
+    400036: jnt_L_Ball
+    400038: jnt_L_Ball 1
+    400040: jnt_L_Ball1
+    400042: jnt_L_Foot
+    400044: jnt_L_Hip
+    400046: jnt_L_Knee
+    400048: jnt_L_Target
+    400050: jnt_L_Toe
+    400052: jnt_L_Toe 1
+    400054: jnt_L_Toe1
+    400056: jnt_R_Ankle
+    400058: jnt_R_Ankle 1
+    400060: jnt_R_Ankle1
+    400062: jnt_R_Ball
+    400064: jnt_R_Ball 1
+    400066: jnt_R_Ball1
+    400068: jnt_R_Foot
+    400070: jnt_R_Hip
+    400072: jnt_R_Knee
+    400074: jnt_R_Target
+    400076: jnt_R_Toe
+    400078: jnt_R_Toe 1
+    400080: jnt_R_Toe1
+    400082: jnt_Root
+    400084: joint1
+    400086: joint2
+    400088: joint3
+    400090: polySurface5
+    400092: polySurface6
+    400094: polySurface7
+    400096: polySurface7 1
+    400098: polySurface8
+    400100: polySurface8 1
+    400102: polySurface9
+    400104: Sniper2_Untextured:BackFoot
+    400106: Sniper2_Untextured:backShin_geo
+    400108: Sniper2_Untextured:backThigh_geo
+    400110: Sniper2_Untextured:eyeStock_L_geo
+    400112: Sniper2_Untextured:eyeStock_R_geo
+    400114: Sniper2_Untextured:grp_mesh
+    400116: Sniper2_Untextured:gunBarrel_geo
+    400118: Sniper2_Untextured:gunButt_geo
+    400120: Sniper2_Untextured:head_geo
+    400122: Sniper2_Untextured:LeftFoot
+    400124: Sniper2_Untextured:pelvis_geo
+    400126: Sniper2_Untextured:RightFoot
+    400128: Sniper2_Untextured:shin_L_geo
+    400130: Sniper2_Untextured:shin_R_geo
+    400132: Sniper2_Untextured:thigh_L_geo
+    400134: Sniper2_Untextured:thigh_R_geo
+    400136: Sniper2_Untextured:Toe1
+    400138: Sniper2_Untextured:Toe1 1
+    400140: Sniper2_Untextured:Toe1 2
+    400142: Sniper2_Untextured:toe1_knuckle_geo
+    400144: Sniper2_Untextured:toe1_knuckle_geo 1
+    400146: Sniper2_Untextured:toe1_knuckle_geo 2
+    400148: Sniper2_Untextured:toe1_main_geo
+    400150: Sniper2_Untextured:toe1_main_geo 1
+    400152: Sniper2_Untextured:toe1_main_geo 2
+    400154: Sniper2_Untextured:Toe2
+    400156: Sniper2_Untextured:Toe2 1
+    400158: Sniper2_Untextured:Toe2 2
+    400160: Sniper2_Untextured:toe2_main_geo
+    400162: Sniper2_Untextured:toe2_main_geo 1
+    400164: Sniper2_Untextured:toe2_main_geo 2
+    400166: Sniper2_Untextured:toe2_tip_geo
+    400168: Sniper2_Untextured:toe2_tip_geo 1
+    400170: Sniper2_Untextured:toe2_tip_geo 2
+    400172: Sniper2_Untextured:Toe3
+    400174: Sniper2_Untextured:Toe3 1
+    400176: Sniper2_Untextured:Toe3 2
+    400178: Sniper2_Untextured:toe3_main_geo
+    400180: Sniper2_Untextured:toe3_main_geo 1
+    400182: Sniper2_Untextured:toe3_main_geo 2
+    400184: Sniper2_Untextured:toe3_tip_geo
+    400186: Sniper2_Untextured:toe3_tip_geo 1
+    400188: Sniper2_Untextured:toe3_tip_geo 2
+    400190: //RootNode
+    400192: transform1
+    400194: transform2
+    400196: transform3
+    400198: transform4
+    400200: transform5
+    4300000: Sniper2_Untextured:toe3_main_geo
+    4300002: Sniper2_Untextured:toe3_tip_geo
+    4300004: Sniper2_Untextured:toe2_main_geo
+    4300006: Sniper2_Untextured:toe2_tip_geo
+    4300008: Sniper2_Untextured:toe1_knuckle_geo
+    4300010: Sniper2_Untextured:toe1_main_geo
+    4300012: Sniper2_Untextured:toe3_main_geo
+    4300014: Sniper2_Untextured:toe3_tip_geo
+    4300016: Sniper2_Untextured:toe2_main_geo
+    4300018: Sniper2_Untextured:toe2_tip_geo
+    4300020: Sniper2_Untextured:toe1_knuckle_geo
+    4300022: Sniper2_Untextured:toe1_main_geo
+    4300024: Sniper2_Untextured:toe3_main_geo
+    4300026: Sniper2_Untextured:toe3_tip_geo
+    4300028: Sniper2_Untextured:toe2_main_geo
+    4300030: Sniper2_Untextured:toe2_tip_geo
+    4300032: Sniper2_Untextured:toe1_knuckle_geo
+    4300034: Sniper2_Untextured:toe1_main_geo
+    4300036: Sniper2_Untextured:backThigh_geo
+    4300038: Sniper2_Untextured:backShin_geo
+    4300040: polySurface5
+    4300042: polySurface6
+    4300044: polySurface9
+    4300046: Sniper2_Untextured:gunButt_geo
+    4300048: Sniper2_Untextured:gunBarrel_geo
+    4300050: Sniper2_Untextured:shin_R_geo
+    4300052: Sniper2_Untextured:shin_L_geo
+    4300054: Sniper2_Untextured:thigh_L_geo
+    4300056: Sniper2_Untextured:thigh_R_geo
+    4300058: Sniper2_Untextured:pelvis_geo
+    4300060: polySurface7
+    4300062: polySurface8
     7400000: Sniper_Idle
     9500000: //RootNode
+    13700000: polySurface5
+    13700002: polySurface6
+    13700004: polySurface7
+    13700006: polySurface8
+    13700008: polySurface9
+    13700010: Sniper2_Untextured:backShin_geo
+    13700012: Sniper2_Untextured:backThigh_geo
+    13700014: Sniper2_Untextured:gunBarrel_geo
+    13700016: Sniper2_Untextured:gunButt_geo
+    13700018: Sniper2_Untextured:pelvis_geo
+    13700020: Sniper2_Untextured:shin_L_geo
+    13700022: Sniper2_Untextured:shin_R_geo
+    13700024: Sniper2_Untextured:thigh_L_geo
+    13700026: Sniper2_Untextured:thigh_R_geo
+    13700028: Sniper2_Untextured:toe1_knuckle_geo
+    13700030: Sniper2_Untextured:toe1_knuckle_geo 1
+    13700032: Sniper2_Untextured:toe1_knuckle_geo 2
+    13700034: Sniper2_Untextured:toe1_main_geo
+    13700036: Sniper2_Untextured:toe1_main_geo 1
+    13700038: Sniper2_Untextured:toe1_main_geo 2
+    13700040: Sniper2_Untextured:toe2_main_geo
+    13700042: Sniper2_Untextured:toe2_main_geo 1
+    13700044: Sniper2_Untextured:toe2_main_geo 2
+    13700046: Sniper2_Untextured:toe2_tip_geo
+    13700048: Sniper2_Untextured:toe2_tip_geo 1
+    13700050: Sniper2_Untextured:toe2_tip_geo 2
+    13700052: Sniper2_Untextured:toe3_main_geo
+    13700054: Sniper2_Untextured:toe3_main_geo 1
+    13700056: Sniper2_Untextured:toe3_main_geo 2
+    13700058: Sniper2_Untextured:toe3_tip_geo
+    13700060: Sniper2_Untextured:toe3_tip_geo 1
+    13700062: Sniper2_Untextured:toe3_tip_geo 2
   materials:
     importMaterials: 1
     materialName: 0
@@ -750,158 +320,6 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
-        weight: 1
-      - path: grp_Geo
-        weight: 1
-      - path: grp_Geo/BackLeg
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder29
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder30
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder31
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder32
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder33
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pCylinder34
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pSphere8
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pSphere9
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pSphere10
-        weight: 1
-      - path: grp_Geo/BackLeg/Back_Foot/pSphere11
-        weight: 1
-      - path: grp_Geo/BackLeg/pCylinder26
-        weight: 1
-      - path: grp_Geo/BackLeg/pCylinder27
-        weight: 1
-      - path: grp_Geo/BackLeg/pCylinder35
-        weight: 1
-      - path: grp_Geo/BackLeg/pCylinder36
-        weight: 1
-      - path: grp_Geo/BackLeg/polySurface4
-        weight: 1
-      - path: grp_Geo/BackLeg/pSphere7
-        weight: 1
-      - path: grp_Geo/BackLeg/pSphere12
-        weight: 1
-      - path: grp_Geo/BackLeg/pSphere13
-        weight: 1
-      - path: grp_Geo/Head
-        weight: 1
-      - path: grp_Geo/Head/pCube1
-        weight: 1
-      - path: grp_Geo/Head/pCube2
-        weight: 1
-      - path: grp_Geo/Head/polySurface2
-        weight: 1
-      - path: grp_Geo/Left_Targeting
-        weight: 1
-      - path: grp_Geo/Left_Targeting/pCube3
-        weight: 1
-      - path: grp_Geo/Left_Targeting/pCylinder1
-        weight: 1
-      - path: grp_Geo/Left_Targeting/pCylinder2
-        weight: 1
-      - path: grp_Geo/Left_Targeting/pCylinder3
-        weight: 1
-      - path: grp_Geo/Left_Targeting/pCylinder5
-        weight: 1
-      - path: grp_Geo/LeftLeg
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder10
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder16
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder18
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder19
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder21
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder22
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder23
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder24
-        weight: 1
-      - path: grp_Geo/LeftLeg/pCylinder25
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere1
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere2
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere3
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere4
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere5
-        weight: 1
-      - path: grp_Geo/LeftLeg/pSphere6
-        weight: 1
-      - path: grp_Geo/polySurface3
-        weight: 1
-      - path: grp_Geo/Right_Targeting
-        weight: 1
-      - path: grp_Geo/Right_Targeting/pCube6
-        weight: 1
-      - path: grp_Geo/Right_Targeting/pCylinder6
-        weight: 1
-      - path: grp_Geo/Right_Targeting/pCylinder7
-        weight: 1
-      - path: grp_Geo/Right_Targeting/pCylinder8
-        weight: 1
-      - path: grp_Geo/Right_Targeting/pCylinder9
-        weight: 1
-      - path: grp_Geo/RightLeg
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder10 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder16 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder19 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder21 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder22 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder23 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder24 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder25 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pCylinder37
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere1 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere2 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere3 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere4 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere5 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere6 1
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere15
-        weight: 1
-      - path: grp_Geo/RightLeg/pSphere16
-        weight: 1
-      - path: grp_Geo/Torso
-        weight: 1
-      - path: grp_Geo/Torso/Case
-        weight: 1
-      - path: grp_Geo/Torso/pSphere14
-        weight: 1
-      - path: grp_Geo/Torso/pSphere15 1
         weight: 1
       - path: jnt_Root
         weight: 1
@@ -999,6 +417,138 @@ ModelImporter:
       - path: jnt_Root/jnt_Hips/jnt_R_Hip/jnt_R_Knee/jnt_R_Foot/jnt_R_Ankle 1/jnt_R_Ball
           1/jnt_R_Toe 1
         weight: 1
+      - path: polySurface7
+        weight: 1
+      - path: polySurface8
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe1/Sniper2_Untextured:toe1_knuckle_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe1/Sniper2_Untextured:toe1_main_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe2/Sniper2_Untextured:toe2_main_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe2/Sniper2_Untextured:toe2_tip_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe3
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe3/Sniper2_Untextured:toe3_main_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:BackFoot/Sniper2_Untextured:Toe3/Sniper2_Untextured:toe3_tip_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:backShin_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:backThigh_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:eyeStock_L_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:eyeStock_L_geo/transform2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:eyeStock_R_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:eyeStock_R_geo/transform4
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:gunBarrel_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:gunButt_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface5
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface6
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface7
+          1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface7
+          1/transform3
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface8
+          1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface8
+          1/transform5
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/polySurface9
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:head_geo/transform1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe1
+          1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe1
+          1/Sniper2_Untextured:toe1_knuckle_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe1
+          1/Sniper2_Untextured:toe1_main_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe2
+          1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe2
+          1/Sniper2_Untextured:toe2_main_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe2
+          1/Sniper2_Untextured:toe2_tip_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe3
+          1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe3
+          1/Sniper2_Untextured:toe3_main_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:LeftFoot/Sniper2_Untextured:Toe3
+          1/Sniper2_Untextured:toe3_tip_geo 1
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:pelvis_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe1
+          2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe1
+          2/Sniper2_Untextured:toe1_knuckle_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe1
+          2/Sniper2_Untextured:toe1_main_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe2
+          2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe2
+          2/Sniper2_Untextured:toe2_main_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe2
+          2/Sniper2_Untextured:toe2_tip_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe3
+          2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe3
+          2/Sniper2_Untextured:toe3_main_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:RightFoot/Sniper2_Untextured:Toe3
+          2/Sniper2_Untextured:toe3_tip_geo 2
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:shin_L_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:shin_R_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:thigh_L_geo
+        weight: 1
+      - path: Sniper2_Untextured:grp_mesh/Sniper2_Untextured:thigh_R_geo
+        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -1025,7 +575,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
   importAnimation: 1
-  copyAvatar: 1
+  copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
@@ -1041,9 +591,8 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d660b01f7e9951342b1bd7bcce18f6b7,
-    type: 3}
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

@@ -1279,6 +1279,10 @@ public class PlayerControl : MonoBehaviour
 				if (!c.transform.name.Contains ("Charger"))
 					c.transform.GetComponent<AIBase> ().health = 0;
 			}
+            else if(c.transform.name == "exhaustLight")
+            {
+                c.transform.GetComponent<ChargerWeakSpot>().DestroyCharger();
+            }
 		}
 	}
 }
