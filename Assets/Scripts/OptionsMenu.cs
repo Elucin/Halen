@@ -9,7 +9,11 @@ public class OptionsMenu : MonoBehaviour {
     public UnityEngine.UI.Toggle togAutoRoll;
     public UnityEngine.UI.Toggle togDisplayHUD;
     public UnityEngine.UI.Slider sldMusicAudio;
-
+    public UnityEngine.UI.Slider sldSfxAudio;
+    public UnityEngine.UI.Slider sldVoiceAudio;
+    public UnityEngine.Audio.AudioMixer musicMixer;
+    public UnityEngine.Audio.AudioMixer sfxMixer;
+    public UnityEngine.Audio.AudioMixer voiceMixer;
     public delegate void DisplayHud();
     public static event DisplayHud onToggleHud;
 
@@ -37,6 +41,19 @@ public class OptionsMenu : MonoBehaviour {
     public void ChangeMusicAudio()
     {
         Options.musicAudio = sldMusicAudio.value;
+        musicMixer.SetFloat("MusicMasterVolume", Options.musicAudio);
+    }
+
+    public void ChangeSFXAudio()
+    {
+        Options.sfxAudio = sldSfxAudio.value;
+        sfxMixer.SetFloat("SFXMasterVolume", Options.sfxAudio);
+    }
+
+    public void ChangeVoiceAudio()
+    {
+        Options.voiceAudio = sldVoiceAudio.value;
+        voiceMixer.SetFloat("VoiceMasterVolume", Options.voiceAudio);
     }
 
     public void DisplayHUD()
@@ -64,6 +81,9 @@ public class OptionsMenu : MonoBehaviour {
         sldMusicAudio.value = Options.musicAudio;
         sldGenAudio.value = Options.generalAudio;
         AudioListener.volume = Options.generalAudio;
+        musicMixer.SetFloat("MusicMasterVolume", Options.musicAudio);
+        sfxMixer.SetFloat("SFXMasterVolume", Options.sfxAudio);
+        voiceMixer.SetFloat("VoiceMasterVolume", Options.voiceAudio);
         sldSensitivity.value = Options.mouseSensitivity;
     }
 }
