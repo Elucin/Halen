@@ -15,12 +15,16 @@ public class ScoreScreen : MonoBehaviour {
     public Text Position;
     HSController hsControl;
     public GameObject scoreUploadCanvas;
+
+	public Text Trinkets;
     // Use this for initialization
     void Start () {
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
         hsControl = FindObjectOfType<HSController>();
        
+		Trinkets.text = Scoring.TrinketsCollected.ToString ();
+
         Brawlers.text = Scoring.brawlersKilled.ToString();
         Gunners.text = Scoring.gunnersKilled.ToString();
         Snipers.text = Scoring.snipersKilled.ToString();
@@ -33,6 +37,7 @@ public class ScoreScreen : MonoBehaviour {
 
     public void Restart()
     {
+		Scoring.TrinketsCollected = 0;
         Scoring.brawlersKilled = 0;
         Scoring.gunnersKilled = 0;
         Scoring.chargersKilled = 0;

@@ -44,6 +44,8 @@ public class Checkpoint : MonoBehaviour {
             PlayerPrefs.SetInt("Combo", Scoring.biggestCombo);
             //Saving.Score = Scoring.PlayerScore;
             PlayerPrefs.SetInt("Score", Scoring.PlayerScore);
+			PlayerPrefs.SetInt ("Trinkets", Scoring.TrinketsCollected);
+				
 			Active.Play ();
 			Inactive.Stop ();
 			CheckLight.SetActive (true);

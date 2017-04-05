@@ -46,6 +46,7 @@ public class Saving : MonoBehaviour
             PlayerPrefs.SetInt("FloatersL", Scoring.floatersKilled);
             PlayerPrefs.SetInt("ComboL", Scoring.biggestCombo);
             PlayerPrefs.SetInt("ScoreL", Scoring.PlayerScore);
+			PlayerPrefs.SetInt ("Trinkets", Scoring.TrinketsCollected);
         }
     }
 
