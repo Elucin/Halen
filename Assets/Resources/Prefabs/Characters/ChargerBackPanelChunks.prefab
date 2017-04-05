@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 23153837596019506}
   - component: {fileID: 54376136418605038}
   - component: {fileID: 64181892713093970}
+  - component: {fileID: 114485130257763810}
   m_Layer: 0
   m_Name: BackPanel_L_geo
   m_TagString: Untagged
@@ -57,6 +58,7 @@ GameObject:
   - component: {fileID: 23300894995990666}
   - component: {fileID: 54842044029085804}
   - component: {fileID: 64390068846713532}
+  - component: {fileID: 114066486968692632}
   m_Layer: 0
   m_Name: BackPanel_R_geo
   m_TagString: Untagged
@@ -239,3 +241,29 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300028, guid: ad84a70840df719429749e91af9649d0, type: 3}
+--- !u!114 &114066486968692632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972626901914808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6626f0a57e64aaf46b46e77d0e8a9c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTime: 1
+  maxTime: 4
+--- !u!114 &114485130257763810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1499514947818354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6626f0a57e64aaf46b46e77d0e8a9c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTime: 1
+  maxTime: 4
