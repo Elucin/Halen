@@ -1737,7 +1737,6 @@ MonoBehaviour:
   - name: mainMenuBackground
     video: {fileID: 2100000, guid: c7876840141b9f2419df347ebd692e91, type: 2}
     audio: {fileID: 0}
-    loadScoreScreen: 0
 --- !u!1 &1237305888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3138,6 +3137,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 223794371627132390, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38b82dacb0fa16349be63ac1d417e7e6, type: 2}
   m_IsPrefabParent: 0
@@ -3725,7 +3729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
