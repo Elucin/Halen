@@ -133,27 +133,29 @@ public class AISniper : AIBase {
     {
         retreating = true;
         bool moving = false;
-        float degrees = 10f;
-        Vector3 checkVector = (transform.position - PlayerControl.Position).normalized;
+        float degrees = 15f;
+        Vector3 checkVector = Quaternion.Euler(0, Random.Range(-15f, 15f), 0) * (transform.position - PlayerControl.Position).normalized;
+        Vector3 checkVectorDown = Quaternion.Euler(45, 0, 0) * checkVector;
         int c = 0;
-        while (moving == false && c < 36)
+        while (moving == false && c < 24)
         {
-            if (!Physics.Raycast(transform.position, checkVector, 5))
+            if (!Physics.Raycast(transform.position + transform.up, checkVector, 5f) && Physics.Raycast(transform.position + transform.up, checkVectorDown, 3f))
             {
                 moving = true;
             }
             else
             {
-                if (transform.worldToLocalMatrix.MultiplyPoint(PlayerControl.Position).x < 0)
+                if (transform.worldToLocalMatrix.MultiplyPoint(PlayerControl.Position).x > 0)
                     checkVector = Quaternion.Euler(0, degrees, 0) * checkVector;
                 else
                     checkVector = Quaternion.Euler(0, -degrees, 0) * checkVector;
+                checkVectorDown = Quaternion.Euler(45, 0, 0) * checkVector;
                 c++;
             }
         }
-        destination = transform.position + checkVector;
+        destination = transform.position + checkVector * 10;
 
-        yield return new WaitForSeconds(0.3f); ;
+        yield return new WaitForSeconds(1f);
         retreating = false;
     }
 }
