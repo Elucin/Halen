@@ -347,7 +347,7 @@ public class AIBase : MonoBehaviour {
             ui.AddStylePoint(Points.STUNNED, "Sitting Duck");
         }
 
-        Scoring.AddScore(transform, PlayerControl.comboMultiplier, basePoints, additionalPoints);
+        Scoring.AddScore(transform, Scoring.comboMultiplier, basePoints, additionalPoints);
         yield return null;
     }
 
