@@ -46,13 +46,12 @@ public static class Scoring{
         //Combo stuff?
         if (basePoints > 0)
         {
-            totalAddedScore = (int)(basePoints * comboMultiplier + additionalPoints);
+            totalAddedScore = (int)(basePoints * combo + additionalPoints);
             comboCounter++;
         }
         else
         {
             totalAddedScore = basePoints;
-
         }
 
 

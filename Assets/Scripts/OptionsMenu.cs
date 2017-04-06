@@ -80,6 +80,7 @@ public class OptionsMenu : MonoBehaviour {
         togAutoRoll.isOn = Options.autoRoll;
         sldMusicAudio.value = Options.musicAudio;
         sldGenAudio.value = Options.generalAudio;
+		sldVoiceAudio.value = Options.voiceAudio;
         AudioListener.volume = Options.generalAudio;
         musicMixer.SetFloat("MusicMasterVolume", Options.musicAudio);
         sfxMixer.SetFloat("SFXMasterVolume", Options.sfxAudio);
