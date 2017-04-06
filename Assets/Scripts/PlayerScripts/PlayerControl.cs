@@ -497,7 +497,7 @@ public class PlayerControl : MonoBehaviour
         
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
 
-        slashState = (currentSlashState == slashState1 || currentSlashState == slashState2) && anim.GetCurrentAnimatorStateInfo(5).normalizedTime < 0.8f;
+        slashState = (currentSlashState == slashState1 || currentSlashState == slashState2) && anim.GetCurrentAnimatorStateInfo(5).normalizedTime < 0.9f;
         if (!twoArm)
         {
             if (!slashState && currentDashState != dashState)
