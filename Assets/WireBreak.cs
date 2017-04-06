@@ -10,7 +10,6 @@ public class WireBreak : MonoBehaviour {
     {
         if(c.transform.name.Contains("LargeShot"))
         {
-            Debug.Log("Stuff");
             unbroken.SetActive(false);
             broken.SetActive(true);
             Instantiate(particle, transform.position, Quaternion.identity);
