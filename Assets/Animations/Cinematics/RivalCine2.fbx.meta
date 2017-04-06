@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ed2c04c3ea5030b4bb6b81cabbd86ae8
-timeCreated: 1490995916
+timeCreated: 1491491000
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -119,7 +119,16 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'jnt_Spine3' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jnt_Spine4' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Neck'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_R_Arm'
+      has translation animation that will be discarded.\n\t'jnt_L_Arm' has translation
+      animation that will be discarded.\n\t'jnt_L_Knee2' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jnt_R_Knee2' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -436,7 +445,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_L_Toe
+    - boneName: jnt_L_Ball
       humanName: LeftToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -444,7 +453,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jnt_R_Toe
+    - boneName: jnt_R_Ball
       humanName: RightToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -593,7 +602,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_Pelvis
       parentName: jnt_Root
-      position: {x: -2.5084102e-17, y: -0.0035662204, z: -0.0009601675}
+      position: {x: -2.5084102e-17, y: -0.015704937, z: -0.0009601675}
       rotation: {x: -0.0022861853, y: 0.9994182, z: -0.03403038, w: 0.00020335297}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Hip
@@ -614,12 +623,12 @@ ModelImporter:
     - name: jnt_L_Ankle
       parentName: jnt_L_Knee2
       position: {x: -1.7365563e-18, y: 0.034717165, z: 3.9165083e-18}
-      rotation: {x: -0.09674992, y: 0.58349925, z: 0.09147967, w: 0.801124}
+      rotation: {x: 0.14226985, y: 0.9001581, z: 0.08474821, w: 0.4028554}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Ball
       parentName: jnt_L_Ankle
-      position: {x: -3.477907e-19, y: 0.010518913, z: -1.0932296e-18}
-      rotation: {x: 0.41277593, y: 0.0040055513, z: 0.0088397525, w: 0.9107809}
+      position: {x: 0.00000019697472, y: 0.010520235, z: 0.0000013704412}
+      rotation: {x: -0.036750104, y: 0.89396954, z: 0.020883242, w: -0.44612983}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Toe
       parentName: jnt_L_Ball
@@ -629,7 +638,7 @@ ModelImporter:
     - name: jnt_R_Hip
       parentName: jnt_Pelvis
       position: {x: -0.0102817, y: -0.0010845896, z: -0.002764157}
-      rotation: {x: 0.069706276, y: -0.012320218, z: -0.05927395, w: 0.9957288}
+      rotation: {x: 0.06970628, y: -0.012320218, z: -0.059273954, w: 0.9957288}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Knee1
       parentName: jnt_R_Hip
@@ -644,12 +653,12 @@ ModelImporter:
     - name: jnt_R_Ankle
       parentName: jnt_R_Knee2
       position: {x: -0.000000048815657, y: -0.0347172, z: 0.000000053424486}
-      rotation: {x: -0.21273468, y: 0.21663263, z: -0.0076949354, w: 0.9527618}
+      rotation: {x: 0.076790065, y: 0.9366691, z: 0.010941596, w: 0.34151807}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Ball
       parentName: jnt_R_Ankle
-      position: {x: 0.0000000060889698, y: -0.010518923, z: -0.00000003348211}
-      rotation: {x: 0.412745, y: 0.0040145395, z: 0.008858861, w: 0.91079473}
+      position: {x: 0.00000038265716, y: -0.010519828, z: -0.0000005532056}
+      rotation: {x: 0.45284274, y: 0.30074108, z: -0.1600653, w: 0.82393414}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Toe
       parentName: jnt_R_Ball
@@ -674,12 +683,12 @@ ModelImporter:
     - name: jnt_L_Arm
       parentName: jnt_Spine3
       position: {x: 0.013462486, y: 0.005395077, z: -0.0014593513}
-      rotation: {x: 0.18000358, y: 0.9778775, z: 0.039926887, w: -0.09879286}
+      rotation: {x: 0.1800036, y: 0.97787756, z: 0.03992689, w: -0.098792866}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Shoulder
       parentName: jnt_L_Arm
       position: {x: -0.010778366, y: 0.00055730325, z: -0.0032044596}
-      rotation: {x: 0.15063755, y: -0.36682686, z: 0.5456052, w: 0.7382827}
+      rotation: {x: 0.15063757, y: -0.3668269, z: 0.54560524, w: 0.73828274}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_L_Elbow
       parentName: jnt_L_Shoulder
@@ -759,7 +768,7 @@ ModelImporter:
     - name: jnt_R_Index1
       parentName: jnt_R_Wrist
       position: {x: -0.0013367999, y: 0.011861499, z: -0.00605287}
-      rotation: {x: 0.17415456, y: -0.052170083, z: 0.019053362, w: 0.9831507}
+      rotation: {x: 0.17415458, y: -0.052170087, z: 0.019053364, w: 0.9831508}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_R_Index2
       parentName: jnt_R_Index1
