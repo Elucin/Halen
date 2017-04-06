@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class LoadNextScene : MonoBehaviour {
     //public static int Checkpoint = -1;
     public static int Level = 0;
+    [SerializeField]
+    private GameObject halen2Arm;
+    [SerializeField]
+    private GameObject halenSharp;
+
     string[] LoadingTips = {
         "The Momentum Shield mitigates damage. It charges based on how fast you're moving and drains as you take damage or stand still, so keep moving!",
         "Sharp can absorb energy from the enemy's system when he destroys them. If you kill an enemy with a Dash or Melee attack, it will recharge your ammo!",
@@ -24,6 +29,7 @@ public class LoadNextScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //if()
 		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (Level);
         GameObject.Find("Tip").GetComponent<Text>().text = "TIP: " + LoadingTips[Random.Range(0, LoadingTips.Length)];
 	}

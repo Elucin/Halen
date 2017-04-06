@@ -78,7 +78,7 @@ public class AIBase : MonoBehaviour {
             chargerChunks = Resources.Load("Prefabs/Characters/ChargerChunks") as GameObject;
             gunnerChunks = Resources.Load("Prefabs/Characters/GunnerChunks") as GameObject; 
             brawlerChunks = Resources.Load("Prefabs/Characters/BrawlerChunks") as GameObject;
-            //sniperChunks;
+			sniperChunks = Resources.Load("Prefabs/Characters/SniperChunks") as GameObject;
         }
         Name = transform.name.Split('-');
         ui = GameObject.Find("UI 1").GetComponent<UIScript>();
@@ -252,6 +252,7 @@ public class AIBase : MonoBehaviour {
             Scoring.gunnersKilled++;
 		}
 		else if (Name[0] == "Sniper") {
+			Instantiate (sniperChunks, transform.position, Quaternion.identity);
 			explode.transform.localScale = Vector3.one * 0.3f;
 			explode.transform.GetChild (0).localScale = Vector3.one * 0.6f;
             Scoring.snipersKilled++;
