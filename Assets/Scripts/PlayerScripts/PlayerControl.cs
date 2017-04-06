@@ -347,23 +347,11 @@ public class PlayerControl : MonoBehaviour
             godMode = !godMode;
 
         anim.SetBool(doAutoRoll, Options.autoRoll);
-
+        
         //GameObject.Find ("DamageImage").GetComponent<Image> ().color = new Color (255f, 0, 0, 0.5f-(0.5f*(health / 100f)));
-		slashState = currentSlashState == slashState1 || currentSlashState == slashState2;
+		
         pos = transform.position;
-
-        if (!twoArm)
-        {
-			if (!slashState && currentDashState != dashState)
-            {
-                SliceTrail.Emit = false;
-            }
-			else if (slashState || currentDashState == dashState)
-            {
-                SliceTrail.Emit = true;
-            }
-        }
-
+        
         /*
         if (Input.GetButtonDown("EditorPause"))
             UnityEditor.EditorApplication.isPaused = !UnityEditor.EditorApplication.isPaused; */
@@ -506,7 +494,21 @@ public class PlayerControl : MonoBehaviour
             currentDashState = anim.GetCurrentAnimatorStateInfo(6).fullPathHash;
             currentSlashState = anim.GetCurrentAnimatorStateInfo(5).fullPathHash;
         }
+        
 		baseStateInfo = anim.GetCurrentAnimatorStateInfo (0);
+
+        slashState = (currentSlashState == slashState1 || currentSlashState == slashState2) && anim.GetCurrentAnimatorStateInfo(5).normalizedTime < 0.8f;
+        if (!twoArm)
+        {
+            if (!slashState && currentDashState != dashState)
+            {
+                SliceTrail.Emit = false;
+            }
+            else if (slashState || currentDashState == dashState)
+            {
+                SliceTrail.Emit = true;
+            }
+        }
 
         if (!jump)
         {
