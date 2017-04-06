@@ -5,13 +5,9 @@ using UnityEngine;
 public class splashLogoFadeOut : MonoBehaviour {
     public float alphaLevel = 1.0f;
     bool runAnim = false;
-    GameObject mainMenu;
+    public GameObject mainMenu;
     bool mainMenuDisplay = false;
 
-    void Start()
-    {
-        mainMenu = GameObject.Find("MainMenu");
-    }
     void Update()
     {
         if(Input.anyKeyDown)
@@ -27,7 +23,10 @@ public class splashLogoFadeOut : MonoBehaviour {
         }
 
         if (mainMenuDisplay)
-            mainMenu.GetComponent<Canvas>().enabled = true; ;
+        {
+            mainMenu.SetActive(true);
+            Destroy(gameObject);
+        }
 
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
     }
