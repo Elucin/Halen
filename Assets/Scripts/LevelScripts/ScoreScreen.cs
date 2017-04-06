@@ -57,7 +57,8 @@ public class ScoreScreen : MonoBehaviour {
             Position.text = hsControl.position.ToString();
             scoreUploadCanvas.SetActive(true);
         }
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+        else
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
     }
 
     public void SubmitHighscore()
