@@ -6145,7 +6145,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Q
+  m_Text: 'F
+
+'
 --- !u!114 &114319575999896880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7196,10 +7198,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 224241817214339294}
   m_HandleRect: {fileID: 224383089484648798}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9255,13 +9257,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 224133043826349882}
   m_HandleRect: {fileID: 224675563541856338}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114761793991272972}
+        m_MethodName: ChangeSFXAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114737183307485932
@@ -9305,6 +9318,11 @@ MonoBehaviour:
   togAutoRoll: {fileID: 114282424405504990}
   togDisplayHUD: {fileID: 114058242439733628}
   sldMusicAudio: {fileID: 114433147845454944}
+  sldSfxAudio: {fileID: 114724035985228812}
+  sldVoiceAudio: {fileID: 114960904465229938}
+  musicMixer: {fileID: 24100000, guid: ce2dcd8791a64d145b800b8c6c4b8f5a, type: 2}
+  sfxMixer: {fileID: 24100000, guid: aa501d9b239e041428bc309e121c280b, type: 2}
+  voiceMixer: {fileID: 24100000, guid: e76f2ab264364be44b02e66d5b181e4c, type: 2}
 --- !u!114 &114772451552635016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10823,13 +10841,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 224754984144849852}
   m_HandleRect: {fileID: 224600539624976082}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114761793991272972}
+        m_MethodName: ChangeVoiceAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114966076799396672

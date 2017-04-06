@@ -22,24 +22,15 @@ public class ChargerWeakSpot : MonoBehaviour {
             //PlayerControl halen = c.transform.GetComponent<PlayerControl>();
             if (PlayerControl.IsDashing() && exposed)
             {
-                if (!transform.root.name.Contains("Broken"))
-                {
-                    chargerScript.health = 0;
-                    PlayerControl.dashTimer = Time.time - PlayerControl.DASH_COOLDOWN;
-                }
-                else
-                {
-                    Instantiate(AIBase.explosion, transform.position + Vector3.up, Quaternion.identity);
-                    Instantiate(AIBase.chargerChunks, transform.position + Vector3.up, Quaternion.identity);
-                    Destroy(transform.root.gameObject);
-                }
+                DestroyCharger();
             }
         }
         else if (c.transform.name.Contains("LargeShot"))
         {
             if (!exposed)
             {
-                chargerScript.DoAlerted();
+                if(chargerScript != null)
+                    chargerScript.DoAlerted();
                 exposed = true;
                 Destroy(backpanels[0]);
                 Destroy(backpanels[1]);
@@ -49,9 +40,24 @@ public class ChargerWeakSpot : MonoBehaviour {
                 GetComponent<Light>().color = Color.red;
             }
         }
-        else if (c.transform.name.Contains("SmallShot") && exposed)
+        else if (c.transform.name.Contains("SmallShot") && exposed && chargerScript != null)
         {
             chargerScript.doStun(1f);
+        }
+    }
+
+    public void DestroyCharger()
+    {
+        if (!transform.root.name.Contains("Broken"))
+        {
+            chargerScript.health = 0;
+            PlayerControl.dashTimer = Time.time - PlayerControl.DASH_COOLDOWN;
+        }
+        else
+        {
+            Instantiate(AIBase.explosion, transform.position + Vector3.up, Quaternion.identity);
+            Instantiate(AIBase.chargerChunks, transform.position + Vector3.up, Quaternion.identity);
+            Destroy(transform.root.gameObject);
         }
     }
 }
