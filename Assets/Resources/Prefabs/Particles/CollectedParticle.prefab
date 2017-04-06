@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 199840825273092752}
   - component: {fileID: 82562906134655128}
   - component: {fileID: 114104642336608050}
+  - component: {fileID: 164072880794362098}
   m_Layer: 0
   m_Name: CollectedParticle
   m_TagString: Untagged
@@ -53,20 +54,20 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243726609032331688, guid: aa501d9b239e041428bc309e121c280b,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 19e013ff4b774494bad6aacf4e8746e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 93032fc888aadcf4dba5a8ddd5072447, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.442
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -74,20 +75,50 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.02
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -50.01992
+      outSlope: -50.01992
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.04
+      value: 0.5
+      inSlope: -12.50498
+      outSlope: -12.50498
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.08
+      value: 0.25
+      inSlope: -3.126245
+      outSlope: -3.126245
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.16
+      value: 0.125
+      inSlope: -0.78156126
+      outSlope: -0.78156126
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.32
+      value: 0.0625
+      inSlope: -0.19539031
+      outSlope: -0.19539031
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.6454645
+      value: 0.019162089
+      inSlope: -0.04884758
+      outSlope: -0.04884758
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.020007975
+      outSlope: -0.020007975
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -111,7 +142,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -135,6 +166,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e76ca0451aacf74a812a00cbb1f9aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!164 &164072880794362098
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1697774441052014}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_RoomRolloff: 10
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
 --- !u!198 &198941599483216764
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -195,7 +249,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 0.5
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
