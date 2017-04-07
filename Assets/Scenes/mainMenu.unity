@@ -1444,9 +1444,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd259acf47dda91469b9d8808d497d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 1237305888}
   CutsceneList:
   - name: mainMenuBackground
     video: {fileID: 2100000, guid: c7876840141b9f2419df347ebd692e91, type: 2}
+    audio: {fileID: 0}
+  - name: Credits
+    video: {fileID: 2100000, guid: c03503f34d275434eb8e5b0cc7b24b36, type: 2}
     audio: {fileID: 0}
 --- !u!1 &1237305888
 GameObject:
@@ -2200,6 +2204,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 0
+      - m_Target: {fileID: 1230751464}
+        m_MethodName: PlayCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1890768018
