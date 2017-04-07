@@ -69,8 +69,8 @@ public class LoadScene : MonoBehaviour {
         }
         else
         {
-            alpha += 0.7f * Time.fixedDeltaTime;
-            fadeToBlack.color = new Color(0f, 0f, 0f, alpha);
+            alpha += Time.fixedDeltaTime;
+            fadeToBlack.color = new Color(fadeToBlack.color.r, fadeToBlack.color.g, fadeToBlack.color.b, alpha);
         }
 	}
 }
