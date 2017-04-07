@@ -461,65 +461,25 @@ MonoBehaviour:
   CutsceneList:
   - name: Intro
     video: {fileID: 2100000, guid: df442288d42ab4e488485ce79ea22b34, type: 2}
-    audio: {fileID: 8300000, guid: 253b91ce81715d141953fce1a7a5f79a, type: 3}
+    audio: {fileID: 8300000, guid: c835dcd6800aec54f8bad5a36ef7e67b, type: 3}
     loadScoreScreen: 0
   - name: Sharp
     video: {fileID: 2100000, guid: 3919c61cb3f376545a5da4265ebb5a7e, type: 2}
-    audio: {fileID: 8300000, guid: 1454a2fdf9b3b934c97ef93bd3748f62, type: 3}
+    audio: {fileID: 8300000, guid: eddb86ba6e197094995cc60af01aad4d, type: 3}
     loadScoreScreen: 0
   - name: Rival
     video: {fileID: 2100000, guid: 86ea107e0f5bbfe4b967a204890c7e9d, type: 2}
-    audio: {fileID: 8300000, guid: 8e4723d4a06df7e41b54412d3d5f853c, type: 3}
+    audio: {fileID: 8300000, guid: 677f93dc4ce3a1448a2c643d8b80ee0f, type: 3}
     loadScoreScreen: 0
   - name: RivalOut
     video: {fileID: 2100000, guid: c03503f34d275434eb8e5b0cc7b24b36, type: 2}
-    audio: {fileID: 8300000, guid: e36635c5f08725448a9ee11efffa57f6, type: 3}
+    audio: {fileID: 8300000, guid: 66dfad9911ee1c340a7289ded66c8c54, type: 3}
     loadScoreScreen: 1
   - name: Gauntlet
     video: {fileID: 2100000, guid: 9b009bca12363294fbdd9015a706a215, type: 2}
-    audio: {fileID: 8300000, guid: 41b2a914d3fbded48bfa3a08e50edd60, type: 3}
+    audio: {fileID: 8300000, guid: 301e6e62c8f23dd4b8f876d5facd3640, type: 3}
     loadScoreScreen: 0
   - name: Outro
     video: {fileID: 2100000, guid: 7a58e45f0c5f06e4f8a136bfa30329ff, type: 2}
-    audio: {fileID: 8300000, guid: 4e612dd30ff24f94a88fe430e23e0ea3, type: 3}
+    audio: {fileID: 8300000, guid: 72e1d6ed408e26d41823f3b2064bae32, type: 3}
     loadScoreScreen: 0
---- !u!1 &2137600380
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2137600382}
-  - component: {fileID: 2137600381}
-  m_Layer: 0
-  m_Name: SkipCutscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2137600381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2137600380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6af5407cc9a8b5140a3d070fc1a1d4e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2137600382
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2137600380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.76195, y: -45.469868, z: -48.743874}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
