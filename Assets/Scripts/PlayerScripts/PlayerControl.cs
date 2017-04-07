@@ -359,7 +359,6 @@ public class PlayerControl : MonoBehaviour
         if (!optionsMenu.activeSelf && !pauseMenu.activeSelf && !isDead)
         {
             position = transform.position;
-            wallHold = Input.GetButton("WallHold Xbox");
             aim = Input.GetAxis("Aim Xbox") > 0 || Input.GetButton("Aim Mouse");
             roll = Input.GetButton("Roll Xbox");
             jump = Input.GetButtonDown("Jump Xbox");
