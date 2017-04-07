@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64126884281450808}
   - component: {fileID: 54876428859447516}
   - component: {fileID: 114830887007811188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: coupling_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 64103174801000714}
   - component: {fileID: 54257269617006088}
   - component: {fileID: 114685329307641756}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: thigh_R_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 64568261854853882}
   - component: {fileID: 54968841208079660}
   - component: {fileID: 114098389558317942}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: gunButt_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 64485297797419020}
   - component: {fileID: 54943942786392522}
   - component: {fileID: 114669807014965280}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: backThigh_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 64158746827474726}
   - component: {fileID: 54839326714244492}
   - component: {fileID: 114039082927129678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: topOfGun_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 64347893753777442}
   - component: {fileID: 54583956977904434}
   - component: {fileID: 114293871799977652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: shin_L_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 64707141312007244}
   - component: {fileID: 54872390768090182}
   - component: {fileID: 114163908359861266}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: backShin_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 64218198721947766}
   - component: {fileID: 54683934115470818}
   - component: {fileID: 114224078438162322}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: gunBarrel_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 64373340022574296}
   - component: {fileID: 54419646991637480}
   - component: {fileID: 114120551019886746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: middleOfGun_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 64930274389398908}
   - component: {fileID: 54676142373215350}
   - component: {fileID: 114118546110441284}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pelvis_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 64405107234672224}
   - component: {fileID: 54022648079926506}
   - component: {fileID: 114914284739603318}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: eye_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,9 +239,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4878033721136926}
-  - component: {fileID: 95019214784827334}
   - component: {fileID: 114027110840241248}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SniperChunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,23 +1151,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: cc893ac167342a84093b5e60cf81d5ae, type: 3}
---- !u!95 &95019214784827334
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1978822177791690}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: cc893ac167342a84093b5e60cf81d5ae, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114027110840241248
 MonoBehaviour:
   m_ObjectHideFlags: 1
