@@ -49,7 +49,7 @@ public class PlayVideoMainMenu : MonoBehaviour {
 
     void Update()
     {
-        if((playingCredits && !movie.isPlaying) || Input.GetButtonDown("Cancel"))
+        if(playingCredits && (!movie.isPlaying || Input.GetButtonDown("Cancel")))
         {
             movie.Stop();
             menu.SetActive(true);
