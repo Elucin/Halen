@@ -1272,8 +1272,35 @@ Prefab:
       propertyPath: MainMenu
       value: 
       objectReference: {fileID: 1237305888}
+    - target: {fileID: 114699062299018502, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1237305888}
+    - target: {fileID: 114699062299018502, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699062299018502, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1706148371}
+    - target: {fileID: 114699062299018502, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699062299018502, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114574837087897958, guid: 38b82dacb0fa16349be63ac1d417e7e6, type: 2}
+    - {fileID: 114962710580127562, guid: 38b82dacb0fa16349be63ac1d417e7e6, type: 2}
+    - {fileID: 114975021670672438, guid: 38b82dacb0fa16349be63ac1d417e7e6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 38b82dacb0fa16349be63ac1d417e7e6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1194386401 stripped
@@ -2068,6 +2095,11 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!1 &1706148371 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1140326310966062, guid: 38b82dacb0fa16349be63ac1d417e7e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1194386400}
 --- !u!1 &1880890162
 GameObject:
   m_ObjectHideFlags: 0
