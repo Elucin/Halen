@@ -31,6 +31,7 @@ public class Back : MonoBehaviour, IPointerEnterHandler
         {
             if (es.currentSelectedGameObject == gameObject)
             {
+                Debug.Log("Cancel");
                 if (MainMenu.name.Contains("Pause"))
                 {
                     optionsMenu.GetComponentInParent<OptionsMenu>().Cancel();
