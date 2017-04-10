@@ -35,7 +35,7 @@ public class Zap : MonoBehaviour {
     {
         if(c.CompareTag("Player") && doZap)
         {
-            PlayerControl.playerControl.damageBuffer += 1100f * Time.deltaTime;
+            PlayerControl.playerControl.damageBuffer += 1000f * Time.deltaTime;
         }
     }
 }

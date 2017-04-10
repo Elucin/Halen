@@ -52,8 +52,18 @@ public class Saving : MonoBehaviour
 
     public static void Respawn(bool dead = true)
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 6)
-            Reload();
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex == 6) {
+			Scoring.brawlersKilled = PlayerPrefs.GetInt ("BrawlersL");
+			Scoring.chargersKilled = PlayerPrefs.GetInt ("ChargersL");
+			Scoring.gunnersKilled = PlayerPrefs.GetInt ("GunnersL");
+			Scoring.floatersKilled = PlayerPrefs.GetInt ("FloatersL");
+			Scoring.snipersKilled = PlayerPrefs.GetInt ("SnipersL");
+			Scoring.biggestCombo = PlayerPrefs.GetInt ("ComboL");
+			Scoring.PlayerScore = PlayerPrefs.GetInt ("ScoreL") - 200;
+			Scoring.PlayerScore = Mathf.Clamp (Scoring.PlayerScore, 0, 9999999);
+			Scoring.TrinketsCollected = PlayerPrefs.GetInt ("Trinkets");
+			Reload ();
+		}
         else
         {
             Scoring.AddScore(GameObject.Find("Checkpoint" + PlayerPrefs.GetInt("Checkpoint", 0).ToString()).transform, 0, -200, 0);

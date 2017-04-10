@@ -52,13 +52,18 @@ public class ScoreScreen : MonoBehaviour {
     public void Continue()
     {
         //StartCoroutine(hsControl.PostScores(Scoring.PlayerScore));
+		/*
         if (LoadNextScene.Level == 7)
         {
             Position.text = hsControl.position.ToString();
             scoreUploadCanvas.SetActive(true);
         }
-        else
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+        else*/
+		if (LoadNextScene.Level == 7) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene (0);
+		} else
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
+			
     }
 
     public void SubmitHighscore()
