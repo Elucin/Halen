@@ -38,6 +38,7 @@ public class SFXEvent : MonoBehaviour {
 
 	public void MeleeSFXEvent()
 	{
+		Debug.Log ("SHWING");
 		pitchHighRange = 1.2f;
 		pitchLowRange = 0.8f;
 		volLowRange = 0.5f;

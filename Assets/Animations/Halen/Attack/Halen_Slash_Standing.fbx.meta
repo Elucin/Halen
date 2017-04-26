@@ -225,11 +225,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length
-      in copied configuration does not match position in animation file\nHalen_Slash_StandingCopied
-      Avatar Rig Configuration mis-match. Inbetween bone rotation in copied configuration
-      does not match rotation in animation file\nHalen_Slash_Standing\nClip 'Take
-      001' has import animation warnings that might lower retargeting quality:\nNote:
+    animationImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween
+      bone rotation in copied configuration does not match rotation in animation file\nHalen_Slash_Standing\nClip
+      'Take 001' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'jnt_Spine2'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_Spine4'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jnt_NeckBase'
@@ -267,7 +265,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.7452632
+        functionName: MeleeSFXEvent
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: e7bcecca989ec5f44bb57d96f0314aaa,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
