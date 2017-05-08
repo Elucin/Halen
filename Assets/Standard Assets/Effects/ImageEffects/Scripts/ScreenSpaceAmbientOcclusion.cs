@@ -30,6 +30,7 @@ namespace UnityStandardAssets.ImageEffects
         public float m_MinZ = 0.01f;
 
         public Shader m_SSAOShader;
+		public static bool enabledAO = true;
         private Material m_SSAOMaterial;
 
         public Texture2D m_RandomTexture;
@@ -52,7 +53,6 @@ namespace UnityStandardAssets.ImageEffects
                 mat = null;
             }
         }
-
 
         void OnDisable()
         {
@@ -97,8 +97,8 @@ namespace UnityStandardAssets.ImageEffects
         [ImageEffectOpaque]
         void OnRenderImage (RenderTexture source, RenderTexture destination)
         {
-            if (!m_Supported || !m_SSAOShader.isSupported) {
-                enabled = false;
+			if (!m_Supported || !m_SSAOShader.isSupported || !enabledAO) {
+                //enabled = false;
                 return;
             }
             CreateMaterials ();

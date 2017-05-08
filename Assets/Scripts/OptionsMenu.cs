@@ -4,6 +4,7 @@ using System.Collections;
 public class OptionsMenu : MonoBehaviour {
 
     public UnityEngine.UI.Slider sldSensitivity;
+	public UnityEngine.UI.Slider sldAimSensitivity;
     public UnityEngine.UI.Slider sldGenAudio;
     public UnityEngine.UI.Toggle togInvertY;
     public UnityEngine.UI.Toggle togAutoRoll;
@@ -16,16 +17,29 @@ public class OptionsMenu : MonoBehaviour {
     public UnityEngine.Audio.AudioMixer voiceMixer;
     public delegate void DisplayHud();
     public static event DisplayHud onToggleHud;
+	public UnityEngine.UI.Toggle togAO;
+	public UnityEngine.UI.Toggle togFullScreen;
 
     void Start()
     {
         Cancel();
     }
 
+	public void FullScreen()
+	{
+		Options.windowed = togFullScreen.isOn;
+		Screen.fullScreen = !togFullScreen.isOn;
+	}
+
     public void ChangeSensitivity()
     {
         Options.mouseSensitivity = sldSensitivity.value;
     }
+
+	public void ChangeAimSensitivity()
+	{
+		Options.aimSensitivity = sldAimSensitivity.value;
+	}
 
     public void ChangeGeneralAudio()
     {
@@ -67,6 +81,12 @@ public class OptionsMenu : MonoBehaviour {
         Options.autoRoll = togAutoRoll.isOn;
     }
 
+	public void AmbientOcclusion()
+	{
+		Options.ambientOcclusion = togAO.isOn;
+		UnityStandardAssets.ImageEffects.ScreenSpaceAmbientOcclusion.enabledAO = togAO.isOn;
+	}
+
     public void Apply()
     {
         Options.ApplySettings();
@@ -86,5 +106,9 @@ public class OptionsMenu : MonoBehaviour {
         sfxMixer.SetFloat("SFXMasterVolume", Options.sfxAudio);
         voiceMixer.SetFloat("VoiceMasterVolume", Options.voiceAudio);
         sldSensitivity.value = Options.mouseSensitivity;
+		sldAimSensitivity.value = Options.aimSensitivity;
+		togAO.isOn = Options.ambientOcclusion;
+		togFullScreen.isOn = Options.windowed;
+		Screen.fullScreen = !Options.windowed;
     }
 }

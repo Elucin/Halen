@@ -8423,6 +8423,12 @@ Transform:
   m_Father: {fileID: 553977245}
   m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: 1.205, y: 52.434002, z: 4.0020003}
+--- !u!114 &707631699 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114761793991272972, guid: 8caa204d7b38ef84089196cf06f1c613,
+    type: 2}
+  m_PrefabInternal: {fileID: 1594239509}
+  m_Script: {fileID: 11500000, guid: 4bcceb9f7de838349836bb7c86d535f0, type: 3}
 --- !u!1 &710270361
 GameObject:
   m_ObjectHideFlags: 0
@@ -23044,6 +23050,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 471180, guid: 8caa204d7b38ef84089196cf06f1c613, type: 2}
       propertyPath: m_LocalPosition.x
       value: 271
@@ -23075,6 +23086,31 @@ Prefab:
     - target: {fileID: 471180, guid: 8caa204d7b38ef84089196cf06f1c613, type: 2}
       propertyPath: m_RootOrder
       value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 707631699}
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FullScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934875271543574, guid: 8caa204d7b38ef84089196cf06f1c613,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8caa204d7b38ef84089196cf06f1c613, type: 2}

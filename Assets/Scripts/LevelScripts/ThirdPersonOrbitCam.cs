@@ -14,8 +14,10 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);
 	public Vector3 aimCamOffset   = new Vector3(0.8f, 0.0f, -1.0f);
 
-	float horizontalAimingSpeed = Options.mouseSensitivity;
-	float verticalAimingSpeed = Options.mouseSensitivity;
+	float horizontalLookingSpeed = Options.mouseSensitivity;
+	float verticalLookingSpeed = Options.mouseSensitivity;
+	float horizontalAimingSpeed = Options.aimSensitivity;
+	float verticalAimingSpeed = Options.aimSensitivity;
 	private float maxVerticalAngle = 80f;
 	private float minVerticalAngle = -80f;
 
@@ -102,13 +104,13 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
             if (!PlayerControl.isAiming)
             {
-                angleH += Mathf.Clamp(xAxis, -5, 5) * horizontalAimingSpeed * Time.deltaTime;
-                angleV += Mathf.Clamp(yAxis, -5, 5) * verticalAimingSpeed * Time.deltaTime;
+				angleH += Mathf.Clamp(xAxis, -5, 5) * Options.mouseSensitivity * Time.deltaTime;
+				angleV += Mathf.Clamp(yAxis, -5, 5) * Options.mouseSensitivity * Time.deltaTime;
             }
             else
             {
-                angleH += xAxis * horizontalAimingSpeed / 3 * Time.deltaTime;
-                angleV += yAxis * verticalAimingSpeed / 3 * Time.deltaTime;
+				angleH += xAxis * Options.aimSensitivity / 3 * Time.deltaTime;
+				angleV += yAxis * Options.aimSensitivity / 3 * Time.deltaTime;
             }
 
 

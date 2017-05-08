@@ -9212,10 +9212,21 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114761793991272972}
+        m_MethodName: AmbientOcclusion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &114724035985228812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9311,6 +9322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sldSensitivity: {fileID: 114666917963577316}
+  sldAimSensitivity: {fileID: 114826320220399328}
   sldGenAudio: {fileID: 114974769335787314}
   togInvertY: {fileID: 114831382868186454}
   togAutoRoll: {fileID: 114282424405504990}
@@ -9321,6 +9333,8 @@ MonoBehaviour:
   musicMixer: {fileID: 24100000, guid: ce2dcd8791a64d145b800b8c6c4b8f5a, type: 2}
   sfxMixer: {fileID: 24100000, guid: aa501d9b239e041428bc309e121c280b, type: 2}
   voiceMixer: {fileID: 24100000, guid: e76f2ab264364be44b02e66d5b181e4c, type: 2}
+  togAO: {fileID: 114718501505604654}
+  togFullScreen: {fileID: 114934875271543574}
 --- !u!114 &114772451552635016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9697,7 +9711,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114761793991272972}
-        m_MethodName: ChangeSensitivity
+        m_MethodName: ChangeAimSensitivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
